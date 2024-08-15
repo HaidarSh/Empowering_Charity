@@ -1,0 +1,8 @@
+[profile]
+src = 'src'
+out = 'out'
+libs = 'lib'
+test = 'test'
+scripts = 'script'
+
+

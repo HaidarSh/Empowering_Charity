@@ -1,0 +1,379 @@
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import {
+  DisplayActiveUserCampaigns,
+  DisplayInActiveUserCampaigns,
+  CustomButtom,
+  BlueLoader,
+  RedLoader,
+} from "../components";
+import { useStateContext } from "../context";
+import {
+  search,
+  profile_picture_active,
+  address_icon_active,
+  email_icon_active,
+  phone_icon_active,
+  name_icon_active,
+  location_icon_active,
+  location_icon_inactive,
+  phone_icon_inactive,
+  profile_picture_inactive,
+  address_icon_inactive,
+  name_icon_inactive,
+  email_icon_inactive,
+} from "../assets";
+
+function ToggleButton({ active, onClick, label, color }) {
+  return (
+    <button
+      onClick={onClick}
+      className={`px-6 py-2 rounded-[10px] text-[var(--text-color)] ${color} text-[20px] ${
+        active ? "border-4 shadow-md" : "border border-transparent shadow-none" 
+      }`}
+      style={{
+        borderColor: active ? 'var(--profile-bg-color)' : 'transparent',
+      }}
+    >
+      {label}
+    </button>
+  );
+}
+
+export default function Profile() {
+  const [isLoading, setIsLoading] = useState(false);
+  const [activeCampaigns, setActiveCampaigns] = useState([]);
+  const [inActiveCampaigns, setInActiveCampaigns] = useState([]);
+  const [filteredCampaigns, setFilteredCampaigns] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [showActive, setShowActive] = useState(true);
+
+  const [userActiveProfile, setUserActiveProfile] = useState({
+    name: "",
+    address: "",
+    phoneNumber: "",
+    email: "",
+    country: "",
+  });
+
+  const [userInActiveProfile, setUserInActiveProfile] = useState({
+    name: "",
+    address: "",
+    phoneNumber: "",
+    email: "",
+    country: "",
+  });
+
+  const {
+    address,
+    contract,
+    connect,
+    disconnect,
+    getUserActiveCampaigns,
+    getUserInActiveCampaigns,
+  } = useStateContext();
+  const location = useLocation();
+  const queryParam = new URLSearchParams(location.search).get("query");
+
+  useEffect(() => {
+    if (contract) {
+      fetchActiveCampaigns();
+      fetchInActiveCampaigns();
+    }
+  }, [address, contract]);
+
+  async function fetchActiveCampaigns() {
+    setIsLoading(true);
+    const data = await getUserActiveCampaigns(address);
+    setActiveCampaigns(data);
+    setUserActiveProfile((prev) => ({
+      ...prev,
+      name: data[0]?.name || prev.name,
+      address: data[0]?.owner || prev.address,
+      phoneNumber: data[0]?.phoneNumber || prev.phoneNumber,
+      email: data[0]?.email || prev.email,
+      country: data[0]?.country || prev.country,
+    }));
+    setIsLoading(false);
+  }
+
+  async function fetchInActiveCampaigns() {
+    setIsLoading(true);
+    const data = await getUserInActiveCampaigns(address);
+    setInActiveCampaigns(data);
+    setUserInActiveProfile((prev) => ({
+      ...prev,
+      name: data[0]?.name || prev.name,
+      address: data[0]?.owner || prev.address,
+      phoneNumber: data[0]?.phoneNumber || prev.phoneNumber,
+      email: data[0]?.email || prev.email,
+      country: data[0]?.country || prev.country,
+    }));
+    setIsLoading(false);
+  }
+
+  useEffect(() => {
+    if (queryParam) {
+      setSearchQuery(queryParam);
+    }
+  }, [queryParam]);
+
+  useEffect(() => {
+    filterCampaigns();
+  }, [searchQuery, activeCampaigns, inActiveCampaigns, showActive]);
+
+  function filterCampaigns() {
+    const campaigns = showActive ? activeCampaigns : inActiveCampaigns;
+    const filtered = campaigns.filter(
+      (campaign) =>
+        campaign.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        campaign.description
+          .toLowerCase()
+          .includes(searchQuery.toLowerCase()) ||
+        campaign.category.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    setFilteredCampaigns(filtered);
+  }
+
+  return address ? (
+    <div>
+      {isLoading && <BlueLoader />}
+      
+      <div className="flex justify-between">
+        <div className="lg:flex-1 flex flex-row max-w-[458px] py-2 pl-4 pr-2 h-[52px] bg-[var(--searchbar-bg-color)] rounded-[100px]">
+          <input
+            type="text"
+            placeholder="Search for Charities"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="flex w-full font-epilogue font-normal text-[14px] placeholder:text-[#4b5264] text-[var(--text-color)] bg-transparent outline-none"
+          />
+
+          <div
+            className={`w-[72px] h-full rounded-[20px] ${
+              showActive ? "bg-[#3498db]" : "bg-[#e74c3c]"
+            } flex justify-center items-center cursor-pointer`}
+            onClick={filterCampaigns}
+          >
+            <img
+              src={search}
+              alt="search"
+              className="w-[15px] h-[15px] object-contain "
+            />
+          </div>
+        </div>
+
+        <div className="flex flex-row justify-center">
+          <CustomButtom
+            btnType="button"
+            title={address ? "Disconnect the wallet" : "Connect to Wallet"}
+            styles={
+              address ? "bg-[#e74c3c] px-6 py-3" : "bg-[#3498db] px-6 py-3"
+            }
+            handleClick={() => {
+              if (address) disconnect();
+              else connect();
+            }}
+          />
+        </div>
+      </div>
+
+      <div className="mt-[60px] bg-[var(--profile-bg-color)] rounded-[20px] shadow-lg p-8  mx-auto flex flex-col gap-6 mb-10">
+        {" "}
+        <div className="flex items-center mb-6 gap-5">
+          <div className="w-[100px] h-[100px] rounded-[20px] bg-[var(--background-color)] flex items-center justify-center mr-6 p-2">
+            <img
+              src={
+                showActive ? profile_picture_active : profile_picture_inactive
+              }
+              alt="Profile Photo"
+              className="w-full h-full object-cover cursor-pointer"
+            />
+          </div>
+
+          <div className="text-[var(--text-color)] w-full mt-5">
+            <div className="flex flex-wrap text-lg mb-4 justify-between">
+              <div className="flex flex-col mb-1">
+                <div>
+                  <img
+                    src={showActive ? name_icon_active : name_icon_inactive}
+                    alt="name_icon"
+                    className="cursor-pointer"
+                  />
+                  <h1
+                    className={`text-3xl font-semibold mb-2 cursor-pointer ${
+                      showActive
+                        ? "hover:text-[#338AF0]"
+                        : "hover:text-[#e74c3c]"
+                    } `}
+                  >
+                    {userActiveProfile.name ||
+                      userInActiveProfile.name ||
+                      "N/A"}
+                  </h1>
+                </div>
+                <br />
+                <div>
+                  <img
+                    src={
+                      showActive ? address_icon_active : address_icon_inactive
+                    }
+                    alt="address_icon"
+                    className="cursor-pointer"
+                  />
+                  <p
+                    className={`mb-1 cursor-pointer ${
+                      showActive
+                        ? "hover:text-[#338AF0]"
+                        : "hover:text-[#e74c3c]"
+                    }`}
+                  >
+                    {userActiveProfile.address ||
+                      userInActiveProfile.address ||
+                      "N/A"}
+                  </p>
+                </div>
+                <br />
+                <div>
+                  <img
+                    src={
+                      showActive ? location_icon_active : location_icon_inactive
+                    }
+                    alt="location_icon"
+                    className="cursor-pointer"
+                  />
+                  <p
+                    className={`mb-1 cursor-pointer ${
+                      showActive
+                        ? "hover:text-[#338AF0]"
+                        : "hover:text-[#e74c3c]"
+                    }`}
+                  >
+                    {userActiveProfile.country ||
+                      userInActiveProfile.country ||
+                      "N/A"}
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex flex-col mb-1">
+                <div>
+                  <img
+                    src={showActive ? phone_icon_active : phone_icon_inactive}
+                    alt="phone_icon"
+                    className="cursor-pointer"
+                  />
+
+                  <p
+                    className={`mb-1 cursor-pointer ${
+                      showActive
+                        ? "hover:text-[#338AF0]"
+                        : "hover:text-[#e74c3c]"
+                    }`}
+                  >
+                    {userActiveProfile.phoneNumber ||
+                      userInActiveProfile.phoneNumber ||
+                      "N/A"}
+                  </p>
+                </div>
+                <br />
+                <div>
+                  <img
+                    src={showActive ? email_icon_active : email_icon_inactive}
+                    alt="email_icon"
+                    className="cursor-pointer"
+                  />
+
+                  <p
+                    className={`mb-1 cursor-pointer ${
+                      showActive
+                        ? "hover:text-[#338AF0]"
+                        : "hover:text-[#e74c3c]"
+                    }`}
+                  >
+                    {userActiveProfile.email ||
+                      userInActiveProfile.email ||
+                      "N/A"}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="bg-[var(--background-color)] p-4 rounded-[10px] mt-10">
+          <div className="flex justify-between text-lg text-[var(--text-color)]">
+            <div className="flex flex-col">
+              <span className="font-semibold cursor-pointer hover:text-[#338AF0]">
+                Active:
+              </span>
+              <span className="flex justify-center items-center cursor-pointer hover:text-[#338AF0]">
+                {activeCampaigns.length}
+              </span>
+            </div>
+
+            <div className="flex flex-col">
+              <span className="font-semibold cursor-pointer hover:text-[#e74c3c]">
+                Inactive:
+              </span>
+              <span className="flex justify-center items-center cursor-pointer hover:text-[#e74c3c]">
+                {inActiveCampaigns.length}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="flex space-x-4 mb-4 justify-center font-epilogue">
+        <ToggleButton
+          active={showActive}
+          onClick={() => setShowActive(true)}
+          label="Active"
+          color="bg-[#3498db]"
+        />
+
+        <ToggleButton
+          active={!showActive}
+          onClick={() => setShowActive(false)}
+          label="Inactive"
+          color="bg-[#e74c3c]"
+        />
+      </div>
+
+      <div>
+        {showActive ? (
+          <DisplayActiveUserCampaigns
+            title="All active charities"
+            isLoading={isLoading}
+            campaigns={filteredCampaigns}
+          />
+        ) : (
+          <DisplayInActiveUserCampaigns
+            title="All inactive charities"
+            isLoading={isLoading}
+            campaigns={filteredCampaigns}
+          />
+        )}
+      </div>
+    </div>
+  ) : (
+    <div className="bg-[var(--profile-bg-color)] flex justify-center items-center flex-col rounded-[10px] sm:p-10 p-4">
+      <div className="flex justify-center mb-[10px]">
+        <CustomButtom
+          btnType="button"
+          title={address ? "Disconnect the wallet" : "Connect to wallet"}
+          styles={address ? "bg-[#e74c3c] px-6 py-3" : "bg-[#3498db] px-6 py-3"}
+          handleClick={() => {
+            if (address) disconnect();
+            else connect();
+          }}
+        />
+      </div>
+
+      <div className="flex justify-center flex-col items-center h-full mt-[5px] text-[var(--text-color)]">
+        <h1 className="text-[20px] text-bold">
+          Please connect wallet to view your profile
+        </h1>
+      </div>
+    </div>
+  );
+}
