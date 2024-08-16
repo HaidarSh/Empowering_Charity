@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import {
-  DisplayActiveUserCampaigns,
-  DisplayInActiveUserCampaigns,
+  DisplayActiveUserCharities,
+  DisplayInActiveUserCharities,
   CustomButtom,
   BlueLoader,
   RedLoader,
@@ -28,11 +28,11 @@ function ToggleButton({ active, onClick, label, color }) {
   return (
     <button
       onClick={onClick}
-      className={`px-6 py-2 rounded-[10px] text-[var(--text-color)] ${color} text-[20px] ${
-        active ? "border-4 shadow-md" : "border border-transparent shadow-none" 
+      className={` button px-6 py-2 rounded-[10px] text-[var(--text-color)] ${color} text-[20px] ${
+        active ? "border-4 shadow-md" : "border border-transparent shadow-none"
       }`}
       style={{
-        borderColor: active ? 'var(--profile-bg-color)' : 'transparent',
+        borderColor: active ? "var(--profile-bg-color)" : "transparent",
       }}
     >
       {label}
@@ -42,9 +42,9 @@ function ToggleButton({ active, onClick, label, color }) {
 
 export default function Profile() {
   const [isLoading, setIsLoading] = useState(false);
-  const [activeCampaigns, setActiveCampaigns] = useState([]);
-  const [inActiveCampaigns, setInActiveCampaigns] = useState([]);
-  const [filteredCampaigns, setFilteredCampaigns] = useState([]);
+  const [activeCharities, setActiveCharities] = useState([]);
+  const [inActiveCharities, setInActiveCharities] = useState([]);
+  const [filteredCharities, setFilteredCharities] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [showActive, setShowActive] = useState(true);
 
@@ -69,23 +69,23 @@ export default function Profile() {
     contract,
     connect,
     disconnect,
-    getUserActiveCampaigns,
-    getUserInActiveCampaigns,
+    getUserActiveCharities,
+    getUserInActiveCharities,
   } = useStateContext();
   const location = useLocation();
   const queryParam = new URLSearchParams(location.search).get("query");
 
   useEffect(() => {
     if (contract) {
-      fetchActiveCampaigns();
-      fetchInActiveCampaigns();
+      fetchActiveCharities();
+      fetchInActiveCharities();
     }
   }, [address, contract]);
 
-  async function fetchActiveCampaigns() {
+  async function fetchActiveCharities() {
     setIsLoading(true);
-    const data = await getUserActiveCampaigns(address);
-    setActiveCampaigns(data);
+    const data = await getUserActiveCharities(address);
+    setActiveCharities(data);
     setUserActiveProfile((prev) => ({
       ...prev,
       name: data[0]?.name || prev.name,
@@ -97,10 +97,10 @@ export default function Profile() {
     setIsLoading(false);
   }
 
-  async function fetchInActiveCampaigns() {
+  async function fetchInActiveCharities() {
     setIsLoading(true);
-    const data = await getUserInActiveCampaigns(address);
-    setInActiveCampaigns(data);
+    const data = await getUserInActiveCharities(address);
+    setInActiveCharities(data);
     setUserInActiveProfile((prev) => ({
       ...prev,
       name: data[0]?.name || prev.name,
@@ -119,28 +119,26 @@ export default function Profile() {
   }, [queryParam]);
 
   useEffect(() => {
-    filterCampaigns();
-  }, [searchQuery, activeCampaigns, inActiveCampaigns, showActive]);
+    filterCharities();
+  }, [searchQuery, activeCharities, inActiveCharities, showActive]);
 
-  function filterCampaigns() {
-    const campaigns = showActive ? activeCampaigns : inActiveCampaigns;
-    const filtered = campaigns.filter(
-      (campaign) =>
-        campaign.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        campaign.description
-          .toLowerCase()
-          .includes(searchQuery.toLowerCase()) ||
-        campaign.category.toLowerCase().includes(searchQuery.toLowerCase())
+  function filterCharities() {
+    const charities = showActive ? activeCharities : inActiveCharities;
+    const filtered = charities.filter(
+      (charity) =>
+        charity.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        charity.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        charity.category.toLowerCase().includes(searchQuery.toLowerCase())
     );
-    setFilteredCampaigns(filtered);
+    setFilteredCharities(filtered);
   }
 
   return address ? (
     <div>
       {isLoading && <BlueLoader />}
-      
+
       <div className="flex justify-between">
-        <div className="lg:flex-1 flex flex-row max-w-[458px] py-2 pl-4 pr-2 h-[52px] bg-[var(--searchbar-bg-color)] rounded-[100px]">
+        <div className=" searchBar lg:flex-1 flex flex-row max-w-[458px] py-2 pl-4 pr-2 h-[52px] bg-[var(--searchbar-bg-color)] rounded-[100px]">
           <input
             type="text"
             placeholder="Search for Charities"
@@ -153,7 +151,7 @@ export default function Profile() {
             className={`w-[72px] h-full rounded-[20px] ${
               showActive ? "bg-[#3498db]" : "bg-[#e74c3c]"
             } flex justify-center items-center cursor-pointer`}
-            onClick={filterCampaigns}
+            onClick={filterCharities}
           >
             <img
               src={search}
@@ -178,10 +176,10 @@ export default function Profile() {
         </div>
       </div>
 
-      <div className="mt-[60px] bg-[var(--profile-bg-color)] rounded-[20px] shadow-lg p-8  mx-auto flex flex-col gap-6 mb-10">
+      <div className="profile-bar mt-[60px] bg-[var(--profile-bg-color)] rounded-[20px] shadow-lg p-8  mx-auto flex flex-col gap-6 mb-10">
         {" "}
         <div className="flex items-center mb-6 gap-5">
-          <div className="w-[100px] h-[100px] rounded-[20px] bg-[var(--background-color)] flex items-center justify-center mr-6 p-2">
+          <div className=" profile-bar w-[100px] h-[100px] rounded-[20px] bg-[var(--background-color)] flex items-center justify-center mr-6 p-2">
             <img
               src={
                 showActive ? profile_picture_active : profile_picture_inactive
@@ -300,24 +298,29 @@ export default function Profile() {
             </div>
           </div>
         </div>
-        <div className="bg-[var(--background-color)] p-4 rounded-[10px] mt-10">
-          <div className="flex justify-between text-lg text-[var(--text-color)]">
-            <div className="flex flex-col">
-              <span className="font-semibold cursor-pointer hover:text-[#338AF0]">
-                Active:
-              </span>
-              <span className="flex justify-center items-center cursor-pointer hover:text-[#338AF0]">
-                {activeCampaigns.length}
-              </span>
+        <div className="flex flex-row justify-between">
+          <div className="profile-bar bg-[var(--background-color)] p-4 rounded-[10px] mt-10 ">
+            <div className="flex text-lg text-[var(--text-color)]">
+              <div className="flex flex-col">
+                <span className="font-semibold cursor-pointer hover:text-[#338AF0]">
+                  Active:
+                </span>
+                <span className="flex justify-center items-center cursor-pointer hover:text-[#338AF0]">
+                  {activeCharities.length}
+                </span>
+              </div>
             </div>
-
-            <div className="flex flex-col">
-              <span className="font-semibold cursor-pointer hover:text-[#e74c3c]">
-                Inactive:
-              </span>
-              <span className="flex justify-center items-center cursor-pointer hover:text-[#e74c3c]">
-                {inActiveCampaigns.length}
-              </span>
+          </div>
+          <div className="profile-bar bg-[var(--background-color)] p-4 rounded-[10px] mt-10">
+            <div className="flex justify-between text-lg text-[var(--text-color)]">
+              <div className="flex flex-col">
+                <span className="font-semibold cursor-pointer hover:text-[#e74c3c]">
+                  Inactive:
+                </span>
+                <span className="flex justify-center items-center cursor-pointer hover:text-[#e74c3c]">
+                  {inActiveCharities.length}
+                </span>
+              </div>
             </div>
           </div>
         </div>
@@ -328,7 +331,7 @@ export default function Profile() {
           active={showActive}
           onClick={() => setShowActive(true)}
           label="Active"
-          color="bg-[#3498db]"
+          color="bg-[#3498db] hover:bg-[#3498dbc7]"
         />
 
         <ToggleButton
@@ -341,22 +344,22 @@ export default function Profile() {
 
       <div>
         {showActive ? (
-          <DisplayActiveUserCampaigns
+          <DisplayActiveUserCharities
             title="All active charities"
             isLoading={isLoading}
-            campaigns={filteredCampaigns}
+            charities={filteredCharities}
           />
         ) : (
-          <DisplayInActiveUserCampaigns
+          <DisplayInActiveUserCharities
             title="All inactive charities"
             isLoading={isLoading}
-            campaigns={filteredCampaigns}
+            charities={filteredCharities}
           />
         )}
       </div>
     </div>
   ) : (
-    <div className="bg-[var(--profile-bg-color)] flex justify-center items-center flex-col rounded-[10px] sm:p-10 p-4">
+    <div className="profile-bar bg-[var(--profile-bg-color)] flex justify-center items-center flex-col rounded-[10px] sm:p-10 p-4">
       <div className="flex justify-center mb-[10px]">
         <CustomButtom
           btnType="button"

@@ -15,21 +15,21 @@ export const navlinks = [
   {
     name: "create-charity",
     imgUrl: add_charity,
-    link: "/Create_Campaign",
+    link: "/Create_Charity",
   },
   {
     name: "active-state",
     imgUrl: active_state,
-    link: "/ViewActiveCharity",
+    link: "/View_Active_Charity",
   },
   {
     name: "inactive-state",
     imgUrl: inactive_state,
-    link: "/ViewInActiveCharity",
+    link: "/View_InActive_Charity",
   },
   {
     name: "profile",
     imgUrl: profile_active,
-    link: "/profile",
+    link: "/Profile",
   },
 ];

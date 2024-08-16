@@ -5,9 +5,9 @@ import {
   Home,
   ViewActiveCharity,
   Profile,
-  CreateCampaign,
-  ActiveCampaignDetails,
-  InActiveCampaignDetails,
+  CreateCharity,
+  ActiveCharityDetails,
+  InActiveCharityDetails,
   ViewInActiveCharity,
 } from "./pages";
 import { Sidebar } from "./components";
@@ -24,20 +24,20 @@ export default function App() {
       <div className="flex-1 max-sm:w-full max-w-[1280px] mx-auto sm:pr-5">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/ViewActiveCharity" element={<ViewActiveCharity />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/Create_Campaign" element={<CreateCampaign />} />
+          <Route path="/View_Active_Charity" element={<ViewActiveCharity />} />
+          <Route path="/Profile" element={<Profile />} />
+          <Route path="/Create_Charity" element={<CreateCharity />} />
           <Route
-            path="/ViewInActiveCharity"
+            path="/View_InActive_Charity"
             element={<ViewInActiveCharity />}
           />
           <Route
-            path="/active-campaign-details/:pId"
-            element={<ActiveCampaignDetails />}
+            path="/Active_Charity_Details/:pId"
+            element={<ActiveCharityDetails />}
           />
           <Route
-            path="/inactive-campaign-details/:pId"
-            element={<InActiveCampaignDetails />}
+            path="/InActive_Charity_Details/:pId"
+            element={<InActiveCharityDetails />}
           />
         </Routes>
       </div>

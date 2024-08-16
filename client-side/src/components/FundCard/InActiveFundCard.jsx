@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 
-import { useStateContext } from "../context";
+import { useStateContext } from "../../context";
 import {
   category_icon_inactive,
   location_icon_inactive,
   phone_icon_inactive,
   name_icon_inactive,
   thirdweb,
-} from "../assets";
+} from "../../assets";
 
 export default function InActiveFundCard({
   Id,
@@ -40,7 +40,7 @@ export default function InActiveFundCard({
 
   return (
     <div
-      className="sm:w-[370px] w-full rounded-[20px] bg-[var(--inactivefundcard-bg-color)] cursor-pointer"
+      className="box sm:w-[370px] w-full rounded-[20px] bg-[var(--inactivefundcard-bg-color)] cursor-pointer"
       onClick={handleClick}
     >
       <img

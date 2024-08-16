@@ -1,7 +1,7 @@
 import React from "react";
 import { useStateContext } from "../context";
 import { CustomButtom } from "../components";
-import CharityPhotos from "../components/CharityPhotos";
+import CharityPhotos from "../components/HomeComponents/CharityPhotos";
 import "../index.css";
 
 export default function Home() {
@@ -15,7 +15,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex flex-col ">
-      <div className="sticky flex flex-row w-full bg-[var(--home-bg-color)] h-[80px] rounded-[10px] justify-between items-center px-[20px]">
+      <div className="home-bar sticky flex flex-row w-full bg-[var(--home-bg-color)] h-[80px] rounded-[10px] justify-between items-center px-[20px]">
         <div className="text-4xl font-bold text-[var(--text-color)] flex justify-start items-center">
           <div className="mt-10">
             <p className="text-xl mb-10 font-epilogue">
@@ -64,7 +64,7 @@ export default function Home() {
 
       <div className=" flex cursor-pointer justify-center">
         <img
-          src="../../Charities_photos/image_big_1.png"
+          src="/src/Charities_photos/image_big_1.png"
           className="object-contain w-1/2 h-1/2 rounded-[20px]"
         />
       </div>

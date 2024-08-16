@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { RedLoader, InActiveFundCard } from "./";
-import { search } from "../assets";
-import { CustomButtom } from ".";
-import { useStateContext } from "../context";
+import { RedLoader, InActiveFundCard } from "..";
+import { search } from "../../assets";
+import { CustomButtom } from "..";
+import { useStateContext } from "../../context";
 
-export default function DisplayInActiveCampaigns({
+export default function DisplayInActiveCharities({
   title,
   isLoading,
-  campaigns,
+  charities,
 }) {
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
@@ -18,14 +18,14 @@ export default function DisplayInActiveCampaigns({
     navigate(`./?query=${searchQuery}`);
   }, [searchQuery, navigate]);
 
-  function handleNavigate(campaign) {
-    navigate(`/inactive-campaign-details/${campaign.pId}`, { state: campaign });
+  function handleNavigate(charity) {
+    navigate(`/InActive_Charity_Details/${charity.pId}`, { state: charity });
   }
 
   return (
     <div>
       <div className="flex flex-row justify-between">
-        <div className="lg:flex-1 flex flex-row max-w-[458px] py-2 pl-4 pr-2 h-[52px] bg-[var(--searchbar-bg-color)] rounded-[100px] ">
+        <div className="searchBar lg:flex-1 flex flex-row max-w-[458px] py-2 pl-4 pr-2 h-[52px] bg-[var(--searchbar-bg-color)] rounded-[100px] ">
           <input
             type="text"
             placeholder="Search for Charities"
@@ -53,25 +53,25 @@ export default function DisplayInActiveCampaigns({
       </div>
 
       <h1 className="font-epilogue font-semibold text-[18px] text-[var(--text-color)] text-left mt-[20px]">
-        {title} ({campaigns.length})
+        {title} ({charities.length})
       </h1>
 
       <div className="flex flex flex-wrap mt-[20px] gap-[26px]">
         {isLoading && <RedLoader />}
 
-        {!isLoading && campaigns.length === 0 && (
+        {!isLoading && charities.length === 0 && (
           <p className="font-epilogue font-semibold text-[14px] leading-[30px] text-[var(--text-color)] ">
             No result found.
           </p>
         )}
 
         {!isLoading &&
-          campaigns.length > 0 &&
-          campaigns.map((campaign) => (
+          charities.length > 0 &&
+          charities.map((charity) => (
             <InActiveFundCard
-              key={campaign.pId}
-              {...campaign}
-              handleClick={() => handleNavigate(campaign)}
+              key={charity.pId}
+              {...charity}
+              handleClick={() => handleNavigate(charity)}
             />
           ))}
       </div>

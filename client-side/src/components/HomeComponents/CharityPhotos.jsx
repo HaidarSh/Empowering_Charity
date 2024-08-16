@@ -1,7 +1,6 @@
 import React from "react";
 import CharityPhotosStyle from "./CharityPhotosStyle";
 import { Link } from "react-router-dom";
-import "../index.css";
 
 export default function CharityPhotos() {
   const text_two =
@@ -40,9 +39,9 @@ export default function CharityPhotos() {
         </div>
 
         <div className="flex flex-row gap-6 ">
-          <CharityPhotosStyle imageSRC="/Charities_photos/first-1.jpeg" />
-          <CharityPhotosStyle imageSRC="/Charities_photos/first-2.jpeg" />
-          <CharityPhotosStyle imageSRC="/Charities_photos/first-3.jpeg" />
+          <CharityPhotosStyle imageSRC="/src/Charities_photos/first-1.jpeg" />
+          <CharityPhotosStyle imageSRC="/src/Charities_photos/first-2.jpeg" />
+          <CharityPhotosStyle imageSRC="/src/Charities_photos/first-3.jpeg" />
         </div>
       </div>
       <hr className="border-t-2 border-[#3498db]" />
@@ -77,13 +76,13 @@ export default function CharityPhotos() {
         </div>
 
         <div className="flex flex-wrap gap-6">
-          <CharityPhotosStyle imageSRC="/Charities_photos/second-1.jpeg" />
-          <CharityPhotosStyle imageSRC="/Charities_photos/second-2.jpeg" />
-          <CharityPhotosStyle imageSRC="/Charities_photos/second-3.jpeg" />
+          <CharityPhotosStyle imageSRC="/src/Charities_photos/second-1.jpeg" />
+          <CharityPhotosStyle imageSRC="/src/Charities_photos/second-2.jpeg" />
+          <CharityPhotosStyle imageSRC="/src/Charities_photos/second-3.jpeg" />
 
-          <CharityPhotosStyle imageSRC="/Charities_photos/second-4.jpeg" />
-          <CharityPhotosStyle imageSRC="/Charities_photos/second-5.jpeg" />
-          <CharityPhotosStyle imageSRC="/Charities_photos/second-6.jpeg" />
+          <CharityPhotosStyle imageSRC="/src/Charities_photos/second-4.jpeg" />
+          <CharityPhotosStyle imageSRC="/src/Charities_photos/second-5.jpeg" />
+          <CharityPhotosStyle imageSRC="/src/Charities_photos/second-6.jpeg" />
         </div>
       </div>
       <hr className="border-t-2 border-[#3498db]" />
@@ -105,7 +104,7 @@ export default function CharityPhotos() {
         </div>
         <h1 className="text-xl bg-[var(--text-color)] mb-10"></h1>
         <img
-          src="../../Charities_photos/image_big_2.png"
+          src="/src/Charities_photos/image_big_2.png"
           className="object-contain w-1/2 h-1/2 rounded-[20px]"
         />
       </div>
@@ -126,9 +125,9 @@ export default function CharityPhotos() {
         </div>
         <h1 className="text-xl text-[var(--text-color)] mb-10"></h1>
         <div className="flex flex-wrap gap-6">
-          <CharityPhotosStyle imageSRC="/Charities_photos/third-1.jpeg" />
-          <CharityPhotosStyle imageSRC="/Charities_photos/third-2.jpeg" />
-          <CharityPhotosStyle imageSRC="/Charities_photos/third-3.jpeg" />
+          <CharityPhotosStyle imageSRC="/src/Charities_photos/third-1.jpeg" />
+          <CharityPhotosStyle imageSRC="/src/Charities_photos/third-2.jpeg" />
+          <CharityPhotosStyle imageSRC="/src/Charities_photos/third-3.jpeg" />
         </div>
       </div>
 
@@ -149,7 +148,7 @@ export default function CharityPhotos() {
           </p>
         </div>
         <Link to="/ViewActiveCharity">
-          <div className="bg-[#3498db] px-6 py-3 rounded-[10px] text-2xl font-semibold text-[var(--text-color)] flex justify-center items-center">
+          <div className="custom-buttom bg-[#3498db] px-6 py-3 rounded-[10px] text-2xl font-semibold text-[var(--text-color)] flex justify-center items-center">
             Donate Now!
           </div>
         </Link>

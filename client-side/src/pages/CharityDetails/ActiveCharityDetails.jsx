@@ -2,9 +2,9 @@ import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ethers } from "ethers";
 
-import { useStateContext } from "../context";
-import { CustomButtom, CountBoxActive, BlueLoader } from "../components";
-import { calculateBarPercentage, daysLeft } from "../utils";
+import { useStateContext } from "../../context";
+import { CustomButtom, CountBoxActive, BlueLoader } from "../../components";
+import { calculateBarPercentage, daysLeft } from "../../utils";
 import {
   thirdweb,
   profile_picture_active,
@@ -12,20 +12,20 @@ import {
   name_icon_active,
   email_icon_active,
   phone_icon_active,
-} from "../assets";
+} from "../../assets";
 
 import Swal from "sweetalert2";
 
-export default function ActiveCampaignDetails() {
+export default function ActiveCharityDetails() {
   const {
     donate,
     getDonations,
     contract,
     address,
-    removeCampaign,
+    removeCharity,
     setNotActive,
-    getUserActiveCampaigns,
-    getUserInActiveCampaigns,
+    getUserActiveCharities,
+    getUserInActiveCharities,
   } = useStateContext();
 
   const { state } = useLocation();
@@ -34,8 +34,8 @@ export default function ActiveCampaignDetails() {
   const [amount, setAmount] = useState("");
   const [donators, setDonators] = useState([]);
   const [collectedAmount, setCollectedAmount] = useState(state.amountCollected);
-  const [activeCampaigns, setActiveCampaigns] = useState([]);
-  const [inActiveCampaigns, setInActiveCampaigns] = useState([]);
+  const [activeCharities, setActiveCharities] = useState([]);
+  const [inActiveCharities, setInActiveCharities] = useState([]);
 
   const remainingDays = daysLeft(state.deadline);
 
@@ -44,25 +44,25 @@ export default function ActiveCampaignDetails() {
     setDonators(data);
   }
 
-  async function fetchActiveCampaigns() {
+  async function fetchActiveCharities() {
     setIsLoading(true);
-    const data = await getUserActiveCampaigns(address);
-    setActiveCampaigns(data);
+    const data = await getUserActiveCharities(address);
+    setActiveCharities(data);
     setIsLoading(false);
   }
 
-  async function fetchInActiveCampaigns() {
+  async function fetchInActiveCharities() {
     setIsLoading(true);
-    const data = await getUserInActiveCampaigns(address);
-    setInActiveCampaigns(data);
+    const data = await getUserInActiveCharities(address);
+    setInActiveCharities(data);
     setIsLoading(false);
   }
 
   useEffect(() => {
     if (contract) {
       fetchDonators();
-      fetchActiveCampaigns();
-      fetchInActiveCampaigns();
+      fetchActiveCharities();
+      fetchInActiveCharities();
     }
   }, [address, contract]);
 
@@ -131,7 +131,7 @@ export default function ActiveCampaignDetails() {
     if (newCollectedAmount >= state.target / 1e18) {
       const setInActiveresponse = await setNotActive(state.pId);
       if (setInActiveresponse) {
-        navigate("/ViewActiveCharity");
+        navigate("/View_Active_Charity");
         Swal.fire({
           title:
             "Charity is now inactive as the target amount has been reached, Charity Removed to the inactive page",
@@ -165,7 +165,7 @@ export default function ActiveCampaignDetails() {
   async function handleDelete() {
     try {
       setIsLoading(true);
-      const response = await removeCampaign(state.pId);
+      const response = await removeCharity(state.pId);
       if (response) {
         console.log("Deletion successful");
         navigate("/ViewActiveCharity");
@@ -187,7 +187,7 @@ export default function ActiveCampaignDetails() {
     } catch (error) {
       console.error("Error occurred:", error);
       Swal.fire({
-        title: "Failed to delete the campaign. Please try again.",
+        title: "Failed to delete the Charity. Please try again.",
         text: "",
         icon: "error",
         confirmButtonText: "OK",
@@ -219,11 +219,11 @@ export default function ActiveCampaignDetails() {
         <div className="flex-1 flex-col">
           <img
             src={state.image}
-            alt="campaign"
+            alt="charity"
             className="w-full h-[410px] object-cover rounded-xl"
           />
 
-          <div className="relative w-full h-[5px] bg-[var(--targetloading-bg-color)] mt-2 rounded-[20px]">
+          <div className="custom-buttom relative w-full h-[5px] bg-[var(--targetloading-bg-color)] mt-2 rounded-[20px]">
             <div
               className="absolute h-full bg-[#338AF0] rounded-[20px]"
               style={{
@@ -254,7 +254,7 @@ export default function ActiveCampaignDetails() {
               Creator
             </h4>
             <div className="mt-[20px] flex flex-row items-center flex-wrap gap-[14px]">
-              <div className="w-[52px] h-[52px] flex items-center justify-center rounded-full bg-[#2c2f32] cursor-pointer">
+              <div className="custom-buttom w-[52px] h-[52px] flex items-center justify-center rounded-full bg-[var(--targetloading-bg-color)] cursor-pointer">
                 <img
                   src={thirdweb}
                   alt="user"
@@ -266,14 +266,14 @@ export default function ActiveCampaignDetails() {
                   {state.owner}
                 </h4>
                 <p className="mt-[4px] font-epilogue font-normal text-[12px] text-[var(--text-color)] cursor-pointer hover:text-[#338AF0]">
-                  {inActiveCampaigns.length + activeCampaigns.length} Charities
+                  {inActiveCharities.length + activeCharities.length} Charities
                 </p>
               </div>
             </div>
           </div>
 
           <div className="flex items-center mb-6 gap-5">
-            <div className="w-[52px] h-[52px] flex items-center justify-center rounded-full bg-[#2c2f32] cursor-pointer">
+            <div className="custom-buttom w-[52px] h-[52px] flex items-center justify-center rounded-full bg-[var(--targetloading-bg-color)] cursor-pointer">
               <img
                 src={profile_picture_active}
                 alt="profile_picture_active"
@@ -379,7 +379,7 @@ export default function ActiveCampaignDetails() {
               <h4 className="font-epilogue font-semibold text-[18px] text-[var(--text-color)] uppercase">
                 Donate
               </h4>
-              <div className="mt-[20px] flex flex-col p-4 bg-[var(--donatetocharity1-bg-color)] rounded-[10px]">
+              <div className="custom-buttom mt-[20px] flex flex-col p-4 bg-[var(--donatetocharity1-bg-color)] rounded-[10px]">
                 <p className="font-epilogue font-semibold text-[20px] leading-[30px] text-center text-[var(--text-color)]">
                   Donate to the Charity
                 </p>
@@ -393,7 +393,7 @@ export default function ActiveCampaignDetails() {
                     onChange={handleInputChange}
                   />
 
-                  <div className="my-[20px] p-4 bg-[var(--donatetocharity2-bg-color)] rounded-[10px]">
+                  <div className="custom-buttom my-[20px] p-4 bg-[var(--donatetocharity2-bg-color)] rounded-[10px]">
                     <h4 className="font-epilogue font-semibold text-[14px] leading-[22px] text-[var(--text-color)]">
                       Back it because you believe in it.
                     </h4>

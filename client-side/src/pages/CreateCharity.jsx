@@ -13,10 +13,10 @@ import {
 
 import Swal from "sweetalert2";
 
-export default function CreateCampaign() {
+export default function CreateCharity() {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
-  const { createCampaign, address, connect, disconnect } = useStateContext();
+  const { createCharity, address, connect, disconnect } = useStateContext();
   const [form, setForm] = useState({
     name: "",
     title: "",
@@ -111,7 +111,7 @@ export default function CreateCampaign() {
       }
     });
 
-    const response = await createCampaign({
+    const response = await createCharity({
       ...form,
       target: ethers.utils.parseUnits(form.target, 18),
     });
@@ -129,7 +129,7 @@ export default function CreateCampaign() {
         },
       });
       setIsLoading(false);
-      navigate("/ViewActiveCharity");
+      navigate("/View_Active_Charity");
     } else {
       Swal.fire({
         title: "Can't create charity",
@@ -146,7 +146,7 @@ export default function CreateCampaign() {
   }
 
   return address ? (
-    <div className="bg-[var(--createcharity-bg-color)] flex justify-center items-center flex-col rounded-[10px] sm:p-10 p-4">
+    <div className="create-charity-bar bg-[var(--createcharity-bg-color)] flex justify-center items-center flex-col rounded-[10px] sm:p-10 p-4">
       {isLoading && <BlueLoader />}
       <div className="flex justify-center mb-[10px]">
         <CustomButtom
@@ -159,7 +159,7 @@ export default function CreateCampaign() {
           }}
         />
       </div>
-      <div className="flex justify-center items-center p-[16px] sm:min-w-[380px] bg-[#3498db] rounded-[10px] mt-[5px]">
+      <div className="custom-buttom flex justify-center items-center p-[16px] sm:min-w-[380px] bg-[#3498db] rounded-[10px] mt-[5px]">
         <h1 className="font-epilogue font-bold sm:text-[25px] text-[18px] leading-[38px] text-[var(--text-color)]">
           Create a Charity
         </h1>
@@ -245,7 +245,7 @@ export default function CreateCampaign() {
           }}
         />
 
-        <div className="w-full flex justify-start items-center p-4 bg-[#3498db] h-[120px] rounded-[10px]">
+        <div className="custom-buttom w-full flex justify-start items-center p-4 bg-[#3498db] h-[120px] rounded-[10px]">
           <img
             src={money}
             alt="money"
@@ -299,7 +299,7 @@ export default function CreateCampaign() {
       </form>
     </div>
   ) : (
-    <div className="bg-[var(--createcharity-bg-color)] flex justify-center items-center flex-col rounded-[10px] sm:p-10 p-4">
+    <div className="create-charity-bar bg-[var(--createcharity-bg-color)] flex justify-center items-center flex-col rounded-[10px] sm:p-10 p-4">
       <div className="flex justify-center mb-[10px]">
         <CustomButtom
           btnType="button"

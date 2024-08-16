@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
-
-import { useStateContext } from "../context";
+import { useStateContext } from "../../context";
 import {
   category_icon_active,
   thirdweb,
   location_icon_active,
   name_icon_active,
   phone_icon_active,
-} from "../assets";
-import { daysLeft } from "../utils";
+} from "../../assets";
+import { daysLeft } from "../../utils";
 
 export default function ActiveFundCard({
   pId,
@@ -43,7 +42,7 @@ export default function ActiveFundCard({
 
   return (
     <div
-      className="sm:w-[370px] w-full rounded-[20px] bg-[var(--activefundcard-bg-color)] cursor-pointer "
+      className="box sm:w-[370px] w-full rounded-[20px] bg-[var(--activefundcard-bg-color)] cursor-pointer "
       onClick={handleClick}
     >
       <img

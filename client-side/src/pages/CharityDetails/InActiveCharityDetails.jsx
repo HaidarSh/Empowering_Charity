@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ethers } from "ethers";
 
-import { useStateContext } from "../context";
-import { CountBoxInActive, RedLoader } from "../components";
-import { calculateBarPercentage, daysLeft } from "../utils";
+import { useStateContext } from "../../context";
+import { CountBoxInActive, RedLoader } from "../../components";
+import { calculateBarPercentage, daysLeft } from "../../utils";
 import {
   email_icon_inactive,
   location_icon_inactive,
@@ -12,9 +12,9 @@ import {
   phone_icon_inactive,
   profile_picture_inactive,
   thirdweb,
-} from "../assets";
+} from "../../assets";
 
-export default function InActiveCampaignDetails() {
+export default function InActiveCharityDetails() {
   const { state } = useLocation();
   const navigate = useNavigate();
 
@@ -22,19 +22,19 @@ export default function InActiveCampaignDetails() {
     getDonations,
     contract,
     address,
-    getUserActiveCampaigns,
-    getUserInActiveCampaigns,
+    getUserActiveCharities,
+    getUserInActiveCharities,
   } = useStateContext();
 
   const [isLoading, setIsLoading] = useState(false);
   const [donators, setDonators] = useState([]);
-  const [activeCampaigns, setActiveCampaigns] = useState([]);
-  const [inActiveCampaigns, setInActiveCampaigns] = useState([]);
+  const [activeCharities, setActiveCharities] = useState([]);
+  const [inActiveCharities, setInActiveCharities] = useState([]);
 
   useEffect(() => {
     if (contract) fetchDonators();
-    fetchActiveCampaigns();
-    fetchInActiveCampaigns();
+    fetchActiveCharities();
+    fetchInActiveCharities();
   }, [contract, address]);
 
   async function fetchDonators() {
@@ -42,17 +42,17 @@ export default function InActiveCampaignDetails() {
     setDonators(data);
   }
 
-  async function fetchActiveCampaigns() {
+  async function fetchActiveCharities() {
     setIsLoading(true);
-    const data = await getUserActiveCampaigns(address);
-    setActiveCampaigns(data);
+    const data = await getUserActiveCharities(address);
+    setActiveCharities(data);
     setIsLoading(false);
   }
 
-  async function fetchInActiveCampaigns() {
+  async function fetchInActiveCharities() {
     setIsLoading(true);
-    const data = await getUserInActiveCampaigns(address);
-    setInActiveCampaigns(data);
+    const data = await getUserInActiveCharities(address);
+    setInActiveCharities(data);
     setIsLoading(false);
   }
 
@@ -64,11 +64,11 @@ export default function InActiveCampaignDetails() {
         <div className="flex-1 flex-col">
           <img
             src={state.image}
-            alt="campaign"
+            alt="charity"
             className="w-full h-[410px] object-cover rounded-xl opacity-60 brightness-110 contrast-50 saturate-50"
           />
 
-          <div className="relative w-full h-[5px]  bg-[var(--targetloading-bg-color)] mt-2 rounded-[20px]">
+          <div className="custom-buttom relative w-full h-[5px]  bg-[var(--targetloading-bg-color)] mt-2 rounded-[20px]">
             <div
               className="absolute h-full bg-[#e74c3c] rounded-[20px]"
               style={{
@@ -88,7 +88,7 @@ export default function InActiveCampaignDetails() {
             title={`Raised of ${state.target / 1000000000000000000}`}
             value={state.amountCollected}
           />
-          <CountBoxInActive title="Total backers" value={donators.length} />
+          <CountBoxInActive title="Total Donators" value={donators.length} />
         </div>
       </div>
 
@@ -100,7 +100,7 @@ export default function InActiveCampaignDetails() {
             </h4>
 
             <div className="mt-[20px] flex flex-row items-center flex-wrap gap-[14px]">
-              <div className="w-[52px] h-[52px] flex items-center justify-center rounded-full bg-[#2c2f32] cursor-pointer">
+              <div className="custom-buttom w-[52px] h-[52px] flex items-center justify-center rounded-full bg-[var(--targetloading-bg-color)] cursor-pointer">
                 <img
                   src={thirdweb}
                   alt="user"
@@ -113,15 +113,15 @@ export default function InActiveCampaignDetails() {
                   {state.owner}
                 </h4>
 
-                <p className="mt-[4px] font-epilogue font-normal text-[12px] text-[#808091] cursor-pointer hover:text-[#e74c3c]">
-                  {inActiveCampaigns.length + activeCampaigns.length} Charities
+                <p className="mt-[4px] font-epilogue font-normal text-[12px] text-[var(--text-color)] cursor-pointer hover:text-[#e74c3c]">
+                  {inActiveCharities.length + activeCharities.length} Charities
                 </p>
               </div>
             </div>
           </div>
 
           <div className="flex items-center mb-6 gap-5">
-            <div className="w-[52px] h-[52px] flex items-center justify-center rounded-full bg-[#2c2f32] cursor-pointer">
+            <div className="custom-buttom w-[52px] h-[52px] flex items-center justify-center rounded-full bg-[var(--targetloading-bg-color)] cursor-pointer">
               <img
                 src={profile_picture_inactive}
                 alt="profile_picture_active"
@@ -189,7 +189,7 @@ export default function InActiveCampaignDetails() {
             </h4>
 
             <div className="mt-[20px]">
-              <p className="font-epilogue font-normal text-[16px] text-[#808091] leading-[26px] text-justify">
+              <p className="font-epilogue font-normal text-[16px] text-[var(--text-color)] leading-[26px] text-justify">
                 {state.description}
               </p>
             </div>
@@ -207,17 +207,17 @@ export default function InActiveCampaignDetails() {
                     key={`${item.donators}-${index}`}
                     className="flex justify-between items-center gap-4"
                   >
-                    <p className="font-epilogue font-normal text-[16px] text-[#b2b3bd] leading-[26px] break-all">
+                    <p className="font-epilogue font-normal text-[16px] text-[var(--text-color)] leading-[26px] break-all">
                       {index + 1}. {item.donator}
                     </p>
 
-                    <p className="font-epilogue font-normal text-[16px] text-[#808191] leading-[26px] break-all">
+                    <p className="font-epilogue font-normal text-[16px] text-[var(--text-color)] leading-[26px] break-all">
                       {item.donation}
                     </p>
                   </div>
                 ))
               ) : (
-                <p className="font-epilogue font-normal text-[16px] text-[#808091] leading-[26px] text-justify">
+                <p className="font-epilogue font-normal text-[16px] text-[var(--text-color)] leading-[26px] text-justify">
                   No donators for this charity.
                 </p>
               )}

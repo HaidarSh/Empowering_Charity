@@ -19,19 +19,19 @@ export const StateContextProvider = ({ children }) => {
   } = useContract(contractAddress, ABI);
 
   const {
-    mutateAsync: createCampaign,
+    mutateAsync: createCharity,
     isLoading: isWriteLoading,
     error: writeError,
-  } = useContractWrite(contract, "createCampaign");
+  } = useContractWrite(contract, "createCharity");
 
   const address = useAddress();
   const connect = useMetamask();
   const disconnect = useDisconnect();
 
-  async function publishCampaign(form) {
+  async function publishCharity(form) {
     try {
       const targetValue = form.target.toString();
-      let data = await createCampaign({
+      let data = await createCharity({
         args: [
           address,
           form.name,
@@ -54,81 +54,81 @@ export const StateContextProvider = ({ children }) => {
     }
   }
 
-  async function getActiveCampaigns() {
-    const campaigns = await contract.call("getActiveCampaigns");
+  async function getActiveCharities() {
+    const charities = await contract.call("getActiveCharities");
 
-    const parsedCampaigns = campaigns.map((campaign, i) => ({
-      pId: campaign.campaignId,
-      owner: campaign.owner,
-      name: campaign.name,
-      title: campaign.title,
-      description: campaign.description,
-      target: ethers.utils.formatEther(campaign.target.toString()),
-      deadline: campaign.deadline.toNumber(),
+    const parsedCharities = charities.map((charity) => ({
+      pId: charity.charityId,
+      owner: charity.owner,
+      name: charity.name,
+      title: charity.title,
+      description: charity.description,
+      target: ethers.utils.formatEther(charity.target.toString()),
+      deadline: charity.deadline.toNumber(),
       amountCollected: ethers.utils.formatEther(
-        campaign.amountCollected.toString()
+        charity.amountCollected.toString()
       ),
-      image: campaign.image,
-      category: campaign.category,
-      phoneNumber: campaign.phoneNumber,
-      email: campaign.email,
-      country: campaign.country,
+      image: charity.image,
+      category: charity.category,
+      phoneNumber: charity.phoneNumber,
+      email: charity.email,
+      country: charity.country,
     }));
-    return parsedCampaigns;
+    return parsedCharities;
   }
 
-  async function getInActiveCampaigns() {
-    const campaigns = await contract.call("getInActiveCampaigns");
+  async function getInActiveCharities() {
+    const charities = await contract.call("getInActiveCharities");
 
-    const parsedCampaigns = campaigns.map((campaign, j) => ({
-      pId: campaign.campaignId,
-      owner: campaign.owner,
-      name: campaign.name,
-      title: campaign.title,
-      description: campaign.description,
-      target: ethers.utils.formatEther(campaign.target.toString()),
-      deadline: campaign.deadline.toNumber(),
+    const parsedCharities = charities.map((charity) => ({
+      pId: charity.charityId,
+      owner: charity.owner,
+      name: charity.name,
+      title: charity.title,
+      description: charity.description,
+      target: ethers.utils.formatEther(charity.target.toString()),
+      deadline: charity.deadline.toNumber(),
       amountCollected: ethers.utils.formatEther(
-        campaign.amountCollected.toString()
+        charity.amountCollected.toString()
       ),
-      image: campaign.image,
-      category: campaign.category,
-      phoneNumber: campaign.phoneNumber,
-      email: campaign.email,
-      country: campaign.country,
+      image: charity.image,
+      category: charity.category,
+      phoneNumber: charity.phoneNumber,
+      email: charity.email,
+      country: charity.country,
     }));
 
-    return parsedCampaigns;
+    return parsedCharities;
   }
 
-  async function getUserActiveCampaigns(address) {
-    const allCampaigns = await getActiveCampaigns();
+  async function getUserActiveCharities(address) {
+    const allCharities = await getActiveCharities();
 
-    const filteredCampaigns = allCampaigns.filter(
-      (campaign) => campaign.owner === address
+    const filteredCharities = allCharities.filter(
+      (charity) => charity.owner === address
     );
 
-    return filteredCampaigns;
+    return filteredCharities;
   }
 
-  async function getUserInActiveCampaigns(address) {
-    const allCampaigns = await getInActiveCampaigns();
+  async function getUserInActiveCharities(address) {
+    const allCharities = await getInActiveCharities();
 
-    const filteredCampaigns = allCampaigns.filter(
-      (campaign) => campaign.owner === address && !campaign.active
+    const filteredCharities = allCharities.filter(
+      (charity) => charity.owner === address && !charity.active
     );
 
-    return filteredCampaigns;
+    return filteredCharities;
   }
 
   async function donate(pId, amount) {
     try {
-      const data = await contract.call("donateToCampaign", [pId], {
+      const data = await contract.call("donateToCharity", [pId], {
         value: ethers.utils.parseEther(amount),
       });
       return true;
     } catch (error) {
-      console.error("Delete campaign failed", error);
+      console.error("Delete charity failed", error);
       return false;
     }
   }
@@ -149,23 +149,23 @@ export const StateContextProvider = ({ children }) => {
     return parsedDonations;
   }
 
-  async function removeCampaign(campaignId) {
+  async function removeCharity(charityId) {
     try {
-      const data = await contract.call("deleteCampaign", [campaignId]);
-      console.log("Campaign deleted", data);
+      const data = await contract.call("deleteCharity", [charityId]);
+      console.log("Charity deleted", data);
       return true;
     } catch (error) {
-      console.error("Delete campaign failed", error);
+      console.error("Delete charity failed", error);
       return false;
     }
   }
 
-  async function setNotActive(campaignId) {
+  async function setNotActive(charityId) {
     try {
-      const data = await contract.call("setNotActive", [campaignId]);
+      const data = await contract.call("setNotActive", [charityId]);
       return true;
     } catch (error) {
-      console.error("Delete campaign failed", error);
+      console.error("Delete charity failed", error);
       return false;
     }
   }
@@ -175,16 +175,16 @@ export const StateContextProvider = ({ children }) => {
       value={{
         address,
         contract,
-        createCampaign: publishCampaign,
-        getActiveCampaigns,
-        getInActiveCampaigns,
-        getUserActiveCampaigns,
-        getUserInActiveCampaigns,
+        createCharity: publishCharity,
+        getActiveCharities,
+        getInActiveCharities,
+        getUserActiveCharities,
+        getUserInActiveCharities,
         donate,
         getDonations,
         connect,
         disconnect,
-        removeCampaign,
+        removeCharity,
         setNotActive,
         isContractLoading,
         isWriteLoading,

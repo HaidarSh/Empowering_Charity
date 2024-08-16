@@ -2,422 +2,422 @@ export const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
 
 export const ABI = [
   {
-    "type": "function",
-    "name": "campaigns",
-    "inputs": [
+    type: "function",
+    name: "charities",
+    inputs: [
       {
-        "name": "",
-        "type": "uint256",
-        "internalType": "uint256"
-      }
+        name: "",
+        type: "uint256",
+        internalType: "uint256",
+      },
     ],
-    "outputs": [
+    outputs: [
       {
-        "name": "campaignId",
-        "type": "uint256",
-        "internalType": "uint256"
+        name: "charityId",
+        type: "uint256",
+        internalType: "uint256",
       },
       {
-        "name": "owner",
-        "type": "address",
-        "internalType": "address"
+        name: "owner",
+        type: "address",
+        internalType: "address",
       },
       {
-        "name": "name",
-        "type": "string",
-        "internalType": "string"
+        name: "name",
+        type: "string",
+        internalType: "string",
       },
       {
-        "name": "title",
-        "type": "string",
-        "internalType": "string"
+        name: "title",
+        type: "string",
+        internalType: "string",
       },
       {
-        "name": "description",
-        "type": "string",
-        "internalType": "string"
+        name: "description",
+        type: "string",
+        internalType: "string",
       },
       {
-        "name": "category",
-        "type": "string",
-        "internalType": "string"
+        name: "category",
+        type: "string",
+        internalType: "string",
       },
       {
-        "name": "phoneNumber",
-        "type": "string",
-        "internalType": "string"
+        name: "phoneNumber",
+        type: "string",
+        internalType: "string",
       },
       {
-        "name": "target",
-        "type": "uint256",
-        "internalType": "uint256"
+        name: "target",
+        type: "uint256",
+        internalType: "uint256",
       },
       {
-        "name": "deadline",
-        "type": "uint256",
-        "internalType": "uint256"
+        name: "deadline",
+        type: "uint256",
+        internalType: "uint256",
       },
       {
-        "name": "amountCollected",
-        "type": "uint256",
-        "internalType": "uint256"
+        name: "amountCollected",
+        type: "uint256",
+        internalType: "uint256",
       },
       {
-        "name": "image",
-        "type": "string",
-        "internalType": "string"
+        name: "image",
+        type: "string",
+        internalType: "string",
       },
       {
-        "name": "email",
-        "type": "string",
-        "internalType": "string"
+        name: "email",
+        type: "string",
+        internalType: "string",
       },
       {
-        "name": "country",
-        "type": "string",
-        "internalType": "string"
+        name: "country",
+        type: "string",
+        internalType: "string",
       },
       {
-        "name": "active",
-        "type": "bool",
-        "internalType": "bool"
-      }
+        name: "active",
+        type: "bool",
+        internalType: "bool",
+      },
     ],
-    "stateMutability": "view"
+    stateMutability: "view",
   },
   {
-    "type": "function",
-    "name": "createCampaign",
-    "inputs": [
+    type: "function",
+    name: "createCharity",
+    inputs: [
       {
-        "name": "_owner",
-        "type": "address",
-        "internalType": "address"
+        name: "_owner",
+        type: "address",
+        internalType: "address",
       },
       {
-        "name": "_name",
-        "type": "string",
-        "internalType": "string"
+        name: "_name",
+        type: "string",
+        internalType: "string",
       },
       {
-        "name": "_title",
-        "type": "string",
-        "internalType": "string"
+        name: "_title",
+        type: "string",
+        internalType: "string",
       },
       {
-        "name": "_description",
-        "type": "string",
-        "internalType": "string"
+        name: "_description",
+        type: "string",
+        internalType: "string",
       },
       {
-        "name": "_target",
-        "type": "uint256",
-        "internalType": "uint256"
+        name: "_target",
+        type: "uint256",
+        internalType: "uint256",
       },
       {
-        "name": "_deadline",
-        "type": "uint256",
-        "internalType": "uint256"
+        name: "_deadline",
+        type: "uint256",
+        internalType: "uint256",
       },
       {
-        "name": "_image",
-        "type": "string",
-        "internalType": "string"
+        name: "_image",
+        type: "string",
+        internalType: "string",
       },
       {
-        "name": "_category",
-        "type": "string",
-        "internalType": "string"
+        name: "_category",
+        type: "string",
+        internalType: "string",
       },
       {
-        "name": "_phoneNumber",
-        "type": "string",
-        "internalType": "string"
+        name: "_phoneNumber",
+        type: "string",
+        internalType: "string",
       },
       {
-        "name": "_email",
-        "type": "string",
-        "internalType": "string"
+        name: "_email",
+        type: "string",
+        internalType: "string",
       },
       {
-        "name": "_country",
-        "type": "string",
-        "internalType": "string"
-      }
+        name: "_country",
+        type: "string",
+        internalType: "string",
+      },
     ],
-    "outputs": [
+    outputs: [
       {
-        "name": "",
-        "type": "uint256",
-        "internalType": "uint256"
-      }
+        name: "",
+        type: "uint256",
+        internalType: "uint256",
+      },
     ],
-    "stateMutability": "nonpayable"
+    stateMutability: "nonpayable",
   },
   {
-    "type": "function",
-    "name": "deleteCampaign",
-    "inputs": [
+    type: "function",
+    name: "deleteCharity",
+    inputs: [
       {
-        "name": "_id",
-        "type": "uint256",
-        "internalType": "uint256"
-      }
+        name: "_id",
+        type: "uint256",
+        internalType: "uint256",
+      },
     ],
-    "outputs": [],
-    "stateMutability": "nonpayable"
+    outputs: [],
+    stateMutability: "nonpayable",
   },
   {
-    "type": "function",
-    "name": "donateToCampaign",
-    "inputs": [
+    type: "function",
+    name: "donateToCharity",
+    inputs: [
       {
-        "name": "_id",
-        "type": "uint256",
-        "internalType": "uint256"
-      }
+        name: "_id",
+        type: "uint256",
+        internalType: "uint256",
+      },
     ],
-    "outputs": [],
-    "stateMutability": "payable"
+    outputs: [],
+    stateMutability: "payable",
   },
   {
-    "type": "function",
-    "name": "getActiveCampaigns",
-    "inputs": [],
-    "outputs": [
+    type: "function",
+    name: "getActiveCharities",
+    inputs: [],
+    outputs: [
       {
-        "name": "",
-        "type": "tuple[]",
-        "internalType": "struct Contract.Campaign[]",
-        "components": [
+        name: "",
+        type: "tuple[]",
+        internalType: "struct Empowering_Charity.Charity[]",
+        components: [
           {
-            "name": "campaignId",
-            "type": "uint256",
-            "internalType": "uint256"
+            name: "charityId",
+            type: "uint256",
+            internalType: "uint256",
           },
           {
-            "name": "owner",
-            "type": "address",
-            "internalType": "address"
+            name: "owner",
+            type: "address",
+            internalType: "address",
           },
           {
-            "name": "name",
-            "type": "string",
-            "internalType": "string"
+            name: "name",
+            type: "string",
+            internalType: "string",
           },
           {
-            "name": "title",
-            "type": "string",
-            "internalType": "string"
+            name: "title",
+            type: "string",
+            internalType: "string",
           },
           {
-            "name": "description",
-            "type": "string",
-            "internalType": "string"
+            name: "description",
+            type: "string",
+            internalType: "string",
           },
           {
-            "name": "category",
-            "type": "string",
-            "internalType": "string"
+            name: "category",
+            type: "string",
+            internalType: "string",
           },
           {
-            "name": "phoneNumber",
-            "type": "string",
-            "internalType": "string"
+            name: "phoneNumber",
+            type: "string",
+            internalType: "string",
           },
           {
-            "name": "target",
-            "type": "uint256",
-            "internalType": "uint256"
+            name: "target",
+            type: "uint256",
+            internalType: "uint256",
           },
           {
-            "name": "deadline",
-            "type": "uint256",
-            "internalType": "uint256"
+            name: "deadline",
+            type: "uint256",
+            internalType: "uint256",
           },
           {
-            "name": "amountCollected",
-            "type": "uint256",
-            "internalType": "uint256"
+            name: "amountCollected",
+            type: "uint256",
+            internalType: "uint256",
           },
           {
-            "name": "image",
-            "type": "string",
-            "internalType": "string"
+            name: "image",
+            type: "string",
+            internalType: "string",
           },
           {
-            "name": "email",
-            "type": "string",
-            "internalType": "string"
+            name: "email",
+            type: "string",
+            internalType: "string",
           },
           {
-            "name": "country",
-            "type": "string",
-            "internalType": "string"
+            name: "country",
+            type: "string",
+            internalType: "string",
           },
           {
-            "name": "donators",
-            "type": "address[]",
-            "internalType": "address[]"
+            name: "donators",
+            type: "address[]",
+            internalType: "address[]",
           },
           {
-            "name": "donations",
-            "type": "uint256[]",
-            "internalType": "uint256[]"
+            name: "donations",
+            type: "uint256[]",
+            internalType: "uint256[]",
           },
           {
-            "name": "active",
-            "type": "bool",
-            "internalType": "bool"
-          }
-        ]
-      }
+            name: "active",
+            type: "bool",
+            internalType: "bool",
+          },
+        ],
+      },
     ],
-    "stateMutability": "view"
+    stateMutability: "view",
   },
   {
-    "type": "function",
-    "name": "getDonators",
-    "inputs": [
+    type: "function",
+    name: "getDonators",
+    inputs: [
       {
-        "name": "_id",
-        "type": "uint256",
-        "internalType": "uint256"
-      }
+        name: "_id",
+        type: "uint256",
+        internalType: "uint256",
+      },
     ],
-    "outputs": [
+    outputs: [
       {
-        "name": "",
-        "type": "address[]",
-        "internalType": "address[]"
+        name: "",
+        type: "address[]",
+        internalType: "address[]",
       },
       {
-        "name": "",
-        "type": "uint256[]",
-        "internalType": "uint256[]"
-      }
+        name: "",
+        type: "uint256[]",
+        internalType: "uint256[]",
+      },
     ],
-    "stateMutability": "view"
+    stateMutability: "view",
   },
   {
-    "type": "function",
-    "name": "getInActiveCampaigns",
-    "inputs": [],
-    "outputs": [
+    type: "function",
+    name: "getInActiveCharities",
+    inputs: [],
+    outputs: [
       {
-        "name": "",
-        "type": "tuple[]",
-        "internalType": "struct Contract.Campaign[]",
-        "components": [
+        name: "",
+        type: "tuple[]",
+        internalType: "struct Empowering_Charity.Charity[]",
+        components: [
           {
-            "name": "campaignId",
-            "type": "uint256",
-            "internalType": "uint256"
+            name: "charityId",
+            type: "uint256",
+            internalType: "uint256",
           },
           {
-            "name": "owner",
-            "type": "address",
-            "internalType": "address"
+            name: "owner",
+            type: "address",
+            internalType: "address",
           },
           {
-            "name": "name",
-            "type": "string",
-            "internalType": "string"
+            name: "name",
+            type: "string",
+            internalType: "string",
           },
           {
-            "name": "title",
-            "type": "string",
-            "internalType": "string"
+            name: "title",
+            type: "string",
+            internalType: "string",
           },
           {
-            "name": "description",
-            "type": "string",
-            "internalType": "string"
+            name: "description",
+            type: "string",
+            internalType: "string",
           },
           {
-            "name": "category",
-            "type": "string",
-            "internalType": "string"
+            name: "category",
+            type: "string",
+            internalType: "string",
           },
           {
-            "name": "phoneNumber",
-            "type": "string",
-            "internalType": "string"
+            name: "phoneNumber",
+            type: "string",
+            internalType: "string",
           },
           {
-            "name": "target",
-            "type": "uint256",
-            "internalType": "uint256"
+            name: "target",
+            type: "uint256",
+            internalType: "uint256",
           },
           {
-            "name": "deadline",
-            "type": "uint256",
-            "internalType": "uint256"
+            name: "deadline",
+            type: "uint256",
+            internalType: "uint256",
           },
           {
-            "name": "amountCollected",
-            "type": "uint256",
-            "internalType": "uint256"
+            name: "amountCollected",
+            type: "uint256",
+            internalType: "uint256",
           },
           {
-            "name": "image",
-            "type": "string",
-            "internalType": "string"
+            name: "image",
+            type: "string",
+            internalType: "string",
           },
           {
-            "name": "email",
-            "type": "string",
-            "internalType": "string"
+            name: "email",
+            type: "string",
+            internalType: "string",
           },
           {
-            "name": "country",
-            "type": "string",
-            "internalType": "string"
+            name: "country",
+            type: "string",
+            internalType: "string",
           },
           {
-            "name": "donators",
-            "type": "address[]",
-            "internalType": "address[]"
+            name: "donators",
+            type: "address[]",
+            internalType: "address[]",
           },
           {
-            "name": "donations",
-            "type": "uint256[]",
-            "internalType": "uint256[]"
+            name: "donations",
+            type: "uint256[]",
+            internalType: "uint256[]",
           },
           {
-            "name": "active",
-            "type": "bool",
-            "internalType": "bool"
-          }
-        ]
-      }
+            name: "active",
+            type: "bool",
+            internalType: "bool",
+          },
+        ],
+      },
     ],
-    "stateMutability": "view"
+    stateMutability: "view",
   },
   {
-    "type": "function",
-    "name": "numberOfCampaigns",
-    "inputs": [],
-    "outputs": [
+    type: "function",
+    name: "numberOfCharities",
+    inputs: [],
+    outputs: [
       {
-        "name": "",
-        "type": "uint256",
-        "internalType": "uint256"
-      }
+        name: "",
+        type: "uint256",
+        internalType: "uint256",
+      },
     ],
-    "stateMutability": "view"
+    stateMutability: "view",
   },
   {
-    "type": "function",
-    "name": "setNotActive",
-    "inputs": [
+    type: "function",
+    name: "setNotActive",
+    inputs: [
       {
-        "name": "_id",
-        "type": "uint256",
-        "internalType": "uint256"
-      }
+        name: "_id",
+        type: "uint256",
+        internalType: "uint256",
+      },
     ],
-    "outputs": [],
-    "stateMutability": "nonpayable"
-  }
-]
+    outputs: [],
+    stateMutability: "nonpayable",
+  },
+];
