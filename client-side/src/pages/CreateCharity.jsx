@@ -159,8 +159,8 @@ export default function CreateCharity() {
           }}
         />
       </div>
-      <div className="custom-buttom flex justify-center items-center p-[16px] sm:min-w-[380px] bg-[#3498db] rounded-[10px] mt-[5px]">
-        <h1 className="font-epilogue font-bold sm:text-[25px] text-[18px] leading-[38px] text-[var(--text-color)]">
+      <div className="box flex justify-center items-center p-[16px] sm:min-w-[380px] bg-[#3498db] rounded-[10px] mt-[5px] cursor-pointer">
+        <h1 className="font-epilogue font-bold sm:text-[25px] text-[18px] leading-[38px] text-[var(--custombuttom-text-color)]">
           Create a Charity
         </h1>
       </div>
@@ -245,14 +245,14 @@ export default function CreateCharity() {
           }}
         />
 
-        <div className="custom-buttom w-full flex justify-start items-center p-4 bg-[#3498db] h-[120px] rounded-[10px]">
+        <div className="box w-full flex justify-start items-center p-4 bg-[#3498db] h-[120px] rounded-[10px] cursor-pointer">
           <img
             src={money}
             alt="money"
             className="w-[40px] h-[40px] object-contain "
           />
-          <h4 className="font-epilogue font-bold text-[25px] text-[var(--text-color)] ml-[20px] ">
-            You Will get 100% of the donated amount
+          <h4 className="font-epilogue font-bold text-[25px] text-[var(--custombuttom-text-color)] ml-[20px] ">
+            You will get 100% of the donated amount.
           </h4>
         </div>
 

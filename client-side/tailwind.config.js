@@ -53,7 +53,6 @@ export default {
           borderColor: 'var(--profile-bg-color)',
         },
       });
-      addUtilities(newUtilities, ['responsive', 'hover']);
     },
   ],
 };

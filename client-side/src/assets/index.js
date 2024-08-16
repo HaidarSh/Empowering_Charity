@@ -4,7 +4,8 @@ import profile_inactive from './profile_inactive.png';
 import sun from './sun.svg';
 import moon from './moon.svg';
 import category_icon_active from './category_icon_active.svg';
-import search from './search.svg';
+import search_dark from './search_dark.svg';
+import search_light from './search_light.svg';
 import menu from './menu.svg';
 import money from './money.svg';
 import BlueLoader from './BlueLoader.svg';
@@ -35,7 +36,8 @@ export {
   profile_inactive,
   sun,
   moon,
-  search,
+  search_dark,
+  search_light,
   menu,
   money,
   BlueLoader,

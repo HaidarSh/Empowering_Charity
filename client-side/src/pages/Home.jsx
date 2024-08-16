@@ -62,7 +62,7 @@ export default function Home() {
         </p>
       </div>
 
-      <div className=" flex cursor-pointer justify-center">
+      <div className="flex cursor-pointer justify-center">
         <img
           src="/src/Charities_photos/image_big_1.png"
           className="object-contain w-1/2 h-1/2 rounded-[20px]"

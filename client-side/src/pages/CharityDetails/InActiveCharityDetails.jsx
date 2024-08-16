@@ -16,7 +16,6 @@ import {
 
 export default function InActiveCharityDetails() {
   const { state } = useLocation();
-  const navigate = useNavigate();
 
   const {
     getDonations,
@@ -44,14 +43,14 @@ export default function InActiveCharityDetails() {
 
   async function fetchActiveCharities() {
     setIsLoading(true);
-    const data = await getUserActiveCharities(address);
+    const data = await getUserActiveCharities(state.owner);
     setActiveCharities(data);
     setIsLoading(false);
   }
 
   async function fetchInActiveCharities() {
     setIsLoading(true);
-    const data = await getUserInActiveCharities(address);
+    const data = await getUserInActiveCharities(state.owner);
     setInActiveCharities(data);
     setIsLoading(false);
   }
@@ -65,10 +64,10 @@ export default function InActiveCharityDetails() {
           <img
             src={state.image}
             alt="charity"
-            className="w-full h-[410px] object-cover rounded-xl opacity-60 brightness-110 contrast-50 saturate-50"
+            className="box cursor-pointer w-full h-[410px] object-cover rounded-xl opacity-60 brightness-110 contrast-50 saturate-50"
           />
 
-          <div className="custom-buttom relative w-full h-[5px]  bg-[var(--targetloading-bg-color)] mt-2 rounded-[20px]">
+          <div className="box cursor-pointer custom-buttom relative w-full h-[5px]  bg-[var(--targetloading-bg-color)] mt-2 rounded-[20px]">
             <div
               className="absolute h-full bg-[#e74c3c] rounded-[20px]"
               style={{
@@ -100,32 +99,32 @@ export default function InActiveCharityDetails() {
             </h4>
 
             <div className="mt-[20px] flex flex-row items-center flex-wrap gap-[14px]">
-              <div className="custom-buttom w-[52px] h-[52px] flex items-center justify-center rounded-full bg-[var(--targetloading-bg-color)] cursor-pointer">
+              <div className="icons-charitydetails w-[52px] h-[52px] flex items-center justify-center rounded-full bg-[var(--targetloading-bg-color)] cursor-pointer">
                 <img
                   src={thirdweb}
                   alt="user"
-                  className="w-[60%] h-[60%] object-contain"
+                  className="icons w-[60%] h-[60%] object-contain"
                 />
               </div>
 
               <div>
-                <h4 className="font-epilogue font-semibold text-[14px] text-[var(--text-color)] break-all cursor-pointer hover:text-[#e74c3c]">
+                <h4 className="charitydetails-text-nb font-epilogue font-semibold text-[14px] text-[var(--text-color)] break-all cursor-pointer hover:text-[#e74c3c]">
                   {state.owner}
                 </h4>
 
-                <p className="mt-[4px] font-epilogue font-normal text-[12px] text-[var(--text-color)] cursor-pointer hover:text-[#e74c3c]">
-                  {inActiveCharities.length + activeCharities.length} Charities
+                <p className="charitydetails-text-nb mt-[4px] font-epilogue font-normal text-[12px] text-[var(--text-color)] cursor-pointer hover:text-[#e74c3c]">
+                  {inActiveCharities.length + activeCharities.length} {(inActiveCharities.length + activeCharities.length) > 1 ? "Charities" : "Charity"}
                 </p>
               </div>
             </div>
           </div>
 
           <div className="flex items-center mb-6 gap-5">
-            <div className="custom-buttom w-[52px] h-[52px] flex items-center justify-center rounded-full bg-[var(--targetloading-bg-color)] cursor-pointer">
+            <div className="icons-charitydetails w-[52px] h-[52px] flex items-center justify-center rounded-full bg-[var(--targetloading-bg-color)] cursor-pointer">
               <img
                 src={profile_picture_inactive}
                 alt="profile_picture_active"
-                className="w-3/4 h-3/4"
+                className="icons w-3/4 h-3/4"
               />
             </div>
 
@@ -136,9 +135,9 @@ export default function InActiveCharityDetails() {
                     <img
                       src={name_icon_inactive}
                       alt="name_icon_active"
-                      className=""
+                      className="icons cursor-pointer"
                     />
-                    <h1 className="font-epilogue font-semibold text-[14px] text-[var(--text-color)] break-all cursor-pointer hover:text-[#e74c3c]">
+                    <h1 className="charitydetails-text font-epilogue font-semibold text-[14px] text-[var(--text-color)] break-all cursor-pointer hover:text-[#e74c3c]">
                       {state.name}
                     </h1>
                   </div>
@@ -147,9 +146,9 @@ export default function InActiveCharityDetails() {
                     <img
                       src={location_icon_inactive}
                       alt="location_icon"
-                      className=""
+                      className="icons cursor-pointer"
                     />
-                    <p className="font-epilogue font-semibold text-[14px] text-[var(--text-color)] break-all cursor-pointer hover:text-[#e74c3c]">
+                    <p className="charitydetails-text font-epilogue font-semibold text-[14px] text-[var(--text-color)] break-all cursor-pointer hover:text-[#e74c3c]">
                       {state.country}
                     </p>
                   </div>
@@ -160,9 +159,9 @@ export default function InActiveCharityDetails() {
                     <img
                       src={phone_icon_inactive}
                       alt="phone_icon"
-                      className=""
+                      className="icons cursor-pointer"
                     />
-                    <p className="font-epilogue font-semibold text-[14px] text-[var(--text-color)] break-all cursor-pointer hover:text-[#e74c3c]">
+                    <p className="charitydetails-text font-epilogue font-semibold text-[14px] text-[var(--text-color)] break-all cursor-pointer hover:text-[#e74c3c]">
                       {state.phoneNumber}
                     </p>
                   </div>
@@ -172,9 +171,9 @@ export default function InActiveCharityDetails() {
                     <img
                       src={email_icon_inactive}
                       alt="email_icon"
-                      className=""
+                      className="icons cursor-pointer"
                     />
-                    <p className="font-epilogue font-semibold text-[14px] text-[var(--text-color)] break-all underline cursor-pointer hover:text-[#e74c3c]">
+                    <p className="charitydetails-text font-epilogue font-semibold text-[14px] text-[var(--text-color)] break-all underline cursor-pointer hover:text-[#e74c3c]">
                       {state.email}
                     </p>
                   </div>

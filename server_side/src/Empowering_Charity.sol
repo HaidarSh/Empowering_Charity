@@ -79,7 +79,7 @@ contract Empowering_Charity {
 
         charity.amountCollected += (amount);
 
-        if (charity.amountCollected >= charity.target) {
+        if (charity.amountCollected >= charity.target / 1e18) {
             charity.active = false;
         }
     }
@@ -141,10 +141,6 @@ contract Empowering_Charity {
         );
         require(charities[_id].active, "Charity is already inactive");
 
-        charities[_id].active = false;
-    }
-
-    function setNotActive(uint256 _id) public {
         charities[_id].active = false;
     }
 }

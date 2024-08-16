@@ -23,7 +23,7 @@ export default function ActiveCharityDetails() {
     contract,
     address,
     removeCharity,
-    setNotActive,
+    // setNotActive,
     getUserActiveCharities,
     getUserInActiveCharities,
   } = useStateContext();
@@ -46,14 +46,14 @@ export default function ActiveCharityDetails() {
 
   async function fetchActiveCharities() {
     setIsLoading(true);
-    const data = await getUserActiveCharities(address);
+    const data = await getUserActiveCharities(state.owner);
     setActiveCharities(data);
     setIsLoading(false);
   }
 
   async function fetchInActiveCharities() {
     setIsLoading(true);
-    const data = await getUserInActiveCharities(address);
+    const data = await getUserInActiveCharities(state.owner);
     setInActiveCharities(data);
     setIsLoading(false);
   }
@@ -129,8 +129,6 @@ export default function ActiveCharityDetails() {
     await fetchDonators();
 
     if (newCollectedAmount >= state.target / 1e18) {
-      const setInActiveresponse = await setNotActive(state.pId);
-      if (setInActiveresponse) {
         navigate("/View_Active_Charity");
         Swal.fire({
           title:
@@ -143,20 +141,7 @@ export default function ActiveCharityDetails() {
             title: "custom-swal-title-warning",
             confirmButton: "custom-swal-confirm-button-warning",
           },
-        });
-      } else {
-        Swal.fire({
-          title: "Error occured",
-          text: "can't remove the charity, please try again later...",
-          icon: "error",
-          confirmButtonText: "OK",
-          customClass: {
-            popup: "custom-swal-popup-error",
-            title: "custom-swal-title-error",
-            confirmButton: "custom-swal-confirm-button-error",
-          },
-        });
-      }
+        });     
     }
     setIsLoading(false);
     setAmount("");
@@ -168,7 +153,7 @@ export default function ActiveCharityDetails() {
       const response = await removeCharity(state.pId);
       if (response) {
         console.log("Deletion successful");
-        navigate("/ViewActiveCharity");
+        navigate("/View_Active_Charity");
         Swal.fire({
           title: "Charity successfully deleted!",
           text: "",
@@ -220,10 +205,10 @@ export default function ActiveCharityDetails() {
           <img
             src={state.image}
             alt="charity"
-            className="w-full h-[410px] object-cover rounded-xl"
+            className="box w-full h-[410px] object-cover rounded-xl cursor-pointer"
           />
 
-          <div className="custom-buttom relative w-full h-[5px] bg-[var(--targetloading-bg-color)] mt-2 rounded-[20px]">
+          <div className="box cursor-pointer custom-buttom relative w-full h-[5px] bg-[var(--targetloading-bg-color)] mt-2 rounded-[20px]">
             <div
               className="absolute h-full bg-[#338AF0] rounded-[20px]"
               style={{
@@ -254,18 +239,18 @@ export default function ActiveCharityDetails() {
               Creator
             </h4>
             <div className="mt-[20px] flex flex-row items-center flex-wrap gap-[14px]">
-              <div className="custom-buttom w-[52px] h-[52px] flex items-center justify-center rounded-full bg-[var(--targetloading-bg-color)] cursor-pointer">
+              <div className="icons-charitydetails w-[52px] h-[52px] flex items-center justify-center rounded-full bg-[var(--targetloading-bg-color)] cursor-pointer">
                 <img
                   src={thirdweb}
                   alt="user"
-                  className="w-[60%] h-[60%] object-contain"
+                  className="icons w-[60%] h-[60%] object-contain"
                 />
               </div>
               <div>
-                <h4 className="font-epilogue font-semibold text-[14px] text-[var(--text-color)] break-all cursor-pointer hover:text-[#338AF0]">
+                <h4 className="charitydetails-text-nb font-epilogue font-semibold text-[14px] text-[var(--text-color)] break-all cursor-pointer hover:text-[#338AF0]">
                   {state.owner}
                 </h4>
-                <p className="mt-[4px] font-epilogue font-normal text-[12px] text-[var(--text-color)] cursor-pointer hover:text-[#338AF0]">
+                <p className="charitydetails-text-nb mt-[4px] font-epilogue font-normal text-[12px] text-[var(--text-color)] cursor-pointer hover:text-[#338AF0]">
                   {inActiveCharities.length + activeCharities.length} Charities
                 </p>
               </div>
@@ -273,11 +258,11 @@ export default function ActiveCharityDetails() {
           </div>
 
           <div className="flex items-center mb-6 gap-5">
-            <div className="custom-buttom w-[52px] h-[52px] flex items-center justify-center rounded-full bg-[var(--targetloading-bg-color)] cursor-pointer">
+            <div className="icons-charitydetails w-[52px] h-[52px] flex items-center justify-center rounded-full bg-[var(--targetloading-bg-color)] cursor-pointer">
               <img
                 src={profile_picture_active}
                 alt="profile_picture_active"
-                className="w-3/4 h-3/4"
+                className="icons w-3/4 h-3/4 "
               />
             </div>
 
@@ -288,9 +273,9 @@ export default function ActiveCharityDetails() {
                     <img
                       src={name_icon_active}
                       alt="name_icon_active"
-                      className=""
+                      className="icons cursor-pointer"
                     />
-                    <h1 className="font-epilogue font-semibold text-[14px] text-[var(--text-color)] break-all cursor-pointer hover:text-[#338AF0]">
+                    <h1 className="charitydetails-text font-epilogue font-semibold text-[14px] text-[var(--text-color)] break-all cursor-pointer hover:text-[#338AF0]">
                       {state.name}
                     </h1>
                   </div>
@@ -299,9 +284,9 @@ export default function ActiveCharityDetails() {
                     <img
                       src={location_icon_active}
                       alt="location_icon"
-                      className=""
+                      className="icons cursor-pointer"
                     />
-                    <p className="font-epilogue font-semibold text-[14px] text-[var(--text-color)] break-all cursor-pointer hover:text-[#338AF0]">
+                    <p className="charitydetails-text font-epilogue font-semibold text-[14px] text-[var(--text-color)] break-all cursor-pointer hover:text-[#338AF0]">
                       {state.country}
                     </p>
                   </div>
@@ -312,9 +297,9 @@ export default function ActiveCharityDetails() {
                     <img
                       src={phone_icon_active}
                       alt="phone_icon"
-                      className=""
+                      className="icons cursor-pointer"
                     />
-                    <p className="font-epilogue font-semibold text-[14px] text-[var(--text-color)] break-all cursor-pointer hover:text-[#338AF0]">
+                    <p className="charitydetails-text font-epilogue font-semibold text-[14px] text-[var(--text-color)] break-all cursor-pointer hover:text-[#338AF0]">
                       {state.phoneNumber}
                     </p>
                   </div>
@@ -323,9 +308,9 @@ export default function ActiveCharityDetails() {
                     <img
                       src={email_icon_active}
                       alt="email_icon"
-                      className=""
+                      className="icons cursor-pointer"
                     />
-                    <p className="font-epilogue font-semibold text-[14px] text-[var(--text-color)] break-all underline cursor-pointer hover:text-[#338AF0]">
+                    <p className="charitydetails-text font-epilogue font-semibold text-[14px] text-[var(--text-color)] break-all underline cursor-pointer hover:text-[#338AF0]">
                       {state.email}
                     </p>
                   </div>
@@ -379,7 +364,7 @@ export default function ActiveCharityDetails() {
               <h4 className="font-epilogue font-semibold text-[18px] text-[var(--text-color)] uppercase">
                 Donate
               </h4>
-              <div className="custom-buttom mt-[20px] flex flex-col p-4 bg-[var(--donatetocharity1-bg-color)] rounded-[10px]">
+              <div className="box mt-[20px] flex flex-col p-4 bg-[var(--donatetocharity1-bg-color)] rounded-[10px]">
                 <p className="font-epilogue font-semibold text-[20px] leading-[30px] text-center text-[var(--text-color)]">
                   Donate to the Charity
                 </p>
@@ -393,7 +378,7 @@ export default function ActiveCharityDetails() {
                     onChange={handleInputChange}
                   />
 
-                  <div className="custom-buttom my-[20px] p-4 bg-[var(--donatetocharity2-bg-color)] rounded-[10px]">
+                  <div className="box custom-buttom my-[20px] p-4 bg-[var(--donatetocharity2-bg-color)] rounded-[10px]">
                     <h4 className="font-epilogue font-semibold text-[14px] leading-[22px] text-[var(--text-color)]">
                       Back it because you believe in it.
                     </h4>
@@ -433,3 +418,4 @@ export default function ActiveCharityDetails() {
     </div>
   );
 }
+

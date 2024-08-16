@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { RedLoader, InActiveFundCard } from "..";
-import { search } from "../../assets";
+import { search_dark, search_light } from "../../assets";
 import { CustomButtom } from "..";
 import { useStateContext } from "../../context";
 
+import { useTheme } from "../../ThemeContext";
 export default function DisplayInActiveCharities({
   title,
   isLoading,
   charities,
 }) {
+  const { theme } = useTheme();
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
   const { address, connect, disconnect } = useStateContext();
@@ -35,7 +37,7 @@ export default function DisplayInActiveCharities({
           />
           <div className="w-[72px] h-full rounded-[20px] bg-[#e74c3c] flex justify-center items-center cursor-pointer">
             <img
-              src={search}
+              src={theme === "dark" ? search_dark : search_light}
               alt="search"
               className="w-[15px] h-[15px] object-contain"
             />

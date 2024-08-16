@@ -10,21 +10,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@sweetalert2/theme-borderless": "^5.0.17",
-    "@sweetalert2/theme-dark": "^5.0.17",
-    "@sweetalert2/theme-wordpress-admin": "^5.0.17",
     "@thirdweb-dev/react": "^4.9.4",
     "@thirdweb-dev/sdk": "^4.0.99",
-    "axios": "^1.7.3",
     "ethers": "5",
-    "nanoid": "^5.0.7",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.25.1",
     "react-select": "^5.8.0",
-    "shortid": "^2.2.16",
-    "sweetalert2": "^11.12.4",
-    "uuid": "^10.0.0"
+    "sweetalert2": "^11.12.4"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",

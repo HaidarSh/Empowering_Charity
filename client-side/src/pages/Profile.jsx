@@ -9,7 +9,8 @@ import {
 } from "../components";
 import { useStateContext } from "../context";
 import {
-  search,
+  search_dark,
+  search_light,
   profile_picture_active,
   address_icon_active,
   email_icon_active,
@@ -24,11 +25,13 @@ import {
   email_icon_inactive,
 } from "../assets";
 
+import { useTheme } from "../ThemeContext";
+
 function ToggleButton({ active, onClick, label, color }) {
   return (
     <button
       onClick={onClick}
-      className={` button px-6 py-2 rounded-[10px] text-[var(--text-color)] ${color} text-[20px] ${
+      className={`profile-button px-6 py-2 rounded-[10px] text-[var(--custombuttom-text-color)] ${color} text-[20px] ${
         active ? "border-4 shadow-md" : "border border-transparent shadow-none"
       }`}
       style={{
@@ -41,6 +44,7 @@ function ToggleButton({ active, onClick, label, color }) {
 }
 
 export default function Profile() {
+  const { theme } = useTheme();
   const [isLoading, setIsLoading] = useState(false);
   const [activeCharities, setActiveCharities] = useState([]);
   const [inActiveCharities, setInActiveCharities] = useState([]);
@@ -154,7 +158,7 @@ export default function Profile() {
             onClick={filterCharities}
           >
             <img
-              src={search}
+              src={theme === "dark" ? search_dark : search_light}
               alt="search"
               className="w-[15px] h-[15px] object-contain "
             />
@@ -179,7 +183,7 @@ export default function Profile() {
       <div className="profile-bar mt-[60px] bg-[var(--profile-bg-color)] rounded-[20px] shadow-lg p-8  mx-auto flex flex-col gap-6 mb-10">
         {" "}
         <div className="flex items-center mb-6 gap-5">
-          <div className=" profile-bar w-[100px] h-[100px] rounded-[20px] bg-[var(--background-color)] flex items-center justify-center mr-6 p-2">
+          <div className="box w-[100px] h-[100px] rounded-[20px] bg-[var(--background-color)] flex items-center justify-center mr-6 p-2">
             <img
               src={
                 showActive ? profile_picture_active : profile_picture_inactive
@@ -196,10 +200,10 @@ export default function Profile() {
                   <img
                     src={showActive ? name_icon_active : name_icon_inactive}
                     alt="name_icon"
-                    className="cursor-pointer"
+                    className="icons cursor-pointer"
                   />
                   <h1
-                    className={`text-3xl font-semibold mb-2 cursor-pointer ${
+                    className={`profile-button mb-1 cursor-pointer ${
                       showActive
                         ? "hover:text-[#338AF0]"
                         : "hover:text-[#e74c3c]"
@@ -217,10 +221,10 @@ export default function Profile() {
                       showActive ? address_icon_active : address_icon_inactive
                     }
                     alt="address_icon"
-                    className="cursor-pointer"
+                    className="icons cursor-pointer"
                   />
                   <p
-                    className={`mb-1 cursor-pointer ${
+                    className={`profile-button mb-1 cursor-pointer ${
                       showActive
                         ? "hover:text-[#338AF0]"
                         : "hover:text-[#e74c3c]"
@@ -238,10 +242,10 @@ export default function Profile() {
                       showActive ? location_icon_active : location_icon_inactive
                     }
                     alt="location_icon"
-                    className="cursor-pointer"
+                    className="icons cursor-pointer"
                   />
                   <p
-                    className={`mb-1 cursor-pointer ${
+                    className={`profile-button mb-1 cursor-pointer ${
                       showActive
                         ? "hover:text-[#338AF0]"
                         : "hover:text-[#e74c3c]"
@@ -259,11 +263,11 @@ export default function Profile() {
                   <img
                     src={showActive ? phone_icon_active : phone_icon_inactive}
                     alt="phone_icon"
-                    className="cursor-pointer"
+                    className="icons cursor-pointer"
                   />
 
                   <p
-                    className={`mb-1 cursor-pointer ${
+                    className={`profile-button mb-1 cursor-pointer ${
                       showActive
                         ? "hover:text-[#338AF0]"
                         : "hover:text-[#e74c3c]"
@@ -279,11 +283,11 @@ export default function Profile() {
                   <img
                     src={showActive ? email_icon_active : email_icon_inactive}
                     alt="email_icon"
-                    className="cursor-pointer"
+                    className="icons cursor-pointer"
                   />
 
                   <p
-                    className={`mb-1 cursor-pointer ${
+                    className={`profile-button underline mb-1 cursor-pointer ${
                       showActive
                         ? "hover:text-[#338AF0]"
                         : "hover:text-[#e74c3c]"
@@ -298,29 +302,25 @@ export default function Profile() {
             </div>
           </div>
         </div>
-        <div className="flex flex-row justify-between">
-          <div className="profile-bar bg-[var(--background-color)] p-4 rounded-[10px] mt-10 ">
-            <div className="flex text-lg text-[var(--text-color)]">
-              <div className="flex flex-col">
-                <span className="font-semibold cursor-pointer hover:text-[#338AF0]">
-                  Active:
-                </span>
-                <span className="flex justify-center items-center cursor-pointer hover:text-[#338AF0]">
-                  {activeCharities.length}
-                </span>
-              </div>
+        <div className="flex flex-row justify-center gap-[30px]">
+          <div className="box bg-[var(--background-color)] p-4 w-[130px] rounded-[10px] mt-10 flex text-lg text-[var(--text-color)] flex justify-center items-center">
+            <div className="profile-button flex flex-col ">
+              <span className="profile-button font-bold cursor-pointer hover:text-[#338AF0]">
+                Active:
+              </span>
+              <span className="profile-button flex justify-center items-center cursor-pointer hover:text-[#338AF0]">
+                {activeCharities.length}
+              </span>
             </div>
           </div>
-          <div className="profile-bar bg-[var(--background-color)] p-4 rounded-[10px] mt-10">
-            <div className="flex justify-between text-lg text-[var(--text-color)]">
-              <div className="flex flex-col">
-                <span className="font-semibold cursor-pointer hover:text-[#e74c3c]">
-                  Inactive:
-                </span>
-                <span className="flex justify-center items-center cursor-pointer hover:text-[#e74c3c]">
-                  {inActiveCharities.length}
-                </span>
-              </div>
+          <div className="box bg-[var(--background-color)] p-4 w-[130px] rounded-[10px] mt-10 flex text-lg text-[var(--text-color)] flex justify-center items-center">
+            <div className="profile-button flex flex-col">
+              <span className="profile-button font-bold cursor-pointer hover:text-[#e74c3c]">
+                InActive:
+              </span>
+              <span className="profile-button flex justify-center items-center cursor-pointer hover:text-[#e74c3c]">
+                {inActiveCharities.length}
+              </span>
             </div>
           </div>
         </div>
@@ -331,13 +331,13 @@ export default function Profile() {
           active={showActive}
           onClick={() => setShowActive(true)}
           label="Active"
-          color="bg-[#3498db] hover:bg-[#3498dbc7]"
+          color="bg-[#3498db]"
         />
 
         <ToggleButton
           active={!showActive}
           onClick={() => setShowActive(false)}
-          label="Inactive"
+          label="InActive"
           color="bg-[#e74c3c]"
         />
       </div>

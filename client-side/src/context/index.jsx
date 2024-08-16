@@ -160,16 +160,6 @@ export const StateContextProvider = ({ children }) => {
     }
   }
 
-  async function setNotActive(charityId) {
-    try {
-      const data = await contract.call("setNotActive", [charityId]);
-      return true;
-    } catch (error) {
-      console.error("Delete charity failed", error);
-      return false;
-    }
-  }
-
   return (
     <StateContext.Provider
       value={{
@@ -185,7 +175,6 @@ export const StateContextProvider = ({ children }) => {
         connect,
         disconnect,
         removeCharity,
-        setNotActive,
         isContractLoading,
         isWriteLoading,
         writeError,

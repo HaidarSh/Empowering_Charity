@@ -13,6 +13,7 @@
   --activefundcard-bg-color: #ced1eb;
   --inactivefundcard-bg-color: #c99191;
   --text-color: #474646;
+  --custombuttom-text-color: #2d2d2d;
   --icon-bg-color: #afafaf;
   --active-icon-bg-color: #e0e0e0;
   --countbox-active-color: #afafaf;
@@ -31,6 +32,7 @@
   --swal-confirm-button-color: #3498db;
   --box-shadow: 1px 1px 6px 5px rgb(95, 90, 90);
   --box-border: 3px solid rgb(216, 210, 210);
+  --breathing-shadow: 1px 1px 12px 5px rgba(0, 0, 0, 0.7);
 }
 
 [data-theme="dark"] {
@@ -42,6 +44,7 @@
   --home-bg-color: #1a1a2e;
   --searchbar-bg-color: #1a1a2e;
   --text-color: #c4d3d6e7;
+  --custombuttom-text-color: #c4d3d6e7;
   --icon-bg-color: #1a1a2e;
   --active-icon-bg-color: #2c3e50;
   --countbox-active-color: #1a1a2e;
@@ -60,6 +63,7 @@
   --swal-confirm-button-color: #3498db;
   --box-shadow: 1px 1px 6px 5px rgb(19, 18, 18);
   --box-border: 3px solid #000000;
+  --breathing-shadow: 1px 1px 12px 5px rgba(255, 255, 255, 1);
 }
 
 .custom-swal-popup-error {
@@ -129,7 +133,7 @@
   }
   50% {
     transform: scale(1.3);
-    box-shadow: 1px 1px 12px 5px rgba(255, 255, 255, 1);
+    box-shadow: var(--breathing-shadow);
   }
   100% {
     transform: scale(1);
@@ -152,6 +156,10 @@
   border: var(--box-border);
 }
 
+.sidebar:hover {
+  transform: scale(1.02);
+}
+
 .links:hover {
   transform: scale(1.3) rotateY(180deg);
 }
@@ -161,7 +169,7 @@
 }
 
 .logo {
-  animation: breathing 3s ease-out infinite;
+  animation: breathing 4s ease-out infinite;
 }
 
 .searchBar {
@@ -198,4 +206,57 @@
   transition: 0.5s ease;
   box-shadow: var(--box-shadow);
   border: var(--box-border);
+}
+
+.profile-button {
+  transition: 0.5s ease;
+}
+
+.profile-button:hover {
+  transform: scale(1.03);
+}
+
+.fundcard-text {
+  transition: 0.5s ease;
+}
+
+.fundcard-text:hover {
+  transform: scale(1.1);
+}
+.fundcard-text-exception{
+  transition: 0.5s ease;
+}
+
+.fundcard-text-exception:hover {
+  transform: scale(1.03);
+}
+.charitydetails-text{
+  transition: 0.5s ease;
+}
+
+.charitydetails-text:hover {
+  transform: scale(1.07);
+}
+.charitydetails-text-nb{
+  transition: 0.5s ease;
+}
+.charitydetails-text-nb:hover{
+  transform: scale(1.03);
+}
+
+.icons{
+  transition: 0.5s ease;
+}
+
+.icons:hover {
+  transform: scale(1.3);
+}
+
+.icons-charitydetails{
+  transition: 0.5s ease;
+  box-shadow: var(--box-shadow);
+}
+
+.icons-charitydetails:hover {
+  transform: scale(1.2);
 }

@@ -30,7 +30,7 @@ export default function Sidebar() {
       <div>
         <Icon
           styles="logo w-[52px] h-[52px] bg-[var(--icon-bg-color)] rounded-full"
-          imgUrl={project_logo}
+          imgUrl={project_logo} 
         />
       </div>
       <div className="sidebar flex-1 flex flex-col justify-between object-contain items-center bg-[var(--sidebar-bg-color)] rounded-[20px] w-[76px] py-4 mt-12 gap-6">
