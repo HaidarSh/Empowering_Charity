@@ -14,6 +14,7 @@
   --inactivefundcard-bg-color: #c99191;
   --text-color: #474646;
   --custombuttom-text-color: #2d2d2d;
+  --createCharity-text-color: #2d2d2d;
   --icon-bg-color: #afafaf;
   --active-icon-bg-color: #e0e0e0;
   --countbox-active-color: #afafaf;
@@ -45,6 +46,7 @@
   --searchbar-bg-color: #1a1a2e;
   --text-color: #c4d3d6e7;
   --custombuttom-text-color: #c4d3d6e7;
+  --createCharity-text-color: #ffffff;
   --icon-bg-color: #1a1a2e;
   --active-icon-bg-color: #2c3e50;
   --countbox-active-color: #1a1a2e;
@@ -150,6 +152,14 @@
   transform: scale(1.03);
 }
 
+.home-bigimage{
+  transition: 0.5s ease;
+}
+
+.home-bigimage:hover {
+  transform: scale(1.05);
+}
+
 .sidebar {
   transition: 0.5s ease;
   box-shadow: var(--box-shadow);
@@ -194,9 +204,11 @@
 
 .custom-buttom {
   transition: 0.5s ease;
-  box-shadow: var(--box-shadow);
 }
 
+.custom-buttom:hover{
+  transform: scale(1.03);
+}
 .count-box {
   transition: 0.5s ease;
   box-shadow: var(--box-shadow);
@@ -254,7 +266,6 @@
 
 .icons-charitydetails{
   transition: 0.5s ease;
-  box-shadow: var(--box-shadow);
 }
 
 .icons-charitydetails:hover {

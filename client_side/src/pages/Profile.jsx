@@ -305,20 +305,20 @@ export default function Profile() {
         <div className="flex flex-row justify-center gap-[30px]">
           <div className="box bg-[var(--background-color)] p-4 w-[130px] rounded-[10px] mt-10 flex text-lg text-[var(--text-color)] flex justify-center items-center">
             <div className="profile-button flex flex-col ">
-              <span className="profile-button font-bold cursor-pointer hover:text-[#338AF0]">
+              <span className="profile-button font-bold text-[#338AF0] cursor-pointer">
                 Active:
               </span>
-              <span className="profile-button flex justify-center items-center cursor-pointer hover:text-[#338AF0]">
+              <span className="profile-button flex justify-center items-center cursor-pointer text-[#338AF0]">
                 {activeCharities.length}
               </span>
             </div>
           </div>
           <div className="box bg-[var(--background-color)] p-4 w-[130px] rounded-[10px] mt-10 flex text-lg text-[var(--text-color)] flex justify-center items-center">
             <div className="profile-button flex flex-col">
-              <span className="profile-button font-bold cursor-pointer hover:text-[#e74c3c]">
+              <span className="profile-button font-bold cursor-pointer text-[#e74c3c]">
                 InActive:
               </span>
-              <span className="profile-button flex justify-center items-center cursor-pointer hover:text-[#e74c3c]">
+              <span className="profile-button flex justify-center items-center cursor-pointer text-[#e74c3c]">
                 {inActiveCharities.length}
               </span>
             </div>

@@ -205,10 +205,10 @@ export default function ActiveCharityDetails() {
           <img
             src={state.image}
             alt="charity"
-            className="box w-full h-[410px] object-cover rounded-xl cursor-pointer"
+            className="custom-buttom w-full h-[410px] object-cover rounded-xl cursor-pointer"
           />
 
-          <div className="box cursor-pointer custom-buttom relative w-full h-[5px] bg-[var(--targetloading-bg-color)] mt-2 rounded-[20px]">
+          <div className="cursor-pointer custom-buttom relative w-full h-[5px] bg-[var(--targetloading-bg-color)] mt-2 rounded-[20px]">
             <div
               className="absolute h-full bg-[#338AF0] rounded-[20px]"
               style={{
@@ -223,7 +223,7 @@ export default function ActiveCharityDetails() {
         </div>
 
         <div className="flex md:w-[150px] w-full flex-wrap justify-between gap-[30px]">
-          <CountBoxActive title="Days Left" value={remainingDays} />
+          <CountBoxActive title="Days Left" value={remainingDays + 1} />
           <CountBoxActive
             title={`Raised of ${state.target / 1000000000000000000}`}
             value={collectedAmount}
@@ -364,7 +364,7 @@ export default function ActiveCharityDetails() {
               <h4 className="font-epilogue font-semibold text-[18px] text-[var(--text-color)] uppercase">
                 Donate
               </h4>
-              <div className="box mt-[20px] flex flex-col p-4 bg-[var(--donatetocharity1-bg-color)] rounded-[10px]">
+              <div className="custom-buttom mt-[20px] flex flex-col p-4 bg-[var(--donatetocharity1-bg-color)] rounded-[10px]">
                 <p className="font-epilogue font-semibold text-[20px] leading-[30px] text-center text-[var(--text-color)]">
                   Donate to the Charity
                 </p>
@@ -378,7 +378,7 @@ export default function ActiveCharityDetails() {
                     onChange={handleInputChange}
                   />
 
-                  <div className="box custom-buttom my-[20px] p-4 bg-[var(--donatetocharity2-bg-color)] rounded-[10px]">
+                  <div className="custom-buttom custom-buttom my-[20px] p-4 bg-[var(--donatetocharity2-bg-color)] rounded-[10px]">
                     <h4 className="font-epilogue font-semibold text-[14px] leading-[22px] text-[var(--text-color)]">
                       Back it because you believe in it.
                     </h4>

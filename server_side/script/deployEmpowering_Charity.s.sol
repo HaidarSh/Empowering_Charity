@@ -5,7 +5,6 @@ import "forge-std/Script.sol";
 import "../src/Empowering_Charity.sol";
 
 contract DeployEmpowering_Charity is Script {
-    function setUp() public {}
 
     function run() public {
         vm.startBroadcast();

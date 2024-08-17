@@ -105,7 +105,7 @@ export default function CharityPhotos() {
         <h1 className="text-xl bg-[var(--text-color)] mb-10"></h1>
         <img
           src="/src/Charities_photos/image_big_2.png"
-          className="object-contain w-1/2 h-1/2 rounded-[20px]"
+          className="home-bigimage object-contain w-1/2 h-1/2 rounded-[20px]"
         />
       </div>
 
@@ -148,7 +148,7 @@ export default function CharityPhotos() {
           </p>
         </div>
         <Link to="/View_Active_Charity">
-          <div className="box bg-[#3498db] px-4 py-3 rounded-[10px] text-2xl font-semibold text-[var(--custombuttom-text-color)] flex justify-center items-center">
+          <div className="custom-buttom bg-[#3498db] px-4 py-3 rounded-[10px] text-2xl font-semibold text-[var(--custombuttom-text-color)] flex justify-center items-center">
             <h1 className="font-epilogue font-bold text-[25px] text-[var(--custombuttom-text-color)]">Donate Now!</h1>
           </div>
         </Link>

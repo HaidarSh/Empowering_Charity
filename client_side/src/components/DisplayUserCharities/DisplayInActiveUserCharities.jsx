@@ -2,7 +2,7 @@ import React from "react";
 
 import { useNavigate } from "react-router-dom";
 
-import { RedLoader, InActiveFundCard } from "../";
+import { RedLoader, InActiveFundCard } from "..";
 
 export default function DisplayInActiveUserCharities({
   title,

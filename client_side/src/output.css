@@ -668,10 +668,6 @@ video {
   margin-bottom: 2.5rem;
 }
 
-.mb-2{
-  margin-bottom: 0.5rem;
-}
-
 .mb-4{
   margin-bottom: 1rem;
 }
@@ -1320,11 +1316,6 @@ video {
   line-height: 2rem;
 }
 
-.text-3xl{
-  font-size: 1.875rem;
-  line-height: 2.25rem;
-}
-
 .text-4xl{
   font-size: 2.25rem;
   line-height: 2.5rem;
@@ -1414,6 +1405,20 @@ video {
 
 .leading-\[38px\]{
   line-height: 38px;
+}
+
+.text-\[\#338AF0\]{
+  --tw-text-opacity: 1;
+  color: rgb(51 138 240 / var(--tw-text-opacity));
+}
+
+.text-\[\#e74c3c\]{
+  --tw-text-opacity: 1;
+  color: rgb(231 76 60 / var(--tw-text-opacity));
+}
+
+.text-\[var\(--createCharity-text-color\)\]{
+  color: var(--createCharity-text-color);
 }
 
 .text-\[var\(--custombuttom-text-color\)\]{
@@ -1507,6 +1512,7 @@ video {
   --inactivefundcard-bg-color: #c99191;
   --text-color: #474646;
   --custombuttom-text-color: #2d2d2d;
+  --createCharity-text-color: #2d2d2d;
   --icon-bg-color: #afafaf;
   --active-icon-bg-color: #e0e0e0;
   --countbox-active-color: #afafaf;
@@ -1538,6 +1544,7 @@ video {
   --searchbar-bg-color: #1a1a2e;
   --text-color: #c4d3d6e7;
   --custombuttom-text-color: #c4d3d6e7;
+  --createCharity-text-color: #ffffff;
   --icon-bg-color: #1a1a2e;
   --active-icon-bg-color: #2c3e50;
   --countbox-active-color: #1a1a2e;
@@ -1646,10 +1653,22 @@ video {
   transform: scale(1.03);
 }
 
+.home-bigimage{
+  transition: 0.5s ease;
+}
+
+.home-bigimage:hover {
+  transform: scale(1.05);
+}
+
 .sidebar {
   transition: 0.5s ease;
   box-shadow: var(--box-shadow);
   border: var(--box-border);
+}
+
+.sidebar:hover {
+  transform: scale(1.02);
 }
 
 .links:hover {
@@ -1686,7 +1705,10 @@ video {
 
 .custom-buttom {
   transition: 0.5s ease;
-  box-shadow: var(--box-shadow);
+}
+
+.custom-buttom:hover{
+  transform: scale(1.03);
 }
 
 .count-box {
@@ -1712,8 +1734,16 @@ video {
   transition: 0.5s ease;
 }
 
-.fundcad-text:hover {
-  transform: scale(3);
+.fundcard-text:hover {
+  transform: scale(1.1);
+}
+
+.fundcard-text-exception{
+  transition: 0.5s ease;
+}
+
+.fundcard-text-exception:hover {
+  transform: scale(1.03);
 }
 
 .charitydetails-text{
@@ -1742,7 +1772,6 @@ video {
 
 .icons-charitydetails{
   transition: 0.5s ease;
-  box-shadow: var(--box-shadow);
 }
 
 .icons-charitydetails:hover {

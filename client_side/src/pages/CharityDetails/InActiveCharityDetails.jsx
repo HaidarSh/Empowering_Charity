@@ -64,10 +64,10 @@ export default function InActiveCharityDetails() {
           <img
             src={state.image}
             alt="charity"
-            className="box cursor-pointer w-full h-[410px] object-cover rounded-xl opacity-60 brightness-110 contrast-50 saturate-50"
+            className="custom-buttom cursor-pointer w-full h-[410px] object-cover rounded-xl opacity-60 brightness-110 contrast-50 saturate-50"
           />
 
-          <div className="box cursor-pointer custom-buttom relative w-full h-[5px]  bg-[var(--targetloading-bg-color)] mt-2 rounded-[20px]">
+          <div className="cursor-pointer custom-buttom relative w-full h-[5px]  bg-[var(--targetloading-bg-color)] mt-2 rounded-[20px]">
             <div
               className="absolute h-full bg-[#e74c3c] rounded-[20px]"
               style={{
