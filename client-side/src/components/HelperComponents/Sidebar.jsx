@@ -1,5 +1,5 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { project_logo } from "../../assets";
 import { navlinks } from "../../constants";
 import { ThemeToggleIcon } from "..";
@@ -7,7 +7,7 @@ import { ThemeToggleIcon } from "..";
 const Icon = ({ styles, name, imgUrl, isActive, disabled, handleClick }) => (
   <div
     className={`links w-[48px] h-[48px] rounded-[10px] ${
-      isActive && isActive === name && "bg-[var(--active-icon-bg-color)]"
+      isActive === name && "bg-[var(--active-icon-bg-color)]"
     } flex justify-center items-center ${
       !disabled && "cursor-pointer"
     } ${styles}`}
@@ -23,14 +23,22 @@ const Icon = ({ styles, name, imgUrl, isActive, disabled, handleClick }) => (
 
 export default function Sidebar() {
   const navigate = useNavigate();
-  const [isActive, setIsActive] = React.useState("/");
+  const location = useLocation();
+  const [isActive, setIsActive] = useState(location.pathname);
+
+  useEffect(() => {
+    const activeLink = navlinks.find((link) => link.link === location.pathname);
+    if (activeLink) {
+      setIsActive(activeLink.name);
+    }
+  }, [location.pathname]);
 
   return (
     <div className="flex justify-between items-center flex-col sticky top-5 h-[30px] gap-5">
       <div>
         <Icon
           styles="logo w-[52px] h-[52px] bg-[var(--icon-bg-color)] rounded-full"
-          imgUrl={project_logo} 
+          imgUrl={project_logo}
         />
       </div>
       <div className="sidebar flex-1 flex flex-col justify-between object-contain items-center bg-[var(--sidebar-bg-color)] rounded-[20px] w-[76px] py-4 mt-12 gap-6">

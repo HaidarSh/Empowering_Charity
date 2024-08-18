@@ -64,10 +64,10 @@ export default function InActiveCharityDetails() {
           <img
             src={state.image}
             alt="charity"
-            className="custom-buttom cursor-pointer w-full h-[410px] object-cover rounded-xl opacity-60 brightness-110 contrast-50 saturate-50"
+            className="custom-buttom cursor-pointer w-full h-[410px] object-cover rounded-xl opacity-60 brightness-110"
           />
 
-          <div className="cursor-pointer custom-buttom relative w-full h-[5px]  bg-[var(--targetloading-bg-color)] mt-2 rounded-[20px]">
+          <div className="cursor-pointer custom-buttom relative w-full h-[7px]  bg-[var(--targetloading-bg-color)] mt-2 rounded-[20px]">
             <div
               className="absolute h-full bg-[#e74c3c] rounded-[20px]"
               style={{
@@ -111,10 +111,16 @@ export default function InActiveCharityDetails() {
                 <h4 className="charitydetails-text-nb font-epilogue font-semibold text-[14px] text-[var(--text-color)] break-all cursor-pointer hover:text-[#e74c3c]">
                   {state.owner}
                 </h4>
-
-                <p className="charitydetails-text-nb mt-[4px] font-epilogue font-normal text-[12px] text-[var(--text-color)] cursor-pointer hover:text-[#e74c3c]">
-                  {inActiveCharities.length + activeCharities.length} {(inActiveCharities.length + activeCharities.length) > 1 ? "Charities" : "Charity"}
-                </p>
+                <div className="flex flex-row justify-between">
+                  <p className="charitydetails-text-nb mt-[4px] font-epilogue font-normal text-[11px] text-[var(--text-color)] cursor-pointer hover:text-[#338AF0] ">
+                    {activeCharities.length} Active{" "}
+                    {activeCharities.length > 1 ? "Charities" : "Charity"}
+                  </p>
+                  <p className="charitydetails-text-nb mt-[4px] font-epilogue font-normal text-[11px] text-[var(--text-color)] cursor-pointer hover:text-[#e74c3c]">
+                    {inActiveCharities.length} InActive{" "}
+                    {inActiveCharities.length > 1 ? "Charities" : "Charity"}
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -211,7 +217,7 @@ export default function InActiveCharityDetails() {
                     </p>
 
                     <p className="font-epilogue font-normal text-[16px] text-[var(--text-color)] leading-[26px] break-all">
-                      {item.donation}
+                      {item.donation} ETH
                     </p>
                   </div>
                 ))

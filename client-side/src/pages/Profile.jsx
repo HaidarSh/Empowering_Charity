@@ -303,7 +303,10 @@ export default function Profile() {
           </div>
         </div>
         <div className="flex flex-row justify-center gap-[30px]">
-          <div className="box bg-[var(--background-color)] p-4 w-[130px] rounded-[10px] mt-10 flex text-lg text-[var(--text-color)] flex justify-center items-center">
+          <div
+            onClick={() => setShowActive(true)}
+            className="box bg-[var(--background-color)] p-4 w-[130px] rounded-[10px] mt-10 flex text-lg text-[var(--text-color)] flex justify-center items-center cursor-pointer"
+          >
             <div className="profile-button flex flex-col ">
               <span className="profile-button font-bold text-[#338AF0] cursor-pointer">
                 Active:
@@ -313,7 +316,10 @@ export default function Profile() {
               </span>
             </div>
           </div>
-          <div className="box bg-[var(--background-color)] p-4 w-[130px] rounded-[10px] mt-10 flex text-lg text-[var(--text-color)] flex justify-center items-center">
+          <div
+            onClick={() => setShowActive(false)}
+            className="box bg-[var(--background-color)] p-4 w-[130px] rounded-[10px] mt-10 flex text-lg text-[var(--text-color)] flex justify-center items-center cursor-pointer"
+          >
             <div className="profile-button flex flex-col">
               <span className="profile-button font-bold cursor-pointer text-[#e74c3c]">
                 InActive:

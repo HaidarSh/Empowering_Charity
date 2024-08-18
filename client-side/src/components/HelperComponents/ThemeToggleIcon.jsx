@@ -19,12 +19,10 @@ export default function ThemeToggleIcon() {
         ) : (
           <img src={sun} className="w-6 h-6" />
         )
+      ) : theme === "light" ? (
+        <img src={sun} className="w-6 h-6" />
       ) : (
-        theme === "light" ? (
-          <img src={sun} className="w-6 h-6" />
-        ) : (
-          <img src={moon} className="w-6 h-6" />
-        )
+        <img src={moon} className="w-6 h-6" />
       )}
     </div>
   );

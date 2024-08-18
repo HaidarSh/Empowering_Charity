@@ -149,7 +149,9 @@ export default function CharityPhotos() {
         </div>
         <Link to="/View_Active_Charity">
           <div className="custom-buttom bg-[#3498db] px-4 py-3 rounded-[10px] text-2xl font-semibold text-[var(--custombuttom-text-color)] flex justify-center items-center">
-            <h1 className="font-epilogue font-bold text-[25px] text-[var(--custombuttom-text-color)]">Donate Now!</h1>
+            <h1 className="font-epilogue font-bold text-[25px] text-[var(--custombuttom-text-color)]">
+              Donate Now!
+            </h1>
           </div>
         </Link>
       </div>

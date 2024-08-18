@@ -2,9 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router } from "react-router-dom";
 import { ThirdwebProvider } from "@thirdweb-dev/react";
-import { StateContextProvider } from "./context";
+import { StateContextProvider } from "./context/index.jsx";
 
-import { ThemeProvider } from "./ThemeContext";
+import { ThemeProvider } from "./ThemeContext.jsx";
 import App from "./App.jsx";
 import "./index.css";
 

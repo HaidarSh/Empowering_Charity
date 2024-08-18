@@ -132,7 +132,7 @@ export default function CreateCharity() {
       navigate("/View_Active_Charity");
     } else {
       Swal.fire({
-        title: "Can't create charity",
+        title: "Charity creation rejected",
         text: "",
         icon: "error",
         confirmButtonText: "OK",

@@ -46,7 +46,7 @@ export default function InActiveFundCard({
       <img
         src={image}
         alt="fund"
-        className="w-full h-[230px] object-cover rounded-[20px] opacity-60 brightness-110 contrast-50 saturate-50"
+        className="w-full h-[230px] object-cover rounded-[20px] opacity-60 brightness-110 "
       />
 
       <div className="flex flex-col p-4">
