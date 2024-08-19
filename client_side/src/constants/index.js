@@ -1,7 +1,6 @@
 import {
   active_state,
   inactive_state,
-  profile_active,
   home_buttom,
   add_charity,
 } from "../assets";
@@ -29,7 +28,7 @@ export const navlinks = [
   },
   {
     name: "profile",
-    imgUrl: profile_active,
+    imgUrl: "",
     link: "/Profile",
   },
 ];

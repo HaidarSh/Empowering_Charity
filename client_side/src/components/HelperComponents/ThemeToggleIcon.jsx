@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useTheme } from "../../ThemeContext";
+import { useTheme } from "./ThemeContext";
 import { sun, moon } from "../../assets";
 
 export default function ThemeToggleIcon() {

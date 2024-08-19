@@ -194,6 +194,7 @@
 
 .searchBar:focus-within {
   box-shadow: var(--box-shadow);
+  border: var(--box-border);
 }
 
 .profile-bar {

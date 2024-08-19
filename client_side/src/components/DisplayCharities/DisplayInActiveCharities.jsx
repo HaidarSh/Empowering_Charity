@@ -5,7 +5,7 @@ import { search_dark, search_light } from "../../assets";
 import { CustomButtom } from "..";
 import { useStateContext } from "../../context";
 
-import { useTheme } from "../../ThemeContext";
+import { useTheme } from "../HelperComponents/ThemeContext";
 export default function DisplayInActiveCharities({
   title,
   isLoading,

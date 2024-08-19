@@ -7,7 +7,7 @@ import CharityPhotosStyle from "../components/HomeComponents/CharityPhotosStyle"
 export default function Home() {
   const { address, connect, disconnect } = useStateContext();
 
-  const title = "Empowering Charity";
+  const title = "Empowering   Charity";
   const text_one =
     "Join us on a journey to build a brighter future for communities around the world. Empowering Charity leverages cutting-edge blockchain technology to ensure transparency and trust in every donation, empowering donors to see the real impact of their generosity.";
   const text_two =
@@ -76,7 +76,7 @@ export default function Home() {
                   }`}
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  {letter}
+                  {letter}&nbsp;
                 </span>
               ))}
             </p>
@@ -115,7 +115,7 @@ export default function Home() {
 
       <div className="flex cursor-pointer justify-center mt-10">
         <img
-          src="/src/Charities_photos/image_big_1.png"
+          src="/src/Home_Page_Photos/image_big_1.png"
           className="home-bigimage object-contain w-1/2 h-1/2 rounded-[20px]"
           alt="Charity"
         />
@@ -140,9 +140,9 @@ export default function Home() {
           </div>
 
           <div className="flex flex-row gap-6">
-            <CharityPhotosStyle imageSRC="/src/Charities_photos/first-1.jpeg" />
-            <CharityPhotosStyle imageSRC="/src/Charities_photos/first-2.jpeg" />
-            <CharityPhotosStyle imageSRC="/src/Charities_photos/first-3.jpeg" />
+            <CharityPhotosStyle imageSRC="/src/Home_Page_Photos/first-1.jpeg" />
+            <CharityPhotosStyle imageSRC="/src/Home_Page_Photos/first-2.jpeg" />
+            <CharityPhotosStyle imageSRC="/src/Home_Page_Photos/first-3.jpeg" />
           </div>
         </div>
         <hr className="border-t-2 border-[#3498db]" />
@@ -179,13 +179,13 @@ export default function Home() {
           </div>
 
           <div className="flex flex-wrap gap-6">
-            <CharityPhotosStyle imageSRC="/src/Charities_photos/second-1.jpeg" />
-            <CharityPhotosStyle imageSRC="/src/Charities_photos/second-2.jpeg" />
-            <CharityPhotosStyle imageSRC="/src/Charities_photos/second-3.jpeg" />
+            <CharityPhotosStyle imageSRC="/src/Home_Page_Photos/second-1.jpeg" />
+            <CharityPhotosStyle imageSRC="/src/Home_Page_Photos/second-2.jpeg" />
+            <CharityPhotosStyle imageSRC="/src/Home_Page_Photos/second-3.jpeg" />
 
-            <CharityPhotosStyle imageSRC="/src/Charities_photos/second-4.jpeg" />
-            <CharityPhotosStyle imageSRC="/src/Charities_photos/second-5.jpeg" />
-            <CharityPhotosStyle imageSRC="/src/Charities_photos/second-6.jpeg" />
+            <CharityPhotosStyle imageSRC="/src/Home_Page_Photos/second-4.jpeg" />
+            <CharityPhotosStyle imageSRC="/src/Home_Page_Photos/second-5.jpeg" />
+            <CharityPhotosStyle imageSRC="/src/Home_Page_Photos/second-6.jpeg" />
           </div>
         </div>
         <hr className="border-t-2 border-[#3498db]" />
@@ -210,7 +210,7 @@ export default function Home() {
           </div>
           <h1 className="text-xl bg-[var(--text-color)] mb-10"></h1>
           <img
-            src="/src/Charities_photos/image_big_2.png"
+            src="/src/Home_Page_Photos/image_big_2.png"
             className="home-bigimage object-contain w-1/2 h-1/2 rounded-[20px]"
             alt="Charity"
           />
@@ -234,9 +234,9 @@ export default function Home() {
           </div>
           <h1 className="text-xl text-[var(--text-color)] mb-10"></h1>
           <div className="flex flex-wrap gap-6">
-            <CharityPhotosStyle imageSRC="/src/Charities_photos/third-1.jpeg" />
-            <CharityPhotosStyle imageSRC="/src/Charities_photos/third-2.jpeg" />
-            <CharityPhotosStyle imageSRC="/src/Charities_photos/third-3.jpeg" />
+            <CharityPhotosStyle imageSRC="/src/Home_Page_Photos/third-1.jpeg" />
+            <CharityPhotosStyle imageSRC="/src/Home_Page_Photos/third-2.jpeg" />
+            <CharityPhotosStyle imageSRC="/src/Home_Page_Photos/third-3.jpeg" />
           </div>
         </div>
 

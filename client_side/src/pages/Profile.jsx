@@ -25,7 +25,7 @@ import {
   email_icon_inactive,
 } from "../assets";
 
-import { useTheme } from "../ThemeContext";
+import { useTheme } from "../components";
 
 function ToggleButton({ active, onClick, label, color }) {
   return (
@@ -43,14 +43,13 @@ function ToggleButton({ active, onClick, label, color }) {
   );
 }
 
-export default function Profile() {
+export default function Profile({ showActive, setShowActive }) {
   const { theme } = useTheme();
   const [isLoading, setIsLoading] = useState(false);
   const [activeCharities, setActiveCharities] = useState([]);
   const [inActiveCharities, setInActiveCharities] = useState([]);
   const [filteredCharities, setFilteredCharities] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
-  const [showActive, setShowActive] = useState(true);
 
   const [userActiveProfile, setUserActiveProfile] = useState({
     name: "",
@@ -139,10 +138,10 @@ export default function Profile() {
 
   return address ? (
     <div>
-      {isLoading && <BlueLoader />}
+      {isLoading && (showActive ? <BlueLoader /> : <RedLoader />)}
 
       <div className="flex justify-between">
-        <div className=" searchBar lg:flex-1 flex flex-row max-w-[458px] py-2 pl-4 pr-2 h-[52px] bg-[var(--searchbar-bg-color)] rounded-[100px]">
+        <div className="searchBar lg:flex-1 flex flex-row max-w-[458px] py-2 pl-4 pr-2 h-[52px] bg-[var(--searchbar-bg-color)] rounded-[100px]">
           <input
             type="text"
             placeholder="Search for Charities"

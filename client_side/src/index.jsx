@@ -4,7 +4,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { ThirdwebProvider } from "@thirdweb-dev/react";
 import { StateContextProvider } from "./context/index.jsx";
 
-import { ThemeProvider } from "./ThemeContext.jsx";
+import { ThemeProvider } from "./components";
 import App from "./App.jsx";
 import "./index.css";
 
