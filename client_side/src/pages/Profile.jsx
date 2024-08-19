@@ -168,7 +168,7 @@ export default function Profile() {
         <div className="flex flex-row justify-center">
           <CustomButtom
             btnType="button"
-            title={address ? "Disconnect the wallet" : "Connect to Wallet"}
+            title={address ? "Disconnect the wallet" : "Connect to wallet"}
             styles={
               address ? "bg-[#e74c3c] px-6 py-3" : "bg-[#3498db] px-6 py-3"
             }
@@ -380,7 +380,7 @@ export default function Profile() {
 
       <div className="flex justify-center flex-col items-center h-full mt-[5px] text-[var(--text-color)]">
         <h1 className="text-[20px] text-bold">
-          Please connect wallet to view your profile
+          Please connect wallet to view your profile.
         </h1>
       </div>
     </div>

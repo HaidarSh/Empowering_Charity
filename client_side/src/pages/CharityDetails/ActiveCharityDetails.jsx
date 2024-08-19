@@ -22,8 +22,9 @@ export default function ActiveCharityDetails() {
     getDonations,
     contract,
     address,
+    connect,
+    disconnect,
     removeCharity,
-    // setNotActive,
     getUserActiveCharities,
     getUserInActiveCharities,
   } = useStateContext();
@@ -187,7 +188,7 @@ export default function ActiveCharityDetails() {
     } catch (error) {
       console.error("Error occurred:", error);
       Swal.fire({
-        title: "Failed to delete the Charity. Please try again.",
+        title: "Charity deletion rejected.",
         text: "",
         icon: "error",
         confirmButtonText: "OK",
@@ -214,8 +215,24 @@ export default function ActiveCharityDetails() {
   return (
     <div>
       {isLoading && <BlueLoader />}
-
-      <div className="w-full flex md:flex-row flex-row mt-10 gap-[30px]">
+      {address && (
+        <div className="flex flex-col justify-center items-center px-50">
+          <CustomButtom
+            btnType="button"
+            title={address ? "Disconnect the wallet" : ""}
+            styles={
+              address
+                ? "bg-[#e74c3c] px-6 py-2 w-[400px] h-[40px] flex justify-center items-center"
+                : ""
+            }
+            handleClick={() => {
+              if (address) disconnect();
+              else connect();
+            }}
+          />
+        </div>
+      )}
+      <div className="w-full flex md:flex-row flex-col mt-10 gap-[30px]">
         <div className="flex-1 flex-col">
           <img
             src={state.image}
@@ -379,63 +396,81 @@ export default function ActiveCharityDetails() {
             </div>
           </div>
         </div>
+        {address ? (
+          <div className="flex-1">
+            {address && (
+              <div>
+                <h4 className="font-epilogue font-semibold text-[18px] text-[var(--text-color)] uppercase">
+                  Donate
+                </h4>
+                <div className="custom-buttom mt-[20px] flex flex-col p-4 bg-[var(--donatetocharity1-bg-color)] rounded-[10px]">
+                  <p className="font-epilogue font-semibold text-[20px] leading-[30px] text-center text-[var(--text-color)]">
+                    Donate to the Charity
+                  </p>
+                  <div className="mt-[30px]">
+                    <input
+                      type="number"
+                      placeholder="ETH 0.5"
+                      step="0.1"
+                      className="w-full py-[10px] sm:px-[20px] px-[15px] outline-none border-[1px] border-[#3a3a43] bg-transparent font-epilogue text-[var(--text-color)] text-[18px] leading-[30px] placeholder:text-[var(--placeholder-color)] rounded-[10px]"
+                      value={amount}
+                      onChange={handleInputChange}
+                    />
 
-        <div className="flex-1">
-          {address && (
-            <div>
-              <h4 className="font-epilogue font-semibold text-[18px] text-[var(--text-color)] uppercase">
-                Donate
-              </h4>
-              <div className="custom-buttom mt-[20px] flex flex-col p-4 bg-[var(--donatetocharity1-bg-color)] rounded-[10px]">
-                <p className="font-epilogue font-semibold text-[20px] leading-[30px] text-center text-[var(--text-color)]">
-                  Donate to the Charity
-                </p>
-                <div className="mt-[30px]">
-                  <input
-                    type="number"
-                    placeholder="ETH 0.5"
-                    step="0.1"
-                    className="w-full py-[10px] sm:px-[20px] px-[15px] outline-none border-[1px] border-[#3a3a43] bg-transparent font-epilogue text-[var(--text-color)] text-[18px] leading-[30px] placeholder:text-[var(--placeholder-color)] rounded-[10px]"
-                    value={amount}
-                    onChange={handleInputChange}
-                  />
+                    <div className="custom-buttom custom-buttom my-[20px] p-4 bg-[var(--donatetocharity2-bg-color)] rounded-[10px]">
+                      <h4 className="font-epilogue font-semibold text-[14px] leading-[22px] text-[var(--text-color)]">
+                        Back it because you believe in it.
+                      </h4>
+                      <p className="mt-[20px] font-epilogue font-normal leading-[22px] text-[var(--text-color)]">
+                        Support the project for no reward, just because it
+                        speaks to you.
+                      </p>
+                    </div>
 
-                  <div className="custom-buttom custom-buttom my-[20px] p-4 bg-[var(--donatetocharity2-bg-color)] rounded-[10px]">
-                    <h4 className="font-epilogue font-semibold text-[14px] leading-[22px] text-[var(--text-color)]">
-                      Back it because you believe in it.
-                    </h4>
-                    <p className="mt-[20px] font-epilogue font-normal leading-[22px] text-[var(--text-color)]">
-                      Support the project for no reward, just because it speaks
-                      to you.
-                    </p>
+                    <CustomButtom
+                      btnType="button"
+                      title="Fund Charity"
+                      styles="w-full bg-[#3498db]"
+                      handleClick={handleDonate}
+                    />
                   </div>
-
+                </div>
+              </div>
+            )}
+            {address === state.owner && (
+              <div className="py-4">
+                <h4 className="font-epilogue font-semibold text-[18px] text-[var(--text-color)] uppercase mb-[10px]">
+                  Delete Charity
+                </h4>
+                <div>
                   <CustomButtom
                     btnType="button"
-                    title="Fund Charity"
-                    styles="w-full bg-[#3498db]"
-                    handleClick={handleDonate}
+                    title="Delete Charity"
+                    styles="w-full bg-[#e74c3c]"
+                    handleClick={handleDelete}
                   />
                 </div>
               </div>
+            )}
+          </div>
+        ) : (
+          <div className="custom-buttom bg-[var(--profile-bg-color)] flex-1 justify-center items-center flex-col rounded-[10px] sm:p-10 p-4 max-h-300px">
+            <h4 className="font-epilogue font-semibold text-[18px] text-[var(--text-color)] my-10">
+              Please connect your wallet to delete or donate to this charity.
+            </h4>
+            <div className="flex flex-col justify-between">
+              <CustomButtom
+                btnType="button"
+                title={address ? "Disconnect the wallet" : "Connect to wallet"}
+                styles={address ? "bg-[#e74c3c] px-6 py-3" : "bg-[#3498db]"}
+                handleClick={() => {
+                  if (address) disconnect();
+                  else connect();
+                }}
+              />
             </div>
-          )}
-          {address === state.owner && (
-            <div className="py-4">
-              <h4 className="font-epilogue font-semibold text-[18px] text-[var(--text-color)] uppercase mb-[10px]">
-                Delete Charity
-              </h4>
-              <div>
-                <CustomButtom
-                  btnType="button"
-                  title="Delete Charity"
-                  styles="w-full bg-red-600"
-                  handleClick={handleDelete}
-                />
-              </div>
-            </div>
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -81,7 +81,7 @@ export default function FormField(props) {
           onChange={props.handleChange}
           rows={10}
           placeholder={props.placeholder}
-          className="py-[15px] sm:px-[25px] px-[15px] outline-none border-[1px] border-[#3a3a43] bg-transparent font-epilogue text-[var(--text-color)] text-[14px] placeholder:text-[var(--placeholder-color)] rounded-[10px] sm:min-w-[300px]"
+          className="py-[15px] sm:px-[25px] px-[15px] outline-none border-[1px] border-[#3a3a43] bg-transparent font-epilogue text-[var(--createCharity1-text-color)] text-[14px] placeholder:text-[var(--placeholder-color)] rounded-[10px] sm:min-w-[300px]"
         />
       ) : props.isSelect ? (
         <Select
@@ -102,7 +102,7 @@ export default function FormField(props) {
           step="0.1"
           min={props.min}
           placeholder={props.placeholder}
-          className="py-[15px] sm:px-[25px] px-[15px] outline-none border-[1px] border-[#3a3a43] bg-transparent font-epilogue text-[var(--text-color)] text-[14px] placeholder:text-[var(--placeholder-color)] rounded-[10px] sm:min-w-[300px]"
+          className="py-[15px] sm:px-[25px] px-[15px] outline-none border-[1px] border-[#3a3a43] bg-transparent font-epilogue text-[var(--createCharity1-text-color)] text-[14px] placeholder:text-[var(--placeholder-color)] rounded-[10px] sm:min-w-[300px]"
         />
       )}
     </label>

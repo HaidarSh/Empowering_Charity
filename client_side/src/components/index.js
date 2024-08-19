@@ -1,5 +1,6 @@
 export { default as Sidebar } from "./HelperComponents/Sidebar.jsx";
 export { default as CustomButtom } from "./HelperComponents/CustomButtom.jsx";
+export { default as UseIntersectionObserver } from "./HelperComponents/UseIntersectionObserver.jsx";
 export { default as FormField } from "./HelperComponents/FormField.jsx";
 export { default as DisplayActiveCharities } from "./DisplayCharities/DisplayActiveCharities.jsx";
 export { default as DisplayInActiveCharities } from "./DisplayCharities/DisplayInActiveCharities.jsx";
@@ -12,5 +13,4 @@ export { default as CountBoxInActive } from "./CountBox/CountBoxInActive.jsx";
 export { default as BlueLoader } from "./Loader/BlueLoader.jsx";
 export { default as RedLoader } from "./Loader/RedLoader.jsx";
 export { default as CharityPhotosStyle } from "./HomeComponents/CharityPhotosStyle.jsx";
-export { default as CharityPhotos } from "./HomeComponents/CharityPhotos.jsx";
 export { default as ThemeToggleIcon } from "./HelperComponents/ThemeToggleIcon.jsx";

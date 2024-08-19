@@ -46,7 +46,7 @@ export default function DisplayActiveCharities({
         </div>
         <CustomButtom
           btnType="button"
-          title={address ? "Disconnect the wallet" : "Connect to Wallet"}
+          title={address ? "Disconnect the wallet" : "Connect to wallet"}
           styles={address ? "bg-[#e74c3c] px-6 py-3" : "bg-[#3498db]"}
           handleClick={() => {
             if (address) disconnect();

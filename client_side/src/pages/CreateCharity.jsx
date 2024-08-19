@@ -151,7 +151,7 @@ export default function CreateCharity() {
       <div className="flex justify-center mb-[10px]">
         <CustomButtom
           btnType="button"
-          title={address ? "Disconnect the wallet" : "Connect to Wallet"}
+          title={address ? "Disconnect the wallet" : "Connect to wallet"}
           styles={address ? "bg-[#e74c3c] px-6 " : "bg-[#3498db] px-6 "}
           handleClick={() => {
             if (address) disconnect();
@@ -160,7 +160,7 @@ export default function CreateCharity() {
         />
       </div>
       <div className="custom-buttom flex justify-center items-center p-[16px] sm:min-w-[380px] bg-[#3498db] rounded-[10px] mt-[5px] cursor-pointer">
-        <h1 className="font-epilogue font-bold sm:text-[25px] text-[18px] leading-[38px] text-[var(--custombuttom-text-color)]">
+        <h1 className="font-epilogue font-bold sm:text-[25px] text-[18px] leading-[38px] text-[var(--createCharity2-text-color)]">
           Create a Charity
         </h1>
       </div>
@@ -251,7 +251,7 @@ export default function CreateCharity() {
             alt="money"
             className="w-[40px] h-[40px] object-contain "
           />
-          <h4 className="font-epilogue font-bold text-[25px] text-[var(--createCharity-text-color)] ml-[20px] ">
+          <h4 className="font-epilogue font-bold text-[25px] text-[var(--createCharity2-text-color)] ml-[20px] ">
             You will get 100% of the donated amount.
           </h4>
         </div>
@@ -303,7 +303,7 @@ export default function CreateCharity() {
       <div className="flex justify-center mb-[10px]">
         <CustomButtom
           btnType="button"
-          title={address ? "Disconnect the wallet" : "Connect to Wallet"}
+          title={address ? "Disconnect the wallet" : "Connect to wallet"}
           styles={address ? "bg-[#e74c3c] px-6 py-3" : "bg-[#3498db] px-6 py-3"}
           handleClick={() => {
             if (address) disconnect();
@@ -314,7 +314,7 @@ export default function CreateCharity() {
 
       <div className="flex justify-center flex-col items-center h-full mt-[5px] text-[var(--text-color)]">
         <h1 className="text-[20px] text-bold ">
-          Please connect wallet in order to add charity
+          Please connect wallet in order to add charity.
         </h1>
       </div>
     </div>

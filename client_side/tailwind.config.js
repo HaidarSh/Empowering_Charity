@@ -41,6 +41,17 @@ export default {
         'horizontal-tb': 'horizontal-tb',
         'vertical-lr': 'vertical-lr',
       },
+      maxWidth: {
+        '350px': '350px',
+        '50px': '50px',
+        '150x': '150px',
+        '200x': '200px',
+      },
+      maxHeight: {
+        '50px': '50px', 
+        '75px': '75px', 
+        '300px': '300px', 
+      },
   },
   
   variants: {

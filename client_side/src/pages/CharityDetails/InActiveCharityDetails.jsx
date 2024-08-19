@@ -229,6 +229,12 @@ export default function InActiveCharityDetails() {
             </div>
           </div>
         </div>
+        <div className="custom-buttom bg-[var(--profile-bg-color)] flex-1 justify-center items-center flex-col rounded-[10px] sm:p-10 p-4 max-h-300px">
+          <h4 className="font-epilogue font-semibold text-[18px]  my-10 text-[#e74c3c]">
+            This charity is now inactive. Donations and deletions are no longer
+            permitted.
+          </h4>
+        </div>
       </div>
     </div>
   );
