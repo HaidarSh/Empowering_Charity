@@ -61,40 +61,45 @@ export default function CreateCharity() {
   async function handleSubmit(event) {
     event.preventDefault();
 
-    if (form.target <= 0) {
-      Swal.fire({
-        title: "Wrong target value",
-        text: "Provide a positive Number!",
-        icon: "error",
-        confirmButtonText: "OK",
-        customClass: {
-          popup: "custom-swal-popup-error",
-          title: "custom-swal-title-error",
-          confirmButton: "custom-swal-confirm-button-error",
-        },
-      });
-      setForm({ ...form, target: "" });
-      return;
-    }
+    setIsLoading(true);
+    try {
+      if (form.target <= 0) {
+        Swal.fire({
+          title: "Wrong target value",
+          text: "Provide a positive Number!",
+          icon: "error",
+          confirmButtonText: "OK",
+          customClass: {
+            popup: "custom-swal-popup-error",
+            title: "custom-swal-title-error",
+            confirmButton: "custom-swal-confirm-button-error",
+          },
+        });
+        setForm({ ...form, target: "" });
+        return;
+      }
 
-    if (!validatePhoneNumber(form.phoneNumber)) {
-      Swal.fire({
-        title: "Wrong phone number",
-        text: "Provide a valid phone number!",
-        icon: "error",
-        confirmButtonText: "OK",
-        customClass: {
-          popup: "custom-swal-popup-error",
-          title: "custom-swal-title-error",
-          confirmButton: "custom-swal-confirm-button-error",
-        },
-      });
-      setForm({ ...form, phoneNumber: "" });
-      return;
-    }
+      if (!validatePhoneNumber(form.phoneNumber)) {
+        Swal.fire({
+          title: "Wrong phone number",
+          text: "Provide a valid phone number!",
+          icon: "error",
+          confirmButtonText: "OK",
+          customClass: {
+            popup: "custom-swal-popup-error",
+            title: "custom-swal-title-error",
+            confirmButton: "custom-swal-confirm-button-error",
+          },
+        });
+        setForm({ ...form, phoneNumber: "" });
+        return;
+      }
 
-    checkIfImage(form.image, async (exists) => {
-      if (!exists) {
+      const imageExists = await new Promise((resolve) => {
+        checkIfImage(form.image, resolve);
+      });
+
+      if (!imageExists) {
         Swal.fire({
           title: "Wrong image url",
           text: "Provide a correct image url!",
@@ -109,31 +114,43 @@ export default function CreateCharity() {
         setForm({ ...form, image: "" });
         return;
       }
-    });
 
-    const response = await createCharity({
-      ...form,
-      target: ethers.utils.parseUnits(form.target, 18),
-    });
-    if (response) {
-      setIsLoading(true);
-      Swal.fire({
-        title: "Charity successfully created!",
-        text: "",
-        icon: "success",
-        confirmButtonText: "OK",
-        customClass: {
-          popup: "custom-swal-popup-success",
-          title: "custom-swal-title-success",
-          confirmButton: "custom-swal-confirm-button-success",
-        },
+      const response = await createCharity({
+        ...form,
+        target: ethers.utils.parseUnits(form.target, 18),
       });
-      setIsLoading(false);
-      navigate("/View_Active_Charity");
-    } else {
+
+      if (response) {
+        Swal.fire({
+          title: "Charity successfully created!",
+          text: "",
+          icon: "success",
+          confirmButtonText: "OK",
+          customClass: {
+            popup: "custom-swal-popup-success",
+            title: "custom-swal-title-success",
+            confirmButton: "custom-swal-confirm-button-success",
+          },
+        });
+        navigate("/View_Active_Charity");
+      } else {
+        Swal.fire({
+          title: "Charity creation rejected",
+          text: "",
+          icon: "error",
+          confirmButtonText: "OK",
+          customClass: {
+            popup: "custom-swal-popup-error",
+            title: "custom-swal-title-error",
+            confirmButton: "custom-swal-confirm-button-error",
+          },
+        });
+      }
+    } catch (error) {
+      console.error("Error during submission:", error);
       Swal.fire({
-        title: "Charity creation rejected",
-        text: "",
+        title: "Submission failed",
+        text: "An error occurred. Please try again.",
         icon: "error",
         confirmButtonText: "OK",
         customClass: {
@@ -142,6 +159,8 @@ export default function CreateCharity() {
           confirmButton: "custom-swal-confirm-button-error",
         },
       });
+    } finally {
+      setIsLoading(false);
     }
   }
 
@@ -151,8 +170,8 @@ export default function CreateCharity() {
       <div className="flex justify-center mb-[10px]">
         <CustomButtom
           btnType="button"
-          title={address ? "Disconnect the wallet" : "Connect to wallet"}
-          styles={address ? "bg-[#e74c3c] px-6 " : "bg-[#3498db] px-6 "}
+          title={address ? "Disconnect wallet" : "Connect wallet"}
+          styles={address ? "bg-[#e74c3c]" : "bg-[#3498db]"}
           handleClick={() => {
             if (address) disconnect();
             else connect();
@@ -259,7 +278,7 @@ export default function CreateCharity() {
         <div className="flex flex-wrap gap-[40px]">
           <FormField
             labelName="Goal *"
-            placeholder="ETH 0.50"
+            placeholder="ETH 0.5"
             inputType="number"
             value={form.target}
             handleChange={(event) => {

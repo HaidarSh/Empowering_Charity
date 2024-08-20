@@ -64,10 +64,10 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <div className="home-bar sticky flex flex-row w-full bg-[var(--home-bg-color)] h-[80px] rounded-[10px] justify-between items-center px-[20px]">
-        <div className="text-4xl font-bold text-[var(--text-color)] flex justify-start items-center">
-          <div className="mt-10" ref={titleRef}>
-            <p className="text-xl mb-10 font-epilogue">
+      <div className="home-bar sticky flex flex-row w-full bg-[var(--home-bg-color)] sm:h-[80px] h-[100px] rounded-[10px] justify-between items-center px-[20px]">
+        <div className="font-bold text-[var(--text-color)] flex justify-start items-center">
+          <div className="mt-10 sm:mt-5" ref={titleRef}>
+            <p className="text-[18px] mb-6 sm:mb-6 font-epilogue">
               {titles.map((letter, index) => (
                 <span
                   key={index}
@@ -82,12 +82,13 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <div className="flex flex-row ml-auto">
+
+        <div className="flex flex-row ml-auto sm:w-auto">
           <CustomButtom
             btnType="button"
-            title={address ? "Disconnect the wallet" : "Connect to wallet"}
+            title={address ? "Disconnect wallet" : "Connect wallet"}
             styles={
-              address ? "bg-[#e74c3c] px-6 py-3" : "bg-[#3498db] px-6 py-3"
+              address ? "bg-[#e74c3c] p-1" : "bg-[#3498db] p-1"
             }
             handleClick={() => {
               if (address) disconnect();
@@ -113,10 +114,10 @@ export default function Home() {
         </p>
       </div>
 
-      <div className="flex cursor-pointer justify-center mt-10">
+      <div className="flex cursor-pointer justify-center mt-10 sm:mt-10">
         <img
           src="/src/Home_Page_Photos/image_big_1.png"
-          className="home-bigimage object-contain w-1/2 h-1/2 rounded-[20px]"
+          className="home-bigimage object-contain sm:w-1/2 sm:h-1/2 rounded-[20px]"
           alt="Charity"
         />
       </div>
@@ -139,7 +140,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="flex flex-row gap-6">
+          <div className="flex flex-wrap gap-6">
             <CharityPhotosStyle imageSRC="/src/Home_Page_Photos/first-1.jpeg" />
             <CharityPhotosStyle imageSRC="/src/Home_Page_Photos/first-2.jpeg" />
             <CharityPhotosStyle imageSRC="/src/Home_Page_Photos/first-3.jpeg" />
@@ -211,7 +212,7 @@ export default function Home() {
           <h1 className="text-xl bg-[var(--text-color)] mb-10"></h1>
           <img
             src="/src/Home_Page_Photos/image_big_2.png"
-            className="home-bigimage object-contain w-1/2 h-1/2 rounded-[20px]"
+            className="home-bigimage object-contain w-[80%] h-[80%] sm:w-1/2 sm:h-1/2 rounded-[20px]"
             alt="Charity"
           />
         </div>

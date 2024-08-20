@@ -16,7 +16,7 @@ export default function App() {
   const [showActive, setShowActive] = useState(true);
   return (
     <div className="relative sm:-8 p-4 bg-[var(--background-color)] min-h-screen flex flex-row">
-      <div className="sm:flex hidden mr-10 relative">
+      <div className="sm:flex mr-6 sm:mr-5 relative">
         <Sidebar showActive={showActive} setShowActive={setShowActive} />
       </div>
 

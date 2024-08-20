@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { ethers } from "ethers";
 
 import { useStateContext } from "../../context";
-import { CountBoxInActive, RedLoader } from "../../components";
+import { CustomButtom, CountBoxInActive, RedLoader } from "../../components";
 import { calculateBarPercentage, daysLeft } from "../../utils";
 import {
   email_icon_inactive,
@@ -21,6 +21,8 @@ export default function InActiveCharityDetails() {
     getDonations,
     contract,
     address,
+    connect,
+    disconnect,
     getUserActiveCharities,
     getUserInActiveCharities,
   } = useStateContext();
@@ -58,16 +60,30 @@ export default function InActiveCharityDetails() {
   return (
     <div>
       {isLoading && <RedLoader />}
-
-      <div className="w-full flex md:flex-row flex-row mt-10 gap-[30px] ">
-        <div className="flex-1 flex-col">
+      <div className="flex flex-col justify-center items-center px-50">
+        <CustomButtom
+          btnType="button"
+          title={address ? "Disconnect wallet" : "Connect wallet"}
+          styles={
+            address
+              ? "bg-[#e74c3c] w-[400px] h-[40px] flex justify-center items-center"
+              : "bg-[#3498db] w-[400px] h-[40px] flex justify-center items-center"
+          }
+          handleClick={() => {
+            if (address) disconnect();
+            else connect();
+          }}
+        />
+      </div>
+      <div className="w-full flex md:flex-row flex-col mt-10 gap-[30px]">
+        <div className="flex-1">
           <img
             src={state.image}
             alt="charity"
-            className="custom-buttom cursor-pointer w-full h-[410px] object-cover rounded-xl opacity-60 brightness-110"
+            className="custom-buttom w-full h-[410px] object-cover rounded-xl cursor-pointer opacity-60 brightness-110"
           />
 
-          <div className="cursor-pointer custom-buttom relative w-full h-[7px]  bg-[var(--targetloading-bg-color)] mt-2 rounded-[20px]">
+          <div className="cursor-pointer custom-buttom relative w-full h-[7px] bg-[var(--targetloading-bg-color)] mt-2 rounded-[20px]">
             <div
               className="absolute h-full bg-[#e74c3c] rounded-[20px]"
               style={{

@@ -6,7 +6,8 @@ export default {
     "./node_modules/sweetalert2/src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {
+    extend: 
+    {
       boxShadow: {
         'lg': '0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05)',
       },
@@ -18,6 +19,13 @@ export default {
       },
       boxShadow: {
         secondary: '10px 10px 20px rgba(2, 2, 2, 0.25)',
+      },
+      screens: {
+        sm: '640px', 
+        md: '768px',  
+        lg: '1024px', 
+        xl: '1280px',
+        '2xl': '1536px', 
       },
       colors: {
         red: {

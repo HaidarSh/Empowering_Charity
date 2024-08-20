@@ -10,21 +10,23 @@ import "./index.css";
 
 // const sdkOptions = {
 //   readonlySettings: {
-//     rpcUrl: "https://eth-sepolia.g.alchemy.com/v2/Xf6P0sXGZi_u_mjCBgWcNgXaL5DmjmKn",//"https://127.0.0.1:8545"// force read calls to go through your own RPC url
-//     chainId: 11155111,//31337 // reduce RPC calls by specifying your chain ID
-//   }
+//     rpcUrl:
+//       "https://eth-sepolia.g.alchemy.com/v2/Xf6P0sXGZi_u_mjCBgWcNgXaL5DmjmKn", //"https://127.0.0.1:8545"
+//     chainId: 11155111, //31337
+//   },
 // };
 
-// ReactDOM.createRoot(document.getElementById('root')).render(
-
+// ReactDOM.createRoot(document.getElementById("root")).render(
 //   <ThirdwebProvider sdkOptions={sdkOptions}>
-//     <Router>
-//       <StateContextProvider>
-//         <App />
-//       </StateContextProvider>
-//     </Router>
-//   </ThirdwebProvider>,
-// )
+//     <ThemeProvider>
+//       <Router>
+//         <StateContextProvider>
+//           <App />
+//         </StateContextProvider>
+//       </Router>
+//     </ThemeProvider>
+//   </ThirdwebProvider>
+// );
 
 const sdkOptions = {
   readonlySettings: {

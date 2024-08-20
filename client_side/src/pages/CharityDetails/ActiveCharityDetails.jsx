@@ -69,6 +69,7 @@ export default function ActiveCharityDetails() {
 
   async function handleDonate() {
     const parsedAmount = parseFloat(amount);
+
     if (parsedAmount <= 0) {
       Swal.fire({
         title: "Incorrect donation amount",
@@ -83,6 +84,7 @@ export default function ActiveCharityDetails() {
       });
       return;
     }
+
     if (isNaN(parsedAmount)) {
       Swal.fire({
         title: "No value entered",
@@ -97,23 +99,61 @@ export default function ActiveCharityDetails() {
       });
       return;
     }
-    const response = await donate(state.pId, amount);
-    if (response) {
+
+    try {
       setIsLoading(true);
+
+      const response = await donate(state.pId, amount);
+
+      if (response) {
+        Swal.fire({
+          title: "Donated successfully!",
+          text: "",
+          icon: "success",
+          confirmButtonText: "OK",
+          customClass: {
+            popup: "custom-swal-popup-success",
+            title: "custom-swal-title-success",
+            confirmButton: "custom-swal-confirm-button-success",
+          },
+        });
+
+        const newCollectedAmount = parseFloat(collectedAmount) + parsedAmount;
+        setCollectedAmount(newCollectedAmount);
+        await fetchDonators();
+
+        if (newCollectedAmount >= state.target / 1e18) {
+          Swal.fire({
+            title:
+              "Charity is now inactive as the target amount has been reached.",
+            text: "Charity Removed to the inactive page",
+            icon: "warning",
+            confirmButtonText: "OK",
+            customClass: {
+              popup: "custom-swal-popup-warning",
+              title: "custom-swal-title-warning",
+              confirmButton: "custom-swal-confirm-button-warning",
+            },
+          });
+          navigate("/View_Active_Charity");
+        }
+      } else {
+        Swal.fire({
+          title: "Donation process rejected",
+          text: "",
+          icon: "error",
+          confirmButtonText: "OK",
+          customClass: {
+            popup: "custom-swal-popup-error",
+            title: "custom-swal-title-error",
+            confirmButton: "custom-swal-confirm-button-error",
+          },
+        });
+      }
+    } catch (error) {
+      console.error("Error during donation:", error);
       Swal.fire({
-        title: "Donated successfully!",
-        text: "",
-        icon: "success",
-        confirmButtonText: "OK",
-        customClass: {
-          popup: "custom-swal-popup-success",
-          title: "custom-swal-title-success",
-          confirmButton: "custom-swal-confirm-button-success",
-        },
-      });
-    } else {
-      Swal.fire({
-        title: "Donation proccess rejected",
+        title: "An error occurred during donation",
         text: "",
         icon: "error",
         confirmButtonText: "OK",
@@ -123,43 +163,10 @@ export default function ActiveCharityDetails() {
           confirmButton: "custom-swal-confirm-button-error",
         },
       });
-      return;
+    } finally {
+      setIsLoading(false);
     }
-    const newCollectedAmount = parseFloat(collectedAmount) + parsedAmount;
-    setCollectedAmount(newCollectedAmount);
-    await fetchDonators();
 
-    if (newCollectedAmount === state.target / 1e18) {
-      navigate("/View_Active_Charity");
-      Swal.fire({
-        title:
-          "Charity is now inactive as the target amount has been reached, Charity Removed to the inactive page",
-        text: "",
-        icon: "warning",
-        confirmButtonText: "OK",
-        customClass: {
-          popup: "custom-swal-popup-warning",
-          title: "custom-swal-title-warning",
-          confirmButton: "custom-swal-confirm-button-warning",
-        },
-      });
-    }
-    if (newCollectedAmount > state.target / 1e18) {
-      navigate("/View_Active_Charity");
-      Swal.fire({
-        title:
-          "Charity is now inactive as the amount donated exceeded the target, Charity Removed to the inactive page",
-        text: "",
-        icon: "warning",
-        confirmButtonText: "OK",
-        customClass: {
-          popup: "custom-swal-popup-warning",
-          title: "custom-swal-title-warning",
-          confirmButton: "custom-swal-confirm-button-warning",
-        },
-      });
-    }
-    setIsLoading(false);
     setAmount("");
   }
 
@@ -219,7 +226,7 @@ export default function ActiveCharityDetails() {
         <div className="flex flex-col justify-center items-center px-50">
           <CustomButtom
             btnType="button"
-            title={address ? "Disconnect the wallet" : ""}
+            title={address ? "Disconnect wallet" : ""}
             styles={
               address
                 ? "bg-[#e74c3c] px-6 py-2 w-[400px] h-[40px] flex justify-center items-center"
@@ -233,7 +240,7 @@ export default function ActiveCharityDetails() {
         </div>
       )}
       <div className="w-full flex md:flex-row flex-col mt-10 gap-[30px]">
-        <div className="flex-1 flex-col">
+        <div className="flex-1">
           <img
             src={state.image}
             alt="charity"
@@ -405,7 +412,7 @@ export default function ActiveCharityDetails() {
                 </h4>
                 <div className="custom-buttom mt-[20px] flex flex-col p-4 bg-[var(--donatetocharity1-bg-color)] rounded-[10px]">
                   <p className="font-epilogue font-semibold text-[20px] leading-[30px] text-center text-[var(--text-color)]">
-                    Donate to the Charity
+                    Pledge without reward
                   </p>
                   <div className="mt-[30px]">
                     <input
@@ -461,7 +468,7 @@ export default function ActiveCharityDetails() {
             <div className="flex flex-col justify-between">
               <CustomButtom
                 btnType="button"
-                title={address ? "Disconnect the wallet" : "Connect to wallet"}
+                title={address ? "Disconnect wallet" : "Connect wallet"}
                 styles={address ? "bg-[#e74c3c] px-6 py-3" : "bg-[#3498db]"}
                 handleClick={() => {
                   if (address) disconnect();

@@ -6,7 +6,7 @@ import moon from './moon.svg';
 import category_icon_active from './category_icon_active.svg';
 import search_dark from './search_dark.svg';
 import search_light from './search_light.svg';
-import menu from './menu.svg';
+import menu_icon from './menu_icon.svg';
 import money from './money.svg';
 import BlueLoader from './BlueLoader.svg';
 import RedLoader from './RedLoader.svg';
@@ -38,7 +38,7 @@ export {
   moon,
   search_dark,
   search_light,
-  menu,
+  menu_icon,
   money,
   BlueLoader,
   RedLoader,

@@ -4,18 +4,20 @@ import { BlueLoader, ActiveFundCard } from "..";
 import { search_dark, search_light } from "../../assets";
 import { CustomButtom } from "..";
 import { useStateContext } from "../../context";
-
 import { useTheme } from "../HelperComponents/ThemeContext";
 
-export default function DisplayActiveCharities({
-  title,
-  isLoading,
-  charities,
-}) {
+export default function DisplayActiveCharities({ title, isLoading, charities }) {
   const { theme } = useTheme();
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 640);
   const { address, connect, disconnect } = useStateContext();
+
+  useEffect(() => {
+    const handleResize = () => setIsSmallScreen(window.innerWidth < 640);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     navigate(`./?query=${searchQuery}`);
@@ -27,11 +29,11 @@ export default function DisplayActiveCharities({
 
   return (
     <div>
-      <div className="flex flex-row justify-between">
+      <div className="flex flex-row justify-between gap-5">
         <div className="searchBar lg:flex-1 flex flex-row max-w-[458px] py-2 pl-4 pr-2 h-[52px] bg-[var(--searchbar-bg-color)] rounded-[100px] ">
           <input
             type="text"
-            placeholder="Search for Charities"
+            placeholder={isSmallScreen ? "Search" : "Search for Charities"}
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="flex w-full font-epilogue font-normal text-[14px] placeholder:text-[#4b5264] text-[var(--text-color)] bg-transparent outline-none"
@@ -44,15 +46,17 @@ export default function DisplayActiveCharities({
             />
           </div>
         </div>
-        <CustomButtom
-          btnType="button"
-          title={address ? "Disconnect the wallet" : "Connect to wallet"}
-          styles={address ? "bg-[#e74c3c] px-6 py-3" : "bg-[#3498db]"}
-          handleClick={() => {
-            if (address) disconnect();
-            else connect();
-          }}
-        />
+        <div className="flex flex-row ml-auto sm:w-auto">
+          <CustomButtom
+            btnType="button"
+            title={address ? "Disconnect wallet" : "Connect wallet"}
+            styles={address ? "bg-[#e74c3c] p-1" : "bg-[#3498db] p-1"}
+            handleClick={() => {
+              if (address) disconnect();
+              else connect();
+            }}
+          />
+        </div>
       </div>
 
       <h1 className="font-epilogue font-semibold text-[18px] text-[var(--text-color)] text-left mt-[20px]">
@@ -64,7 +68,6 @@ export default function DisplayActiveCharities({
 
         {!isLoading && charities.length === 0 && (
           <p className="font-epilogue font-semibold text-[14px] leading-[30px]  text-[var(--text-color)]">
-            {" "}
             No result found.
           </p>
         )}

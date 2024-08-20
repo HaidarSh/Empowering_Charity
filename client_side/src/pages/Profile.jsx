@@ -24,7 +24,6 @@ import {
   name_icon_inactive,
   email_icon_inactive,
 } from "../assets";
-
 import { useTheme } from "../components";
 
 function ToggleButton({ active, onClick, label, color }) {
@@ -50,6 +49,7 @@ export default function Profile({ showActive, setShowActive }) {
   const [inActiveCharities, setInActiveCharities] = useState([]);
   const [filteredCharities, setFilteredCharities] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 640);
 
   const [userActiveProfile, setUserActiveProfile] = useState({
     name: "",
@@ -77,6 +77,12 @@ export default function Profile({ showActive, setShowActive }) {
   } = useStateContext();
   const location = useLocation();
   const queryParam = new URLSearchParams(location.search).get("query");
+
+  useEffect(() => {
+    const handleResize = () => setIsSmallScreen(window.innerWidth < 640);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     if (contract) {
@@ -140,11 +146,11 @@ export default function Profile({ showActive, setShowActive }) {
     <div>
       {isLoading && (showActive ? <BlueLoader /> : <RedLoader />)}
 
-      <div className="flex justify-between">
+      <div className="flex flex-row justify-between gap-5">
         <div className="searchBar lg:flex-1 flex flex-row max-w-[458px] py-2 pl-4 pr-2 h-[52px] bg-[var(--searchbar-bg-color)] rounded-[100px]">
           <input
             type="text"
-            placeholder="Search for Charities"
+            placeholder={isSmallScreen ? "Search" : "Search for Charities"}
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="flex w-full font-epilogue font-normal text-[14px] placeholder:text-[#4b5264] text-[var(--text-color)] bg-transparent outline-none"
@@ -167,10 +173,8 @@ export default function Profile({ showActive, setShowActive }) {
         <div className="flex flex-row justify-center">
           <CustomButtom
             btnType="button"
-            title={address ? "Disconnect the wallet" : "Connect to wallet"}
-            styles={
-              address ? "bg-[#e74c3c] px-6 py-3" : "bg-[#3498db] px-6 py-3"
-            }
+            title={address ? "Disconnect wallet" : "Connect wallet"}
+            styles={address ? "bg-[#e74c3c]" : "bg-[#3498db]"}
             handleClick={() => {
               if (address) disconnect();
               else connect();
@@ -368,7 +372,7 @@ export default function Profile({ showActive, setShowActive }) {
       <div className="flex justify-center mb-[10px]">
         <CustomButtom
           btnType="button"
-          title={address ? "Disconnect the wallet" : "Connect to wallet"}
+          title={address ? "Disconnect wallet" : "Connect wallet"}
           styles={address ? "bg-[#e74c3c] px-6 py-3" : "bg-[#3498db] px-6 py-3"}
           handleClick={() => {
             if (address) disconnect();
@@ -379,7 +383,7 @@ export default function Profile({ showActive, setShowActive }) {
 
       <div className="flex justify-center flex-col items-center h-full mt-[5px] text-[var(--text-color)]">
         <h1 className="text-[20px] text-bold">
-          Please connect wallet to view your profile.
+          Please connect the wallet to view your profile.
         </h1>
       </div>
     </div>
