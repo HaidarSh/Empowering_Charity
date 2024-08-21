@@ -9,18 +9,21 @@ import {
   InActiveCharityDetails,
   ViewInActiveCharity,
 } from "./pages";
-import { Sidebar } from "./components";
+import { DefaultSidebar, MobileSidebar } from "./components";
 import "./index.css";
 
 export default function App() {
   const [showActive, setShowActive] = useState(true);
   return (
     <div className="relative sm:-8 p-4 bg-[var(--background-color)] min-h-screen flex flex-row">
-      <div className="sm:flex mr-6 sm:mr-5 relative">
-        <Sidebar showActive={showActive} setShowActive={setShowActive} />
+      <div className="default-navbar sm:flex mr-6 hidden sm:mr-5 relative">
+        <DefaultSidebar showActive={showActive} setShowActive={setShowActive} />
+      </div>
+      <div className="mobile-navbar sm:flex sm:mr-5 relative sm:pb-[20px]">
+        <MobileSidebar showActive={showActive} setShowActive={setShowActive} />
       </div>
 
-      <div className="flex-1 max-sm:w-full max-w-[1280px] mx-auto sm:pr-5">
+      <div className="main-content flex-1 max-sm:w-full max-w-[1280px] mx-auto">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/View_Active_Charity" element={<ViewActiveCharity />} />

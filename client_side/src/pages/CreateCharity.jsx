@@ -17,6 +17,7 @@ export default function CreateCharity() {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const { createCharity, address, connect, disconnect } = useStateContext();
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 640);
   const [form, setForm] = useState({
     name: "",
     title: "",
@@ -31,6 +32,12 @@ export default function CreateCharity() {
   });
 
   const [minDate, setMinDate] = useState("");
+
+  useEffect(() => {
+    const handleResize = () => setIsSmallScreen(window.innerWidth < 640);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     const today = new Date().toISOString().split("T")[0];
@@ -170,7 +177,15 @@ export default function CreateCharity() {
       <div className="flex justify-center mb-[10px]">
         <CustomButtom
           btnType="button"
-          title={address ? "Disconnect wallet" : "Connect wallet"}
+          title={
+            address
+              ? isSmallScreen
+                ? "Disconnect"
+                : "Disconnect wallet"
+              : isSmallScreen
+              ? "Connect"
+              : "Connect wallet"
+          }
           styles={address ? "bg-[#e74c3c]" : "bg-[#3498db]"}
           handleClick={() => {
             if (address) disconnect();
@@ -270,7 +285,7 @@ export default function CreateCharity() {
             alt="money"
             className="w-[40px] h-[40px] object-contain "
           />
-          <h4 className="font-epilogue font-bold text-[25px] text-[var(--createCharity2-text-color)] ml-[20px] ">
+          <h4 className="font-epilogue font-bold responsive-text text-[25px] text-[var(--createCharity2-text-color)] ml-[20px] ">
             You will get 100% of the donated amount.
           </h4>
         </div>
@@ -322,7 +337,15 @@ export default function CreateCharity() {
       <div className="flex justify-center mb-[10px]">
         <CustomButtom
           btnType="button"
-          title={address ? "Disconnect the wallet" : "Connect to wallet"}
+          title={
+            address
+              ? isSmallScreen
+                ? "Disconnect"
+                : "Disconnect wallet"
+              : isSmallScreen
+              ? "Connect"
+              : "Connect wallet"
+          }
           styles={address ? "bg-[#e74c3c] px-6 py-3" : "bg-[#3498db] px-6 py-3"}
           handleClick={() => {
             if (address) disconnect();
@@ -332,7 +355,7 @@ export default function CreateCharity() {
       </div>
 
       <div className="flex justify-center flex-col items-center h-full mt-[5px] text-[var(--text-color)]">
-        <h1 className="text-[20px] text-bold ">
+        <h1 className="text-[20px] responsive-text text-bold ">
           Please connect wallet in order to add charity.
         </h1>
       </div>

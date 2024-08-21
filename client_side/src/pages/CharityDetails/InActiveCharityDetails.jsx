@@ -4,7 +4,7 @@ import { ethers } from "ethers";
 
 import { useStateContext } from "../../context";
 import { CustomButtom, CountBoxInActive, RedLoader } from "../../components";
-import { calculateBarPercentage, daysLeft } from "../../utils";
+import { calculateBarPercentage } from "../../utils";
 import {
   email_icon_inactive,
   location_icon_inactive,
@@ -66,8 +66,8 @@ export default function InActiveCharityDetails() {
           title={address ? "Disconnect wallet" : "Connect wallet"}
           styles={
             address
-              ? "bg-[#e74c3c] w-[400px] h-[40px] flex justify-center items-center"
-              : "bg-[#3498db] w-[400px] h-[40px] flex justify-center items-center"
+              ? "bg-[#e74c3c] h-[40px] flex justify-center items-center"
+              : "bg-[#3498db] h-[40px] flex justify-center items-center"
           }
           handleClick={() => {
             if (address) disconnect();
@@ -75,12 +75,12 @@ export default function InActiveCharityDetails() {
           }}
         />
       </div>
-      <div className="w-full flex md:flex-row flex-col mt-10 gap-[30px]">
+      <div className="w-full image-custom-2 flex md:flex-row flex-col mt-10 gap-[30px]">
         <div className="flex-1">
           <img
             src={state.image}
             alt="charity"
-            className="custom-buttom w-full h-[410px] object-cover rounded-xl cursor-pointer opacity-60 brightness-110"
+            className="custom-buttom image-custom w-full h-[410px] object-cover rounded-xl cursor-pointer opacity-60 brightness-110"
           />
 
           <div className="cursor-pointer custom-buttom relative w-full h-[7px] bg-[var(--targetloading-bg-color)] mt-2 rounded-[20px]">
@@ -124,15 +124,15 @@ export default function InActiveCharityDetails() {
               </div>
 
               <div>
-                <h4 className="charitydetails-text-nb font-epilogue font-semibold text-[14px] text-[var(--text-color)] break-all cursor-pointer hover:text-[#e74c3c]">
+                <h4 className="charitydetails-text-nb charitydetails-text-2 font-epilogue font-semibold text-[14px] text-[var(--text-color)] break-all cursor-pointer hover:text-[#e74c3c]">
                   {state.owner}
                 </h4>
                 <div className="flex flex-row justify-between">
-                  <p className="charitydetails-text-nb mt-[4px] font-epilogue font-normal text-[11px] text-[var(--text-color)] cursor-pointer hover:text-[#338AF0] ">
+                  <p className="charitydetails-text-nb charitydetails-text-2 mt-[4px] font-epilogue font-normal text-[11px] text-[var(--text-color)] cursor-pointer hover:text-[#338AF0] ">
                     {activeCharities.length} Active{" "}
                     {activeCharities.length > 1 ? "Charities" : "Charity"}
                   </p>
-                  <p className="charitydetails-text-nb mt-[4px] font-epilogue font-normal text-[11px] text-[var(--text-color)] cursor-pointer hover:text-[#e74c3c]">
+                  <p className="charitydetails-text-nb charitydetails-text-2 mt-[4px] font-epilogue font-normal text-[11px] text-[var(--text-color)] cursor-pointer hover:text-[#e74c3c]">
                     {inActiveCharities.length} InActive{" "}
                     {inActiveCharities.length > 1 ? "Charities" : "Charity"}
                   </p>
@@ -210,7 +210,7 @@ export default function InActiveCharityDetails() {
             </h4>
 
             <div className="mt-[20px]">
-              <p className="font-epilogue font-normal text-[16px] text-[var(--text-color)] leading-[26px] text-justify">
+              <p className="charitydetails-text-3 font-epilogue font-normal text-[16px] text-[var(--text-color)] leading-[26px] text-justify">
                 {state.description}
               </p>
             </div>
@@ -228,17 +228,17 @@ export default function InActiveCharityDetails() {
                     key={`${item.donators}-${index}`}
                     className="flex justify-between items-center gap-4"
                   >
-                    <p className="font-epilogue font-normal text-[16px] text-[var(--text-color)] leading-[26px] break-all">
+                    <p className="charitydetails-text-3 font-epilogue font-normal text-[16px] text-[var(--text-color)] leading-[26px] break-all">
                       {index + 1}. {item.donator}
                     </p>
 
-                    <p className="font-epilogue font-normal text-[16px] text-[var(--text-color)] leading-[26px] break-all">
+                    <p className="charitydetails-text-3 font-epilogue font-normal text-[16px] text-[var(--text-color)] leading-[26px] break-all">
                       {item.donation} ETH
                     </p>
                   </div>
                 ))
               ) : (
-                <p className="font-epilogue font-normal text-[16px] text-[var(--text-color)] leading-[26px] text-justify">
+                <p className="charitydetails-text-3 font-epilogue font-normal text-[16px] text-[var(--text-color)] leading-[26px] text-justify">
                   No donators for this charity.
                 </p>
               )}
@@ -246,7 +246,7 @@ export default function InActiveCharityDetails() {
           </div>
         </div>
         <div className="custom-buttom bg-[var(--profile-bg-color)] flex-1 justify-center items-center flex-col rounded-[10px] sm:p-10 p-4 max-h-300px">
-          <h4 className="font-epilogue font-semibold text-[18px]  my-10 text-[#e74c3c]">
+          <h4 className="font-epilogue responsive-text font-semibold text-[18px]  my-10 text-[#e74c3c]">
             This charity is now inactive. Donations and deletions are no longer
             permitted.
           </h4>

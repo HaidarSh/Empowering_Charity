@@ -139,7 +139,7 @@ export default function ActiveFundCard({
           </div>
         </div>
 
-        <div className="flex items-center mt-[20px] gap-[12px] ">
+        <div className="flex items-center mt-[20px] gap-[12px]">
           <div className="icons w-[30px] h-[30px] rounded-full flex justify-center items-center bg-[#13131a]">
             <img
               src={thirdweb}

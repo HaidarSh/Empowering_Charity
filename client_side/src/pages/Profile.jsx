@@ -30,7 +30,7 @@ function ToggleButton({ active, onClick, label, color }) {
   return (
     <button
       onClick={onClick}
-      className={`profile-button px-6 py-2 rounded-[10px] text-[var(--custombuttom-text-color)] ${color} text-[20px] ${
+      className={`profile-button responsive-text px-6 py-2 rounded-[10px] text-[var(--custombuttom-text-color)] ${color} text-[20px] ${
         active ? "border-4 shadow-md" : "border border-transparent shadow-none"
       }`}
       style={{
@@ -150,7 +150,9 @@ export default function Profile({ showActive, setShowActive }) {
         <div className="searchBar lg:flex-1 flex flex-row max-w-[458px] py-2 pl-4 pr-2 h-[52px] bg-[var(--searchbar-bg-color)] rounded-[100px]">
           <input
             type="text"
-            placeholder={isSmallScreen ? "Search" : "Search for Charities"}
+            placeholder={
+              isSmallScreen ? "Search charities" : "Search for charities"
+            }
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="flex w-full font-epilogue font-normal text-[14px] placeholder:text-[#4b5264] text-[var(--text-color)] bg-transparent outline-none"
@@ -173,7 +175,15 @@ export default function Profile({ showActive, setShowActive }) {
         <div className="flex flex-row justify-center">
           <CustomButtom
             btnType="button"
-            title={address ? "Disconnect wallet" : "Connect wallet"}
+            title={
+              address
+                ? isSmallScreen
+                  ? "Disconnect"
+                  : "Disconnect wallet"
+                : isSmallScreen
+                ? "Connect"
+                : "Connect wallet"
+            }
             styles={address ? "bg-[#e74c3c]" : "bg-[#3498db]"}
             handleClick={() => {
               if (address) disconnect();
@@ -185,7 +195,7 @@ export default function Profile({ showActive, setShowActive }) {
 
       <div className="profile-bar mt-[60px] bg-[var(--profile-bg-color)] rounded-[20px] shadow-lg p-8  mx-auto flex flex-col gap-6 mb-10">
         {" "}
-        <div className="flex items-center mb-6 gap-5">
+        <div className="profile-responsive flex items-center mb-6 gap-5">
           <div className="box w-[100px] h-[100px] rounded-[20px] bg-[var(--background-color)] flex items-center justify-center mr-6 p-2">
             <img
               src={
@@ -206,7 +216,7 @@ export default function Profile({ showActive, setShowActive }) {
                     className="icons cursor-pointer"
                   />
                   <h1
-                    className={`profile-button mb-1 cursor-pointer ${
+                    className={`profile-button responsive-text mb-1 cursor-pointer ${
                       showActive
                         ? "hover:text-[#338AF0]"
                         : "hover:text-[#e74c3c]"
@@ -227,7 +237,7 @@ export default function Profile({ showActive, setShowActive }) {
                     className="icons cursor-pointer"
                   />
                   <p
-                    className={`profile-button mb-1 cursor-pointer ${
+                    className={`profile-button charitydetails-text-2 mb-1 cursor-pointer ${
                       showActive
                         ? "hover:text-[#338AF0]"
                         : "hover:text-[#e74c3c]"
@@ -248,7 +258,7 @@ export default function Profile({ showActive, setShowActive }) {
                     className="icons cursor-pointer"
                   />
                   <p
-                    className={`profile-button mb-1 cursor-pointer ${
+                    className={`profile-button responsive-text mb-1 cursor-pointer ${
                       showActive
                         ? "hover:text-[#338AF0]"
                         : "hover:text-[#e74c3c]"
@@ -270,7 +280,7 @@ export default function Profile({ showActive, setShowActive }) {
                   />
 
                   <p
-                    className={`profile-button mb-1 cursor-pointer ${
+                    className={`profile-button responsive-text mb-1 cursor-pointer ${
                       showActive
                         ? "hover:text-[#338AF0]"
                         : "hover:text-[#e74c3c]"
@@ -290,7 +300,7 @@ export default function Profile({ showActive, setShowActive }) {
                   />
 
                   <p
-                    className={`profile-button underline mb-1 cursor-pointer ${
+                    className={`profile-button responsive-text underline mb-1 cursor-pointer ${
                       showActive
                         ? "hover:text-[#338AF0]"
                         : "hover:text-[#e74c3c]"
@@ -311,10 +321,10 @@ export default function Profile({ showActive, setShowActive }) {
             className="box bg-[var(--background-color)] p-4 w-[130px] rounded-[10px] mt-10 flex text-lg text-[var(--text-color)] flex justify-center items-center cursor-pointer"
           >
             <div className="profile-button flex flex-col ">
-              <span className="profile-button font-bold text-[#338AF0] cursor-pointer">
+              <span className="profile-button responsive-text font-bold text-[#338AF0] cursor-pointer">
                 Active:
               </span>
-              <span className="profile-button flex justify-center items-center cursor-pointer text-[#338AF0]">
+              <span className="profile-button responsive-text flex justify-center items-center cursor-pointer text-[#338AF0]">
                 {activeCharities.length}
               </span>
             </div>
@@ -324,10 +334,10 @@ export default function Profile({ showActive, setShowActive }) {
             className="box bg-[var(--background-color)] p-4 w-[130px] rounded-[10px] mt-10 flex text-lg text-[var(--text-color)] flex justify-center items-center cursor-pointer"
           >
             <div className="profile-button flex flex-col">
-              <span className="profile-button font-bold cursor-pointer text-[#e74c3c]">
+              <span className="profile-button responsive-text font-bold cursor-pointer text-[#e74c3c]">
                 InActive:
               </span>
-              <span className="profile-button flex justify-center items-center cursor-pointer text-[#e74c3c]">
+              <span className="profile-button responsive-text flex justify-center items-center cursor-pointer text-[#e74c3c]">
                 {inActiveCharities.length}
               </span>
             </div>
@@ -372,7 +382,15 @@ export default function Profile({ showActive, setShowActive }) {
       <div className="flex justify-center mb-[10px]">
         <CustomButtom
           btnType="button"
-          title={address ? "Disconnect wallet" : "Connect wallet"}
+          title={
+            address
+              ? isSmallScreen
+                ? "Disconnect"
+                : "Disconnect wallet"
+              : isSmallScreen
+              ? "Connect"
+              : "Connect wallet"
+          }
           styles={address ? "bg-[#e74c3c] px-6 py-3" : "bg-[#3498db] px-6 py-3"}
           handleClick={() => {
             if (address) disconnect();
@@ -382,7 +400,7 @@ export default function Profile({ showActive, setShowActive }) {
       </div>
 
       <div className="flex justify-center flex-col items-center h-full mt-[5px] text-[var(--text-color)]">
-        <h1 className="text-[20px] text-bold">
+        <h1 className="responsive-text text-[20px] text-bold">
           Please connect the wallet to view your profile.
         </h1>
       </div>

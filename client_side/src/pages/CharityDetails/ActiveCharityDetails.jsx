@@ -37,6 +37,7 @@ export default function ActiveCharityDetails() {
   const [collectedAmount, setCollectedAmount] = useState(state.amountCollected);
   const [activeCharities, setActiveCharities] = useState([]);
   const [inActiveCharities, setInActiveCharities] = useState([]);
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 640);
 
   const remainingDays = daysLeft(state.deadline);
 
@@ -58,6 +59,12 @@ export default function ActiveCharityDetails() {
     setInActiveCharities(data);
     setIsLoading(false);
   }
+
+  useEffect(() => {
+    const handleResize = () => setIsSmallScreen(window.innerWidth < 640);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     if (contract) {
@@ -226,10 +233,16 @@ export default function ActiveCharityDetails() {
         <div className="flex flex-col justify-center items-center px-50">
           <CustomButtom
             btnType="button"
-            title={address ? "Disconnect wallet" : ""}
+            title={
+              address
+                ? isSmallScreen
+                  ? "Disconnect"
+                  : "Disconnect wallet"
+                : ""
+            }
             styles={
               address
-                ? "bg-[#e74c3c] px-6 py-2 w-[400px] h-[40px] flex justify-center items-center"
+                ? "bg-[#e74c3c] px-6 py-2 h-[40px] flex justify-center items-center"
                 : ""
             }
             handleClick={() => {
@@ -239,12 +252,12 @@ export default function ActiveCharityDetails() {
           />
         </div>
       )}
-      <div className="w-full flex md:flex-row flex-col mt-10 gap-[30px]">
+      <div className="w-full image-custom-2 flex md:flex-row  flex-col mt-10 gap-[30px]">
         <div className="flex-1">
           <img
             src={state.image}
             alt="charity"
-            className="custom-buttom w-full h-[410px] object-cover rounded-xl cursor-pointer"
+            className="custom-buttom image-custom w-full h-[410px] object-cover rounded-xl cursor-pointer"
           />
 
           <div className="cursor-pointer custom-buttom relative w-full h-[7px] bg-[var(--targetloading-bg-color)] mt-2 rounded-[20px]">
@@ -286,15 +299,15 @@ export default function ActiveCharityDetails() {
                 />
               </div>
               <div>
-                <h4 className="charitydetails-text-nb font-epilogue font-semibold text-[14px] text-[var(--text-color)] break-all cursor-pointer hover:text-[#338AF0]">
+                <h4 className="charitydetails-text-nb charitydetails-text-2 font-epilogue font-semibold text-[14px] text-[var(--text-color)] break-all cursor-pointer hover:text-[#338AF0]">
                   {state.owner}
                 </h4>
                 <div className="flex flex-row justify-between">
-                  <p className="charitydetails-text-nb mt-[4px] font-epilogue font-normal text-[10px] text-[var(--text-color)] cursor-pointer hover:text-[#338AF0] ">
+                  <p className="charitydetails-text-nb charitydetails-text-2 mt-[4px] font-epilogue font-normal text-[10px] text-[var(--text-color)] cursor-pointer hover:text-[#338AF0] ">
                     {activeCharities.length} Active{" "}
                     {activeCharities.length > 1 ? "Charities" : "Charity"}
                   </p>
-                  <p className="charitydetails-text-nb mt-[4px] font-epilogue font-normal text-[10px] text-[var(--text-color)] cursor-pointer hover:text-[#e74c3c]">
+                  <p className="charitydetails-text-nb charitydetails-text-2 mt-[4px] font-epilogue font-normal text-[10px] text-[var(--text-color)] cursor-pointer hover:text-[#e74c3c]">
                     {inActiveCharities.length} InActive{" "}
                     {inActiveCharities.length > 1 ? "Charities" : "Charity"}
                   </p>
@@ -356,7 +369,7 @@ export default function ActiveCharityDetails() {
                       alt="email_icon"
                       className="icons cursor-pointer"
                     />
-                    <p className="charitydetails-text font-epilogue font-semibold text-[14px] text-[var(--text-color)] break-all underline cursor-pointer hover:text-[#338AF0]">
+                    <p className="charitydetails-text-3 font-epilogue font-semibold text-[14px] text-[var(--text-color)] break-all underline cursor-pointer hover:text-[#338AF0]">
                       {state.email}
                     </p>
                   </div>
@@ -370,7 +383,7 @@ export default function ActiveCharityDetails() {
               Story
             </h4>
             <div className="mt-[20px]">
-              <p className="font-epilogue font-small text-[16px] text-[var(--text-color)] leading-[26px] text-justify">
+              <p className="charitydetails-text-3 font-epilogue font-small text-[16px] text-[var(--text-color)] leading-[26px] text-justify">
                 {state.description}
               </p>
             </div>
@@ -387,16 +400,16 @@ export default function ActiveCharityDetails() {
                     key={`${item.donators}-${index}`}
                     className="flex justify-between items-center gap-4"
                   >
-                    <p className="font-epilogue font-small text-[14px] text-[var(--text-color)] leading-[26px] break-all">
+                    <p className="charitydetails-text-3 font-epilogue font-small text-[14px] text-[var(--text-color)] leading-[26px] break-all">
                       {index + 1}. {item.donator}
                     </p>
-                    <p className="font-epilogue font-small text-[14px] text-[var(--text-color)] leading-[26px] break-all">
+                    <p className="charitydetails-text-3 font-epilogue font-small text-[14px] text-[var(--text-color)] leading-[26px] break-all">
                       {item.donation} ETH
                     </p>
                   </div>
                 ))
               ) : (
-                <p className="font-epilogue font-small text-[16px] text-[var(--text-color)] leading-[26px] text-justify">
+                <p className="charitydetails-text-3 font-epilogue font-small text-[16px] text-[var(--text-color)] leading-[26px] text-justify">
                   No donators yet. Be the first one!
                 </p>
               )}
@@ -411,7 +424,7 @@ export default function ActiveCharityDetails() {
                   Donate
                 </h4>
                 <div className="custom-buttom mt-[20px] flex flex-col p-4 bg-[var(--donatetocharity1-bg-color)] rounded-[10px]">
-                  <p className="font-epilogue font-semibold text-[20px] leading-[30px] text-center text-[var(--text-color)]">
+                  <p className="charitydetails-text-3 font-epilogue font-semibold text-[20px] leading-[30px] text-center text-[var(--text-color)]">
                     Pledge without reward
                   </p>
                   <div className="mt-[30px]">
@@ -425,10 +438,10 @@ export default function ActiveCharityDetails() {
                     />
 
                     <div className="custom-buttom custom-buttom my-[20px] p-4 bg-[var(--donatetocharity2-bg-color)] rounded-[10px]">
-                      <h4 className="font-epilogue font-semibold text-[14px] leading-[22px] text-[var(--text-color)]">
+                      <h4 className="charitydetails-text-3 font-epilogue font-bold text-[14px] leading-[22px] text-[var(--text-color)]">
                         Back it because you believe in it.
                       </h4>
-                      <p className="mt-[20px] font-epilogue font-normal leading-[22px] text-[var(--text-color)]">
+                      <p className="charitydetails-text-3 mt-[20px] font-epilogue font-normal leading-[22px] text-[var(--text-color)]">
                         Support the project for no reward, just because it
                         speaks to you.
                       </p>
@@ -462,13 +475,21 @@ export default function ActiveCharityDetails() {
           </div>
         ) : (
           <div className="custom-buttom bg-[var(--profile-bg-color)] flex-1 justify-center items-center flex-col rounded-[10px] sm:p-10 p-4 max-h-300px">
-            <h4 className="font-epilogue font-semibold text-[18px] text-[var(--text-color)] my-10">
+            <h4 className="responsive-text font-epilogue font-semibold text-[18px] text-[var(--text-color)] my-10">
               Please connect your wallet to delete or donate to this charity.
             </h4>
             <div className="flex flex-col justify-between">
               <CustomButtom
                 btnType="button"
-                title={address ? "Disconnect wallet" : "Connect wallet"}
+                title={
+                  address
+                    ? isSmallScreen
+                      ? "Disconnect"
+                      : "Disconnect wallet"
+                    : isSmallScreen
+                    ? "Connect"
+                    : "Connect wallet"
+                }
                 styles={address ? "bg-[#e74c3c] px-6 py-3" : "bg-[#3498db]"}
                 handleClick={() => {
                   if (address) disconnect();

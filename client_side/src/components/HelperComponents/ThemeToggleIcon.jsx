@@ -11,7 +11,7 @@ export default function ThemeToggleIcon() {
       onClick={toggleTheme}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="themetoggleicon cursor-pointer p-2"
+      className="themetoggleicon cursor-pointer"
     >
       {isHovered ? (
         theme === "light" ? (

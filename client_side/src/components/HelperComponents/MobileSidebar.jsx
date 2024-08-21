@@ -33,7 +33,7 @@ const Icon = ({ styles, name, imgUrl, isActive, disabled, handleClick }) => (
   </div>
 );
 
-export default function Sidebar({ showActive }) {
+export default function MobileSidebar({ showActive }) {
   const navigate = useNavigate();
   const location = useLocation();
   const [isActive, setIsActive] = useState(location.pathname);
@@ -50,15 +50,15 @@ export default function Sidebar({ showActive }) {
   const updatedNavlinks = getUpdatedNavLinks(showActive);
 
   return (
-    <div className="flex justify-between items-center flex-col sticky top-5 h-[30px] gap-5">
+    <div className="fixed top-0 w-full bg-[var(--sidebar-bg-color)] rounded-b-lg flex flex-row justify-between items-center shadow-lg">
       <div>
         <Icon
-          styles="logo w-[52px] h-[52px] bg-[var(--icon-bg-color)] rounded-full"
+          styles="logo w-[40px] h-[40px] bg-[var(--icon-bg-color)] rounded-full"
           imgUrl={project_logo}
         />
       </div>
-      <div className="sidebar flex-1 flex flex-col justify-between object-contain items-center bg-[var(--sidebar-bg-color)] rounded-[20px] w-[76px] py-4 mt-12 gap-6">
-        <div className="flex flex-col justify-center items-center gap-6">
+      <div className="flex items-center gap-2">
+        <div className="flex flex-row justify-center items-center">
           {updatedNavlinks.map((link) => (
             <Icon
               key={link.name}
@@ -73,8 +73,9 @@ export default function Sidebar({ showActive }) {
             />
           ))}
         </div>
-        <ThemeToggleIcon />
+        <div></div>
       </div>
+      <ThemeToggleIcon />
     </div>
   );
 }

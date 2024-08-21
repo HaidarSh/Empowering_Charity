@@ -64,10 +64,10 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <div className="home-bar sticky flex flex-row w-full bg-[var(--home-bg-color)] sm:h-[80px] h-[100px] rounded-[10px] justify-between items-center px-[20px]">
-        <div className="font-bold text-[var(--text-color)] flex justify-start items-center">
+      <div className="home-bar sticky flex flex-row w-full bg-[var(--home-bg-color)] h-[80px] rounded-[10px] justify-between items-center pr-[5px] pl-[15px] ">
+        <div className="font-bold text-[var(--text-color)] flex justify-center items-center">
           <div className="mt-10 sm:mt-5" ref={titleRef}>
-            <p className="text-[18px] mb-6 sm:mb-6 font-epilogue">
+            <p className="responsive-text-title text-[18px] mb-10 sm:mb-6 font-epilogue">
               {titles.map((letter, index) => (
                 <span
                   key={index}
@@ -87,9 +87,7 @@ export default function Home() {
           <CustomButtom
             btnType="button"
             title={address ? "Disconnect wallet" : "Connect wallet"}
-            styles={
-              address ? "bg-[#e74c3c] p-1" : "bg-[#3498db] p-1"
-            }
+            styles={address ? "bg-[#e74c3c]" : "bg-[#3498db]"}
             handleClick={() => {
               if (address) disconnect();
               else connect();
@@ -99,7 +97,7 @@ export default function Home() {
       </div>
 
       <div className="mt-10" ref={textOneRef}>
-        <p className="text-xl text-[var(--text-color)] mb-10 font-epilogue">
+        <p className="responsive-text text-xl text-[var(--text-color)] mb-10 font-epilogue">
           {words_one.map((word, index) => (
             <span
               key={index}
@@ -125,7 +123,7 @@ export default function Home() {
       <div className="flex flex-col mt-[20px] gap-[26px]">
         <div className="flex flex-col justify-start">
           <div className="mt-10 mb-10" ref={textTwoRef}>
-            <p className="text-xl text-[var(--text-color)] font-epilogue">
+            <p className="responsive-text text-xl text-[var(--text-color)] font-epilogue">
               {words_two.map((word, index) => (
                 <span
                   key={index}
@@ -148,8 +146,8 @@ export default function Home() {
         </div>
         <hr className="border-t-2 border-[#3498db]" />
         <div ref={textThreeRef}>
-          <div className="mt-10">
-            <p className="text-xl text-[var(--text-color)] mb-10 font-epilogue font-semibold">
+          <div className="mt-10 flex ">
+            <p className="responsive-text-title-inner text-[var(--text-color)] mb-10 font-epilogue font-semibold">
               {words_three.map((word, index) => (
                 <span
                   key={index}
@@ -164,7 +162,7 @@ export default function Home() {
             </p>
           </div>
           <div className="mt-10" ref={textFourRef}>
-            <p className="text-xl text-[var(--text-color)] mb-10 font-epilogue">
+            <p className="responsive-text text-xl text-[var(--text-color)] mb-10 font-epilogue">
               {words_four.map((word, index) => (
                 <span
                   key={index}
@@ -195,7 +193,7 @@ export default function Home() {
           ref={textFiveRef}
         >
           <div className="mt-10">
-            <p className="text-xl text-[var(--text-color)] mb-10 font-epilogue">
+            <p className="responsive-text text-xl text-[var(--text-color)] mb-10 font-epilogue">
               {words_five.map((word, index) => (
                 <span
                   key={index}
@@ -219,7 +217,7 @@ export default function Home() {
 
         <div ref={textSixRef}>
           <div className="mt-10">
-            <p className="text-xl text-[var(--text-color)] mb-10 font-epilogue">
+            <p className="responsive-text text-xl text-[var(--text-color)] mb-10 font-epilogue">
               {words_six.map((word, index) => (
                 <span
                   key={index}
@@ -245,7 +243,7 @@ export default function Home() {
 
         <div className="flex flex-col items-center" ref={textSevenRef}>
           <div className="mt-10">
-            <p className="text-xl text-[var(--text-color)] mb-10 font-epilogue">
+            <p className="responsive-text text-xl text-[var(--text-color)] mb-10 font-epilogue">
               {words_seven.map((word, index) => (
                 <span
                   key={index}
@@ -260,9 +258,9 @@ export default function Home() {
             </p>
           </div>
           <Link to="/View_Active_Charity">
-            <div className="custom-buttom bg-[#3498db] px-4 py-3 rounded-[10px] text-2xl flex justify-center items-center">
+            <div className="custom-buttom bg-[#3498db] px-4 py-3 sm:px-0 sm:py-0 rounded-[10px] text-2xl flex justify-center items-center">
               <h1
-                className="font-epilogue font-semibold text-[25px] text-[var(--custombuttom-text-color)]"
+                className="custom-buttom-responsive-text font-epilogue font-semibold text-[25px] text-[var(--custombuttom-text-color)]"
                 ref={donateNowButtomRef}
               >
                 {words_eight.map((word, index) => (
