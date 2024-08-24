@@ -97,11 +97,21 @@ export default function Profile({ showActive, setShowActive }) {
     setActiveCharities(data);
     setUserActiveProfile((prev) => ({
       ...prev,
-      name: data[0]?.name || prev.name,
-      address: data[0]?.owner || prev.address,
-      phoneNumber: data[0]?.phoneNumber || prev.phoneNumber,
-      email: data[0]?.email || prev.email,
-      country: data[0]?.country || prev.country,
+      name: Array.from(
+        new Set(data.map((item) => item.name).filter(Boolean))
+      ).join(" | "),
+      address: Array.from(
+        new Set(data.map((item) => item.owner).filter(Boolean))
+      ).join(" | "),
+      phoneNumber: Array.from(
+        new Set(data.map((item) => item.phoneNumber).filter(Boolean))
+      ).join(" | "),
+      email: Array.from(
+        new Set(data.map((item) => item.email).filter(Boolean))
+      ).join(" | "),
+      country: Array.from(
+        new Set(data.map((item) => item.country).filter(Boolean))
+      ).join(" | "),
     }));
     setIsLoading(false);
   }
@@ -112,14 +122,139 @@ export default function Profile({ showActive, setShowActive }) {
     setInActiveCharities(data);
     setUserInActiveProfile((prev) => ({
       ...prev,
-      name: data[0]?.name || prev.name,
-      address: data[0]?.owner || prev.address,
-      phoneNumber: data[0]?.phoneNumber || prev.phoneNumber,
-      email: data[0]?.email || prev.email,
-      country: data[0]?.country || prev.country,
+      name: Array.from(
+        new Set(data.map((item) => item.name).filter(Boolean))
+      ).join(" | "),
+      address: Array.from(
+        new Set(data.map((item) => item.owner).filter(Boolean))
+      ).join(" | "),
+      phoneNumber: Array.from(
+        new Set(data.map((item) => item.phoneNumber).filter(Boolean))
+      ).join(" | "),
+      email: Array.from(
+        new Set(data.map((item) => item.email).filter(Boolean))
+      ).join(" | "),
+      country: Array.from(
+        new Set(data.map((item) => item.country).filter(Boolean))
+      ).join(" | "),
     }));
     setIsLoading(false);
   }
+
+  const activeName = userActiveProfile.name;
+  const inactiveName = userInActiveProfile.name;
+
+  const uniqueActiveNames = Array.from(new Set([activeName].filter(Boolean)));
+  const uniqueInactiveNames = Array.from(
+    new Set([inactiveName].filter(Boolean))
+  );
+
+  const activeNamesList =
+    uniqueActiveNames.length > 0
+      ? uniqueActiveNames.map((name, index) => (
+          <React.Fragment key={`active-${index}`}>
+            {name}
+            {index < uniqueActiveNames.length - 1 && <br />}
+          </React.Fragment>
+        ))
+      : "N/A";
+
+  const inactiveNamesList =
+    uniqueInactiveNames.length > 0
+      ? uniqueInactiveNames.map((name, index) => (
+          <React.Fragment key={`inactive-${index}`}>
+            {name}
+            {index < uniqueInactiveNames.length - 1 && <br />}
+          </React.Fragment>
+        ))
+      : "N/A";
+
+  const activeCountry = userActiveProfile.country;
+  const inactiveCountry = userInActiveProfile.country;
+
+  const uniqueActiveCountries = Array.from(
+    new Set([activeCountry].filter(Boolean))
+  );
+  const uniqueInactiveCountries = Array.from(
+    new Set([inactiveCountry].filter(Boolean))
+  );
+  const activeCountriesList =
+    uniqueActiveCountries.length > 0
+      ? uniqueActiveCountries.map((country, index) => (
+          <React.Fragment key={`active-${index}`}>
+            {country}
+            {index < uniqueActiveCountries.length - 1 && <br />}
+          </React.Fragment>
+        ))
+      : "N/A";
+
+  const inactiveCountriesList =
+    uniqueInactiveCountries.length > 0
+      ? uniqueInactiveCountries.map((country, index) => (
+          <React.Fragment key={`inactive-${index}`}>
+            {country}
+            {index < uniqueInactiveCountries.length - 1 && <br />}
+          </React.Fragment>
+        ))
+      : "N/A";
+
+  const activePhoneNumber = userActiveProfile.phoneNumber;
+  const inactivePhoneNumber = userInActiveProfile.phoneNumber;
+
+  const uniqueActivePhoneNumbers = Array.from(
+    new Set([activePhoneNumber].filter(Boolean))
+  );
+  const uniqueInactivePhoneNumbers = Array.from(
+    new Set([inactivePhoneNumber].filter(Boolean))
+  );
+
+  const activePhoneNumbersList =
+    uniqueActivePhoneNumbers.length > 0
+      ? uniqueActivePhoneNumbers.map((phoneNumber, index) => (
+          <React.Fragment key={`active-${index}`}>
+            {phoneNumber}
+            {index < uniqueActivePhoneNumbers.length - 1 && <br />}
+          </React.Fragment>
+        ))
+      : "N/A";
+
+  const inactivePhoneNumbersList =
+    uniqueInactivePhoneNumbers.length > 0
+      ? uniqueInactivePhoneNumbers.map((phoneNumber, index) => (
+          <React.Fragment key={`inactive-${index}`}>
+            {phoneNumber}
+            {index < uniqueInactivePhoneNumbers.length - 1 && <br />}
+          </React.Fragment>
+        ))
+      : "N/A";
+
+  const activeEmail = userActiveProfile.email;
+  const inactiveEmail = userInActiveProfile.email;
+
+  const uniqueActiveEmails = Array.from(new Set([activeEmail].filter(Boolean)));
+  const uniqueInactiveEmails = Array.from(
+    new Set([inactiveEmail].filter(Boolean))
+  );
+
+  const activeEmailsList =
+    uniqueActiveEmails.length > 0
+      ? uniqueActiveEmails.map((email, index) => (
+          <React.Fragment key={`active-${index}`}>
+            {email}
+            {index < uniqueActiveEmails.length - 1 && <br />}
+          </React.Fragment>
+        ))
+      : "N/A";
+
+  const inactiveEmailsList =
+    uniqueInactiveEmails.length > 0
+      ? uniqueInactiveEmails.map((email, index) => (
+          <React.Fragment key={`inactive-${index}`}>
+            {email}
+            {index < uniqueInactiveEmails.length - 1 && <br />}
+          </React.Fragment>
+        ))
+      : "N/A";
 
   useEffect(() => {
     if (queryParam) {
@@ -146,13 +281,11 @@ export default function Profile({ showActive, setShowActive }) {
     <div>
       {isLoading && (showActive ? <BlueLoader /> : <RedLoader />)}
 
-      <div className="flex flex-row justify-between gap-5">
+      <div className="flex flex-row justify-between gap-2">
         <div className="searchBar lg:flex-1 flex flex-row max-w-[458px] py-2 pl-4 pr-2 h-[52px] bg-[var(--searchbar-bg-color)] rounded-[100px]">
           <input
             type="text"
-            placeholder={
-              isSmallScreen ? "Search charities" : "Search for charities"
-            }
+            placeholder="Search for charities"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="flex w-full font-epilogue font-normal text-[14px] placeholder:text-[#4b5264] text-[var(--text-color)] bg-transparent outline-none"
@@ -172,7 +305,7 @@ export default function Profile({ showActive, setShowActive }) {
           </div>
         </div>
 
-        <div className="flex flex-row justify-center">
+        <div className="flex flex-row ml-auto sm:w-auto">
           <CustomButtom
             btnType="button"
             title={
@@ -222,9 +355,10 @@ export default function Profile({ showActive, setShowActive }) {
                         : "hover:text-[#e74c3c]"
                     } `}
                   >
-                    {userActiveProfile.name ||
-                      userInActiveProfile.name ||
-                      "N/A"}
+                    <div>
+                      {showActive && <div>{activeNamesList}</div>}
+                      {!showActive && <div>{inactiveNamesList}</div>}
+                    </div>
                   </h1>
                 </div>
                 <br />
@@ -264,14 +398,15 @@ export default function Profile({ showActive, setShowActive }) {
                         : "hover:text-[#e74c3c]"
                     }`}
                   >
-                    {userActiveProfile.country ||
-                      userInActiveProfile.country ||
-                      "N/A"}
+                    <div>
+                      {showActive && <div>{activeCountriesList}</div>}
+                      {!showActive && <div>{inactiveCountriesList}</div>}
+                    </div>
                   </p>
                 </div>
               </div>
 
-              <div className="flex flex-col mb-1">
+              <div className="flex flex-col mb-1 mt-5">
                 <div>
                   <img
                     src={showActive ? phone_icon_active : phone_icon_inactive}
@@ -286,9 +421,10 @@ export default function Profile({ showActive, setShowActive }) {
                         : "hover:text-[#e74c3c]"
                     }`}
                   >
-                    {userActiveProfile.phoneNumber ||
-                      userInActiveProfile.phoneNumber ||
-                      "N/A"}
+                    <div>
+                      {showActive && <div>{activePhoneNumbersList}</div>}
+                      {!showActive && <div>{inactivePhoneNumbersList}</div>}
+                    </div>
                   </p>
                 </div>
                 <br />
@@ -306,9 +442,10 @@ export default function Profile({ showActive, setShowActive }) {
                         : "hover:text-[#e74c3c]"
                     }`}
                   >
-                    {userActiveProfile.email ||
-                      userInActiveProfile.email ||
-                      "N/A"}
+                    <div>
+                      {showActive && <div>{activeEmailsList}</div>}
+                      {!showActive && <div>{inactiveEmailsList}</div>}
+                    </div>
                   </p>
                 </div>
               </div>

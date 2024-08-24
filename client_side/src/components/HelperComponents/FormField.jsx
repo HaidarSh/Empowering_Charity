@@ -70,6 +70,21 @@ export default function FormField(props) {
       },
     }),
   };
+
+  const handleChange = (eventOrOption) => {
+    if (props.isSelect) {
+      props.handleChange({
+        target: { name: props.name, value: eventOrOption.value },
+      });
+    } else if (props.isTextArea) {
+      props.handleChange({
+        target: { name: props.name, value: eventOrOption.target.value },
+      });
+    } else {
+      props.handleChange(eventOrOption);
+    }
+  };
+
   return (
     <label className="flex-1 w-full flex flex-col ">
       {props.labelName && (
@@ -89,6 +104,7 @@ export default function FormField(props) {
         />
       ) : props.isSelect ? (
         <Select
+          required
           options={props.options}
           value={props.options.find((option) => option.value === props.value)}
           onChange={(selectedOption) =>

@@ -34,12 +34,10 @@ export default function DisplayInActiveCharities({
   return (
     <div>
       <div className="flex flex-row justify-between gap-2">
-        <div className="searchBar lg:flex-1 flex flex-row max-w-[458px] py-2 pl-4 pr-2 h-[52px] bg-[var(--searchbar-bg-color)] rounded-[100px] ">
+        <div className="searchBar lg:flex-1 flex flex-row max-w-[458px] py-2 pl-4 pr-2 h-[52px] bg-[var(--searchbar-bg-color)] rounded-[100px]">
           <input
             type="text"
-            placeholder={
-              isSmallScreen ? "Search charities" : "Search for charities"
-            }
+            placeholder="Search for charities"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="flex w-full font-epilogue font-normal text-[14px] placeholder:text-[#4b5264] text-[var(--text-color)] bg-transparent outline-none"
@@ -81,7 +79,7 @@ export default function DisplayInActiveCharities({
         {isLoading && <RedLoader />}
 
         {!isLoading && charities.length === 0 && (
-          <p className="responsive-text font-epilogue font-semibold text-[14px] leading-[30px] text-[var(--text-color)] ">
+          <p className="charitydetails-text-3 font-epilogue font-normal text-[14px] leading-[30px]  text-[var(--text-color)]">
             No result found.
           </p>
         )}

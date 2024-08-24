@@ -88,7 +88,7 @@ export default function InActiveCharityDetails() {
               className="absolute h-full bg-[#e74c3c] rounded-[20px]"
               style={{
                 width: `${calculateBarPercentage(
-                  state.target / 1000000000000000000,
+                  state.target,
                   state.amountCollected
                 )}%`,
                 maxWidth: "100%",
@@ -100,7 +100,7 @@ export default function InActiveCharityDetails() {
         <div className="flex md:w-[150px] w-full flex-wrap justify-between gap-[30px]">
           <CountBoxInActive title="Days Left" value="0" />
           <CountBoxInActive
-            title={`Raised of ${state.target / 1000000000000000000}`}
+            title={`Raised of ${state.target} ETH`}
             value={state.amountCollected}
           />
           <CountBoxInActive title="Total Donators" value={donators.length} />
@@ -115,7 +115,7 @@ export default function InActiveCharityDetails() {
             </h4>
 
             <div className="mt-[20px] flex flex-row items-center flex-wrap gap-[14px]">
-              <div className="icons-charitydetails w-[52px] h-[52px] flex items-center justify-center rounded-full bg-[var(--targetloading-bg-color)] cursor-pointer">
+              <div className="icons-charitydetails w-[52px] h-[52px]  flex items-center justify-center rounded-full bg-[var(--targetloading-bg-color)] cursor-pointer">
                 <img
                   src={thirdweb}
                   alt="user"
@@ -130,23 +130,23 @@ export default function InActiveCharityDetails() {
                 <div className="flex flex-row justify-between">
                   <p className="charitydetails-text-nb charitydetails-text-2 mt-[4px] font-epilogue font-normal text-[11px] text-[var(--text-color)] cursor-pointer hover:text-[#338AF0] ">
                     {activeCharities.length} Active{" "}
-                    {activeCharities.length > 1 ? "Charities" : "Charity"}
+                    {activeCharities.length === 1 ? "Charity" : "Charities"}
                   </p>
                   <p className="charitydetails-text-nb charitydetails-text-2 mt-[4px] font-epilogue font-normal text-[11px] text-[var(--text-color)] cursor-pointer hover:text-[#e74c3c]">
                     {inActiveCharities.length} InActive{" "}
-                    {inActiveCharities.length > 1 ? "Charities" : "Charity"}
+                    {inActiveCharities.length === 1 ? "Charity" : "Charities"}
                   </p>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="flex items-center mb-6 gap-5">
-            <div className="icons-charitydetails w-[52px] h-[52px] flex items-center justify-center rounded-full bg-[var(--targetloading-bg-color)] cursor-pointer">
+          <div className="flex items-center gap-5">
+            <div className="icons-charitydetails w-[55px] h-[52px] flex items-center justify-center rounded-full bg-[var(--targetloading-bg-color)] cursor-pointer">
               <img
                 src={profile_picture_inactive}
                 alt="profile_picture_active"
-                className="icons w-3/4 h-3/4"
+                className="icons w-3/4 h-3/4 object-contain"
               />
             </div>
 
@@ -206,9 +206,19 @@ export default function InActiveCharityDetails() {
 
           <div>
             <h4 className="font-epilogue font-semibold text-[18px] text-[var(--text-color)] uppercase">
+              Title
+            </h4>
+            <div className="mt-[20px]">
+              <h1 className=" font-epilogue text-[var(--text-color)] leading-[26px] text-justify">
+                {state.title}
+              </h1>
+            </div>
+          </div>
+
+          <div>
+            <h4 className="font-epilogue font-semibold text-[18px] text-[var(--text-color)] uppercase">
               Story
             </h4>
-
             <div className="mt-[20px]">
               <p className="charitydetails-text-3 font-epilogue font-normal text-[16px] text-[var(--text-color)] leading-[26px] text-justify">
                 {state.description}
@@ -247,7 +257,7 @@ export default function InActiveCharityDetails() {
         </div>
         <div className="custom-buttom bg-[var(--profile-bg-color)] flex-1 justify-center items-center flex-col rounded-[10px] sm:p-10 p-4 max-h-300px">
           <h4 className="font-epilogue responsive-text font-semibold text-[18px]  my-10 text-[#e74c3c]">
-            This charity is now inactive. Donations and deletions are no longer
+          ⚠️ This charity is now inactive. Donations, deletions and edits are no longer
             permitted.
           </h4>
         </div>

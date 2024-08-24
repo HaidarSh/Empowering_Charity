@@ -12,7 +12,13 @@ export default function Loader() {
       />
       <p className="mt-[20px] font-epilogue font-bold text-[20px] text-white text-center">
         Loading
-        <br /> Please wait...
+        <br /> 
+        Please wait {" "} 
+        <span className="loading-dots">
+          <span className="dot"></span>
+          <span className="dot"></span>
+          <span className="dot"></span>
+        </span>
       </p>
     </div>
   );

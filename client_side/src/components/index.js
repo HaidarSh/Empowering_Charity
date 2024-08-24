@@ -1,7 +1,6 @@
 export { default as DefaultSidebar } from "./HelperComponents/DefaultSidebar.jsx";
 export { default as MobileSidebar } from "./HelperComponents/MobileSidebar.jsx";
 export { default as CustomButtom } from "./HelperComponents/CustomButtom.jsx";
-export { default as UseIntersectionObserver } from "./HelperComponents/UseIntersectionObserver.jsx";
 export { default as FormField } from "./HelperComponents/FormField.jsx";
 export { default as DisplayActiveCharities } from "./DisplayCharities/DisplayActiveCharities.jsx";
 export { default as DisplayInActiveCharities } from "./DisplayCharities/DisplayInActiveCharities.jsx";

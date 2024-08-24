@@ -769,6 +769,10 @@ video {
   margin-top: 65px;
 }
 
+.mt-\[10px\]{
+  margin-top: 10px;
+}
+
 .block{
   display: block;
 }
@@ -865,6 +869,18 @@ video {
   height: 100vh;
 }
 
+.h-\[60px\]{
+  height: 60px;
+}
+
+.h-\[55px\]{
+  height: 55px;
+}
+
+.h-\[px\]{
+  height: px;
+}
+
 .max-h-300px{
   max-height: 300px;
 }
@@ -943,6 +959,14 @@ video {
 
 .w-full{
   width: 100%;
+}
+
+.w-\[60px\]{
+  width: 60px;
+}
+
+.w-\[55px\]{
+  width: 55px;
 }
 
 .max-w-\[1280px\]{
@@ -1146,6 +1170,11 @@ video {
   background-color: rgb(52 152 219 / var(--tw-bg-opacity));
 }
 
+.bg-\[\#FF8C00\]{
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 140 0 / var(--tw-bg-opacity));
+}
+
 .bg-\[\#e74c3c\]{
   --tw-bg-opacity: 1;
   background-color: rgb(231 76 60 / var(--tw-bg-opacity));
@@ -1317,6 +1346,10 @@ video {
 
 .pr-\[5px\]{
   padding-right: 5px;
+}
+
+.pt-4{
+  padding-top: 1rem;
 }
 
 .text-left{
@@ -1877,6 +1910,10 @@ video {
   display: none;
 }
 
+.default-navbar{
+  padding-right: 13px;
+}
+
 @media (min-width: 640px) {
   .default-navbar {
     display: flex;
@@ -2002,11 +2039,6 @@ video {
     padding: 2.5rem;
   }
 
-  .sm\:px-0{
-    padding-left: 0px;
-    padding-right: 0px;
-  }
-
   .sm\:px-\[20px\]{
     padding-left: 20px;
     padding-right: 20px;
@@ -2015,11 +2047,6 @@ video {
   .sm\:px-\[25px\]{
     padding-left: 25px;
     padding-right: 25px;
-  }
-
-  .sm\:py-0{
-    padding-top: 0px;
-    padding-bottom: 0px;
   }
 
   .sm\:pb-\[20px\]{
@@ -2050,3 +2077,4 @@ video {
     flex-direction: row;
   }
 }
+

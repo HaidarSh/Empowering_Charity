@@ -112,7 +112,7 @@ export default function ActiveFundCard({
               {donators.length}
             </h4>
             <p className="fundcard-text mt-[3px] font-epilogue font-normal text-[12px] leading-[18px] text-[var(--text-color)] sm:max-w-[120px] truncate hover:text-[#338AF0]">
-              {donators.length == 1 || donators.length == 0
+              {donators.length == 1
                 ? "Donator"
                 : "Donators"}{" "}
             </p>
@@ -125,7 +125,7 @@ export default function ActiveFundCard({
               {amountCollected}
             </h4>{" "}
             <p className="fundcard-text mt-[3px] font-epilogue font-normal text-[12px] leading-[18px] text-[var(--text-color)] sm:max-w-[120px] truncate hover:text-[#338AF0]">
-              Raised of {target / 1000000000000000000} ETH
+              Raised of {target} ETH
             </p>
           </div>
 

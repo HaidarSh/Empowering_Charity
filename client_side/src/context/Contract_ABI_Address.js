@@ -1,4 +1,4 @@
-export const contractAddress = "0xC7BeC6058d80a572316fA8D0062bc3C39918ba5d";
+export const contractAddress = "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512";
 
 export const ABI = [
   {
@@ -59,6 +59,24 @@ export const ABI = [
     inputs: [{ name: "_id", type: "uint256", internalType: "uint256" }],
     outputs: [],
     stateMutability: "payable",
+  },
+  {
+    type: "function",
+    name: "editCharity",
+    inputs: [
+      { name: "_id", type: "uint256", internalType: "uint256" },
+      { name: "_name", type: "string", internalType: "string" },
+      { name: "_title", type: "string", internalType: "string" },
+      { name: "_description", type: "string", internalType: "string" },
+      { name: "_target", type: "uint256", internalType: "uint256" },
+      { name: "_image", type: "string", internalType: "string" },
+      { name: "_category", type: "string", internalType: "string" },
+      { name: "_phoneNumber", type: "string", internalType: "string" },
+      { name: "_email", type: "string", internalType: "string" },
+      { name: "_country", type: "string", internalType: "string" },
+    ],
+    outputs: [],
+    stateMutability: "nonpayable",
   },
   {
     type: "function",

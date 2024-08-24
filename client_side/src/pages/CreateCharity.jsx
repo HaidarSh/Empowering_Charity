@@ -236,7 +236,7 @@ export default function CreateCharity() {
 
           <FormField
             labelName="Country *"
-            placeholder="Select your Country"
+            placeholder="Select your country"
             isSelect
             options={countryOptions}
             value={form.country}
@@ -249,7 +249,7 @@ export default function CreateCharity() {
         <div className="flex flex-wrap gap-[40px]">
           <FormField
             labelName="Charity title *"
-            placeholder="Write a Title"
+            placeholder="Write a title"
             inputType="text"
             value={form.title}
             handleChange={(event) => {
@@ -259,7 +259,7 @@ export default function CreateCharity() {
 
           <FormField
             labelName="Category *"
-            placeholder="Select a Category"
+            placeholder="Select a category"
             isSelect
             options={categoryOptions}
             value={form.category}
@@ -271,7 +271,7 @@ export default function CreateCharity() {
 
         <FormField
           labelName="Story *"
-          placeholder="Write Your Story"
+          placeholder="Write your story"
           isTextArea
           value={form.description}
           handleChange={(event) => {
@@ -285,7 +285,7 @@ export default function CreateCharity() {
             alt="money"
             className="w-[40px] h-[40px] object-contain "
           />
-          <h4 className="font-epilogue font-bold responsive-text text-[25px] text-[var(--createCharity2-text-color)] ml-[20px] ">
+          <h4 className="font-epilogue font-bold responsive-text-title text-[25px] text-[var(--createCharity2-text-color)] ml-[20px] ">
             You will get 100% of the donated amount.
           </h4>
         </div>
@@ -315,7 +315,7 @@ export default function CreateCharity() {
 
         <FormField
           labelName="Charity Image *"
-          placeholder="Place a picture for your Charity"
+          placeholder="Place a picture for your charity"
           inputType="url"
           value={form.image}
           handleChange={(event) => {

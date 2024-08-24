@@ -22,7 +22,7 @@ export function checkIfImage(url, callback) {
 }
 
 export function validatePhoneNumber(phoneNumber) {
-  const phoneRegex = /^\+?[1-9]\d{0,2}\s?\d{1,2}\s?\d{3}\s?\d{3}$/;
+  const phoneRegex = /^\+?(\d{1,3})?[-.\s]?(\(?\d{1,4}\)?)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{0,9}$/;
   return phoneRegex.test(phoneNumber);
 }
 

@@ -54,6 +54,29 @@ export const StateContextProvider = ({ children }) => {
     }
   }
 
+    async function editCharity(charityId, form) {
+    try {
+        const targetValue = form.target.toString();
+        let data = await contract.call("editCharity", [
+            charityId,
+            form.name,
+            form.title,
+            form.description,
+            ethers.utils.parseUnits(targetValue, "ether"),
+            form.image,
+            form.category,
+            form.phoneNumber,
+            form.email,
+            form.country,
+        ]);
+        console.log("Charity edited successfully", data);
+        return true;
+    } catch (error) {
+        console.error("Edit charity failed", error);
+        return false;
+    }
+}
+
   async function getActiveCharities() {
     const charities = await contract.call("getActiveCharities");
 
@@ -63,7 +86,7 @@ export const StateContextProvider = ({ children }) => {
       name: charity.name,
       title: charity.title,
       description: charity.description,
-      target: ethers.utils.formatEther(charity.target.toString()),
+      target: (ethers.utils.formatEther(charity.target.toString()))/1e18,
       deadline: charity.deadline.toNumber(),
       amountCollected: ethers.utils.formatEther(
         charity.amountCollected.toString()
@@ -86,7 +109,7 @@ export const StateContextProvider = ({ children }) => {
       name: charity.name,
       title: charity.title,
       description: charity.description,
-      target: ethers.utils.formatEther(charity.target.toString()),
+      target: (ethers.utils.formatEther(charity.target.toString()))/1e18,
       deadline: charity.deadline.toNumber(),
       amountCollected: ethers.utils.formatEther(
         charity.amountCollected.toString()
@@ -160,6 +183,9 @@ export const StateContextProvider = ({ children }) => {
     }
   }
 
+
+
+
   return (
     <StateContext.Provider
       value={{
@@ -172,9 +198,10 @@ export const StateContextProvider = ({ children }) => {
         getUserInActiveCharities,
         donate,
         getDonations,
-        connect,
-        disconnect,
         removeCharity,
+        editCharity,
+        connect,
+        disconnect,    
         isContractLoading,
         isWriteLoading,
         writeError,

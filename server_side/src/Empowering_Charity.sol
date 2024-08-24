@@ -143,4 +143,31 @@ contract Empowering_Charity {
 
         charities[_id].active = false;
     }
+
+    function editCharity(
+        uint256 _id,
+        string memory _name,
+        string memory _title,
+        string memory _description,
+        uint256 _target,
+        string memory _image,
+        string memory _category,
+        string memory _phoneNumber,
+        string memory _email,
+        string memory _country
+    ) public {
+        Charity storage charity = charities[_id];
+        charity.name = _name;
+        charity.title = _title;
+        charity.description = _description;
+        charity.target = _target;
+        charity.image = _image;
+        charity.category = _category;
+        charity.phoneNumber = _phoneNumber;
+        charity.email = _email;
+        charity.country = _country;
+        if (charity.amountCollected >= charity.target / 1e18) {
+            charity.active = false;
+        }
+    }
 }
