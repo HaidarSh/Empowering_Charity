@@ -139,7 +139,7 @@ export default function CreateCharity() {
             confirmButton: "custom-swal-confirm-button-success",
           },
         });
-        navigate("/View_Active_Charity");
+        navigate("/Empowering_Charity/View_Active_Charity");
       } else {
         Swal.fire({
           title: "Charity creation rejected",

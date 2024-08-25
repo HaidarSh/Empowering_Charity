@@ -12,7 +12,7 @@ export default function DisplayInActiveUserCharities({
   const navigate = useNavigate();
 
   function handleNavigate(charity) {
-    navigate(`/InActive_Charity_Details/${charity.pId}`, { state: charity });
+    navigate(`/Empowering_Charity/InActive_Charity_Details/${charity.pId}`, { state: charity });
   }
 
   return (

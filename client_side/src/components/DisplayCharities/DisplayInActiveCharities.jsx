@@ -28,7 +28,7 @@ export default function DisplayInActiveCharities({
   }, [searchQuery, navigate]);
 
   function handleNavigate(charity) {
-    navigate(`/InActive_Charity_Details/${charity.pId}`, { state: charity });
+    navigate(`/Empowering_Charity/InActive_Charity_Details/${charity.pId}`, { state: charity });
   }
 
   return (

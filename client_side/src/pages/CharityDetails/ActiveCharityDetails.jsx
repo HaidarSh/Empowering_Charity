@@ -251,7 +251,7 @@ export default function ActiveCharityDetails() {
                   confirmButton: "custom-swal-confirm-button-warning",
                 },
               }).then(() => {
-                navigate("/View_Active_Charity");
+                navigate("/Empowering_Charity/View_Active_Charity");
               });
             }
           } catch (error) {
@@ -298,7 +298,7 @@ export default function ActiveCharityDetails() {
       const response = await removeCharity(state.pId);
       if (response) {
         console.log("Deletion successful");
-        navigate("/View_Active_Charity");
+        navigate("/Empowering_Charity/View_Active_Charity");
         Swal.fire({
           title: "Charity successfully deleted!",
           text: "",
@@ -431,7 +431,7 @@ export default function ActiveCharityDetails() {
                 confirmButton: "custom-swal-confirm-button-warning",
               },
             }).then(() => {
-              navigate("/View_Active_Charity");
+              navigate("/Empowering_Charity/View_Active_Charity");
             });
           }
         });

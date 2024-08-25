@@ -3,6 +3,22 @@ import { Link } from "react-router-dom";
 import { useStateContext } from "../context";
 import { CustomButtom } from "../components";
 import CharityPhotosStyle from "../components/HomeComponents/CharityPhotosStyle";
+import {
+  first_one,
+  first_two,
+  first_three,
+  second_one,
+  second_two,
+  second_three,
+  second_four,
+  second_five,
+  second_six,
+  third_one,
+  third_two,
+  third_three,
+  image_big_one,
+  image_big_two,
+} from "../assets";
 
 export default function Home() {
   const { address, connect, disconnect } = useStateContext();
@@ -42,7 +58,7 @@ export default function Home() {
 
       <div className="flex cursor-pointer justify-center mt-10 sm:mt-10">
         <img
-          src="/src/Home_Page_Photos/image_big_1.png"
+          src={image_big_one}
           className="home-bigimage object-contain sm:w-1/2 sm:h-1/2 rounded-[20px]"
           alt="Charity"
         />
@@ -58,9 +74,9 @@ export default function Home() {
           </div>
 
           <div className="flex flex-wrap gap-6">
-            <CharityPhotosStyle imageSRC="/src/Home_Page_Photos/first-1.jpeg" />
-            <CharityPhotosStyle imageSRC="/src/Home_Page_Photos/first-2.jpeg" />
-            <CharityPhotosStyle imageSRC="/src/Home_Page_Photos/first-3.jpeg" />
+            <CharityPhotosStyle imageSRC={first_one} />
+            <CharityPhotosStyle imageSRC={first_two} />
+            <CharityPhotosStyle imageSRC={first_three} />
           </div>
         </div>
         <hr className="border-t-2 border-[#3498db]" />
@@ -79,13 +95,13 @@ export default function Home() {
           </div>
 
           <div className="flex flex-wrap gap-6">
-            <CharityPhotosStyle imageSRC="/src/Home_Page_Photos/second-1.jpeg" />
-            <CharityPhotosStyle imageSRC="/src/Home_Page_Photos/second-2.jpeg" />
-            <CharityPhotosStyle imageSRC="/src/Home_Page_Photos/second-3.jpeg" />
+            <CharityPhotosStyle imageSRC={second_one} />
+            <CharityPhotosStyle imageSRC={second_two} />
+            <CharityPhotosStyle imageSRC={second_three} />
 
-            <CharityPhotosStyle imageSRC="/src/Home_Page_Photos/second-4.jpeg" />
-            <CharityPhotosStyle imageSRC="/src/Home_Page_Photos/second-5.jpeg" />
-            <CharityPhotosStyle imageSRC="/src/Home_Page_Photos/second-6.jpeg" />
+            <CharityPhotosStyle imageSRC={second_four} />
+            <CharityPhotosStyle imageSRC={second_five} />
+            <CharityPhotosStyle imageSRC={second_six} />
           </div>
         </div>
         <hr className="border-t-2 border-[#3498db]" />
@@ -116,9 +132,9 @@ export default function Home() {
           </div>
           <h1 className="text-xl text-[var(--text-color)] mb-10"></h1>
           <div className="flex flex-wrap gap-6">
-            <CharityPhotosStyle imageSRC="/src/Home_Page_Photos/third-1.jpeg" />
-            <CharityPhotosStyle imageSRC="/src/Home_Page_Photos/third-2.jpeg" />
-            <CharityPhotosStyle imageSRC="/src/Home_Page_Photos/third-3.jpeg" />
+            <CharityPhotosStyle imageSRC={third_one} />
+            <CharityPhotosStyle imageSRC={third_two} />
+            <CharityPhotosStyle imageSRC={third_three} />
           </div>
         </div>
 
@@ -131,7 +147,7 @@ export default function Home() {
               today!
             </p>
           </div>
-          <Link to="/View_Active_Charity">
+          <Link to="/Empowering_Charity/View_Active_Charity">
             <div className="custom-buttom bg-[#3498db] px-4 py-3 rounded-[10px] text-2xl flex justify-center items-center">
               <h1 className="custom-buttom-responsive-text font-epilogue font-semibold text-[25px] text-[var(--custombuttom-text-color)]">
                 Donate Now!

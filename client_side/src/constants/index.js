@@ -9,26 +9,26 @@ export const navlinks = [
   {
     name: "home",
     imgUrl: home_buttom,
-    link: "/",
+    link: "/Empowering_Charity/",
   },
   {
     name: "create-charity",
     imgUrl: add_charity,
-    link: "/Create_Charity",
+    link: "/Empowering_Charity/Create_Charity",
   },
   {
     name: "active-state",
     imgUrl: active_state,
-    link: "/View_Active_Charity",
+    link: "/Empowering_Charity/View_Active_Charity",
   },
   {
     name: "inactive-state",
     imgUrl: inactive_state,
-    link: "/View_InActive_Charity",
+    link: "/Empowering_Charity/View_InActive_Charity",
   },
   {
     name: "profile",
     imgUrl: "",
-    link: "/Profile",
+    link: "/Empowering_Charity/Profile",
   },
 ];

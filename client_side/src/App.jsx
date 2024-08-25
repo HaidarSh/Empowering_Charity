@@ -25,25 +25,25 @@ export default function App() {
 
       <div className="main-content flex-1 max-sm:w-full max-w-[1280px] mx-auto">
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/View_Active_Charity" element={<ViewActiveCharity />} />
+          <Route path="/Empowering_Charity/" element={<Home />} />
+          <Route path="/Empowering_Charity/View_Active_Charity" element={<ViewActiveCharity />} />
           <Route
-            path="/Profile"
+            path="/Empowering_Charity/Profile"
             element={
               <Profile showActive={showActive} setShowActive={setShowActive} />
             }
           />
-          <Route path="/Create_Charity" element={<CreateCharity />} />
+          <Route path="/Empowering_Charity/Create_Charity" element={<CreateCharity />} />
           <Route
-            path="/View_InActive_Charity"
+            path="/Empowering_Charity/View_InActive_Charity"
             element={<ViewInActiveCharity />}
           />
           <Route
-            path="/Active_Charity_Details/:pId"
+            path="/Empowering_Charity/Active_Charity_Details/:pId"
             element={<ActiveCharityDetails />}
           />
           <Route
-            path="/InActive_Charity_Details/:pId"
+            path="/Empowering_Charity/InActive_Charity_Details/:pId"
             element={<InActiveCharityDetails />}
           />
         </Routes>
