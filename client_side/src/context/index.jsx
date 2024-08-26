@@ -2,7 +2,7 @@ import React, { useContext, createContext } from "react";
 import {
   useAddress,
   useContract,
-  useMetamask,
+  useCoinbaseWallet,
   useContractWrite,
   useDisconnect,
 } from "@thirdweb-dev/react";
@@ -25,7 +25,7 @@ export const StateContextProvider = ({ children }) => {
   } = useContractWrite(contract, "createCharity");
 
   const address = useAddress();
-  const connect = useMetamask();
+  const connect = useCoinbaseWallet();
   const disconnect = useDisconnect();
 
  
