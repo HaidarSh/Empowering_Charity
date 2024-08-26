@@ -7,7 +7,7 @@ export default defineConfig({
   optimizeDeps: {
     include: ["ethers"],
   },
-  // build: {
+  build: {
   //   // rollupOptions: {
   //   //   output: {
   //   //     manualChunks(id) {
@@ -20,9 +20,9 @@ export default defineConfig({
   //   //     },
   //   //   },
   //   // },
-  //   // chunkSizeWarningLimit: 10000,
+    chunkSizeWarningLimit: 15000,
   //   // minify: false, 
   //   // terserOptions: {}, 
   //   // gzipSize: false 
-  // },
+  },
 });
