@@ -117,7 +117,7 @@ export default function Home() {
           </div>
           <h1 className="text-xl bg-[var(--text-color)] mb-10"></h1>
           <img
-            src="/src/Home_Page_Photos/image_big_2.png"
+            src={image_big_two}
             className="home-bigimage object-contain w-[80%] h-[80%] sm:w-1/2 sm:h-1/2 rounded-[20px]"
             alt="Charity"
           />

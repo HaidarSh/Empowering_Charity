@@ -7,4 +7,19 @@ export default defineConfig({
   optimizeDeps: {
     include: ["ethers"],
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes("node_modules")) {
+            return "vendor";
+          }
+          if (id.includes("path/to/some-heavy-component")) {
+            return "heavy-component";
+          }
+        },
+      },
+    },
+    chunkSizeWarningLimit: 1000,
+  },
 });
