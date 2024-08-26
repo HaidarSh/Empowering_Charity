@@ -8,18 +8,18 @@ export default defineConfig({
     include: ["ethers"],
   },
   build: {
-    rollupOptions: {
-      output: {
-        manualChunks(id) {
-          if (id.includes("node_modules")) {
-            if (id.includes("@thirdweb-dev")) {
-              return "thirdweb-vendor";
-            }
-            return "vendor";
-          }
-        },
-      },
-    },
+    // rollupOptions: {
+    //   output: {
+    //     manualChunks(id) {
+    //       if (id.includes("node_modules")) {
+    //         if (id.includes("@thirdweb-dev")) {
+    //           return "thirdweb-vendor";
+    //         }
+    //         return "vendor";
+    //       }
+    //     },
+    //   },
+    // },
     // chunkSizeWarningLimit: 10000,
     minify: false, 
     terserOptions: {}, 
