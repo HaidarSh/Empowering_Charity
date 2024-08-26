@@ -7,22 +7,22 @@ export default defineConfig({
   optimizeDeps: {
     include: ["ethers"],
   },
-  build: {
-    // rollupOptions: {
-    //   output: {
-    //     manualChunks(id) {
-    //       if (id.includes("node_modules")) {
-    //         if (id.includes("@thirdweb-dev")) {
-    //           return "thirdweb-vendor";
-    //         }
-    //         return "vendor";
-    //       }
-    //     },
-    //   },
-    // },
-    // chunkSizeWarningLimit: 10000,
-    minify: false, 
-    terserOptions: {}, 
-    gzipSize: false 
-  },
+  // build: {
+  //   // rollupOptions: {
+  //   //   output: {
+  //   //     manualChunks(id) {
+  //   //       if (id.includes("node_modules")) {
+  //   //         if (id.includes("@thirdweb-dev")) {
+  //   //           return "thirdweb-vendor";
+  //   //         }
+  //   //         return "vendor";
+  //   //       }
+  //   //     },
+  //   //   },
+  //   // },
+  //   // chunkSizeWarningLimit: 10000,
+  //   // minify: false, 
+  //   // terserOptions: {}, 
+  //   // gzipSize: false 
+  // },
 });
