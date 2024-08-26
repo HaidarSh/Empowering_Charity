@@ -20,7 +20,7 @@ export default defineConfig({
         },
       },
     },
-    chunkSizeWarningLimit: 10000,
+    // chunkSizeWarningLimit: 10000,
     minify: false, 
     terserOptions: {}, 
     gzipSize: false 
