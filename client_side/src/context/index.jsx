@@ -2,9 +2,9 @@ import React, { useContext, createContext } from "react";
 import {
   useAddress,
   useContract,
-  useMetamask,
+  // useMetamask,
   useContractWrite,
-  useDisconnect,
+  // useDisconnect,
 } from "@thirdweb-dev/react";
 import { ethers } from "ethers";
 import { ABI, contractAddress } from "./Contract_ABI_Address";
@@ -25,8 +25,21 @@ export const StateContextProvider = ({ children }) => {
   } = useContractWrite(contract, "createCharity");
 
   const address = useAddress();
-  const connect = useMetamask();
-  const disconnect = useDisconnect();
+  // const connect = useMetamask();
+  // const disconnect = useDisconnect();
+  const [connect, setConnect] = useState(null);
+  const [disconnect, setDisconnect] = useState(null);
+
+  // Load the connect and disconnect functions asynchronously
+  useEffect(() => {
+    const loadConnectFunctions = async () => {
+      const { useMetamask, useDisconnect } = await import("@thirdweb-dev/react");
+      setConnect(() => useMetamask);
+      setDisconnect(() => useDisconnect);
+    };
+
+    loadConnectFunctions();
+  }, []);
 
  
   console.log("Connect Function:", connect);

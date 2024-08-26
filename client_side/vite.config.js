@@ -11,11 +11,14 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks(id) {
-          if (id.includes("node_modules")) {
-            return "vendor";
-          }
           if (id.includes("path/to/some-heavy-component")) {
             return "heavy-component";
+          }
+          if (id.includes("node_modules")) {
+            if (id.includes("@thirdweb-dev")) {
+              return "thirdweb-vendor";
+            }
+            return "vendor";
           }
         },
       },
