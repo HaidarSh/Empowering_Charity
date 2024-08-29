@@ -27,7 +27,7 @@ const Icon = ({ styles, name, imgUrl, isActive, disabled, handleClick }) => (
   >
     <img
       src={imgUrl}
-      className={`w-1/2 h-1/2 ${isActive !== name ? "grayscale" : ""}`}
+      className={`w-1/2 h-1/2 ${isActive !== name ? "saturate-0 grayscale" : ""}`}
       alt={`${name}-icon`}
     />
   </div>

@@ -38,7 +38,7 @@ export default function Home() {
           <CustomButtom
             btnType="button"
             title={address ? "Disconnect wallet" : "Connect wallet"}
-            styles={address ? "bg-[#e74c3c]" : "bg-[#3498db]"}
+            styles={address ? "bg-[#ed732d]" : "bg-[#eda479]"}
             handleClick={() => {
               if (address) disconnect();
               else connect();
@@ -79,7 +79,7 @@ export default function Home() {
             <CharityPhotosStyle imageSRC={first_three} />
           </div>
         </div>
-        <hr className="border-t-2 border-[#3498db]" />
+        <hr className="border-t-2 border-[#A18167]" />
         <div>
           <div className="mt-10 flex ">
             <p className="responsive-text-title-inner text-[var(--text-color)] mb-10 font-epilogue font-semibold">
@@ -104,7 +104,7 @@ export default function Home() {
             <CharityPhotosStyle imageSRC={second_six} />
           </div>
         </div>
-        <hr className="border-t-2 border-[#3498db]" />
+        <hr className="border-t-2 border-[#A18167]" />
         <div className="flex flex-col cursor-pointer items-center">
           <div className="mt-10">
             <p className="responsive-text text-xl text-[var(--text-color)] mb-10 font-epilogue">
@@ -138,7 +138,7 @@ export default function Home() {
           </div>
         </div>
 
-        <hr className="border-t-2 border-[#3498db]" />
+        <hr className="border-t-2 border-[#A18167]" />
 
         <div className="flex flex-col items-center">
           <div className="mt-10">
@@ -148,7 +148,7 @@ export default function Home() {
             </p>
           </div>
           <Link to="/Empowering_Charity/View_Active_Charity">
-            <div className="custom-buttom bg-[#3498db] px-4 py-3 rounded-[10px] text-2xl flex justify-center items-center">
+            <div className="custom-buttom bg-[#A18167] px-4 py-3 rounded-[50px] text-2xl flex justify-center items-center">
               <h1 className="custom-buttom-responsive-text font-epilogue font-semibold text-[25px] text-[var(--custombuttom-text-color)]">
                 Donate Now!
               </h1>

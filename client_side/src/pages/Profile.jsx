@@ -30,11 +30,11 @@ function ToggleButton({ active, onClick, label, color }) {
   return (
     <button
       onClick={onClick}
-      className={`profile-button responsive-text px-6 py-2 rounded-[10px] text-[var(--custombuttom-text-color)] ${color} text-[20px] ${
+      className={`profile-button responsive-text px-6 py-2 rounded-[50px] text-[var(--custombuttom-text-color)] ${color} text-[20px] ${
         active ? "border-4 shadow-md" : "border border-transparent shadow-none"
       }`}
       style={{
-        borderColor: active ? "var(--profile-bg-color)" : "transparent",
+        borderColor: active ? "var(--profile-buttom-bg-color)" : "transparent",
       }}
     >
       {label}
@@ -282,7 +282,8 @@ export default function Profile({ showActive, setShowActive }) {
       {isLoading && (showActive ? <BlueLoader /> : <RedLoader />)}
 
       <div className="flex flex-row justify-between gap-2">
-        <div className="searchBar lg:flex-1 flex flex-row max-w-[458px] py-2 pl-4 pr-2 h-[52px] bg-[var(--searchbar-bg-color)] rounded-[100px]">
+        {showActive ? (
+          <div className="searchBar lg:flex-1 flex flex-row max-w-[458px] py-2 pl-4 pr-2 h-[52px] bg-[var(--searchbar-profile-active-bg-1-color)] rounded-[100px] ">
           <input
             type="text"
             placeholder="Search for charities"
@@ -290,20 +291,33 @@ export default function Profile({ showActive, setShowActive }) {
             onChange={(e) => setSearchQuery(e.target.value)}
             className="flex w-full font-epilogue font-normal text-[14px] placeholder:text-[#4b5264] text-[var(--text-color)] bg-transparent outline-none"
           />
-
-          <div
-            className={`w-[72px] h-full rounded-[20px] ${
-              showActive ? "bg-[#3498db]" : "bg-[#e74c3c]"
-            } flex justify-center items-center cursor-pointer`}
-            onClick={filterCharities}
-          >
+          <div className="w-[72px] h-full rounded-[20px] bg-[var(--searchbar-profile-active-bg-2-color)] flex justify-center items-center cursor-pointer">
             <img
               src={theme === "dark" ? search_dark : search_light}
               alt="search"
-              className="w-[15px] h-[15px] object-contain "
+              className="w-[15px] h-[15px] object-contain"
             />
           </div>
         </div>
+        ) : (
+          <div className="searchBar lg:flex-1 flex flex-row max-w-[458px] py-2 pl-4 pr-2 h-[52px] bg-[var(--searchbar-profile-inactive-bg-1-color)] rounded-[100px]">
+          <input
+            type="text"
+            placeholder="Search for charities"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="flex w-full font-epilogue font-normal text-[14px] placeholder:text-[#4b5264] text-[var(--text-color)] bg-transparent outline-none"
+          />
+          <div className="w-[72px] h-full rounded-[20px] bg-[var(--searchbar-profile-inactive-bg-2-color)] flex justify-center items-center cursor-pointer">
+            <img
+              src={theme === "dark" ? search_dark : search_light}
+              alt="search"
+              className="w-[15px] h-[15px] object-contain"
+            />
+          </div>
+        </div>
+        )
+      }
 
         <div className="flex flex-row ml-auto sm:w-auto">
           <CustomButtom
@@ -317,7 +331,7 @@ export default function Profile({ showActive, setShowActive }) {
                 ? "Connect"
                 : "Connect wallet"
             }
-            styles={address ? "bg-[#e74c3c]" : "bg-[#3498db]"}
+            styles={address ? "bg-[#ed732d]" : "bg-[#eda479]"}
             handleClick={() => {
               if (address) disconnect();
               else connect();
@@ -351,8 +365,8 @@ export default function Profile({ showActive, setShowActive }) {
                   <h1
                     className={`profile-button responsive-text mb-1 cursor-pointer ${
                       showActive
-                        ? "hover:text-[#338AF0]"
-                        : "hover:text-[#e74c3c]"
+                        ? "hover:text-[#0c3d32]"
+                        : "hover:text-[#ed732d]"
                     } `}
                   >
                     <div>
@@ -373,8 +387,8 @@ export default function Profile({ showActive, setShowActive }) {
                   <p
                     className={`profile-button charitydetails-text-2 mb-1 cursor-pointer ${
                       showActive
-                        ? "hover:text-[#338AF0]"
-                        : "hover:text-[#e74c3c]"
+                        ? "hover:text-[#0c3d32]"
+                        : "hover:text-[#ed732d]"
                     }`}
                   >
                     {userActiveProfile.address ||
@@ -394,8 +408,8 @@ export default function Profile({ showActive, setShowActive }) {
                   <p
                     className={`profile-button responsive-text mb-1 cursor-pointer ${
                       showActive
-                        ? "hover:text-[#338AF0]"
-                        : "hover:text-[#e74c3c]"
+                        ? "hover:text-[#0c3d32]"
+                        : "hover:text-[#ed732d]"
                     }`}
                   >
                     <div>
@@ -417,8 +431,8 @@ export default function Profile({ showActive, setShowActive }) {
                   <p
                     className={`profile-button responsive-text mb-1 cursor-pointer ${
                       showActive
-                        ? "hover:text-[#338AF0]"
-                        : "hover:text-[#e74c3c]"
+                        ? "hover:text-[#0c3d32]"
+                        : "hover:text-[#ed732d]"
                     }`}
                   >
                     <div>
@@ -438,8 +452,8 @@ export default function Profile({ showActive, setShowActive }) {
                   <p
                     className={`profile-button responsive-text underline mb-1 cursor-pointer ${
                       showActive
-                        ? "hover:text-[#338AF0]"
-                        : "hover:text-[#e74c3c]"
+                        ? "hover:text-[#0c3d32]"
+                        : "hover:text-[#ed732d]"
                     }`}
                   >
                     <div>
@@ -458,10 +472,10 @@ export default function Profile({ showActive, setShowActive }) {
             className="box bg-[var(--background-color)] p-4 w-[130px] rounded-[10px] mt-10 flex text-lg text-[var(--text-color)] flex justify-center items-center cursor-pointer"
           >
             <div className="profile-button flex flex-col ">
-              <span className="profile-button responsive-text font-bold text-[#338AF0] cursor-pointer">
+              <span className="profile-button responsive-text font-bold text-[#0c3d32] cursor-pointer">
                 Active:
               </span>
-              <span className="profile-button responsive-text flex justify-center items-center cursor-pointer text-[#338AF0]">
+              <span className="profile-button responsive-text font-bold flex justify-center items-center cursor-pointer text-[#0c3d32]">
                 {activeCharities.length}
               </span>
             </div>
@@ -471,10 +485,10 @@ export default function Profile({ showActive, setShowActive }) {
             className="box bg-[var(--background-color)] p-4 w-[130px] rounded-[10px] mt-10 flex text-lg text-[var(--text-color)] flex justify-center items-center cursor-pointer"
           >
             <div className="profile-button flex flex-col">
-              <span className="profile-button responsive-text font-bold cursor-pointer text-[#e74c3c]">
+              <span className="profile-button responsive-text font-semibold cursor-pointer text-[#ed732d]">
                 InActive:
               </span>
-              <span className="profile-button responsive-text flex justify-center items-center cursor-pointer text-[#e74c3c]">
+              <span className="profile-button responsive-text font-semibold flex justify-center items-center cursor-pointer text-[#ed732d]">
                 {inActiveCharities.length}
               </span>
             </div>
@@ -487,14 +501,14 @@ export default function Profile({ showActive, setShowActive }) {
           active={showActive}
           onClick={() => setShowActive(true)}
           label="Active"
-          color="bg-[#3498db]"
+          color="bg-[#0c3d32]"
         />
 
         <ToggleButton
           active={!showActive}
           onClick={() => setShowActive(false)}
           label="InActive"
-          color="bg-[#e74c3c]"
+          color="bg-[#ed732d]"
         />
       </div>
 
@@ -528,7 +542,7 @@ export default function Profile({ showActive, setShowActive }) {
               ? "Connect"
               : "Connect wallet"
           }
-          styles={address ? "bg-[#e74c3c] px-6 py-3" : "bg-[#3498db] px-6 py-3"}
+          styles={address ? "bg-[#ed732d] px-6 py-3" : "bg-[#eda479] px-6 py-3"}
           handleClick={() => {
             if (address) disconnect();
             else connect();

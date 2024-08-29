@@ -618,10 +618,6 @@ video {
   visibility: visible;
 }
 
-.invisible{
-  visibility: hidden;
-}
-
 .static{
   position: static;
 }
@@ -769,10 +765,6 @@ video {
   margin-top: 65px;
 }
 
-.mt-\[10px\]{
-  margin-top: 10px;
-}
-
 .block{
   display: block;
 }
@@ -869,18 +861,6 @@ video {
   height: 100vh;
 }
 
-.h-\[60px\]{
-  height: 60px;
-}
-
-.h-\[55px\]{
-  height: 55px;
-}
-
-.h-\[px\]{
-  height: px;
-}
-
 .max-h-300px{
   max-height: 300px;
 }
@@ -941,6 +921,10 @@ video {
   width: 52px;
 }
 
+.w-\[55px\]{
+  width: 55px;
+}
+
 .w-\[60\%\]{
   width: 60%;
 }
@@ -959,14 +943,6 @@ video {
 
 .w-full{
   width: 100%;
-}
-
-.w-\[60px\]{
-  width: 60px;
-}
-
-.w-\[55px\]{
-  width: 55px;
 }
 
 .max-w-\[1280px\]{
@@ -1097,6 +1073,10 @@ video {
   border-radius: 20px;
 }
 
+.rounded-\[50px\]{
+  border-radius: 50px;
+}
+
 .rounded-full{
   border-radius: 9999px;
 }
@@ -1136,18 +1116,23 @@ video {
   border-top-width: 2px;
 }
 
-.border-\[\#3498db\]{
-  --tw-border-opacity: 1;
-  border-color: rgb(52 152 219 / var(--tw-border-opacity));
-}
-
 .border-\[\#3a3a43\]{
   --tw-border-opacity: 1;
   border-color: rgb(58 58 67 / var(--tw-border-opacity));
 }
 
+.border-\[\#A18167\]{
+  --tw-border-opacity: 1;
+  border-color: rgb(161 129 103 / var(--tw-border-opacity));
+}
+
 .border-transparent{
   border-color: transparent;
+}
+
+.bg-\[\#0c3d32\]{
+  --tw-bg-opacity: 1;
+  background-color: rgb(12 61 50 / var(--tw-bg-opacity));
 }
 
 .bg-\[\#13131a\]{
@@ -1155,29 +1140,29 @@ video {
   background-color: rgb(19 19 26 / var(--tw-bg-opacity));
 }
 
-.bg-\[\#338AF0\]{
-  --tw-bg-opacity: 1;
-  background-color: rgb(51 138 240 / var(--tw-bg-opacity));
-}
-
 .bg-\[\#34495e\]{
   --tw-bg-opacity: 1;
   background-color: rgb(52 73 94 / var(--tw-bg-opacity));
 }
 
-.bg-\[\#3498db\]{
+.bg-\[\#A18167\]{
   --tw-bg-opacity: 1;
-  background-color: rgb(52 152 219 / var(--tw-bg-opacity));
-}
-
-.bg-\[\#FF8C00\]{
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 140 0 / var(--tw-bg-opacity));
+  background-color: rgb(161 129 103 / var(--tw-bg-opacity));
 }
 
 .bg-\[\#e74c3c\]{
   --tw-bg-opacity: 1;
   background-color: rgb(231 76 60 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#ed732d\]{
+  --tw-bg-opacity: 1;
+  background-color: rgb(237 115 45 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#eda479\]{
+  --tw-bg-opacity: 1;
+  background-color: rgb(237 164 121 / var(--tw-bg-opacity));
 }
 
 .bg-\[rgba\(0\2c 0\2c 0\2c 0\.7\)\]{
@@ -1196,8 +1181,20 @@ video {
   background-color: var(--background-color);
 }
 
-.bg-\[var\(--countbox-active-color\)\]{
-  background-color: var(--countbox-active-color);
+.bg-\[var\(--countbox-active-1-color\)\]{
+  background-color: var(--countbox-active-1-color);
+}
+
+.bg-\[var\(--countbox-active-2-color\)\]{
+  background-color: var(--countbox-active-2-color);
+}
+
+.bg-\[var\(--countbox-inactive-1-color\)\]{
+  background-color: var(--countbox-inactive-1-color);
+}
+
+.bg-\[var\(--countbox-inactive-2-color\)\]{
+  background-color: var(--countbox-inactive-2-color);
 }
 
 .bg-\[var\(--createcharity-bg-color\)\]{
@@ -1220,6 +1217,14 @@ video {
   background-color: var(--icon-bg-color);
 }
 
+.bg-\[var\(--icons-active-charity-details\)\]{
+  background-color: var(--icons-active-charity-details);
+}
+
+.bg-\[var\(--icons-inactive-charity-details\)\]{
+  background-color: var(--icons-inactive-charity-details);
+}
+
 .bg-\[var\(--inactivefundcard-bg-color\)\]{
   background-color: var(--inactivefundcard-bg-color);
 }
@@ -1228,25 +1233,60 @@ video {
   background-color: var(--profile-bg-color);
 }
 
-.bg-\[var\(--searchbar-bg-color\)\]{
-  background-color: var(--searchbar-bg-color);
+.bg-\[var\(--searchbar-active-bg-1-color\)\]{
+  background-color: var(--searchbar-active-bg-1-color);
+}
+
+.bg-\[var\(--searchbar-active-bg-2-color\)\]{
+  background-color: var(--searchbar-active-bg-2-color);
+}
+
+.bg-\[var\(--searchbar-inactive-bg-1-color\)\]{
+  background-color: var(--searchbar-inactive-bg-1-color);
+}
+
+.bg-\[var\(--searchbar-inactive-bg-2-color\)\]{
+  background-color: var(--searchbar-inactive-bg-2-color);
+}
+
+.bg-\[var\(--searchbar-profile-active-bg-1-color\)\]{
+  background-color: var(--searchbar-profile-active-bg-1-color);
+}
+
+.bg-\[var\(--searchbar-profile-active-bg-2-color\)\]{
+  background-color: var(--searchbar-profile-active-bg-2-color);
+}
+
+.bg-\[var\(--searchbar-profile-inactive-bg-1-color\)\]{
+  background-color: var(--searchbar-profile-inactive-bg-1-color);
+}
+
+.bg-\[var\(--searchbar-profile-inactive-bg-2-color\)\]{
+  background-color: var(--searchbar-profile-inactive-bg-2-color);
 }
 
 .bg-\[var\(--sidebar-bg-color\)\]{
   background-color: var(--sidebar-bg-color);
 }
 
-.bg-\[var\(--targetloading-bg-color\)\]{
-  background-color: var(--targetloading-bg-color);
+.bg-\[var\(--targetloading-active-bg-1-color\)\]{
+  background-color: var(--targetloading-active-bg-1-color);
+}
+
+.bg-\[var\(--targetloading-active-bg-2-color\)\]{
+  background-color: var(--targetloading-active-bg-2-color);
+}
+
+.bg-\[var\(--targetloading-inactive-bg-1-color\)\]{
+  background-color: var(--targetloading-inactive-bg-1-color);
+}
+
+.bg-\[var\(--targetloading-inactive-bg-2-color\)\]{
+  background-color: var(--targetloading-inactive-bg-2-color);
 }
 
 .bg-\[var\(--text-color\)\]{
   background-color: var(--text-color);
-}
-
-.bg-darkBlue{
-  --tw-bg-opacity: 1;
-  background-color: rgb(41 128 185 / var(--tw-bg-opacity));
 }
 
 .bg-transparent{
@@ -1463,14 +1503,14 @@ video {
   line-height: 38px;
 }
 
-.text-\[\#338AF0\]{
+.text-\[\#0c3d32\]{
   --tw-text-opacity: 1;
-  color: rgb(51 138 240 / var(--tw-text-opacity));
+  color: rgb(12 61 50 / var(--tw-text-opacity));
 }
 
-.text-\[\#e74c3c\]{
+.text-\[\#ed732d\]{
   --tw-text-opacity: 1;
-  color: rgb(231 76 60 / var(--tw-text-opacity));
+  color: rgb(237 115 45 / var(--tw-text-opacity));
 }
 
 .text-\[var\(--createCharity1-text-color\)\]{
@@ -1540,6 +1580,11 @@ video {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
+.saturate-0{
+  --tw-saturate: saturate(0);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
 .filter{
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
@@ -1553,69 +1598,103 @@ video {
 }
 
 :root {
-  --background-color: #e0e0e0;
-  --sidebar-bg-color: #afafaf;
-  --home-bg-color: #afafaf;
-  --searchbar-bg-color: #afafaf;
-  --createcharity-bg-color: #afafaf;
-  --activefundcard-bg-color: #ced1eb;
-  --inactivefundcard-bg-color: #c99191;
-  --text-color: #474646;
-  --custombuttom-text-color: #2d2d2d;
-  --createCharity1-text-color: #000000;
+  --background-color: #e5ecea;
+  --sidebar-bg-color: #98dbbf;
+  --home-bg-color:#98dbbf;
+  --searchbar-active-bg-1-color: #98dbbf;
+  --searchbar-active-bg-2-color: #d6f0e0;
+  --searchbar-inactive-bg-1-color: #98dbbf;
+  --searchbar-inactive-bg-2-color: #ebd2b3;
+  --searchbar-profile-active-bg-1-color: #98dbbf;
+  --searchbar-profile-active-bg-2-color: #d6f0e0;
+  --searchbar-profile-inactive-bg-1-color: #98dbbf;
+  --searchbar-profile-inactive-bg-2-color: #ebd2b3;
+  --createcharity-bg-color: #98dbbf;
+  --activefundcard-bg-color: #d6f0e0;
+  --inactivefundcard-bg-color: #f5e1c9;
+  --text-color:#031222;
+  --custombuttom-text-color: #ffffff;
+  --createCharity1-text-color: #06473e;
   --createCharity2-text-color: #2d2d2d;
-  --icon-bg-color: #afafaf;
-  --active-icon-bg-color: #e0e0e0;
-  --countbox-active-color: #afafaf;
-  --targetloading-bg-color: #afafaf;
-  --descriptiontext-color: #000000;
-  --donatortext-color: #000000;
-  --donatetocharity1-bg-color: #afafaf;
-  --donatetocharity2-bg-color: #e0e0e0;
-  --profile-bg-color: #afafaf;
-  --placeholder-color: #4b6264;
-  --swal-background-color: #afafaf;
-  --swal-text-color: #474646;
+  --icon-bg-color : #98dbbf;
+  --active-icon-bg-color :#e5ecea;
+  --countbox-active-1-color: #98dbbf;
+  --countbox-active-2-color: #73afa2;
+  --countbox-inactive-1-color: #98dbbf;
+  --countbox-inactive-2-color: #eda479;
+  --targetloading-active-bg-1-color: #98dbbf;
+  --targetloading-active-bg-2-color: #73afa2;
+  --targetloading-inactive-bg-1-color: #98dbbf;
+  --targetloading-inactive-bg-2-color: #eda479;
+  --descriptiontext-color: #c01414;
+  --donatortext-color:#000000;
+  --donatetocharity1-bg-color: #98dbbf;
+  --donatetocharity2-bg-color: #73afa2;
+  --icons-active-charity-details: #98dbbf;
+  --icons-inactive-charity-details: #98dbbf;
+  --profile-bg-color:#98dbbf;
+  --profile-buttom-bg-color: #37BB9E;
+  --placeholder-color: #6a7a78;
+  --swal-background-color: #e5ecea;
+  --swal-text-color: #5f5858;
   --swal-title-error-color: #e74c3c;
   --swal-title-warning-color: #f39c12;
-  --swal-title-success-color: #27ae60;
-  --swal-confirm-button-color: #3498db;
-  --box-shadow: 1px 1px 6px 5px rgb(95, 90, 90);
-  --box-border: 3px solid rgb(216, 210, 210);
-  --breathing-shadow: 1px 1px 12px 7px rgba(0, 0, 0, 0.7);
+  --swal-title-success-color: #05140b;
+  --swal-confirm-button-color: #000000;
+  --box-shadow: 9px 9px 9px  rgb(166, 204, 201);
+  --box-2-shadow: 9px 9px 9px rgb(166, 204, 201);
+  --box-border: 0px solid rgb(29, 148, 140) ;
 }
 
 [data-theme="dark"] {
-  --background-color: #2c3e50;
-  --sidebar-bg-color: #1a1a2e;
-  --createcharity-bg-color: #1a1a2e;
-  --activefundcard-bg-color: #34495e;
-  --inactivefundcard-bg-color: #d87878;
-  --home-bg-color: #1a1a2e;
-  --searchbar-bg-color: #1a1a2e;
-  --text-color: #c4d3d6e7;
-  --custombuttom-text-color: #c4d3d6e7;
+  --background-color: rgb(27, 97, 88);
+  --sidebar-bg-color: #0c3d32;
+  --createcharity-bg-color: #0c3d32;
+  --activefundcard-bg-color: #608b71;
+  --inactivefundcard-bg-color: #d3ad7c;
+  --home-bg-color: #0c3d32;
+  --searchbar-active-bg-1-color: #0c3d32;
+  --searchbar-active-bg-2-color: #608b71;
+  --searchbar-inactive-bg-1-color: #0c3d32;
+  --searchbar-inactive-bg-2-color: #d3ad7c;
+  --searchbar-profile-active-bg-1-color: #0c3d32;
+  --searchbar-profile-active-bg-2-color: #37BB9E;
+  --searchbar-profile-inactive-bg-1-color: #0c3d32;
+  --searchbar-profile-inactive-bg-2-color: #ED732D;
+  --text-color: #ffffff;
+  --custombuttom-text-color: #cfffe3;
   --createCharity1-text-color: #ffffff;
-  --createCharity2-text-color: #d8e3e6;
-  --icon-bg-color: #1a1a2e;
-  --active-icon-bg-color: #2c3e50;
-  --countbox-active-color: #1a1a2e;
-  --targetloading-bg-color: #1a1a2e;
-  --descriptiontext-color: #808091;
+  --createCharity2-text-color: #ffffff;
+  --icon-bg-color: #0c3d32;
+  --active-icon-bg-color:rgb(27, 97, 88);
+  --countbox-active-1-color: #0c3d32;
+  --countbox-active-2-color: #2d816f;
+  --countbox-inactive-1-color: #0c3d32;
+  --countbox-inactive-2-color:#ed732d;
+  --targetloading-active-bg-1-color: #0c3d32;
+  --targetloading-active-bg-2-color: #2d816f;
+  --targetloading-inactive-bg-1-color: #0c3d32;
+  --targetloading-inactive-bg-2-color: #ed732d;
+  --descriptiontext-color: #000096;
   --donatortext-color: #b2b3bd;
-  --donatetocharity1-bg-color: #1a1a2e;
-  --donatetocharity2-bg-color: #2c3e50;
-  --profile-bg-color: #1a1a2e;
-  --placeholder-color: #4b6264;
-  --swal-background-color: #2c3e50;
-  --swal-text-color: #c4d3d6e7;
-  --swal-title-error-color: #e74c3c;
-  --swal-title-warning-color: #f39c12;
-  --swal-title-success-color: #58ca8a;
-  --swal-confirm-button-color: #3498db;
-  --box-shadow: 1px 1px 6px 5px rgb(19, 18, 18);
-  --box-border: 3px solid #000000;
-  --breathing-shadow: 1px 1px 12px 7px rgb(19, 18, 18);
+  --donatetocharity1-bg-color: #0c3d32;
+  --donatetocharity2-bg-color: #2d816f;
+  --icons-active-charity-details: #0c3d32;
+  --icons-inactive-charity-details: #0c3d32;
+  --profile-bg-color: #0c3d32;
+  --profile-buttom-bg-color: #37BB9E;
+  --placeholder-color: #85b5b9;
+  --swal-background-color: rgb(27, 97, 88);
+  --swal-text-color: #f6faf8e7;
+  --swal-title-error-color: #fefffe;
+  --swal-title-warning-color: #fd0000;
+  --swal-title-success-color: #0fbdc9;
+  --swal-confirm-button-color: #c56e5f;
+  --box-shadow: 9px 9px 9px rgb(14, 71, 67);
+  --box-2-shadow: 9px 9px 9px rgb(14, 71, 67);
+  --box-border: 5px 12px 12px rgb(0, 0, 0);
+  --breathing-shadow: 1px 1px 5px 3px rgb(9, 32, 23)
+
 }
 
 .custom-swal-popup-error {
@@ -1706,6 +1785,15 @@ video {
 }
 
 .box:hover {
+  transform: scale(1.03);
+}
+
+.box-2 {
+  transition: 0.5s ease;
+  box-shadow: var(--box-2-shadow);
+}
+
+.box-2:hover {
   transform: scale(1.03);
 }
 
@@ -1855,12 +1943,12 @@ video {
 }
 
 .responsive-text-title {
-  font-size: 18px;
+  font-size: 22px;
 }
 
 @media (max-width: 640px) {
   .responsive-text-title {
-    font-size: 9px;
+    font-size: 11px;
     font: bold;
   }
 
@@ -1902,7 +1990,7 @@ video {
 
   .responsive-text-title-inner {
     font-size: 13px;
-    margin-bottom: 0px;
+    margin-bottom: 25px;
   }
 }
 
@@ -1952,6 +2040,38 @@ video {
   }
 }
 
+.loading-dots {
+  display: inline-flex;
+  align-items: center;
+}
+
+.dot {
+  width: 0.3em;
+  height: 0.3em;
+  background-color: white;
+  border-radius: 50%;
+  margin: 0 0.2em;
+  animation: dot-blink 1.5s infinite;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes dot-blink {
+  0%, 100% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
 .placeholder\:text-\[\#4b5264\]::-moz-placeholder{
   --tw-text-opacity: 1;
   color: rgb(75 82 100 / var(--tw-text-opacity));
@@ -1970,14 +2090,14 @@ video {
   color: var(--placeholder-color);
 }
 
-.hover\:text-\[\#338AF0\]:hover{
+.hover\:text-\[\#0c3d32\]:hover{
   --tw-text-opacity: 1;
-  color: rgb(51 138 240 / var(--tw-text-opacity));
+  color: rgb(12 61 50 / var(--tw-text-opacity));
 }
 
-.hover\:text-\[\#e74c3c\]:hover{
+.hover\:text-\[\#ed732d\]:hover{
   --tw-text-opacity: 1;
-  color: rgb(231 76 60 / var(--tw-text-opacity));
+  color: rgb(237 115 45 / var(--tw-text-opacity));
 }
 
 @media not all and (min-width: 640px){
@@ -2077,4 +2197,5 @@ video {
     flex-direction: row;
   }
 }
+
 

@@ -8,7 +8,7 @@ export default function FormField(props) {
   const customStyles = {
     control: (provided) => ({
       ...provided,
-      backgroundColor: theme === "dark" ? "#1a1a2e" : "#afafaf",
+      backgroundColor: theme === "dark" ? "#0c3d32" : "#98dbbf",
       borderColor: "#3a3a43",
       color: theme === "dark" ? "#ffffff" : "#000000",
       minHeight: "56px",
@@ -21,7 +21,7 @@ export default function FormField(props) {
     }),
     menu: (provided) => ({
       ...provided,
-      backgroundColor: theme === "dark" ? "#1a1a2e" : "#afafaf",
+      backgroundColor: theme === "dark" ? "#0c3d32" : "#98dbbf",
       color: theme === "dark" ? "#ffffff" : "#000000",
       borderRadius: "10px",
     }),
@@ -54,35 +54,21 @@ export default function FormField(props) {
       ...provided,
       backgroundColor: state.isSelected
         ? theme === "dark"
-          ? "#3498db"
-          : "#cccccc"
+          ? "#A18167"
+          : "#dfc1a9"
         : state.isFocused
         ? theme === "dark"
-          ? "#1a1a2e"
-          : "#afafaf"
+          ? "#0c3d32"
+          : "#98dbbf"
         : theme === "dark"
-        ? "#1a1a2e"
-        : "#afafaf",
+        ? "#0c3d32"
+        : "#98dbbf",
       color: theme === "dark" ? "#ffffff" : "#000000",
       "&:hover": {
-        backgroundColor: theme === "dark" ? "#3498db" : "#cccccc",
+        backgroundColor: theme === "dark" ? "#A18167" : "#dfc1a9",
         color: theme === "dark" ? "#ffffff" : "#000000",
       },
     }),
-  };
-
-  const handleChange = (eventOrOption) => {
-    if (props.isSelect) {
-      props.handleChange({
-        target: { name: props.name, value: eventOrOption.value },
-      });
-    } else if (props.isTextArea) {
-      props.handleChange({
-        target: { name: props.name, value: eventOrOption.target.value },
-      });
-    } else {
-      props.handleChange(eventOrOption);
-    }
   };
 
   return (

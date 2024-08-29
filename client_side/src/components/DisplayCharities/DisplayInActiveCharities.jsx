@@ -34,7 +34,7 @@ export default function DisplayInActiveCharities({
   return (
     <div>
       <div className="flex flex-row justify-between gap-2">
-        <div className="searchBar lg:flex-1 flex flex-row max-w-[458px] py-2 pl-4 pr-2 h-[52px] bg-[var(--searchbar-bg-color)] rounded-[100px]">
+        <div className="searchBar lg:flex-1 flex flex-row max-w-[458px] py-2 pl-4 pr-2 h-[52px] bg-[var(--searchbar-inactive-bg-1-color)] rounded-[100px]">
           <input
             type="text"
             placeholder="Search for charities"
@@ -42,7 +42,7 @@ export default function DisplayInActiveCharities({
             onChange={(e) => setSearchQuery(e.target.value)}
             className="flex w-full font-epilogue font-normal text-[14px] placeholder:text-[#4b5264] text-[var(--text-color)] bg-transparent outline-none"
           />
-          <div className="w-[72px] h-full rounded-[20px] bg-[#e74c3c] flex justify-center items-center cursor-pointer">
+          <div className="w-[72px] h-full rounded-[20px] bg-[var(--searchbar-inactive-bg-2-color)] flex justify-center items-center cursor-pointer">
             <img
               src={theme === "dark" ? search_dark : search_light}
               alt="search"
@@ -62,7 +62,7 @@ export default function DisplayInActiveCharities({
                 ? "Connect"
                 : "Connect wallet"
             }
-            styles={address ? "bg-[#e74c3c] p-1" : "bg-[#3498db] p-1"}
+            styles={address ? "bg-[#ed732d] p-1" : "bg-[#eda479] p-1"}
             handleClick={() => {
               if (address) disconnect();
               else connect();

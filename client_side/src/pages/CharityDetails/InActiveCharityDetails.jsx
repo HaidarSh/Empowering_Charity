@@ -66,8 +66,8 @@ export default function InActiveCharityDetails() {
           title={address ? "Disconnect wallet" : "Connect wallet"}
           styles={
             address
-              ? "bg-[#e74c3c] h-[40px] flex justify-center items-center"
-              : "bg-[#3498db] h-[40px] flex justify-center items-center"
+              ? "bg-[#ed732d] h-[40px] flex justify-center items-center"
+              : "bg-[#eda479] h-[40px] flex justify-center items-center"
           }
           handleClick={() => {
             if (address) disconnect();
@@ -83,9 +83,9 @@ export default function InActiveCharityDetails() {
             className="custom-buttom image-custom w-full h-[410px] object-cover rounded-xl cursor-pointer opacity-60 brightness-110"
           />
 
-          <div className="cursor-pointer custom-buttom relative w-full h-[7px] bg-[var(--targetloading-bg-color)] mt-2 rounded-[20px]">
+          <div className="cursor-pointer custom-buttom relative w-full h-[7px] bg-[var(--targetloading-inactive-bg-1-color)] mt-2 rounded-[20px]">
             <div
-              className="absolute h-full bg-[#e74c3c] rounded-[20px]"
+              className="absolute h-full bg-[var(--targetloading-inactive-bg-2-color)] rounded-[20px]"
               style={{
                 width: `${calculateBarPercentage(
                   state.target,
@@ -115,7 +115,7 @@ export default function InActiveCharityDetails() {
             </h4>
 
             <div className="mt-[20px] flex flex-row items-center flex-wrap gap-[14px]">
-              <div className="icons-charitydetails w-[52px] h-[52px]  flex items-center justify-center rounded-full bg-[var(--targetloading-bg-color)] cursor-pointer">
+              <div className="icons-charitydetails w-[52px] h-[52px] flex items-center justify-center rounded-full bg-[var(--icons-inactive-charity-details)] cursor-pointer">
                 <img
                   src={thirdweb}
                   alt="user"
@@ -124,15 +124,15 @@ export default function InActiveCharityDetails() {
               </div>
 
               <div>
-                <h4 className="charitydetails-text-nb charitydetails-text-2 font-epilogue font-semibold text-[14px] text-[var(--text-color)] break-all cursor-pointer hover:text-[#e74c3c]">
+                <h4 className="charitydetails-text-nb charitydetails-text-2 font-epilogue font-semibold text-[14px] text-[var(--text-color)] break-all cursor-pointer hover:text-[#ed732d]">
                   {state.owner}
                 </h4>
                 <div className="flex flex-row justify-between">
-                  <p className="charitydetails-text-nb charitydetails-text-2 mt-[4px] font-epilogue font-normal text-[11px] text-[var(--text-color)] cursor-pointer hover:text-[#338AF0] ">
+                  <p className="charitydetails-text-nb charitydetails-text-2 mt-[4px] font-epilogue font-normal text-[11px] text-[var(--text-color)] cursor-pointer hover:text-[#0c3d32] ">
                     {activeCharities.length} Active{" "}
                     {activeCharities.length === 1 ? "Charity" : "Charities"}
                   </p>
-                  <p className="charitydetails-text-nb charitydetails-text-2 mt-[4px] font-epilogue font-normal text-[11px] text-[var(--text-color)] cursor-pointer hover:text-[#e74c3c]">
+                  <p className="charitydetails-text-nb charitydetails-text-2 mt-[4px] font-epilogue font-normal text-[11px] text-[var(--text-color)] cursor-pointer hover:text-[#ed732d]">
                     {inActiveCharities.length} InActive{" "}
                     {inActiveCharities.length === 1 ? "Charity" : "Charities"}
                   </p>
@@ -142,7 +142,7 @@ export default function InActiveCharityDetails() {
           </div>
 
           <div className="flex items-center gap-5">
-            <div className="icons-charitydetails w-[55px] h-[52px] flex items-center justify-center rounded-full bg-[var(--targetloading-bg-color)] cursor-pointer">
+            <div className="icons-charitydetails w-[55px] h-[52px] flex items-center justify-center rounded-full bg-[var(--icons-inactive-charity-details)] cursor-pointer">
               <img
                 src={profile_picture_inactive}
                 alt="profile_picture_active"
@@ -159,7 +159,7 @@ export default function InActiveCharityDetails() {
                       alt="name_icon_active"
                       className="icons cursor-pointer"
                     />
-                    <h1 className="charitydetails-text font-epilogue font-semibold text-[14px] text-[var(--text-color)] break-all cursor-pointer hover:text-[#e74c3c]">
+                    <h1 className="charitydetails-text font-epilogue font-semibold text-[14px] text-[var(--text-color)] break-all cursor-pointer hover:text-[#ed732d]">
                       {state.name}
                     </h1>
                   </div>
@@ -170,7 +170,7 @@ export default function InActiveCharityDetails() {
                       alt="location_icon"
                       className="icons cursor-pointer"
                     />
-                    <p className="charitydetails-text font-epilogue font-semibold text-[14px] text-[var(--text-color)] break-all cursor-pointer hover:text-[#e74c3c]">
+                    <p className="charitydetails-text font-epilogue font-semibold text-[14px] text-[var(--text-color)] break-all cursor-pointer hover:text-[#ed732d]">
                       {state.country}
                     </p>
                   </div>
@@ -183,7 +183,7 @@ export default function InActiveCharityDetails() {
                       alt="phone_icon"
                       className="icons cursor-pointer"
                     />
-                    <p className="charitydetails-text font-epilogue font-semibold text-[14px] text-[var(--text-color)] break-all cursor-pointer hover:text-[#e74c3c]">
+                    <p className="charitydetails-text font-epilogue font-semibold text-[14px] text-[var(--text-color)] break-all cursor-pointer hover:text-[#ed732d]">
                       {state.phoneNumber}
                     </p>
                   </div>
@@ -195,7 +195,7 @@ export default function InActiveCharityDetails() {
                       alt="email_icon"
                       className="icons cursor-pointer"
                     />
-                    <p className="charitydetails-text font-epilogue font-semibold text-[14px] text-[var(--text-color)] break-all underline cursor-pointer hover:text-[#e74c3c]">
+                    <p className="charitydetails-text font-epilogue font-semibold text-[14px] text-[var(--text-color)] break-all underline cursor-pointer hover:text-[#ed732d]">
                       {state.email}
                     </p>
                   </div>
@@ -256,7 +256,7 @@ export default function InActiveCharityDetails() {
           </div>
         </div>
         <div className="custom-buttom bg-[var(--profile-bg-color)] flex-1 justify-center items-center flex-col rounded-[10px] sm:p-10 p-4 max-h-300px">
-          <h4 className="font-epilogue responsive-text font-semibold text-[18px]  my-10 text-[#e74c3c]">
+          <h4 className="font-epilogue responsive-text font-semibold text-[18px]  my-10 text-[#ed732d]">
           ⚠️ This charity is now inactive. Donations, deletions and edits are no longer
             permitted.
           </h4>

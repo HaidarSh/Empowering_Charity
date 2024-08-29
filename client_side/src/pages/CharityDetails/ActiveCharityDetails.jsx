@@ -10,8 +10,10 @@ import {
   categoryOptions,
   checkIfImage,
   validatePhoneNumber,
+  calculateBarPercentage,
+  formatDate,
+  daysLeft,
 } from "../../utils";
-import { calculateBarPercentage, daysLeft } from "../../utils";
 import {
   thirdweb,
   profile_picture_active,
@@ -42,7 +44,7 @@ export default function ActiveCharityDetails() {
   const customStyles = {
     control: (provided) => ({
       ...provided,
-      backgroundColor: theme === "dark" ? "#1a1a2e" : "#afafaf",
+      backgroundColor: theme === "dark" ? "#0c3d32" : "#98dbbf",
       borderColor: "#3a3a43",
       color: theme === "dark" ? "#ffffff" : "#000000",
       minHeight: "56px",
@@ -55,7 +57,7 @@ export default function ActiveCharityDetails() {
     }),
     menu: (provided) => ({
       ...provided,
-      backgroundColor: theme === "dark" ? "#1a1a2e" : "#afafaf",
+      backgroundColor: theme === "dark" ? "#0c3d32" : "#98dbbf",
       color: theme === "dark" ? "#ffffff" : "#000000",
       borderRadius: "10px",
     }),
@@ -88,18 +90,18 @@ export default function ActiveCharityDetails() {
       ...provided,
       backgroundColor: state.isSelected
         ? theme === "dark"
-          ? "#3498db"
-          : "#cccccc"
+          ? "#A18167"
+          : "#dfc1a9"
         : state.isFocused
         ? theme === "dark"
-          ? "#1a1a2e"
-          : "#afafaf"
+          ? "#0c3d32"
+          : "#98dbbf"
         : theme === "dark"
-        ? "#1a1a2e"
-        : "#afafaf",
+        ? "#0c3d32"
+        : "#98dbbf",
       color: theme === "dark" ? "#ffffff" : "#000000",
       "&:hover": {
-        backgroundColor: theme === "dark" ? "#3498db" : "#cccccc",
+        backgroundColor: theme === "dark" ? "#A18167" : "#dfc1a9",
         color: theme === "dark" ? "#ffffff" : "#000000",
       },
     }),
@@ -124,15 +126,14 @@ export default function ActiveCharityDetails() {
     title: state.title,
     description: state.description,
     target: state.target,
+    deadline: formatDate(state.deadline),
     image: state.image,
     category: state.category,
     phoneNumber: state.phoneNumber,
     email: state.email,
-    country: state.country,
+    country: state.country,   
   });
   const [charityUpdated, setCharityUpdated] = useState(false);
-
-  const remainingDays = daysLeft(state.deadline);
 
   async function fetchDonators() {
     const data = await getDonations(state.pId);
@@ -273,11 +274,13 @@ export default function ActiveCharityDetails() {
 
           setAmount("");
         });
+      } else {
+        throw new Error("Donation failed");
       }
     } catch (error) {
-      console.error("Error during donation:", error);
+      console.error("Error occurred:", error);
       Swal.fire({
-        title: "An error occurred during donation",
+        title: "Donation rejected.",
         text: "",
         icon: "error",
         confirmButtonText: "OK",
@@ -297,7 +300,7 @@ export default function ActiveCharityDetails() {
       setIsLoading(true);
       const response = await removeCharity(state.pId);
       if (response) {
-        console.log("Deletion successful");
+        console.log("Charity Deactivated successfully");
         navigate("/Empowering_Charity/View_Active_Charity");
         Swal.fire({
           title: "Charity successfully deleted!",
@@ -311,13 +314,12 @@ export default function ActiveCharityDetails() {
           },
         });
       } else {
-        console.log("Deletion failed, response.success is false");
         throw new Error("Deletion failed");
       }
     } catch (error) {
       console.error("Error occurred:", error);
       Swal.fire({
-        title: "Charity deletion rejected.",
+        title: "Charity deactivation rejected.",
         text: "",
         icon: "error",
         confirmButtonText: "OK",
@@ -347,8 +349,39 @@ export default function ActiveCharityDetails() {
 
   async function handleSaveEdit(event) {
     event.preventDefault();
-
     setIsLoading(true);
+
+    const initialDeadlineISO = new Date(charityDetails.deadline).toISOString();
+    const editedDeadlineISO = new Date(editedCharity.deadline).toISOString();
+
+    const isChanged =
+      charityDetails.name !== editedCharity.name ||
+      charityDetails.title !== editedCharity.title ||
+      charityDetails.description !== editedCharity.description ||
+      charityDetails.target !== editedCharity.target ||
+      charityDetails.image !== editedCharity.image ||
+      charityDetails.category !== editedCharity.category ||
+      charityDetails.phoneNumber !== editedCharity.phoneNumber ||
+      charityDetails.email !== editedCharity.email ||
+      charityDetails.country !== editedCharity.country ||
+      initialDeadlineISO !== editedDeadlineISO;
+      
+
+    if (!isChanged) {
+      Swal.fire({
+        title: "You didn't change any field",
+        icon: "error",
+        confirmButtonText: "OK",
+        customClass: {
+          popup: "custom-swal-popup-error",
+          title: "custom-swal-title-error",
+          confirmButton: "custom-swal-confirm-button-error",
+        },
+      });
+      setIsLoading(false);
+      return;
+    }
+
     try {
       if (editedCharity.target <= 0) {
         Swal.fire({
@@ -402,9 +435,11 @@ export default function ActiveCharityDetails() {
         return;
       }
 
+      const targetAsString = String(editedCharity.target);
+
       const response = await editCharity(state.pId, {
         ...editedCharity,
-        target: ethers.utils.parseUnits(editedCharity.target, 18),
+        target: ethers.utils.parseUnits(targetAsString, 18),
       });
 
       if (response) {
@@ -440,7 +475,7 @@ export default function ActiveCharityDetails() {
         setCharityUpdated(true);
       } else {
         Swal.fire({
-          title: "Failed to update charity",
+          title: "Charity updating rejected.",
           icon: "error",
           confirmButtonText: "OK",
           customClass: {
@@ -452,7 +487,8 @@ export default function ActiveCharityDetails() {
       }
     } catch (error) {
       Swal.fire({
-        title: "You didn't change any field",
+        title: "Error updating charity",
+        text: error.message,
         icon: "error",
         confirmButtonText: "OK",
         customClass: {
@@ -501,9 +537,10 @@ export default function ActiveCharityDetails() {
             }
             styles={
               address
-                ? "bg-[#e74c3c] px-6 py-2 h-[40px] flex justify-center items-center"
+                ? "bg-[#ed732d] px-6 py-2 h-[40px] flex justify-center items-center"
                 : ""
             }
+            
             handleClick={() => {
               if (address) disconnect();
               else connect();
@@ -519,9 +556,9 @@ export default function ActiveCharityDetails() {
             className="custom-buttom image-custom w-full h-[410px] object-cover rounded-xl cursor-pointer"
           />
 
-          <div className="cursor-pointer custom-buttom relative w-full h-[7px] bg-[var(--targetloading-bg-color)] mt-2 rounded-[20px]">
+          <div className="cursor-pointer custom-buttom relative w-full h-[7px] bg-[var(--targetloading-active-bg-1-color)] mt-2 rounded-[20px]">
             <div
-              className="absolute h-full bg-[#338AF0] rounded-[20px]"
+              className="absolute h-full bg-[var(--targetloading-active-bg-2-color)] rounded-[20px]"
               style={{
                 width: `${calculateBarPercentage(
                   charityDetails.target,
@@ -534,7 +571,10 @@ export default function ActiveCharityDetails() {
         </div>
 
         <div className="flex md:w-[150px] w-full flex-wrap justify-between gap-[30px]">
-          <CountBoxActive title="Days Left" value={remainingDays + 1} />
+          <CountBoxActive
+            title="Days Left"
+            value={daysLeft(charityDetails.deadline) + 1}
+          />
           <CountBoxActive
             title={`Raised of ${charityDetails.target} ETH`}
             value={collectedAmount}
@@ -550,7 +590,7 @@ export default function ActiveCharityDetails() {
               Creator
             </h4>
             <div className="mt-[20px] flex flex-row items-center flex-wrap gap-[14px]">
-              <div className="icons-charitydetails w-[52px] h-[52px] flex items-center justify-center rounded-full bg-[var(--targetloading-bg-color)] cursor-pointer">
+              <div className="icons-charitydetails w-[52px] h-[52px] flex items-center justify-center rounded-full bg-[var(--icons-active-charity-details)] cursor-pointer">
                 <img
                   src={thirdweb}
                   alt="user"
@@ -558,15 +598,15 @@ export default function ActiveCharityDetails() {
                 />
               </div>
               <div>
-                <h4 className="charitydetails-text-nb charitydetails-text-2 font-epilogue font-semibold text-[14px] text-[var(--text-color)] break-all cursor-pointer hover:text-[#338AF0]">
+                <h4 className="charitydetails-text-nb charitydetails-text-2 font-epilogue font-semibold text-[14px] text-[var(--text-color)] break-all cursor-pointer hover:text-[#0c3d32]">
                   {charityDetails.owner}
                 </h4>
                 <div className="flex flex-row justify-between">
-                  <p className="charitydetails-text-nb charitydetails-text-2 mt-[4px] font-epilogue font-normal text-[10px] text-[var(--text-color)] cursor-pointer hover:text-[#338AF0] ">
+                  <p className="charitydetails-text-nb charitydetails-text-2 mt-[4px] font-epilogue font-normal text-[10px] text-[var(--text-color)] cursor-pointer hover:text-[#0c3d32] ">
                     {activeCharities.length} Active{" "}
                     {activeCharities.length === 1 ? "Charity" : "Charities"}
                   </p>
-                  <p className="charitydetails-text-nb charitydetails-text-2 mt-[4px] font-epilogue font-normal text-[10px] text-[var(--text-color)] cursor-pointer hover:text-[#e74c3c]">
+                  <p className="charitydetails-text-nb charitydetails-text-2 mt-[4px] font-epilogue font-normal text-[10px] text-[var(--text-color)] cursor-pointer hover:text-[#ed732d]">
                     {inActiveCharities.length} InActive{" "}
                     {inActiveCharities.length === 1 ? "Charity" : "Charities"}
                   </p>
@@ -576,7 +616,7 @@ export default function ActiveCharityDetails() {
           </div>
 
           <div className="flex items-center gap-5">
-          <div className="icons-charitydetails w-[55px] h-[52px] flex items-center justify-center rounded-full bg-[var(--targetloading-bg-color)] cursor-pointer">
+            <div className="icons-charitydetails w-[55px] h-[52px] flex items-center justify-center rounded-full bg-[var(--icons-active-charity-details)] cursor-pointer">
               <img
                 src={profile_picture_active}
                 alt="profile_picture_active"
@@ -593,7 +633,7 @@ export default function ActiveCharityDetails() {
                       alt="name_icon_active"
                       className="icons cursor-pointer"
                     />
-                    <h1 className="charitydetails-text font-epilogue font-semibold text-[14px] text-[var(--text-color)] break-all cursor-pointer hover:text-[#338AF0]">
+                    <h1 className="charitydetails-text font-epilogue font-semibold text-[14px] text-[var(--text-color)] break-all cursor-pointer hover:text-[#0c3d32]">
                       {charityDetails.name}
                     </h1>
                   </div>
@@ -604,7 +644,7 @@ export default function ActiveCharityDetails() {
                       alt="location_icon"
                       className="icons cursor-pointer"
                     />
-                    <p className="charitydetails-text font-epilogue font-semibold text-[14px] text-[var(--text-color)] break-all cursor-pointer hover:text-[#338AF0]">
+                    <p className="charitydetails-text font-epilogue font-semibold text-[14px] text-[var(--text-color)] break-all cursor-pointer hover:text-[#0c3d32]">
                       {charityDetails.country}
                     </p>
                   </div>
@@ -617,7 +657,7 @@ export default function ActiveCharityDetails() {
                       alt="phone_icon"
                       className="icons cursor-pointer"
                     />
-                    <p className="charitydetails-text font-epilogue font-semibold text-[14px] text-[var(--text-color)] break-all cursor-pointer hover:text-[#338AF0]">
+                    <p className="charitydetails-text font-epilogue font-semibold text-[14px] text-[var(--text-color)] break-all cursor-pointer hover:text-[#0c3d32]">
                       {charityDetails.phoneNumber}
                     </p>
                   </div>
@@ -628,7 +668,7 @@ export default function ActiveCharityDetails() {
                       alt="email_icon"
                       className="icons cursor-pointer"
                     />
-                    <p className="charitydetails-text font-epilogue font-semibold text-[14px] text-[var(--text-color)] break-all underline cursor-pointer hover:text-[#338AF0]">
+                    <p className="charitydetails-text font-epilogue font-semibold text-[14px] text-[var(--text-color)] break-all underline cursor-pointer hover:text-[#0c3d32]">
                       {charityDetails.email}
                     </p>
                   </div>
@@ -719,7 +759,7 @@ export default function ActiveCharityDetails() {
                     <CustomButtom
                       btnType="button"
                       title="Fund"
-                      styles="w-full bg-[#3498db]"
+                      styles="w-full bg-[#A18167]"
                       handleClick={handleDonate}
                     />
                   </div>
@@ -735,7 +775,7 @@ export default function ActiveCharityDetails() {
                   <CustomButtom
                     btnType="button"
                     title="Deactivate"
-                    styles="w-full bg-[#FF8C00]"
+                    styles="w-full bg-[#ed732d]"
                     handleClick={handleDelete}
                   />
                 </div>
@@ -747,7 +787,7 @@ export default function ActiveCharityDetails() {
                   <CustomButtom
                     btnType="button"
                     title="Edit"
-                    styles="w-full bg-[#3498db]"
+                    styles="w-full bg-[#A18167]"
                     handleClick={handleEdit}
                   />
                 </div>
@@ -918,6 +958,28 @@ export default function ActiveCharityDetails() {
 
                     <div className="flex flex-wrap gap-2">
                       <label className="w-full font-epilogue font-medium text-[14px] leading-[22px] text-[var(--text-color)]">
+                        End Date *
+                        <input
+                          type="date"
+                          id="deadline"
+                          name="Date *"
+                          placeholder="Select a end-date"
+                          min={minDate}
+                          required
+                          value={editedCharity.deadline}
+                          onChange={(event) =>
+                            handleEditInputChange(
+                              "deadline",
+                              event.target.value
+                            )
+                          }
+                          className="w-full py-[15px] sm:px-[25px] px-[15px] outline-none border-[1px] border-[#3a3a43] bg-transparent font-epilogue text-[var(--createCharity1-text-color)] text-[14px] placeholder:text-[var(--placeholder-color)] rounded-[10px]"
+                        />
+                      </label>
+                    </div>
+
+                    <div className="flex flex-wrap gap-2">
+                      <label className="w-full font-epilogue font-medium text-[14px] leading-[22px] text-[var(--text-color)]">
                         Image *
                         <input
                           type="text"
@@ -939,14 +1001,14 @@ export default function ActiveCharityDetails() {
                     <CustomButtom
                       btnType="submit"
                       title="Save"
-                      styles="bg-[#3498db]"
+                      styles="bg-[#A18167]"
                     />
 
                     <CustomButtom
                       btnType="button"
                       title="Cancel"
                       handleClick={() => setIsEditMode(false)}
-                      styles="bg-[#e74c3c]"
+                      styles="bg-[#ed732d]"
                     />
                   </div>
                 </form>
@@ -970,7 +1032,7 @@ export default function ActiveCharityDetails() {
                     ? "Connect"
                     : "Connect wallet"
                 }
-                styles={address ? "bg-[#e74c3c] px-6 py-3" : "bg-[#3498db]"}
+                styles={address ? "bg-[#e74c3c] px-6 py-3" : "bg-[#eda479]"}
                 handleClick={() => {
                   if (address) disconnect();
                   else connect();

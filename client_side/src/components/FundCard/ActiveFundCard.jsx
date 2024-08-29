@@ -59,7 +59,7 @@ export default function ActiveFundCard({
               alt="name"
               className="icons w-[20px] h-[20px] object-contain"
             />
-            <p className="fundcard-text ml-[12px] mt-[4px] font-epilogue font-semibold font-medium text-[14px] text-[var(--text-color)] hover:text-[#338AF0]">
+            <p className="fundcard-text ml-[12px] mt-[4px] font-epilogue font-semibold font-medium text-[14px] text-[var(--text-color)] hover:text-[#0c3d32]">
               {name}
             </p>
           </div>
@@ -70,7 +70,7 @@ export default function ActiveFundCard({
               alt="country"
               className="icons w-[20px] h-[20px] object-contain"
             />
-            <p className="fundcard-text ml-[12px] mt-[4px] font-epilogue font-semibold font-medium text-[14px] text-[var(--text-color)] hover:text-[#338AF0]">
+            <p className="fundcard-text ml-[12px] mt-[4px] font-epilogue font-semibold font-medium text-[14px] text-[var(--text-color)] hover:text-[#0c3d32]">
               {country}
             </p>
           </div>
@@ -83,7 +83,7 @@ export default function ActiveFundCard({
               alt="category"
               className="icons w-[20px] h-[20px] object-contain"
             />
-            <p className="fundcard-text ml-[12px] mt-[4px] font-epilogue font-semibold font-medium text-[14px] text-[var(--text-color)] hover:text-[#338AF0]">
+            <p className="fundcard-text ml-[12px] mt-[4px] font-epilogue font-semibold font-medium text-[14px] text-[var(--text-color)] hover:text-[#0c3d32]">
               {category}
             </p>
           </div>
@@ -94,7 +94,7 @@ export default function ActiveFundCard({
               alt="phone_number"
               className="icons w-[20px] h-[20px] object-contain"
             />
-            <p className="fundcard-text ml-[12px] mt-[4px] font-epilogue font-semibold font-medium text-[14px] text-[var(--text-color)] hover:text-[#338AF0]">
+            <p className="fundcard-text ml-[12px] mt-[4px] font-epilogue font-semibold font-medium text-[14px] text-[var(--text-color)] hover:text-[#0c3d32]">
               {phoneNumber}
             </p>
           </div>
@@ -102,16 +102,16 @@ export default function ActiveFundCard({
 
         <div className="flex justify-between flex mt-[15px] gap-2">
           <div className="block">
-            <h3 className="fundcard-text font-epilogue font-semibold text-[16px] text-[var(--text-color)] text-left leading-[26px] hover:text-[#338AF0]">
+            <h3 className="fundcard-text font-epilogue font-semibold text-[16px] text-[var(--text-color)] text-left leading-[26px] hover:text-[#0c3d32]">
               {title}
             </h3>
           </div>
 
           <div className="flex flex-col">
-            <h4 className="fundcard-text font-epilogue font-semibold text-[14px] text-[var(--text-color)] leading-[22px] hover:text-[#338AF0]">
+            <h4 className="fundcard-text font-epilogue font-semibold text-[14px] text-[var(--text-color)] leading-[22px] hover:text-[#0c3d32]">
               {donators.length}
             </h4>
-            <p className="fundcard-text mt-[3px] font-epilogue font-normal text-[12px] leading-[18px] text-[var(--text-color)] sm:max-w-[120px] truncate hover:text-[#338AF0]">
+            <p className="fundcard-text mt-[3px] font-epilogue font-normal text-[12px] leading-[18px] text-[var(--text-color)] sm:max-w-[120px] truncate hover:text-[#0c3d32]">
               {donators.length == 1
                 ? "Donator"
                 : "Donators"}{" "}
@@ -121,19 +121,19 @@ export default function ActiveFundCard({
 
         <div className="flex justify-between flex-wrap mt-[15px] gap-2">
           <div className="flex flex-col">
-            <h4 className="fundcard-text font-epilogue font-semibold text-[14px] text-[var(--text-color)] leading-[22px] hover:text-[#338AF0]">
+            <h4 className="fundcard-text font-epilogue font-semibold text-[14px] text-[var(--text-color)] leading-[22px] hover:text-[#0c3d32]">
               {amountCollected}
             </h4>{" "}
-            <p className="fundcard-text mt-[3px] font-epilogue font-normal text-[12px] leading-[18px] text-[var(--text-color)] sm:max-w-[120px] truncate hover:text-[#338AF0]">
+            <p className="fundcard-text mt-[3px] font-epilogue font-normal text-[12px] leading-[18px] text-[var(--text-color)] sm:max-w-[120px] truncate hover:text-[#0c3d32]">
               Raised of {target} ETH
             </p>
           </div>
 
           <div className="flex flex-col">
-            <h4 className="fundcard-text font-epilogue font-semibold text-[14px] text-[var(--text-color)] leading-[22px] hover:text-[#338AF0]">
+            <h4 className="fundcard-text font-epilogue font-semibold text-[14px] text-[var(--text-color)] leading-[22px] hover:text-[#0c3d32]">
               {remainingDays + 1}
             </h4>
-            <p className="fundcard-text mt-[3px] font-epilogue font-normal text-[12px] leading-[18px] text-[var(--text-color)] sm:max-w-[120px] truncate hover:text-[#338AF0]">
+            <p className="fundcard-text mt-[3px] font-epilogue font-normal text-[12px] leading-[18px] text-[var(--text-color)] sm:max-w-[120px] truncate hover:text-[#0c3d32]">
               Days left
             </p>
           </div>
@@ -148,9 +148,9 @@ export default function ActiveFundCard({
             />
           </div>
 
-          <p className="fundcard-text-exception flex-1 font-epilogue font-normal text-[11px] text-[var(--text-color)] truncate hover:text-[#338AF0]">
+          <p className="fundcard-text-exception flex-1 font-epilogue font-normal text-[11px] text-[var(--text-color)] truncate hover:text-[#0c3d32]">
             by{" "}
-            <span className="fundcard-text-exception text-[var(--text-color)] font-semibold hover:text-[#338AF0]">
+            <span className="fundcard-text-exception text-[var(--text-color)] font-semibold hover:text-[#0c3d32]">
               {owner}
             </span>
           </p>

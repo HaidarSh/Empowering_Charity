@@ -28,12 +28,6 @@ export const StateContextProvider = ({ children }) => {
   const connect = useMetamask();
   const disconnect = useDisconnect();
 
- 
-  console.log("Connect Function:", connect);
-
- 
-  console.log("Disconnect Function:", disconnect);
-
   async function publishCharity(form) {
     try {
       const targetValue = form.target.toString();
@@ -69,11 +63,12 @@ export const StateContextProvider = ({ children }) => {
         form.title,
         form.description,
         ethers.utils.parseUnits(targetValue, "ether"),
+        new Date(form.deadline).getTime(),
         form.image,
         form.category,
         form.phoneNumber,
         form.email,
-        form.country,
+        form.country,       
       ]);
       console.log("Charity edited successfully", data);
       return true;

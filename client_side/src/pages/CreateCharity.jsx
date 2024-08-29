@@ -186,16 +186,16 @@ export default function CreateCharity() {
               ? "Connect"
               : "Connect wallet"
           }
-          styles={address ? "bg-[#e74c3c]" : "bg-[#3498db]"}
+          styles={address ? "bg-[#ed732d]" : "bg-[#eda479]"}
           handleClick={() => {
             if (address) disconnect();
             else connect();
           }}
         />
       </div>
-      <div className="custom-buttom flex justify-center items-center p-[16px] sm:min-w-[380px] bg-[#3498db] rounded-[10px] mt-[5px] cursor-pointer">
+      <div className="flex justify-center items-center p-[16px] sm:min-w-[380px] rounded-[10px] mt-[5px]">
         <h1 className="font-epilogue font-bold sm:text-[25px] text-[18px] leading-[38px] text-[var(--createCharity2-text-color)]">
-          Create a Charity
+          Create a charity
         </h1>
       </div>
 
@@ -279,7 +279,7 @@ export default function CreateCharity() {
           }}
         />
 
-        <div className="custom-buttom w-full flex justify-start items-center p-4 bg-[#3498db] h-[120px] rounded-[10px] cursor-pointer">
+        <div className="custom-buttom w-full flex justify-start items-center p-4 bg-[#A18167] h-[120px] rounded-[10px] cursor-pointer">
           <img
             src={money}
             alt="money"
@@ -327,7 +327,7 @@ export default function CreateCharity() {
           <CustomButtom
             btnType="submit"
             title="Submit New Charity"
-            styles="bg-[#3498db]"
+            styles="bg-[#A18167]"
           />
         </div>
       </form>
@@ -346,7 +346,7 @@ export default function CreateCharity() {
               ? "Connect"
               : "Connect wallet"
           }
-          styles={address ? "bg-[#e74c3c] px-6 py-3" : "bg-[#3498db] px-6 py-3"}
+          styles={address ? "bg-[#ed732d] px-6 py-3" : "bg-[#eda479] px-6 py-3"}
           handleClick={() => {
             if (address) disconnect();
             else connect();
