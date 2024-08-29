@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { ethers } from "ethers";
 
 import { useStateContext } from "../../context";
-import { CustomButtom, CountBoxInActive, RedLoader } from "../../components";
+import { CustomButtom, CountBoxInActive, OrangeLoader } from "../../components";
 import { calculateBarPercentage } from "../../utils";
 import {
   email_icon_inactive,
@@ -59,7 +59,7 @@ export default function InActiveCharityDetails() {
 
   return (
     <div>
-      {isLoading && <RedLoader />}
+      {isLoading && <OrangeLoader />}
       <div className="flex flex-col justify-center items-center px-50">
         <CustomButtom
           btnType="button"

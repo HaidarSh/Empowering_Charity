@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { BlueLoader, ActiveFundCard } from "..";
+import { GreenLoader, ActiveFundCard } from "..";
 import { search_dark, search_light } from "../../assets";
 import { CustomButtom } from "..";
 import { useStateContext } from "../../context";
@@ -78,7 +78,7 @@ export default function DisplayActiveCharities({
       </h1>
 
       <div className="flex flex-wrap mt-[20px] gap-[26px]">
-        {isLoading && <BlueLoader />}
+        {isLoading && <GreenLoader />}
 
         {!isLoading && charities.length === 0 && (
           <p className="charitydetails-text-3 font-epilogue font-normal text-[14px] leading-[30px]  text-[var(--text-color)]">

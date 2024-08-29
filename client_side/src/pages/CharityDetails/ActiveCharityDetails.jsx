@@ -4,7 +4,7 @@ import { ethers } from "ethers";
 import Select from "react-select";
 import { useStateContext } from "../../context";
 import { useTheme } from "../../components/HelperComponents/ThemeContext";
-import { CustomButtom, CountBoxActive, BlueLoader } from "../../components";
+import { CustomButtom, CountBoxActive, GreenLoader } from "../../components";
 import {
   countryOptions,
   categoryOptions,
@@ -45,21 +45,21 @@ export default function ActiveCharityDetails() {
     control: (provided) => ({
       ...provided,
       backgroundColor: theme === "dark" ? "#0c3d32" : "#98dbbf",
-      borderColor: "#3a3a43",
-      color: theme === "dark" ? "#ffffff" : "#000000",
+      borderColor: theme === "dark" ? "#ffffff" : "#3a3a43",
+      color: theme === "dark" ? "#ffffff" : "#06473e",
       minHeight: "56px",
       borderRadius: "10px",
-      paddingLeft: "10px",
+      paddingLeft: "15px",
       boxShadow: "none",
       "&:hover": {
-        borderColor: "#3a3a43",
+        borderColor: "",
       },
     }),
     menu: (provided) => ({
       ...provided,
       backgroundColor: theme === "dark" ? "#0c3d32" : "#98dbbf",
-      color: theme === "dark" ? "#ffffff" : "#000000",
-      borderRadius: "10px",
+      color: theme === "dark" ? "#ffffff" : "#06473e",
+      borderRadius: "15px",
     }),
     singleValue: (provided) => ({
       ...provided,
@@ -68,7 +68,6 @@ export default function ActiveCharityDetails() {
     placeholder: (provided) => ({
       ...provided,
       color: "#4b6264",
-      paddingLeft: "10px",
     }),
     input: (provided) => ({
       ...provided,
@@ -99,10 +98,10 @@ export default function ActiveCharityDetails() {
         : theme === "dark"
         ? "#0c3d32"
         : "#98dbbf",
-      color: theme === "dark" ? "#ffffff" : "#000000",
+      color: theme === "dark" ? "#ffffff" : "#06473e",
       "&:hover": {
         backgroundColor: theme === "dark" ? "#A18167" : "#dfc1a9",
-        color: theme === "dark" ? "#ffffff" : "#000000",
+        color: theme === "dark" ? "#ffffff" : "#06473e",
       },
     }),
   };
@@ -300,7 +299,6 @@ export default function ActiveCharityDetails() {
       setIsLoading(true);
       const response = await removeCharity(state.pId);
       if (response) {
-        console.log("Charity Deactivated successfully");
         navigate("/Empowering_Charity/View_Active_Charity");
         Swal.fire({
           title: "Charity successfully deleted!",
@@ -370,12 +368,12 @@ export default function ActiveCharityDetails() {
     if (!isChanged) {
       Swal.fire({
         title: "You didn't change any field",
-        icon: "error",
+        icon: "warning",
         confirmButtonText: "OK",
         customClass: {
-          popup: "custom-swal-popup-error",
-          title: "custom-swal-title-error",
-          confirmButton: "custom-swal-confirm-button-error",
+          popup: "custom-swal-popup-warning",
+          title: "custom-swal-title-warning",
+          confirmButton: "custom-swal-confirm-button-warning",
         },
       });
       setIsLoading(false);
@@ -523,7 +521,7 @@ export default function ActiveCharityDetails() {
 
   return (
     <div>
-      {isLoading && <BlueLoader />}
+      {isLoading && <GreenLoader />}
       {address && (
         <div className="flex flex-col justify-center items-center px-50">
           <CustomButtom
@@ -741,7 +739,7 @@ export default function ActiveCharityDetails() {
                       type="number"
                       placeholder="ETH 0.5"
                       step="0.1"
-                      className="w-full py-[10px] sm:px-[20px] px-[15px] outline-none border-[1px] border-[#3a3a43] bg-transparent font-epilogue text-[var(--text-color)] text-[18px] leading-[30px] placeholder:text-[var(--placeholder-color)] rounded-[10px]"
+                      className="w-full py-[10px] sm:px-[20px] px-[15px] outline-none border-[1px] border-[var(--border-color-form)] bg-transparent font-epilogue text-[var(--text-color)] text-[18px] leading-[30px] placeholder:text-[var(--placeholder-color)] rounded-[10px]"
                       value={amount}
                       onChange={handleInputChange}
                     />
@@ -814,7 +812,7 @@ export default function ActiveCharityDetails() {
                           onChange={(event) => {
                             handleEditInputChange("name", event.target.value);
                           }}
-                          className="w-full py-[15px] px-[15px] sm:px-[25px] outline-none border-[1px] border-[#3a3a43] bg-transparent font-epilogue text-[var(--createCharity1-text-color)] text-[14px] placeholder:text-[var(--placeholder-color)] rounded-[10px]"
+                          className="w-full py-[15px] px-[15px] sm:px-[25px] outline-none border-[1px] border-[var(--border-color-form)] bg-transparent font-epilogue text-[var(--createCharity1-text-color)] text-[14px] placeholder:text-[var(--placeholder-color)] rounded-[10px]"
                         />
                       </label>
                     </div>
@@ -830,7 +828,7 @@ export default function ActiveCharityDetails() {
                           placeholder="Update your phone number"
                           value={editedCharity.phoneNumber}
                           onChange={handlePhoneNumberChange}
-                          className="w-full py-[15px] px-[15px] sm:px-[25px] outline-none border-[1px] border-[#3a3a43] bg-transparent font-epilogue text-[var(--createCharity1-text-color)] text-[14px] placeholder:text-[var(--placeholder-color)] rounded-[10px]"
+                          className="w-full py-[15px] px-[15px] sm:px-[25px] outline-none border-[1px] border-[var(--border-color-form)] bg-transparent font-epilogue text-[var(--createCharity1-text-color)] text-[14px] placeholder:text-[var(--placeholder-color)] rounded-[10px]"
                         />
                       </label>
                     </div>
@@ -848,7 +846,7 @@ export default function ActiveCharityDetails() {
                           onChange={(event) =>
                             handleEditInputChange("email", event.target.value)
                           }
-                          className="w-full py-[15px] sm:px-[25px] px-[15px] outline-none border-[1px] border-[#3a3a43] bg-transparent font-epilogue text-[var(--createCharity1-text-color)] text-[14px] placeholder:text-[var(--placeholder-color)] rounded-[10px]"
+                          className="w-full py-[15px] sm:px-[25px] px-[15px] outline-none border-[1px] border-[var(--border-color-form)] bg-transparent font-epilogue text-[var(--createCharity1-text-color)] text-[14px] placeholder:text-[var(--placeholder-color)] rounded-[10px]"
                         />
                       </label>
                     </div>
@@ -871,7 +869,7 @@ export default function ActiveCharityDetails() {
                           }
                           placeholder="Update your Country"
                           styles={customStyles}
-                          className="w-full outline-none border-[#3a3a43] bg-transparent font-epilogue text-[var(--createCharity1-text-color)] text-[14px] placeholder:text-[var(--placeholder-color)] rounded-[10px]"
+                          className="w-full outline-none bg-transparent font-epilogue text-[var(--createCharity1-text-color)] text-[14px] placeholder:text-[var(--placeholder-color)] rounded-[10px]"
                         />
                       </label>
                     </div>
@@ -894,7 +892,7 @@ export default function ActiveCharityDetails() {
                           }
                           placeholder="Update your Category"
                           styles={customStyles}
-                          className="w-full outline-none border-[#3a3a43] bg-transparent font-epilogue text-[var(--createCharity1-text-color)] text-[14px] placeholder:text-[var(--placeholder-color)] rounded-[10px]"
+                          className="w-full outline-none bg-transparent font-epilogue text-[var(--createCharity1-text-color)] text-[14px] placeholder:text-[var(--placeholder-color)] rounded-[10px]"
                         />
                       </label>
                     </div>
@@ -912,7 +910,7 @@ export default function ActiveCharityDetails() {
                           onChange={(event) =>
                             handleEditInputChange("title", event.target.value)
                           }
-                          className="w-full py-[15px] sm:px-[25px] px-[15px] outline-none border-[1px] border-[#3a3a43] bg-transparent font-epilogue text-[var(--createCharity1-text-color)] text-[14px] placeholder:text-[var(--placeholder-color)] rounded-[10px]"
+                          className="w-full py-[15px] sm:px-[25px] px-[15px] outline-none border-[1px] border-[var(--border-color-form)] bg-transparent font-epilogue text-[var(--createCharity1-text-color)] text-[14px] placeholder:text-[var(--placeholder-color)] rounded-[10px]"
                         />
                       </label>
                     </div>
@@ -933,7 +931,7 @@ export default function ActiveCharityDetails() {
                               event.target.value
                             )
                           }
-                          className="w-full py-[15px] sm:px-[25px] px-[15px] outline-none border-[1px] border-[#3a3a43] bg-transparent font-epilogue text-[var(--createCharity1-text-color)] text-[14px] placeholder:text-[var(--placeholder-color)] rounded-[10px]"
+                          className="w-full py-[15px] sm:px-[25px] px-[15px] outline-none border-[1px] border-[var(--border-color-form)] bg-transparent font-epilogue text-[var(--createCharity1-text-color)] text-[14px] placeholder:text-[var(--placeholder-color)] rounded-[10px]"
                         />
                       </label>
                     </div>
@@ -951,7 +949,7 @@ export default function ActiveCharityDetails() {
                             handleEditInputChange("target", event.target.value)
                           }
                           step={0.1}
-                          className="w-full py-[15px] sm:px-[25px] px-[15px] outline-none border-[1px] border-[#3a3a43] bg-transparent font-epilogue text-[var(--createCharity1-text-color)] text-[14px] placeholder:text-[var(--placeholder-color)] rounded-[10px]"
+                          className="w-full py-[15px] sm:px-[25px] px-[15px] outline-none border-[1px] border-[var(--border-color-form)] bg-transparent font-epilogue text-[var(--createCharity1-text-color)] text-[14px] placeholder:text-[var(--placeholder-color)] rounded-[10px]"
                         />
                       </label>
                     </div>
@@ -973,7 +971,7 @@ export default function ActiveCharityDetails() {
                               event.target.value
                             )
                           }
-                          className="w-full py-[15px] sm:px-[25px] px-[15px] outline-none border-[1px] border-[#3a3a43] bg-transparent font-epilogue text-[var(--createCharity1-text-color)] text-[14px] placeholder:text-[var(--placeholder-color)] rounded-[10px]"
+                          className="w-full py-[15px] sm:px-[25px] px-[15px] outline-none border-[1px] border-[var(--border-color-form)] bg-transparent font-epilogue text-[var(--createCharity1-text-color)] text-[14px] placeholder:text-[var(--placeholder-color)] rounded-[10px]"
                         />
                       </label>
                     </div>
@@ -991,7 +989,7 @@ export default function ActiveCharityDetails() {
                           onChange={(event) =>
                             handleEditInputChange("image", event.target.value)
                           }
-                          className="w-full py-[15px] sm:px-[25px] px-[15px] outline-none border-[1px] border-[#3a3a43] bg-transparent font-epilogue text-[var(--createCharity1-text-color)] text-[14px] placeholder:text-[var(--placeholder-color)] rounded-[10px]"
+                          className="w-full py-[15px] sm:px-[25px] px-[15px] outline-none border-[1px] border-[var(--border-color-form)] bg-transparent font-epilogue text-[var(--createCharity1-text-color)] text-[14px] placeholder:text-[var(--placeholder-color)] rounded-[10px]"
                         />
                       </label>
                     </div>

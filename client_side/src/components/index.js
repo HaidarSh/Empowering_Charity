@@ -10,8 +10,8 @@ export { default as ActiveFundCard } from "./FundCard/ActiveFundCard.jsx";
 export { default as InActiveFundCard } from "./FundCard/InActiveFundCard.jsx";
 export { default as CountBoxActive } from "./CountBox/CountBoxActive.jsx";
 export { default as CountBoxInActive } from "./CountBox/CountBoxInActive.jsx";
-export { default as BlueLoader } from "./Loader/BlueLoader.jsx";
-export { default as RedLoader } from "./Loader/RedLoader.jsx";
+export { default as GreenLoader } from "./Loader/GreenLoader.jsx";
+export { default as OrangeLoader } from "./Loader/OrangeLoader.jsx";
 export { default as CharityPhotosStyle } from "./HomeComponents/CharityPhotosStyle.jsx";
 export { default as ThemeToggleIcon } from "./HelperComponents/ThemeToggleIcon.jsx";
 export {

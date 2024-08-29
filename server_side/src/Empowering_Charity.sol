@@ -150,6 +150,7 @@ contract Empowering_Charity {
         string memory _title,
         string memory _description,
         uint256 _target,
+        uint256 _deadline,
         string memory _image,
         string memory _category,
         string memory _phoneNumber,
@@ -161,11 +162,13 @@ contract Empowering_Charity {
         charity.title = _title;
         charity.description = _description;
         charity.target = _target;
+        charity.deadline = _deadline;
         charity.image = _image;
         charity.category = _category;
         charity.phoneNumber = _phoneNumber;
         charity.email = _email;
         charity.country = _country;
+
         if (charity.amountCollected >= charity.target / 1e18) {
             charity.active = false;
         }

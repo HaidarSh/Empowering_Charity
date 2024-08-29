@@ -2,7 +2,7 @@ import React from "react";
 
 import { useNavigate } from "react-router-dom";
 
-import { RedLoader, InActiveFundCard } from "..";
+import { OrangeLoader, InActiveFundCard } from "..";
 
 export default function DisplayInActiveUserCharities({
   title,
@@ -22,7 +22,7 @@ export default function DisplayInActiveUserCharities({
       </h1>
 
       <div className="flex flex flex-wrap mt-[20px] gap-[26px]">
-        {isLoading && <RedLoader />}
+        {isLoading && <OrangeLoader />}
 
         {!isLoading && charities.length === 0 && (
           <p className="font-epilogue font-semibold text-[14px] leading-[30px] text-[var(--text-color)]">

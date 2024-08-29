@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { ethers } from "ethers";
 import { useStateContext } from "../context";
 import { money } from "../assets";
-import { CustomButtom, FormField, BlueLoader } from "../components";
+import { CustomButtom, FormField, GreenLoader } from "../components";
 import {
   checkIfImage,
   validatePhoneNumber,
@@ -173,7 +173,7 @@ export default function CreateCharity() {
 
   return address ? (
     <div className="create-charity-bar bg-[var(--createcharity-bg-color)] flex justify-center items-center flex-col rounded-[10px] sm:p-10 p-4">
-      {isLoading && <BlueLoader />}
+      {isLoading && <GreenLoader />}
       <div className="flex justify-center mb-[10px]">
         <CustomButtom
           btnType="button"
@@ -201,7 +201,7 @@ export default function CreateCharity() {
 
       <form
         onSubmit={handleSubmit}
-        className="w-full mt-[65px] flex flex-col gap-[30px]"
+        className="w-full mt-[30px] flex flex-col gap-[30px]"
       >
         <div className="flex flex-wrap gap-[40px]">
           <FormField

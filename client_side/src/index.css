@@ -7,7 +7,7 @@
 :root {
   --background-color: #e5ecea;
   --sidebar-bg-color: #98dbbf;
-  --home-bg-color:#98dbbf; 
+  --home-bg-color: #98dbbf;
   --searchbar-active-bg-1-color: #98dbbf;
   --searchbar-active-bg-2-color: #d6f0e0;
   --searchbar-inactive-bg-1-color: #98dbbf;
@@ -19,12 +19,12 @@
   --createcharity-bg-color: #98dbbf;
   --activefundcard-bg-color: #d6f0e0;
   --inactivefundcard-bg-color: #f5e1c9;
-  --text-color:#031222;
+  --text-color: #031222;
   --custombuttom-text-color: #ffffff;
   --createCharity1-text-color: #06473e;
   --createCharity2-text-color: #2d2d2d;
-  --icon-bg-color : #98dbbf;
-  --active-icon-bg-color :#e5ecea;
+  --icon-bg-color: #98dbbf;
+  --active-icon-bg-color: #e5ecea;
   --countbox-active-1-color: #98dbbf;
   --countbox-active-2-color: #73afa2;
   --countbox-inactive-1-color: #98dbbf;
@@ -33,25 +33,24 @@
   --targetloading-active-bg-2-color: #73afa2;
   --targetloading-inactive-bg-1-color: #98dbbf;
   --targetloading-inactive-bg-2-color: #eda479;
-  --descriptiontext-color: #c01414;
-  --donatortext-color:#000000;
+  --donatortext-color: #000000;
   --donatetocharity1-bg-color: #98dbbf;
   --donatetocharity2-bg-color: #73afa2;
   --icons-active-charity-details: #98dbbf;
   --icons-inactive-charity-details: #98dbbf;
-  --profile-bg-color:#98dbbf;
-  --profile-buttom-bg-color: #37BB9E;
-  --placeholder-color: #6a7a78;
-  --swal-background-color: #e5ecea;
+  --profile-bg-color: #98dbbf;
+  --profile-buttom-bg-color: #37bb9e;
+  --placeholder-color: #4b6264;
+  --border-color-form: #3a3a43;
+  --swal-background-color: #98dbbf;
   --swal-text-color: #5f5858;
   --swal-title-error-color: #e74c3c;
-  --swal-title-warning-color: #f39c12;
+  --swal-title-warning-color: #f3bb62;
   --swal-title-success-color: #05140b;
-  --swal-confirm-button-color: #000000;
-  --box-shadow: 9px 9px 9px  rgb(166, 204, 201);
+  --swal-confirm-button-color: #a18167;
+  --box-shadow: 9px 9px 9px rgb(166, 204, 201);
   --box-2-shadow: 9px 9px 9px rgb(166, 204, 201);
-  --box-border: 0px solid rgb(29, 148, 140) ; 
-  
+  --breathing-shadow: 1px 1px 5px 3px #98dbbf;
 }
 
 [data-theme="dark"] {
@@ -66,42 +65,41 @@
   --searchbar-inactive-bg-1-color: #0c3d32;
   --searchbar-inactive-bg-2-color: #d3ad7c;
   --searchbar-profile-active-bg-1-color: #0c3d32;
-  --searchbar-profile-active-bg-2-color: #37BB9E;
+  --searchbar-profile-active-bg-2-color: #37bb9e;
   --searchbar-profile-inactive-bg-1-color: #0c3d32;
-  --searchbar-profile-inactive-bg-2-color: #ED732D;
+  --searchbar-profile-inactive-bg-2-color: #ed732d;
   --text-color: #ffffff;
   --custombuttom-text-color: #cfffe3;
   --createCharity1-text-color: #ffffff;
   --createCharity2-text-color: #ffffff;
   --icon-bg-color: #0c3d32;
-  --active-icon-bg-color:rgb(27, 97, 88);
+  --active-icon-bg-color: rgb(27, 97, 88);
   --countbox-active-1-color: #0c3d32;
   --countbox-active-2-color: #2d816f;
   --countbox-inactive-1-color: #0c3d32;
-  --countbox-inactive-2-color:#ed732d;
+  --countbox-inactive-2-color: #ed732d;
   --targetloading-active-bg-1-color: #0c3d32;
   --targetloading-active-bg-2-color: #2d816f;
   --targetloading-inactive-bg-1-color: #0c3d32;
   --targetloading-inactive-bg-2-color: #ed732d;
-  --descriptiontext-color: #000096;
   --donatortext-color: #b2b3bd;
   --donatetocharity1-bg-color: #0c3d32;
   --donatetocharity2-bg-color: #2d816f;
   --icons-active-charity-details: #0c3d32;
   --icons-inactive-charity-details: #0c3d32;
   --profile-bg-color: #0c3d32;
-  --profile-buttom-bg-color: #37BB9E;
-  --placeholder-color: #85b5b9;
-  --swal-background-color: rgb(27, 97, 88);
+  --profile-buttom-bg-color: #37bb9e;
+  --placeholder-color: #4b6264;
+  --border-color-form: #ffffff;
+  --swal-background-color: #0c3d32;
   --swal-text-color: #f6faf8e7;
-  --swal-title-error-color: #fefffe;
-  --swal-title-warning-color: #fd0000;
-  --swal-title-success-color: #0fbdc9;
-  --swal-confirm-button-color: #c56e5f;
+  --swal-title-error-color: #fd0000;
+  --swal-title-warning-color: #ed732d;
+  --swal-title-success-color: #62a85c;
+  --swal-confirm-button-color: #a18167;
   --box-shadow: 9px 9px 9px rgb(14, 71, 67);
   --box-2-shadow: 9px 9px 9px rgb(14, 71, 67);
-  --box-border: 5px 12px 12px rgb(0, 0, 0);  
-  --breathing-shadow: 1px 1px 5px 3px rgb(9, 32, 23)
+  --breathing-shadow: 1px 1px 5px 3px #0c3d32;
 }
 
 .custom-swal-popup-error {
@@ -201,6 +199,13 @@
   transform: scale(1.03);
 }
 
+.box-profile {
+  transition: 0.5s ease;
+}
+
+.box-profile:hover {
+  transform: scale(1.03);
+}
 .home-bigimage {
   transition: 0.5s ease;
 }
@@ -419,7 +424,7 @@
 .mobile-navbar {
   display: none;
 }
-.default-navbar{
+.default-navbar {
   padding-right: 13px;
 }
 
@@ -471,11 +476,11 @@
 }
 
 .dot {
-  width: 0.3em; 
-  height: 0.3em; 
+  width: 0.3em;
+  height: 0.3em;
   background-color: white;
   border-radius: 50%;
-  margin: 0 0.2em; 
+  margin: 0 0.2em;
   animation: dot-blink 1.5s infinite;
 }
 
@@ -488,12 +493,11 @@
 }
 
 @keyframes dot-blink {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0;
   }
   50% {
     opacity: 1;
   }
 }
-
-

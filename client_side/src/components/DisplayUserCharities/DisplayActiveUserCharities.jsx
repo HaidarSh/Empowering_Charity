@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-import { BlueLoader, ActiveFundCard } from "..";
+import { GreenLoader, ActiveFundCard } from "..";
 
 export default function DisplayActiveUserCharities({
   title,
@@ -21,7 +21,7 @@ export default function DisplayActiveUserCharities({
       </h1>
 
       <div className="flex flex flex-wrap mt-[20px] gap-[26px]">
-        {isLoading && <BlueLoader />}
+        {isLoading && <GreenLoader />}
 
         {!isLoading && charities.length === 0 && (
           <p className="font-epilogue font-semibold text-[14px] leading-[30px] text-[var(--text-color)] ">

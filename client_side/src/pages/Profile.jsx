@@ -4,8 +4,8 @@ import {
   DisplayActiveUserCharities,
   DisplayInActiveUserCharities,
   CustomButtom,
-  BlueLoader,
-  RedLoader,
+  GreenLoader,
+  OrangeLoader,
 } from "../components";
 import { useStateContext } from "../context";
 import {
@@ -279,7 +279,7 @@ export default function Profile({ showActive, setShowActive }) {
 
   return address ? (
     <div>
-      {isLoading && (showActive ? <BlueLoader /> : <RedLoader />)}
+      {isLoading && (showActive ? <GreenLoader /> : <OrangeLoader />)}
 
       <div className="flex flex-row justify-between gap-2">
         {showActive ? (
@@ -343,7 +343,7 @@ export default function Profile({ showActive, setShowActive }) {
       <div className="profile-bar mt-[60px] bg-[var(--profile-bg-color)] rounded-[20px] shadow-lg p-8  mx-auto flex flex-col gap-6 mb-10">
         {" "}
         <div className="profile-responsive flex items-center mb-6 gap-5">
-          <div className="box w-[100px] h-[100px] rounded-[20px] bg-[var(--background-color)] flex items-center justify-center mr-6 p-2">
+          <div className="box-profile w-[100px] h-[100px] rounded-[20px] bg-[var(--background-color)] flex items-center justify-center mr-6 p-2">
             <img
               src={
                 showActive ? profile_picture_active : profile_picture_inactive
@@ -365,7 +365,7 @@ export default function Profile({ showActive, setShowActive }) {
                   <h1
                     className={`profile-button responsive-text mb-1 cursor-pointer ${
                       showActive
-                        ? "hover:text-[#0c3d32]"
+                        ? "hover:text-[#37BB9E]"
                         : "hover:text-[#ed732d]"
                     } `}
                   >
@@ -387,7 +387,7 @@ export default function Profile({ showActive, setShowActive }) {
                   <p
                     className={`profile-button charitydetails-text-2 mb-1 cursor-pointer ${
                       showActive
-                        ? "hover:text-[#0c3d32]"
+                        ? "hover:text-[#37BB9E]"
                         : "hover:text-[#ed732d]"
                     }`}
                   >
@@ -408,7 +408,7 @@ export default function Profile({ showActive, setShowActive }) {
                   <p
                     className={`profile-button responsive-text mb-1 cursor-pointer ${
                       showActive
-                        ? "hover:text-[#0c3d32]"
+                        ? "hover:text-[#37BB9E]"
                         : "hover:text-[#ed732d]"
                     }`}
                   >
@@ -431,7 +431,7 @@ export default function Profile({ showActive, setShowActive }) {
                   <p
                     className={`profile-button responsive-text mb-1 cursor-pointer ${
                       showActive
-                        ? "hover:text-[#0c3d32]"
+                        ? "hover:text-[#37BB9E]"
                         : "hover:text-[#ed732d]"
                     }`}
                   >
@@ -452,7 +452,7 @@ export default function Profile({ showActive, setShowActive }) {
                   <p
                     className={`profile-button responsive-text underline mb-1 cursor-pointer ${
                       showActive
-                        ? "hover:text-[#0c3d32]"
+                        ? "hover:text-[#37BB9E]"
                         : "hover:text-[#ed732d]"
                     }`}
                   >
@@ -469,7 +469,7 @@ export default function Profile({ showActive, setShowActive }) {
         <div className="flex flex-row justify-center gap-[30px]">
           <div
             onClick={() => setShowActive(true)}
-            className="box bg-[var(--background-color)] p-4 w-[130px] rounded-[10px] mt-10 flex text-lg text-[var(--text-color)] flex justify-center items-center cursor-pointer"
+            className="box-profile bg-[var(--background-color)] p-4 w-[130px] rounded-[10px] mt-10 flex text-lg text-[var(--text-color)] flex justify-center items-center cursor-pointer"
           >
             <div className="profile-button flex flex-col ">
               <span className="profile-button responsive-text font-bold text-[#0c3d32] cursor-pointer">
@@ -482,7 +482,7 @@ export default function Profile({ showActive, setShowActive }) {
           </div>
           <div
             onClick={() => setShowActive(false)}
-            className="box bg-[var(--background-color)] p-4 w-[130px] rounded-[10px] mt-10 flex text-lg text-[var(--text-color)] flex justify-center items-center cursor-pointer"
+            className="box-profile bg-[var(--background-color)] p-4 w-[130px] rounded-[10px] mt-10 flex text-lg text-[var(--text-color)] flex justify-center items-center cursor-pointer"
           >
             <div className="profile-button flex flex-col">
               <span className="profile-button responsive-text font-semibold cursor-pointer text-[#ed732d]">
