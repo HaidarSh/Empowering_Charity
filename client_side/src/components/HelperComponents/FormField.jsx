@@ -8,7 +8,7 @@ export default function FormField(props) {
   const customStyles = {
     control: (provided) => ({
       ...provided,
-      backgroundColor: theme === "dark" ? "#0c3d32" : "#98dbbf",
+      backgroundColor: theme === "dark" ? "#0c3d32" : "#409b8c",
       borderColor: theme === "dark" ? "#ffffff" : "#3a3a43",
       color: theme === "dark" ? "#ffffff" : "#06473e",
       minHeight: "56px",
@@ -21,7 +21,7 @@ export default function FormField(props) {
     }),
     menu: (provided) => ({
       ...provided,
-      backgroundColor: theme === "dark" ? "#0c3d32" : "#98dbbf",
+      backgroundColor: theme === "dark" ? "#0c3d32" : "#409b8c",
       color: theme === "dark" ? "#ffffff" : "#06473e",
       borderRadius: "15px",
     }),
@@ -58,10 +58,10 @@ export default function FormField(props) {
         : state.isFocused
         ? theme === "dark"
           ? "#0c3d32"
-          : "#98dbbf"
+          : "#409b8c"
         : theme === "dark"
         ? "#0c3d32"
-        : "#98dbbf",
+        : "#409b8c",
       color: theme === "dark" ? "#ffffff" : "#06473e",
       "&:hover": {
         backgroundColor: theme === "dark" ? "#A18167" : "#dfc1a9",

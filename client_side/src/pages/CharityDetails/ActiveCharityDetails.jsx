@@ -44,7 +44,7 @@ export default function ActiveCharityDetails() {
   const customStyles = {
     control: (provided) => ({
       ...provided,
-      backgroundColor: theme === "dark" ? "#0c3d32" : "#98dbbf",
+      backgroundColor: theme === "dark" ? "#0c3d32" : "#409b8c",
       borderColor: theme === "dark" ? "#ffffff" : "#3a3a43",
       color: theme === "dark" ? "#ffffff" : "#06473e",
       minHeight: "56px",
@@ -57,7 +57,7 @@ export default function ActiveCharityDetails() {
     }),
     menu: (provided) => ({
       ...provided,
-      backgroundColor: theme === "dark" ? "#0c3d32" : "#98dbbf",
+      backgroundColor: theme === "dark" ? "#0c3d32" : "#409b8c",
       color: theme === "dark" ? "#ffffff" : "#06473e",
       borderRadius: "15px",
     }),
@@ -94,10 +94,10 @@ export default function ActiveCharityDetails() {
         : state.isFocused
         ? theme === "dark"
           ? "#0c3d32"
-          : "#98dbbf"
+          : "#409b8c"
         : theme === "dark"
         ? "#0c3d32"
-        : "#98dbbf",
+        : "#409b8c",
       color: theme === "dark" ? "#ffffff" : "#06473e",
       "&:hover": {
         backgroundColor: theme === "dark" ? "#A18167" : "#dfc1a9",
@@ -130,7 +130,7 @@ export default function ActiveCharityDetails() {
     category: state.category,
     phoneNumber: state.phoneNumber,
     email: state.email,
-    country: state.country,   
+    country: state.country,
   });
   const [charityUpdated, setCharityUpdated] = useState(false);
 
@@ -363,7 +363,6 @@ export default function ActiveCharityDetails() {
       charityDetails.email !== editedCharity.email ||
       charityDetails.country !== editedCharity.country ||
       initialDeadlineISO !== editedDeadlineISO;
-      
 
     if (!isChanged) {
       Swal.fire({
@@ -538,7 +537,6 @@ export default function ActiveCharityDetails() {
                 ? "bg-[#ed732d] px-6 py-2 h-[40px] flex justify-center items-center"
                 : ""
             }
-            
             handleClick={() => {
               if (address) disconnect();
               else connect();
