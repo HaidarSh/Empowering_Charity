@@ -50,7 +50,8 @@
   --swal-confirm-button-color: #a18167;
   --box-shadow: 9px 9px 9px rgb(166, 204, 201);
   --box-2-shadow: 9px 9px 9px rgb(166, 204, 201);
-  --breathing-shadow: 1px 1px 5px 3px #98dbbf;
+  --breathing-shadow: 1px 1px 5px 8px #98dbbf;
+  --breathing-shadow-mobile-sidebar: 1px 1px 5px 3px #e5ecea;
 }
 
 [data-theme="dark"] {
@@ -99,7 +100,8 @@
   --swal-confirm-button-color: #a18167;
   --box-shadow: 9px 9px 9px rgb(14, 71, 67);
   --box-2-shadow: 9px 9px 9px rgb(14, 71, 67);
-  --breathing-shadow: 1px 1px 5px 3px #0c3d32;
+  --breathing-shadow: 1px 1px 5px 8px #0c3d32;
+  --breathing-shadow-mobile-sidebar: 1px 1px 5px 3px rgb(27, 97, 88);
 }
 
 .custom-swal-popup-error {
@@ -181,6 +183,21 @@
   }
 }
 
+@keyframes breathing-mobile-sidebar {
+  0% {
+    transform: scale(1);
+    box-shadow: unset;
+  }
+  50% {
+    transform: scale(1.3);
+    box-shadow: var(--breathing-shadow-mobile-sidebar);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: unset;
+  }
+}
+
 .box {
   transition: 0.5s ease;
   box-shadow: var(--box-shadow);
@@ -242,6 +259,11 @@
 
 .logo {
   animation: breathing 4s ease-out infinite;
+  border: var(--box-border);
+}
+
+.logo-mobile{
+  animation: breathing-mobile-sidebar 4s ease-out infinite;
   border: var(--box-border);
 }
 

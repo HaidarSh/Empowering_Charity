@@ -53,7 +53,7 @@ export default function MobileSidebar({ showActive }) {
     <div className="fixed top-0 w-full bg-[var(--sidebar-bg-color)] rounded-b-lg flex flex-row justify-between items-center shadow-lg">
       <div>
         <Icon
-          styles="logo w-[40px] h-[40px] bg-[var(--icon-bg-color)] rounded-full"
+          styles="logo-mobile w-[40px] h-[40px] bg-[var(--icon-bg-color)] rounded-full"
           imgUrl={project_logo}
         />
       </div>

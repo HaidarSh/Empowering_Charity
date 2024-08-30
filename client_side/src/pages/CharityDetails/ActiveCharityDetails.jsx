@@ -798,7 +798,7 @@ export default function ActiveCharityDetails() {
                   onSubmit={handleSaveEdit}
                   className="w-full  flex flex-col gap-[30px]"
                 >
-                  <div className="flex flex-col gap-4 w-full">
+                  <div className="flex flex-col gap-6 w-full">
                     <div className="flex flex-wrap gap-2">
                       <label className="w-full font-epilogue font-medium text-[14px] leading-[22px] text-[var(--text-color)]">
                         Name *
