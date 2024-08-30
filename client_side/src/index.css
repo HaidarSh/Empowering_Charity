@@ -20,8 +20,9 @@
   --activefundcard-bg-color: #d6f0e0;
   --inactivefundcard-bg-color: #f5e1c9;
   --text-color: #031222;
+  --text-color-white: #ffffff;
   --custombuttom-text-color: #ffffff;
-  --createCharity1-text-color: #06473e;
+  --createCharity1-text-color: #d2dad9;
   --createCharity2-text-color: #2d2d2d;
   --icon-bg-color: #409b8c;
   --active-icon-bg-color: #e5ecea;
@@ -39,9 +40,10 @@
   --icons-active-charity-details: #409b8c;
   --icons-inactive-charity-details: #409b8c;
   --profile-bg-color: #409b8c;
+  --text-color-profile-active: #216e5e;
   --profile-buttom-bg-color: #37bb9e;
-  --placeholder-color: #4b6264;
-  --border-color-form: #3a3a43;
+  --placeholder-color: #446b6e;
+  --border-color-form: #dddde7;
   --swal-background-color: #409b8c;
   --swal-text-color: #5f5858;
   --swal-title-error-color: #e74c3c;
@@ -70,6 +72,7 @@
   --searchbar-profile-inactive-bg-1-color: #0c3d32;
   --searchbar-profile-inactive-bg-2-color: #ed732d;
   --text-color: #ffffff;
+  --text-color-white: #ffffff;
   --custombuttom-text-color: #cfffe3;
   --createCharity1-text-color: #ffffff;
   --createCharity2-text-color: #ffffff;
@@ -89,6 +92,7 @@
   --icons-active-charity-details: #0c3d32;
   --icons-inactive-charity-details: #0c3d32;
   --profile-bg-color: #0c3d32;
+  --text-color-profile-active: #0c3d32;
   --profile-buttom-bg-color: #37bb9e;
   --placeholder-color: #4b6264;
   --border-color-form: #ffffff;

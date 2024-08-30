@@ -729,7 +729,7 @@ export default function ActiveCharityDetails() {
                   Donate charity
                 </h4>
                 <div className="custom-buttom  flex flex-col p-4 bg-[var(--donatetocharity1-bg-color)] rounded-[10px]">
-                  <p className="charitydetails-text-3 font-epilogue font-semibold text-[20px] leading-[30px] text-center text-[var(--text-color)]">
+                  <p className="charitydetails-text-3 font-epilogue font-semibold text-[20px] leading-[30px] text-center text-[var(--text-color-white)]">
                     Pledge without reward
                   </p>
                   <div className="mt-[30px]">
@@ -737,16 +737,16 @@ export default function ActiveCharityDetails() {
                       type="number"
                       placeholder="ETH 0.5"
                       step="0.1"
-                      className="w-full py-[10px] sm:px-[20px] px-[15px] outline-none border-[1px] border-[var(--border-color-form)] bg-transparent font-epilogue text-[var(--text-color)] text-[18px] leading-[30px] placeholder:text-[var(--placeholder-color)] rounded-[10px]"
+                      className="w-full py-[10px] sm:px-[20px] px-[15px] outline-none border-[1px] border-[var(--border-color-form)] bg-transparent font-epilogue text-[var(--text-color-white)] text-[18px] leading-[30px] placeholder:text-[var(--placeholder-color)] rounded-[10px]"
                       value={amount}
                       onChange={handleInputChange}
                     />
 
                     <div className="custom-buttom custom-buttom my-[20px] p-4 bg-[var(--donatetocharity2-bg-color)] rounded-[10px]">
-                      <h4 className="charitydetails-text-3 font-epilogue font-bold text-[14px] leading-[22px] text-[var(--text-color)]">
+                      <h4 className="charitydetails-text-3 font-epilogue font-bold text-[14px] leading-[22px] text-[var(--text-color-white)]">
                         Back it because you believe in it.
                       </h4>
-                      <p className="charitydetails-text-3 mt-[20px] font-epilogue font-normal leading-[22px] text-[var(--text-color)]">
+                      <p className="charitydetails-text-3 mt-[20px] font-epilogue font-normal leading-[22px] text-[var(--text-color-white)]">
                         Support the project for no reward, just because it
                         speaks to you.
                       </p>
@@ -1013,7 +1013,7 @@ export default function ActiveCharityDetails() {
           </div>
         ) : (
           <div className="custom-buttom bg-[var(--profile-bg-color)] flex-1 justify-center items-center flex-col rounded-[10px] sm:p-10 p-4 max-h-300px">
-            <h4 className="responsive-text font-epilogue font-semibold text-[18px] text-[var(--text-color)] my-10">
+            <h4 className="responsive-text font-epilogue font-semibold text-[18px] text-[var(--text-color-white)] my-10">
               Please connect your wallet to delete or donate to this charity.
             </h4>
             <div className="flex flex-col justify-between">

@@ -289,7 +289,7 @@ export default function Profile({ showActive, setShowActive }) {
             placeholder="Search for charities"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="flex w-full font-epilogue font-normal text-[14px] placeholder:text-[#4b5264] text-[var(--text-color)] bg-transparent outline-none"
+            className="flex w-full font-epilogue font-normal text-[14px] placeholder:text-[#4b5264] text-[var(--text-color-white)] bg-transparent outline-none"
           />
           <div className="w-[72px] h-full rounded-[20px] bg-[var(--searchbar-profile-active-bg-2-color)] flex justify-center items-center cursor-pointer">
             <img
@@ -353,7 +353,7 @@ export default function Profile({ showActive, setShowActive }) {
             />
           </div>
 
-          <div className="text-[var(--text-color)] w-full mt-5">
+          <div className="text-[var(--text-color-white)] w-full mt-5">
             <div className="flex flex-wrap text-lg mb-4 justify-between">
               <div className="flex flex-col mb-1">
                 <div>
@@ -472,10 +472,10 @@ export default function Profile({ showActive, setShowActive }) {
             className="box-profile bg-[var(--background-color)] p-4 w-[130px] rounded-[10px] mt-10 flex text-lg text-[var(--text-color)] flex justify-center items-center cursor-pointer"
           >
             <div className="profile-button flex flex-col ">
-              <span className="profile-button responsive-text font-bold text-[#0c3d32] cursor-pointer">
+              <span className="profile-button responsive-text font-bold text-[var(--text-color-profile-active)] cursor-pointer">
                 Active:
               </span>
-              <span className="profile-button responsive-text font-bold flex justify-center items-center cursor-pointer text-[#0c3d32]">
+              <span className="profile-button responsive-text font-bold flex justify-center items-center cursor-pointer text-[var(--text-color-profile-active)]">
                 {activeCharities.length}
               </span>
             </div>

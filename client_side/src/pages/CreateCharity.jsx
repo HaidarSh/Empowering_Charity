@@ -194,7 +194,7 @@ export default function CreateCharity() {
         />
       </div>
       <div className="flex justify-center items-center p-[16px] sm:min-w-[380px] rounded-[10px] mt-[5px]">
-        <h1 className="font-epilogue font-bold sm:text-[25px] text-[18px] leading-[38px] text-[var(--createCharity2-text-color)]">
+        <h1 className="font-epilogue font-bold sm:text-[25px] text-[18px] leading-[38px] text-[var(--text-color-white)]">
           Create a charity
         </h1>
       </div>
@@ -285,7 +285,7 @@ export default function CreateCharity() {
             alt="money"
             className="w-[40px] h-[40px] object-contain "
           />
-          <h4 className="font-epilogue font-bold responsive-text-title text-[25px] text-[var(--createCharity2-text-color)] ml-[20px] ">
+          <h4 className="font-epilogue font-bold responsive-text-title text-[25px] text-[var(--text-color-white)] ml-[20px] ">
             You will get 100% of the donated amount.
           </h4>
         </div>
@@ -354,7 +354,7 @@ export default function CreateCharity() {
         />
       </div>
 
-      <div className="flex justify-center flex-col items-center h-full mt-[5px] text-[var(--text-color)]">
+      <div className="flex justify-center flex-col items-center h-full mt-[5px] text-[var(--text-color-white)]">
         <h1 className="text-[20px] responsive-text text-bold ">
           Please connect wallet in order to add charity.
         </h1>

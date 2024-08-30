@@ -26,7 +26,7 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
       <div className="home-bar sticky flex flex-row w-full bg-[var(--home-bg-color)] h-[80px] rounded-[10px] justify-between items-center pr-[5px] pl-[15px] ">
-        <div className="font-bold text-[var(--text-color)] flex justify-center items-center">
+        <div className="font-bold text-[var(--text-color-white)] flex justify-center items-center">
           <div className="mt-10 sm:mt-5">
             <p className="responsive-text-title mb-10 sm:mb-6 font-epilogue">
               Empowering Charity
