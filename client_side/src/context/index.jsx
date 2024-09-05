@@ -1,10 +1,7 @@
-import React, { useContext, createContext } from "react";
+import React, { useState, useEffect, useContext, createContext } from "react";
 import {
-  useAddress,
   useContract,
-  useMetamask,
   useContractWrite,
-  useDisconnect,
 } from "@thirdweb-dev/react";
 import { ethers } from "ethers";
 import { ABI, contractAddress } from "./Contract_ABI_Address";
@@ -12,6 +9,10 @@ import { ABI, contractAddress } from "./Contract_ABI_Address";
 const StateContext = createContext();
 
 export const StateContextProvider = ({ children }) => {
+  const [provider, setProvider] = useState(null);
+  const [signer, setSigner] = useState(null);
+  const [address, setAddress] = useState(null);
+  const [ethersContract, setEthersContract] = useState(null);
   const {
     contract,
     isLoading: isContractLoading,
@@ -24,9 +25,37 @@ export const StateContextProvider = ({ children }) => {
     error: writeError,
   } = useContractWrite(contract, "createCharity");
 
-  const address = useAddress();
-  const connect = useMetamask();
-  const disconnect = useDisconnect();
+  useEffect(() => {
+    if (signer) {
+      const contractInstance = new ethers.Contract(contractAddress, ABI, signer);
+      setEthersContract(contractInstance);
+    }
+  }, [signer]);
+
+  const connect = async () => {
+    if (window.ethereum) {
+      try {
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        const signer = provider.getSigner();
+        const address = await signer.getAddress();
+
+        setProvider(provider);
+        setSigner(signer);
+        setAddress(address);
+      } catch (error) {
+        console.error("Failed to connect wallet:", error);
+      }
+    } else {
+      console.error("No Ethereum provider found.");
+    }
+  };
+
+  const disconnect = () => {
+    setProvider(null);
+    setSigner(null);
+    setAddress(null);
+    setEthersContract(null);
+  };
 
   async function publishCharity(form) {
     try {
@@ -68,7 +97,7 @@ export const StateContextProvider = ({ children }) => {
         form.category,
         form.phoneNumber,
         form.email,
-        form.country,       
+        form.country,
       ]);
       console.log("Charity edited successfully", data);
       return true;
