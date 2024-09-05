@@ -1,8 +1,5 @@
 import React, { useState, useEffect, useContext, createContext } from "react";
-import {
-  useContract,
-  useContractWrite,
-} from "@thirdweb-dev/react";
+import { useContract, useContractWrite } from "@thirdweb-dev/react";
 import { ethers } from "ethers";
 import { ABI, contractAddress } from "./Contract_ABI_Address";
 
@@ -27,7 +24,11 @@ export const StateContextProvider = ({ children }) => {
 
   useEffect(() => {
     if (signer) {
-      const contractInstance = new ethers.Contract(contractAddress, ABI, signer);
+      const contractInstance = new ethers.Contract(
+        contractAddress,
+        ABI,
+        signer
+      );
       setEthersContract(contractInstance);
     }
   }, [signer]);
@@ -35,6 +36,7 @@ export const StateContextProvider = ({ children }) => {
   const connect = async () => {
     if (window.ethereum) {
       try {
+        await window.ethereum.request({ method: "eth_requestAccounts" });
         const provider = new ethers.providers.Web3Provider(window.ethereum);
         const signer = provider.getSigner();
         const address = await signer.getAddress();
@@ -49,7 +51,6 @@ export const StateContextProvider = ({ children }) => {
       console.error("No Ethereum provider found.");
     }
   };
-
   const disconnect = () => {
     setProvider(null);
     setSigner(null);
