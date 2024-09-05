@@ -550,7 +550,7 @@ export default function Profile({ showActive, setShowActive }) {
         />
       </div>
 
-      <div className="flex justify-center flex-col items-center h-full mt-[5px] text-[var(--text-color)]">
+      <div className="flex justify-center flex-col items-center h-full mt-[5px] text-[var(--text-color-white)]">
         <h1 className="responsive-text text-[20px] text-bold">
           Please connect the wallet to view your profile.
         </h1>
