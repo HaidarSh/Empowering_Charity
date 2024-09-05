@@ -303,7 +303,7 @@ export default function CreateCharity() {
 
           <FormField
             labelName="End Date *"
-            placeholder="End Date"
+            placeholder="mm/dd/yyyy"
             inputType="date"
             value={form.deadline}
             handleChange={(event) => {

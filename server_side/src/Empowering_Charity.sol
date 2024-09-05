@@ -24,6 +24,27 @@ contract Empowering_Charity {
     mapping(uint256 => Charity) public charities;
     uint256 public numberOfCharities = 0;
 
+    modifier onlyOwner(uint256 _id) {
+        require(
+            msg.sender == charities[_id].owner,
+            "Only the owner can perform this action"
+        );
+        _;
+    }
+
+    modifier charityIsActive(uint256 _id) {
+        require(charities[_id].active, "The charity is not active");
+        _;
+    }
+
+    modifier futureDeadline(uint256 _deadline) {
+        require(
+            _deadline > block.timestamp,
+            "The deadline should be a date in the future"
+        );
+        _;
+    }
+
     function createCharity(
         address _owner,
         string memory _name,
@@ -36,12 +57,7 @@ contract Empowering_Charity {
         string memory _phoneNumber,
         string memory _email,
         string memory _country
-    ) public returns (uint256) {
-        require(
-            _deadline > block.timestamp,
-            "The deadline should be a date in the future"
-        );
-
+    ) public futureDeadline(_deadline) returns (uint256) {
         Charity storage charity = charities[numberOfCharities];
 
         charity.charityId = numberOfCharities;
@@ -64,12 +80,10 @@ contract Empowering_Charity {
         return charity.charityId;
     }
 
-    function donateToCharity(uint256 _id) public payable {
+    function donateToCharity(uint256 _id) public payable charityIsActive(_id) {
         uint256 amount = msg.value;
 
         Charity storage charity = charities[_id];
-
-        require(charity.active == true, "The charity is not active");
 
         charity.donators.push(msg.sender);
         charity.donations.push(amount);
@@ -134,13 +148,9 @@ contract Empowering_Charity {
         return inactiveCharities;
     }
 
-    function deleteCharity(uint256 _id) public {
-        require(
-            msg.sender == charities[_id].owner,
-            "Only the owner can delete the charity"
-        );
-        require(charities[_id].active, "Charity is already inactive");
-
+    function deleteCharity(
+        uint256 _id
+    ) public onlyOwner(_id) charityIsActive(_id) {
         charities[_id].active = false;
     }
 
@@ -156,7 +166,7 @@ contract Empowering_Charity {
         string memory _phoneNumber,
         string memory _email,
         string memory _country
-    ) public {
+    ) public onlyOwner(_id) {
         Charity storage charity = charities[_id];
         charity.name = _name;
         charity.title = _title;

@@ -45,8 +45,8 @@ export default function ActiveCharityDetails() {
     control: (provided) => ({
       ...provided,
       backgroundColor: theme === "dark" ? "#0c3d32" : "#409b8c",
-      borderColor: theme === "dark" ? "#ffffff" : "#3a3a43",
-      color: theme === "dark" ? "#ffffff" : "#06473e",
+      borderColor: theme === "dark" ? "#ffffff" : "#dddde7",
+      color: theme === "dark" ? "#ffffff" : "#d2dad9",
       minHeight: "56px",
       borderRadius: "10px",
       paddingLeft: "15px",
@@ -58,12 +58,12 @@ export default function ActiveCharityDetails() {
     menu: (provided) => ({
       ...provided,
       backgroundColor: theme === "dark" ? "#0c3d32" : "#409b8c",
-      color: theme === "dark" ? "#ffffff" : "#06473e",
+      color: theme === "dark" ? "#ffffff" : "#d2dad9",
       borderRadius: "15px",
     }),
     singleValue: (provided) => ({
       ...provided,
-      color: theme === "dark" ? "#ffffff" : "#000000",
+      color: theme === "dark" ? "#ffffff" : "#d2dad9",
     }),
     placeholder: (provided) => ({
       ...provided,
@@ -71,19 +71,19 @@ export default function ActiveCharityDetails() {
     }),
     input: (provided) => ({
       ...provided,
-      color: theme === "dark" ? "#ffffff" : "#000000",
+      color: theme === "dark" ? "#ffffff" : "#d2dad9",
       paddingLeft: "10px",
     }),
     dropdownIndicator: (provided) => ({
       ...provided,
-      color: theme === "dark" ? "#4b5264" : "#888888",
+      color: theme === "dark" ? "#4b5264" : "#d2dad9",
     }),
     indicatorSeparator: (provided) => ({
       display: "none",
     }),
     noOptionsMessage: (provided) => ({
       ...provided,
-      color: theme === "dark" ? "#ffffff" : "#000000",
+      color: theme === "dark" ? "#ffffff" : "#d2dad9",
     }),
     option: (provided, state) => ({
       ...provided,
@@ -98,10 +98,10 @@ export default function ActiveCharityDetails() {
         : theme === "dark"
         ? "#0c3d32"
         : "#409b8c",
-      color: theme === "dark" ? "#ffffff" : "#06473e",
+      color: theme === "dark" ? "#ffffff" : "#d2dad9",
       "&:hover": {
         backgroundColor: theme === "dark" ? "#A18167" : "#dfc1a9",
-        color: theme === "dark" ? "#ffffff" : "#06473e",
+        color: theme === "dark" ? "#ffffff" : "#d2dad9",
       },
     }),
   };
@@ -798,7 +798,7 @@ export default function ActiveCharityDetails() {
                 >
                   <div className="flex flex-col gap-6 w-full">
                     <div className="flex flex-wrap gap-2">
-                      <label className="w-full font-epilogue font-medium text-[14px] leading-[22px] text-[var(--text-color)]">
+                      <label className="w-full font-epilogue font-medium text-[14px] leading-[22px] text-[var(--text-color-white)]">
                         Name *
                         <input
                           type="text"
@@ -816,7 +816,7 @@ export default function ActiveCharityDetails() {
                     </div>
 
                     <div className="flex flex-wrap gap-2">
-                      <label className="w-full font-epilogue font-medium text-[14px] leading-[22px] text-[var(--text-color)]">
+                      <label className="w-full font-epilogue font-medium text-[14px] leading-[22px] text-[var(--text-color-white)]">
                         Phone number *
                         <input
                           type="text"
@@ -832,7 +832,7 @@ export default function ActiveCharityDetails() {
                     </div>
 
                     <div className="flex flex-wrap gap-2">
-                      <label className="w-full font-epilogue font-medium text-[14px] leading-[22px] text-[var(--text-color)]">
+                      <label className="w-full font-epilogue font-medium text-[14px] leading-[22px] text-[var(--text-color-white)]">
                         Email *
                         <input
                           type="email"
@@ -850,7 +850,7 @@ export default function ActiveCharityDetails() {
                     </div>
 
                     <div className="flex flex-wrap gap-2">
-                      <label className="w-full font-epilogue font-medium text-[14px] leading-[22px] text-[var(--text-color)]">
+                      <label className="w-full font-epilogue font-medium text-[14px] leading-[22px] text-[var(--text-color-white)]">
                         Country *
                         <Select
                           id="country"
@@ -873,7 +873,7 @@ export default function ActiveCharityDetails() {
                     </div>
 
                     <div className="flex flex-wrap gap-2">
-                      <label className="w-full font-epilogue font-medium text-[14px] leading-[22px] text-[var(--text-color)]">
+                      <label className="w-full font-epilogue font-medium text-[14px] leading-[22px] text-[var(--text-color-white)]">
                         Category *
                         <Select
                           id="category"
@@ -896,7 +896,7 @@ export default function ActiveCharityDetails() {
                     </div>
 
                     <div className="flex flex-wrap gap-2">
-                      <label className="w-full font-epilogue font-medium text-[14px] leading-[22px] text-[var(--text-color)]">
+                      <label className="w-full font-epilogue font-medium text-[14px] leading-[22px] text-[var(--text-color-white)]">
                         Title *
                         <input
                           type="text"
@@ -914,7 +914,7 @@ export default function ActiveCharityDetails() {
                     </div>
 
                     <div className="flex flex-wrap gap-2">
-                      <label className="w-full font-epilogue font-medium text-[14px] leading-[22px] text-[var(--text-color)]">
+                      <label className="w-full font-epilogue font-medium text-[14px] leading-[22px] text-[var(--text-color-white)]">
                         Story *
                         <textarea
                           id="description"
@@ -935,7 +935,7 @@ export default function ActiveCharityDetails() {
                     </div>
 
                     <div className="flex flex-wrap gap-2">
-                      <label className="w-full font-epilogue font-medium text-[14px] leading-[22px] text-[var(--text-color)]">
+                      <label className="w-full font-epilogue font-medium text-[14px] leading-[22px] text-[var(--text-color-white)]">
                         Target *
                         <input
                           id="goal-input"
@@ -953,7 +953,7 @@ export default function ActiveCharityDetails() {
                     </div>
 
                     <div className="flex flex-wrap gap-2">
-                      <label className="w-full font-epilogue font-medium text-[14px] leading-[22px] text-[var(--text-color)]">
+                      <label className="w-full font-epilogue font-medium text-[14px] leading-[22px] text-[var(--text-color-white)]">
                         End Date *
                         <input
                           type="date"
@@ -975,7 +975,7 @@ export default function ActiveCharityDetails() {
                     </div>
 
                     <div className="flex flex-wrap gap-2">
-                      <label className="w-full font-epilogue font-medium text-[14px] leading-[22px] text-[var(--text-color)]">
+                      <label className="w-full font-epilogue font-medium text-[14px] leading-[22px] text-[var(--text-color-white)]">
                         Image *
                         <input
                           type="text"
