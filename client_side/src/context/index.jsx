@@ -123,111 +123,60 @@ export const StateContextProvider = ({ children }) => {
   }
 
   async function getActiveCharities() {
-    try {
-      const provider = new ethers.providers.Web3Provider(
-        window.ethereum,
-        "any"
-      );
-      const ethersContract = new ethers.Contract(
-        contractAddress,
-        ABI,
-        provider
-      );
-
-      const charities = await ethersContract.getActiveCharities();
-
-      const parsedCharities = charities.map((charity) => ({
-        pId: charity.charityId,
-        owner: charity.owner,
-        name: charity.name,
-        title: charity.title,
-        description: charity.description,
-        target: ethers.utils.formatEther(charity.target.toString()) / 1e18,
-        deadline: charity.deadline.toNumber(),
-        amountCollected: ethers.utils.formatEther(
-          charity.amountCollected.toString()
-        ),
-        image: charity.image,
-        category: charity.category,
-        phoneNumber: charity.phoneNumber,
-        email: charity.email,
-        country: charity.country,
-      }));
-
-      return parsedCharities;
-    } catch (error) {
-      console.error("Failed to fetch active charities:", error);
-      return [];
-    }
+    const charities = await contract.call("getActiveCharities");
+    const parsedCharities = charities.map((charity) => ({
+      pId: charity.charityId,
+      owner: charity.owner,
+      name: charity.name,
+      title: charity.title,
+      description: charity.description,
+      target: ethers.utils.formatEther(charity.target.toString()) / 1e18,
+      deadline: charity.deadline.toNumber(),
+      amountCollected: ethers.utils.formatEther(
+        charity.amountCollected.toString()
+      ),
+      image: charity.image,
+      category: charity.category,
+      phoneNumber: charity.phoneNumber,
+      email: charity.email,
+      country: charity.country,
+    }));
+    return parsedCharities;
   }
-
   async function getInActiveCharities() {
-    try {
-      const provider = new ethers.providers.Web3Provider(
-        window.ethereum,
-        "any"
-      );
-      const ethersContract = new ethers.Contract(
-        contractAddress,
-        ABI,
-        provider
-      );
-
-      const charities = await ethersContract.getInActiveCharities();
-
-      const parsedCharities = charities.map((charity) => ({
-        pId: charity.charityId,
-        owner: charity.owner,
-        name: charity.name,
-        title: charity.title,
-        description: charity.description,
-        target: ethers.utils.formatEther(charity.target.toString()) / 1e18,
-        deadline: charity.deadline.toNumber(),
-        amountCollected: ethers.utils.formatEther(
-          charity.amountCollected.toString()
-        ),
-        image: charity.image,
-        category: charity.category,
-        phoneNumber: charity.phoneNumber,
-        email: charity.email,
-        country: charity.country,
-      }));
-
-      return parsedCharities;
-    } catch (error) {
-      console.error("Failed to fetch inactive charities:", error);
-      return [];
-    }
+    const charities = await contract.call("getInActiveCharities");
+    const parsedCharities = charities.map((charity) => ({
+      pId: charity.charityId,
+      owner: charity.owner,
+      name: charity.name,
+      title: charity.title,
+      description: charity.description,
+      target: ethers.utils.formatEther(charity.target.toString()) / 1e18,
+      deadline: charity.deadline.toNumber(),
+      amountCollected: ethers.utils.formatEther(
+        charity.amountCollected.toString()
+      ),
+      image: charity.image,
+      category: charity.category,
+      phoneNumber: charity.phoneNumber,
+      email: charity.email,
+      country: charity.country,
+    }));
+    return parsedCharities;
   }
-
   async function getUserActiveCharities(address) {
-    try {
-      const allCharities = await getActiveCharities();
-
-      const filteredCharities = allCharities.filter(
-        (charity) => charity.owner === address
-      );
-
-      return filteredCharities;
-    } catch (error) {
-      console.error("Failed to fetch user active charities:", error);
-      return [];
-    }
+    const allCharities = await getActiveCharities();
+    const filteredCharities = allCharities.filter(
+      (charity) => charity.owner === address
+    );
+    return filteredCharities;
   }
-
   async function getUserInActiveCharities(address) {
-    try {
-      const allCharities = await getInActiveCharities();
-
-      const filteredCharities = allCharities.filter(
-        (charity) => charity.owner === address && !charity.active
-      );
-
-      return filteredCharities;
-    } catch (error) {
-      console.error("Failed to fetch user inactive charities:", error);
-      return [];
-    }
+    const allCharities = await getInActiveCharities();
+    const filteredCharities = allCharities.filter(
+      (charity) => charity.owner === address && !charity.active
+    );
+    return filteredCharities;
   }
 
   async function donate(pId, amount) {
