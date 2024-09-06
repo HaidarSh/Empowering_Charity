@@ -1,26 +1,20 @@
 import React, { useState, useEffect, useContext, createContext } from "react";
-import { useContract, useContractWrite } from "@thirdweb-dev/react";
+import { useContract } from "@thirdweb-dev/react";
 import { ethers } from "ethers";
 import { ABI, contractAddress } from "./Contract_ABI_Address";
 
 const StateContext = createContext();
 
 export const StateContextProvider = ({ children }) => {
-  const [provider, setProvider] = useState(null);
-  const [signer, setSigner] = useState(null);
-  const [address, setAddress] = useState(null);
-  const [ethersContract, setEthersContract] = useState(null);
   const {
     contract,
     isLoading: isContractLoading,
     error: contractError,
   } = useContract(contractAddress, ABI);
-
-  const {
-    mutateAsync: createCharity,
-    isLoading: isWriteLoading,
-    error: writeError,
-  } = useContractWrite(contract, "createCharity");
+  const [provider, setProvider] = useState(null);
+  const [signer, setSigner] = useState(null);
+  const [address, setAddress] = useState(null);
+  const [ethersContract, setEthersContract] = useState(null);
 
   useEffect(() => {
     if (signer) {
@@ -60,23 +54,32 @@ export const StateContextProvider = ({ children }) => {
 
   async function publishCharity(form) {
     try {
-      const targetValue = form.target.toString();
-      let data = await createCharity({
-        args: [
-          address,
-          form.name,
-          form.title,
-          form.description,
-          ethers.utils.parseUnits(targetValue, "ether"),
-          new Date(form.deadline).getTime(),
-          form.image,
-          form.category,
-          form.phoneNumber,
-          form.email,
-          form.country,
-        ],
-      });
-      console.log("Contract call success", data);
+      if (!ethersContract) {
+        console.error("Contract is not initialized.");
+        return false;
+      }
+
+      const targetValue = ethers.utils.parseUnits(
+        form.target.toString(),
+        "ether"
+      );
+
+      const transaction = await ethersContract.createCharity(
+        address,
+        form.name,
+        form.title,
+        form.description,
+        targetValue,
+        new Date(form.deadline).getTime(),
+        form.image,
+        form.category,
+        form.phoneNumber,
+        form.email,
+        form.country
+      );
+      const receipt = await transaction.wait();
+
+      console.log("Contract call success", receipt);
       return true;
     } catch (error) {
       console.error("Contract call failed", error);
@@ -86,21 +89,32 @@ export const StateContextProvider = ({ children }) => {
 
   async function editCharity(charityId, form) {
     try {
-      const targetValue = form.target.toString();
-      let data = await contract.call("editCharity", [
+      if (!ethersContract) {
+        console.error("Contract is not initialized.");
+        return false;
+      }
+      const targetValue = ethers.utils.parseUnits(
+        form.target.toString(),
+        "ether"
+      );
+
+      const transaction = await ethersContract.editCharity(
         charityId,
         form.name,
         form.title,
         form.description,
-        ethers.utils.parseUnits(targetValue, "ether"),
+        targetValue,
         new Date(form.deadline).getTime(),
         form.image,
         form.category,
         form.phoneNumber,
         form.email,
-        form.country,
-      ]);
-      console.log("Charity edited successfully", data);
+        form.country
+      );
+
+      const receipt = await transaction.wait();
+
+      console.log("Charity edited successfully", receipt);
       return true;
     } catch (error) {
       console.error("Edit charity failed", error);
@@ -109,104 +123,170 @@ export const StateContextProvider = ({ children }) => {
   }
 
   async function getActiveCharities() {
-    const charities = await contract.call("getActiveCharities");
+    try {
+      const provider = new ethers.providers.Web3Provider(
+        window.ethereum,
+        "any"
+      );
+      const ethersContract = new ethers.Contract(
+        contractAddress,
+        ABI,
+        provider
+      );
 
-    const parsedCharities = charities.map((charity) => ({
-      pId: charity.charityId,
-      owner: charity.owner,
-      name: charity.name,
-      title: charity.title,
-      description: charity.description,
-      target: ethers.utils.formatEther(charity.target.toString()) / 1e18,
-      deadline: charity.deadline.toNumber(),
-      amountCollected: ethers.utils.formatEther(
-        charity.amountCollected.toString()
-      ),
-      image: charity.image,
-      category: charity.category,
-      phoneNumber: charity.phoneNumber,
-      email: charity.email,
-      country: charity.country,
-    }));
-    return parsedCharities;
+      const charities = await ethersContract.getActiveCharities();
+
+      const parsedCharities = charities.map((charity) => ({
+        pId: charity.charityId,
+        owner: charity.owner,
+        name: charity.name,
+        title: charity.title,
+        description: charity.description,
+        target: ethers.utils.formatEther(charity.target.toString()) / 1e18,
+        deadline: charity.deadline.toNumber(),
+        amountCollected: ethers.utils.formatEther(
+          charity.amountCollected.toString()
+        ),
+        image: charity.image,
+        category: charity.category,
+        phoneNumber: charity.phoneNumber,
+        email: charity.email,
+        country: charity.country,
+      }));
+
+      return parsedCharities;
+    } catch (error) {
+      console.error("Failed to fetch active charities:", error);
+      return [];
+    }
   }
 
   async function getInActiveCharities() {
-    const charities = await contract.call("getInActiveCharities");
+    try {
+      const provider = new ethers.providers.Web3Provider(
+        window.ethereum,
+        "any"
+      );
+      const ethersContract = new ethers.Contract(
+        contractAddress,
+        ABI,
+        provider
+      );
 
-    const parsedCharities = charities.map((charity) => ({
-      pId: charity.charityId,
-      owner: charity.owner,
-      name: charity.name,
-      title: charity.title,
-      description: charity.description,
-      target: ethers.utils.formatEther(charity.target.toString()) / 1e18,
-      deadline: charity.deadline.toNumber(),
-      amountCollected: ethers.utils.formatEther(
-        charity.amountCollected.toString()
-      ),
-      image: charity.image,
-      category: charity.category,
-      phoneNumber: charity.phoneNumber,
-      email: charity.email,
-      country: charity.country,
-    }));
+      const charities = await ethersContract.getInActiveCharities();
 
-    return parsedCharities;
+      const parsedCharities = charities.map((charity) => ({
+        pId: charity.charityId,
+        owner: charity.owner,
+        name: charity.name,
+        title: charity.title,
+        description: charity.description,
+        target: ethers.utils.formatEther(charity.target.toString()) / 1e18,
+        deadline: charity.deadline.toNumber(),
+        amountCollected: ethers.utils.formatEther(
+          charity.amountCollected.toString()
+        ),
+        image: charity.image,
+        category: charity.category,
+        phoneNumber: charity.phoneNumber,
+        email: charity.email,
+        country: charity.country,
+      }));
+
+      return parsedCharities;
+    } catch (error) {
+      console.error("Failed to fetch inactive charities:", error);
+      return [];
+    }
   }
 
   async function getUserActiveCharities(address) {
-    const allCharities = await getActiveCharities();
+    try {
+      const allCharities = await getActiveCharities();
 
-    const filteredCharities = allCharities.filter(
-      (charity) => charity.owner === address
-    );
+      const filteredCharities = allCharities.filter(
+        (charity) => charity.owner === address
+      );
 
-    return filteredCharities;
+      return filteredCharities;
+    } catch (error) {
+      console.error("Failed to fetch user active charities:", error);
+      return [];
+    }
   }
 
   async function getUserInActiveCharities(address) {
-    const allCharities = await getInActiveCharities();
+    try {
+      const allCharities = await getInActiveCharities();
 
-    const filteredCharities = allCharities.filter(
-      (charity) => charity.owner === address && !charity.active
-    );
+      const filteredCharities = allCharities.filter(
+        (charity) => charity.owner === address && !charity.active
+      );
 
-    return filteredCharities;
+      return filteredCharities;
+    } catch (error) {
+      console.error("Failed to fetch user inactive charities:", error);
+      return [];
+    }
   }
 
   async function donate(pId, amount) {
     try {
-      const data = await contract.call("donateToCharity", [pId], {
+      if (!ethersContract) {
+        console.error("Contract is not initialized.");
+        return false;
+      }
+
+      const transaction = await ethersContract.donateToCharity(pId, {
         value: ethers.utils.parseEther(amount),
       });
+
+      const receipt = await transaction.wait();
+      console.log("Donation successful", receipt);
       return true;
     } catch (error) {
-      console.error("Delete charity failed", error);
+      console.error("Donation failed", error);
       return false;
     }
   }
 
   async function getDonations(pId) {
-    const donations = await contract.call("getDonators", [pId]);
-    const numberOfDonations = donations[0].length;
+    try {
+      if (!ethersContract) {
+        console.error("Contract is not initialized.");
+        return [];
+      }
 
-    const parsedDonations = [];
+      const donations = await ethersContract.getDonators(pId);
+      const numberOfDonations = donations[0].length;
 
-    for (let i = 0; i < numberOfDonations; i++) {
-      parsedDonations.push({
-        donator: donations[0][i],
-        donation: ethers.utils.formatEther(donations[1][i].toString()),
-      });
+      const parsedDonations = [];
+
+      for (let i = 0; i < numberOfDonations; i++) {
+        parsedDonations.push({
+          donator: donations[0][i],
+          donation: ethers.utils.formatEther(donations[1][i].toString()),
+        });
+      }
+
+      return parsedDonations;
+    } catch (error) {
+      console.error("Failed to get donations", error);
+      return [];
     }
-
-    return parsedDonations;
   }
 
   async function removeCharity(charityId) {
     try {
-      const data = await contract.call("deleteCharity", [charityId]);
-      console.log("Charity deleted", data);
+      if (!ethersContract) {
+        console.error("Contract is not initialized.");
+        return false;
+      }
+
+      const transaction = await ethersContract.deleteCharity(charityId);
+
+      const receipt = await transaction.wait();
+      console.log("Charity deleted", receipt);
       return true;
     } catch (error) {
       console.error("Delete charity failed", error);
@@ -231,8 +311,6 @@ export const StateContextProvider = ({ children }) => {
         connect,
         disconnect,
         isContractLoading,
-        isWriteLoading,
-        writeError,
       }}
     >
       {children}
