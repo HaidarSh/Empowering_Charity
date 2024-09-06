@@ -40,7 +40,7 @@ export default function InActiveFundCard({
 
   return (
     <div
-      className="box sm:w-[370px] w-full rounded-[20px] bg-[var(--inactivefundcard-bg-color)] cursor-pointer"
+      className="box fundcard w-full rounded-[20px] bg-[var(--inactivefundcard-bg-color)] cursor-pointer"
       onClick={handleClick}
     >
       <img
@@ -110,9 +110,7 @@ export default function InActiveFundCard({
               {donators.length}
             </h4>
             <p className="fundcard-text mt-[3px] font-epilogue font-normal text-[12px] leading-[18px] text-[var(--text-color)] sm:max-w-[120px] truncate hover:text-[#ed732d]">
-              {donators.length == 1
-                ? "Donator"
-                : "Donators"}{" "}
+              {donators.length == 1 ? "Donator" : "Donators"}{" "}
             </p>
           </div>
         </div>
