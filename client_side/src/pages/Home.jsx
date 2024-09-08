@@ -4,18 +4,19 @@ import { useStateContext } from "../context";
 import { CustomButtom } from "../components";
 import CharityPhotosStyle from "../components/HomeComponents/CharityPhotosStyle";
 import {
-  first_one,
-  first_two,
-  first_three,
+  first,
+  second,
+  third,
+  fourth,
+  fifth,
+  six,
+  seven,
+  eight,
+  nine,
+  coverphoto,
   second_one,
   second_two,
   second_three,
-  second_four,
-  second_five,
-  second_six,
-  third_one,
-  third_two,
-  third_three,
   image_big_one,
   image_big_two,
 } from "../assets";
@@ -47,94 +48,114 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="mt-10">
-        <p className="responsive-text text-xl text-[var(--text-color)] mb-10 font-epilogue">
-          Join us on a journey to build a brighter future for communities around
-          the world. Empowering Charity leverages cutting-edge blockchain
-          technology to ensure transparency and trust in every donation,
-          empowering donors to see the real impact of their generosity.
-        </p>
-      </div>
-
-      <div className="flex cursor-pointer justify-center mt-10 sm:mt-10">
+      <div className="relative mt-5">
         <img
-          src={image_big_one}
-          className="home-bigimage object-contain sm:w-1/2 sm:h-1/2 rounded-[20px]"
+          src={coverphoto}
+          className="home-bigimage object-contain w-full rounded-[20px]"
           alt="Charity"
         />
+        <button className="home-donate-buttom">
+        <Link to="/Empowering_Charity/View_Active_Charity">
+            <div className="custom-buttom px-10 py-8 rounded-[50px] text-2xl flex justify-center items-center">
+              <h1 className="custom-buttom-responsive-text font-epilogue font-semibold text-[25px] text-[var(--custombuttom-text-color)]">
+                
+              </h1>
+            </div>
+          </Link>
+        </button>
       </div>
+
+      <div className="flex cursor-pointer justify-center mt-10 sm:mt-10"></div>
+
+      <hr className="border-t-2 border-[#A18167]" />
 
       <div className="flex flex-col mt-[20px] gap-[26px]">
         <div className="flex flex-col justify-start">
-          <div className="mt-10 mb-10">
+          <div className="mt-10 mb-10 flex justify-center items-center">
             <p className="responsive-text text-xl text-[var(--text-color)] font-epilogue">
               Your generosity brings hope, lighting the path to a brighter
               future for those in need.
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-6">
-            <CharityPhotosStyle imageSRC={first_one} />
-            <CharityPhotosStyle imageSRC={first_two} />
-            <CharityPhotosStyle imageSRC={first_three} />
+          <div className="flex flex-wrap gap-4 items-center justify-center">
+            <div className="w-full sm:w-1/2 lg:w-1/3 flex items-center justify-center">
+              <CharityPhotosStyle imageSRC={first} />
+            </div>
+            <div className="w-full sm:w-1/2 lg:w-1/3 flex items-center justify-center">
+              <CharityPhotosStyle imageSRC={second} />
+            </div>
+            <div className="w-full sm:w-[450px] lg:w-[450px] h-[300px] flex items-center justify-center">
+              <CharityPhotosStyle imageSRC={six} />
+            </div>
           </div>
         </div>
         <hr className="border-t-2 border-[#A18167]" />
         <div>
-          <div className="mt-10 flex ">
+          <div className="mt-10 flex justify-center items-center">
             <p className="responsive-text-title-inner text-[var(--text-color)] mb-10 font-epilogue font-semibold">
               Empower Gaza's Young Hearts
             </p>
           </div>
-          <div className="">
-            <p className="responsive-text text-xl text-[var(--text-color)] mb-10 font-epilogue">
+          <div>
+            <p className="responsive-text text-xl text-[var(--text-color)] mb-10 font-epilogue flex justify-center items-center">
               With your generous donation, we can empower the children of Gaza,
               providing them with the education, healthcare, and opportunities
               they need to thrive.
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
             <CharityPhotosStyle imageSRC={second_one} />
-            <CharityPhotosStyle imageSRC={second_two} />
+            <CharityPhotosStyle imageSRC={fourth} />
             <CharityPhotosStyle imageSRC={second_three} />
 
-            <CharityPhotosStyle imageSRC={second_four} />
-            <CharityPhotosStyle imageSRC={second_five} />
-            <CharityPhotosStyle imageSRC={second_six} />
+            <CharityPhotosStyle imageSRC={fifth} />
+            <CharityPhotosStyle imageSRC={second_two} />
+            <CharityPhotosStyle imageSRC={nine} />
           </div>
         </div>
         <hr className="border-t-2 border-[#A18167]" />
-        <div className="flex flex-col cursor-pointer items-center">
-          <div className="mt-10">
-            <p className="responsive-text text-xl text-[var(--text-color)] mb-10 font-epilogue">
-              At Empowering Charity, we believe that every act of kindness has
-              the potential to transform lives. Our mission is to connect
-              generous hearts with meaningful causes, creating a network of
-              support that brings hope, dignity, and opportunities to those who
-              need it most.
-            </p>
-          </div>
+        <div className="mt-10 flex justify-center items-center">
+          <p className="responsive-text text-xl text-[var(--text-color)] mb-10 font-epilogue">
+            At Empowering Charity, we believe that every act of kindness has the
+            potential to transform lives. Our mission is to connect generous
+            hearts with meaningful causes, creating a network of support that
+            brings hope, dignity, and opportunities to those who need it most.
+          </p>
+        </div>
+        <div className="flex flex-col sm:flex-row cursor-pointer items-center">
           <h1 className="text-xl bg-[var(--text-color)] mb-10"></h1>
+          <img
+            src={image_big_one}
+            className="home-bigimage object-contain w-[80%] h-[80%] sm:w-1/2 sm:h-1/2 rounded-[20px]"
+            alt="Charity"
+          />
           <img
             src={image_big_two}
             className="home-bigimage object-contain w-[80%] h-[80%] sm:w-1/2 sm:h-1/2 rounded-[20px]"
             alt="Charity"
           />
         </div>
-
+        <hr className="border-t-2 border-[#A18167]" />
         <div>
-          <div className="mt-10">
+          <div className="mt-10 flex justify-center items-center">
             <p className="responsive-text text-xl text-[var(--text-color)] mb-10 font-epilogue">
               Your donation helps protect our planet and ensure a healthier,
               sustainable future for generations to come.
             </p>
           </div>
           <h1 className="text-xl text-[var(--text-color)] mb-10"></h1>
-          <div className="flex flex-wrap gap-6">
-            <CharityPhotosStyle imageSRC={third_one} />
-            <CharityPhotosStyle imageSRC={third_two} />
-            <CharityPhotosStyle imageSRC={third_three} />
+          <div className="flex flex-wrap gap-4 items-center justify-center">
+            <div className="w-full sm:w-1/2 lg:w-1/3 flex items-center justify-center">
+              <CharityPhotosStyle imageSRC={seven} />
+            </div>
+            <div className="w-full sm:w-1/2 lg:w-1/3 flex items-center justify-center">
+              <CharityPhotosStyle imageSRC={eight} />
+            </div>
+            <div className="w-full sm:w-[450px] lg:w-[450px] h-[300px] flex items-center justify-center">
+              <CharityPhotosStyle imageSRC={third} />
+            </div>
           </div>
         </div>
 

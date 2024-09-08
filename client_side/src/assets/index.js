@@ -43,6 +43,17 @@ import third_three from "./Home_Page_Photos/third_three.jpeg";
 import image_big_one from "./Home_Page_Photos/image_big_one.png";
 import image_big_two from "./Home_Page_Photos/image_big_two.png";
 
+import first from "./Home_Page_Photos/first.jpg";
+import second from "./Home_Page_Photos/second.jpg";
+import third from "./Home_Page_Photos/third.jpg";
+import fourth from "./Home_Page_Photos/fourth.jpg";
+import fifth from "./Home_Page_Photos/fifth.jpg";
+import six from "./Home_Page_Photos/six.jpg";
+import seven from "./Home_Page_Photos/seven.jpg";
+import eight from "./Home_Page_Photos/eight.jpg";
+import nine from "./Home_Page_Photos/nine.jpg";
+import coverphoto from "./Home_Page_Photos/coverphoto.jpg";
+
 export {
   category_icon_active,
   project_logo,
@@ -87,4 +98,14 @@ export {
   third_three,
   image_big_one,
   image_big_two,
+  coverphoto,
+  first,
+  second,
+  third,
+  fourth,
+  fifth,
+  six,
+  seven,
+  eight,
+  nine
 };
