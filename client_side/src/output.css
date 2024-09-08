@@ -845,10 +845,6 @@ video {
   height: 80px;
 }
 
-.h-auto{
-  height: auto;
-}
-
 .h-full{
   height: 100%;
 }
@@ -1864,9 +1860,10 @@ html {
   border-radius: 10px;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .charityphoto img {
-    height: 190px;
+    width: 350px;
+    height: 250px;
   }
 }
 

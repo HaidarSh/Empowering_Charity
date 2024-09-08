@@ -151,16 +151,16 @@ export default function Home() {
           </div>
           <h1 className="text-xl text-[var(--text-color)] mb-10"></h1>
           <div className="flex flex-wrap gap-4 items-center justify-center">
-          <div className="charityphoto charityphoto-medium flex w-full md:w-1/2 lg:w-1/2 xl:w-1/3 items-center justify-center">
-            <CharityPhotosStyleThree imageSRC={seven} />
+            <div className="charityphoto charityphoto-medium flex w-full md:w-1/2 lg:w-1/2 xl:w-1/3 items-center justify-center">
+              <CharityPhotosStyleThree imageSRC={seven} />
+            </div>
+            <div className="charityphoto charityphoto-medium flex w-full md:w-1/2 lg:w-1/2 xl:w-1/3 items-center justify-center">
+              <CharityPhotosStyleThree imageSRC={eight} />
+            </div>
+            <div className="charityphoto charityphoto-medium flex w-full md:w-1/2 lg:w-1/2 xl:w-1/3 items-center justify-center">
+              <CharityPhotosStyleThree imageSRC={third} />
+            </div>
           </div>
-          <div className="charityphoto charityphoto-medium flex w-full md:w-1/2 lg:w-1/2 xl:w-1/3 items-center justify-center">
-            <CharityPhotosStyleThree imageSRC={eight} />
-          </div>
-          <div className="charityphoto charityphoto-medium flex w-full md:w-1/2 lg:w-1/2 xl:w-1/3 items-center justify-center">
-            <CharityPhotosStyleThree imageSRC={third} />
-          </div>
-        </div>
         </div>
 
         <hr className="border-t-2 border-[#A18167]" />
