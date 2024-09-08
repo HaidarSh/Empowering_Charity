@@ -2089,7 +2089,19 @@ video {
   .fundcard-text {
     font-size: 12px;
   }
+}
 
+@media (min-width: 640px) and (max-width: 1124px) {
+  .fundcard-text-exception {
+    font-size: 8px;
+  }
+
+  .fundcard-text{
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 640px) {
   .charitydetails-text {
     font-size: 12px;
   }
@@ -2273,10 +2285,6 @@ video {
 
   .sm\:w-\[370px\]{
     width: 370px;
-  }
-
-  .sm\:w-\[400px\]{
-    width: 400px;
   }
 
   .sm\:w-auto{
