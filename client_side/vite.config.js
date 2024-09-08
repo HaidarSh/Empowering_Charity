@@ -7,8 +7,4 @@ export default defineConfig({
   optimizeDeps: {
     include: ["ethers"],
   },
-  build: {
-    chunkSizeWarningLimit: 15000,
-
-  },
 });

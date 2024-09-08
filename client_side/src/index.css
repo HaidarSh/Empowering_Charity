@@ -245,13 +245,57 @@
   transform: scale(1.02);
 }
 
-.home-donate-buttom{
+/* .home-donate-buttom{
   position: absolute;
   bottom: 150px; 
   left: 420px; 
   padding: 0.5rem 10rem; 
   border-radius: 0.375rem; 
   cursor: pointer;
+} */
+
+.charityphoto img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+@media (max-width: 640px) {
+  .charityphoto img {
+    height: 190px;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.header {
+  font-size: 1.25rem;
+  background-color: var(--text-color);
+  margin-bottom: 1rem;
+}
+
+.image {
+  width: 80%;
+  height: auto;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row;
+  }
+
+  .image {
+    width: 50%;
+    margin-bottom: 0;
+  }
 }
 
 .sidebar {

@@ -54,15 +54,13 @@ export default function Home() {
           className="home-bigimage object-contain w-full rounded-[20px]"
           alt="Charity"
         />
-        <button className="home-donate-buttom">
-        <Link to="/Empowering_Charity/View_Active_Charity">
+        {/* <button className="home-donate-buttom">
+          <Link to="/Empowering_Charity/View_Active_Charity">
             <div className="custom-buttom px-10 py-8 rounded-[50px] text-2xl flex justify-center items-center">
-              <h1 className="custom-buttom-responsive-text font-epilogue font-semibold text-[25px] text-[var(--custombuttom-text-color)]">
-                
-              </h1>
+              <h1 className="custom-buttom-responsive-text font-epilogue font-semibold text-[25px] text-[var(--custombuttom-text-color)]"></h1>
             </div>
           </Link>
-        </button>
+        </button> */}
       </div>
 
       <div className="flex cursor-pointer justify-center mt-10 sm:mt-10"></div>
@@ -79,13 +77,13 @@ export default function Home() {
           </div>
 
           <div className="flex flex-wrap gap-4 items-center justify-center">
-            <div className="w-full sm:w-1/2 lg:w-1/3 flex items-center justify-center">
+            <div className="charityphoto w-full sm:w-1/2 lg:w-1/3 flex items-center justify-center">
               <CharityPhotosStyle imageSRC={first} />
             </div>
-            <div className="w-full sm:w-1/2 lg:w-1/3 flex items-center justify-center">
+            <div className="charityphoto w-full sm:w-1/2 lg:w-1/3 flex items-center justify-center">
               <CharityPhotosStyle imageSRC={second} />
             </div>
-            <div className="w-full sm:w-[450px] lg:w-[450px] h-[300px] flex items-center justify-center">
+            <div className="charityphoto w-full sm:w-1/2 lg:w-1/3 flex items-center justify-center">
               <CharityPhotosStyle imageSRC={six} />
             </div>
           </div>
@@ -106,13 +104,24 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
-            <CharityPhotosStyle imageSRC={second_one} />
-            <CharityPhotosStyle imageSRC={fourth} />
-            <CharityPhotosStyle imageSRC={second_three} />
-
-            <CharityPhotosStyle imageSRC={fifth} />
-            <CharityPhotosStyle imageSRC={second_two} />
-            <CharityPhotosStyle imageSRC={nine} />
+            <div className="charityphoto">
+              <CharityPhotosStyle imageSRC={second_one} />
+            </div>
+            <div className="charityphoto">
+              <CharityPhotosStyle imageSRC={fourth} />
+            </div>
+            <div className="charityphoto">
+              <CharityPhotosStyle imageSRC={second_three} />
+            </div>
+            <div className="charityphoto">
+              <CharityPhotosStyle imageSRC={fifth} />
+            </div>
+            <div className="charityphoto">
+              <CharityPhotosStyle imageSRC={second_two} />
+            </div>
+            <div className="charityphoto">
+              <CharityPhotosStyle imageSRC={nine} />
+            </div>
           </div>
         </div>
         <hr className="border-t-2 border-[#A18167]" />
@@ -124,19 +133,12 @@ export default function Home() {
             brings hope, dignity, and opportunities to those who need it most.
           </p>
         </div>
-        <div className="flex flex-col sm:flex-row cursor-pointer items-center">
-          <h1 className="text-xl bg-[var(--text-color)] mb-10"></h1>
-          <img
-            src={image_big_one}
-            className="home-bigimage object-contain w-[80%] h-[80%] sm:w-1/2 sm:h-1/2 rounded-[20px]"
-            alt="Charity"
-          />
-          <img
-            src={image_big_two}
-            className="home-bigimage object-contain w-[80%] h-[80%] sm:w-1/2 sm:h-1/2 rounded-[20px]"
-            alt="Charity"
-          />
+        <div class="container">
+          <h1 class="header"></h1>
+          <img src={image_big_one} class="image" alt="Charity" />
+          <img src={image_big_two} class="image" alt="Charity" />
         </div>
+
         <hr className="border-t-2 border-[#A18167]" />
         <div>
           <div className="mt-10 flex justify-center items-center">
@@ -147,13 +149,13 @@ export default function Home() {
           </div>
           <h1 className="text-xl text-[var(--text-color)] mb-10"></h1>
           <div className="flex flex-wrap gap-4 items-center justify-center">
-            <div className="w-full sm:w-1/2 lg:w-1/3 flex items-center justify-center">
+            <div className="charityphoto w-full sm:w-1/2 lg:w-1/3 flex items-center justify-center">
               <CharityPhotosStyle imageSRC={seven} />
             </div>
-            <div className="w-full sm:w-1/2 lg:w-1/3 flex items-center justify-center">
+            <div className="charityphoto w-full sm:w-1/2 lg:w-1/3 flex items-center justify-center">
               <CharityPhotosStyle imageSRC={eight} />
             </div>
-            <div className="w-full sm:w-[450px] lg:w-[450px] h-[300px] flex items-center justify-center">
+            <div className="charityphoto w-full sm:w-1/2 lg:w-1/3 flex items-center justify-center">
               <CharityPhotosStyle imageSRC={third} />
             </div>
           </div>
