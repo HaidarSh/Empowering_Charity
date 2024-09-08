@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useStateContext } from "../context";
 import { CustomButtom } from "../components";
-import CharityPhotosStylesix from "../components/HomeComponents/CharityPhotosStylesix";
-import CharityPhotosStylethree from "../components/HomeComponents/CharityPhotosStylethree";
+import CharityPhotosStyleSix from "../components/HomeComponents/CharityPhotosStyleSix";
+import CharityPhotosStyleThree from "../components/HomeComponents/CharityPhotosStyleThree";
 import {
   first,
   second,
@@ -79,13 +79,13 @@ export default function Home() {
 
           <div className="flex flex-wrap gap-4 items-center justify-center">
             <div className="charityphoto w-full sm:w-1/2 lg:w-1/3 flex items-center justify-center">
-              <CharityPhotosStylethree imageSRC={first} />
+              <CharityPhotosStyleThree imageSRC={first} />
             </div>
             <div className="charityphoto w-full sm:w-1/2 lg:w-1/3 flex items-center justify-center">
-              <CharityPhotosStylethree imageSRC={second} />
+              <CharityPhotosStyleThree imageSRC={second} />
             </div>
-            <div className="charityphoto sm:w-1/2 lg:w-1/3 flex items-center justify-center">
-              <CharityPhotosStylethree imageSRC={six} />
+            <div className="charityphoto w-full sm:w-1/2 lg:w-1/3 flex items-center justify-center">
+              <CharityPhotosStyleThree imageSRC={six} />
             </div>
           </div>
         </div>
@@ -106,22 +106,22 @@ export default function Home() {
 
           <div className="photo-grid flex justify-center items-center">
             <div className="photo-item flex justify-center items-center">
-              <CharityPhotosStylesix imageSRC={second_one} />
+              <CharityPhotosStyleSix imageSRC={second_one} />
             </div>
             <div className="photo-item flex justify-center items-center">
-              <CharityPhotosStylesix imageSRC={fourth} />
+              <CharityPhotosStyleSix imageSRC={fourth} />
             </div>
             <div className="photo-item flex justify-center items-center">
-              <CharityPhotosStylesix imageSRC={second_three} />
+              <CharityPhotosStyleSix imageSRC={second_three} />
             </div>
             <div className="photo-item flex justify-center items-center">
-              <CharityPhotosStylesix imageSRC={fifth} />
+              <CharityPhotosStyleSix imageSRC={fifth} />
             </div>
             <div className="photo-item flex justify-center items-center">
-              <CharityPhotosStylesix imageSRC={second_two} />
+              <CharityPhotosStyleSix imageSRC={second_two} />
             </div>
             <div className="photo-item flex justify-center items-center">
-              <CharityPhotosStylesix imageSRC={nine} />
+              <CharityPhotosStyleSix imageSRC={nine} />
             </div>
           </div>
         </div>
@@ -159,13 +159,13 @@ export default function Home() {
           <h1 className="text-xl text-[var(--text-color)] mb-10"></h1>
           <div className="flex flex-wrap gap-4 items-center justify-center">
             <div className="charityphoto w-full sm:w-1/2 lg:w-1/3 flex items-center justify-center">
-              <CharityPhotosStylethree imageSRC={seven} />
+              <CharityPhotosStyleThree imageSRC={seven} />
             </div>
             <div className="charityphoto w-full sm:w-1/2 lg:w-1/3 flex items-center justify-center">
-              <CharityPhotosStylethree imageSRC={eight} />
+              <CharityPhotosStyleThree imageSRC={eight} />
             </div>
             <div className="charityphoto w-full sm:w-1/2 lg:w-1/3 flex items-center justify-center">
-              <CharityPhotosStylethree imageSRC={third} />
+              <CharityPhotosStyleThree imageSRC={third} />
             </div>
           </div>
         </div>

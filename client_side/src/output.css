@@ -845,6 +845,10 @@ video {
   height: 80px;
 }
 
+.h-auto{
+  height: auto;
+}
+
 .h-full{
   height: 100%;
 }
@@ -2269,6 +2273,10 @@ video {
 
   .sm\:w-\[370px\]{
     width: 370px;
+  }
+
+  .sm\:w-\[400px\]{
+    width: 400px;
   }
 
   .sm\:w-auto{
