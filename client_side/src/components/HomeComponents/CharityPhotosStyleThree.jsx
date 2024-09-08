@@ -6,7 +6,7 @@ export default function CharityPhotosStyleThree({ imageSRC }) {
       <img
         src={imageSRC}
         alt="Charity"
-        className="w-full h-full object-cover rounded-[20px] max-h-full"
+        className="w-full h-full object-fit rounded-[20px] max-h-full"
       />
     </div>
   );
