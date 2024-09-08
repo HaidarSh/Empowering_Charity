@@ -12,7 +12,8 @@ export { default as CountBoxActive } from "./CountBox/CountBoxActive.jsx";
 export { default as CountBoxInActive } from "./CountBox/CountBoxInActive.jsx";
 export { default as GreenLoader } from "./Loader/GreenLoader.jsx";
 export { default as OrangeLoader } from "./Loader/OrangeLoader.jsx";
-export { default as CharityPhotosStyle } from "./HomeComponents/CharityPhotosStyle.jsx";
+export { default as CharityPhotosStylesix } from "./HomeComponents/CharityPhotosStylesix.jsx";
+export { default as CharityPhotosStylethree } from "./HomeComponents/CharityPhotosStylethree.jsx";
 export { default as ThemeToggleIcon } from "./HelperComponents/ThemeToggleIcon.jsx";
 export {
   ThemeContext,

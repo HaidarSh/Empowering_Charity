@@ -1858,8 +1858,6 @@ video {
   }
 }
 
-/* Base styles for small screens */
-
 .container {
   display: flex;
   flex-direction: column;
@@ -1870,7 +1868,6 @@ video {
 
 .header {
   font-size: 1.25rem;
-  /* Adjust size as needed */
   background-color: var(--text-color);
   margin-bottom: 1rem;
 }
@@ -1878,26 +1875,54 @@ video {
 .image {
   width: 80%;
   height: auto;
-  /* Adjust height based on aspect ratio */
   border-radius: 20px;
   margin-bottom: 1rem;
-  /* Space between images */
 }
 
-/* Styles for medium and larger screens */
-
-@media (min-width: 768px) {
-  /* Medium screens and larger */
-
+@media (min-width: 640px) {
   .container {
     flex-direction: row;
   }
 
   .image {
     width: 50%;
-    /* Adjust width for medium and larger screens */
     margin-bottom: 0;
-    /* Remove bottom margin */
+  }
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 640px) {
+  .photo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .photo-item {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .photo-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .photo-item {
+    width: 100%;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1124px) {
+  .photo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .photo-item {
+    width: 100%;
   }
 }
 

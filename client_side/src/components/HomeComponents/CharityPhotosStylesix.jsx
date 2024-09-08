@@ -1,8 +1,8 @@
 import React from "react";
 
-export default function CharityPhotosStyle({ imageSRC }) {
+export default function CharityPhotosStylesix({ imageSRC }) {
   return (
-    <div className="box sm:w-[370px] sm:h-[250px] w-full rounded-[20px]  cursor-pointer">
+    <div className="box sm:w-[370px] sm:h-[250px] w-full h-[230px] rounded-[20px]  cursor-pointer">
       <img
         src={imageSRC}
         alt="Charity"

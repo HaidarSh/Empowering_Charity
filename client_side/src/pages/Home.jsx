@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useStateContext } from "../context";
 import { CustomButtom } from "../components";
-import CharityPhotosStyle from "../components/HomeComponents/CharityPhotosStyle";
+import CharityPhotosStylesix from "../components/HomeComponents/CharityPhotosStylesix";
+import CharityPhotosStylethree from "../components/HomeComponents/CharityPhotosStylethree";
 import {
   first,
   second,
@@ -78,20 +79,20 @@ export default function Home() {
 
           <div className="flex flex-wrap gap-4 items-center justify-center">
             <div className="charityphoto w-full sm:w-1/2 lg:w-1/3 flex items-center justify-center">
-              <CharityPhotosStyle imageSRC={first} />
+              <CharityPhotosStylethree imageSRC={first} />
             </div>
             <div className="charityphoto w-full sm:w-1/2 lg:w-1/3 flex items-center justify-center">
-              <CharityPhotosStyle imageSRC={second} />
+              <CharityPhotosStylethree imageSRC={second} />
             </div>
-            <div className="charityphoto w-full sm:w-1/2 lg:w-1/3 flex items-center justify-center">
-              <CharityPhotosStyle imageSRC={six} />
+            <div className="charityphoto sm:w-1/2 lg:w-1/3 flex items-center justify-center">
+              <CharityPhotosStylethree imageSRC={six} />
             </div>
           </div>
         </div>
         <hr className="border-t-2 border-[#A18167]" />
         <div>
           <div className="mt-10 flex justify-center items-center">
-            <p className="responsive-text-title-inner text-[var(--text-color)] mb-10 font-epilogue font-semibold">
+            <p className="responsive-text-title text-[var(--text-color)] mb-10 font-epilogue font-semibold">
               Empower Gaza's Young Hearts
             </p>
           </div>
@@ -103,24 +104,24 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
-            <div className="charityphoto">
-              <CharityPhotosStyle imageSRC={second_one} />
+          <div className="photo-grid flex justify-center items-center">
+            <div className="photo-item flex justify-center items-center">
+              <CharityPhotosStylesix imageSRC={second_one} />
             </div>
-            <div className="charityphoto">
-              <CharityPhotosStyle imageSRC={fourth} />
+            <div className="photo-item flex justify-center items-center">
+              <CharityPhotosStylesix imageSRC={fourth} />
             </div>
-            <div className="charityphoto">
-              <CharityPhotosStyle imageSRC={second_three} />
+            <div className="photo-item flex justify-center items-center">
+              <CharityPhotosStylesix imageSRC={second_three} />
             </div>
-            <div className="charityphoto">
-              <CharityPhotosStyle imageSRC={fifth} />
+            <div className="photo-item flex justify-center items-center">
+              <CharityPhotosStylesix imageSRC={fifth} />
             </div>
-            <div className="charityphoto">
-              <CharityPhotosStyle imageSRC={second_two} />
+            <div className="photo-item flex justify-center items-center">
+              <CharityPhotosStylesix imageSRC={second_two} />
             </div>
-            <div className="charityphoto">
-              <CharityPhotosStyle imageSRC={nine} />
+            <div className="photo-item flex justify-center items-center">
+              <CharityPhotosStylesix imageSRC={nine} />
             </div>
           </div>
         </div>
@@ -133,10 +134,18 @@ export default function Home() {
             brings hope, dignity, and opportunities to those who need it most.
           </p>
         </div>
-        <div class="container">
-          <h1 class="header"></h1>
-          <img src={image_big_one} class="image" alt="Charity" />
-          <img src={image_big_two} class="image" alt="Charity" />
+        <div className="container">
+          <h1 className="header"></h1>
+          <img
+            src={image_big_one}
+            className="home-bigimage image"
+            alt="Charity"
+          />
+          <img
+            src={image_big_two}
+            className="home-bigimage image"
+            alt="Charity"
+          />
         </div>
 
         <hr className="border-t-2 border-[#A18167]" />
@@ -150,13 +159,13 @@ export default function Home() {
           <h1 className="text-xl text-[var(--text-color)] mb-10"></h1>
           <div className="flex flex-wrap gap-4 items-center justify-center">
             <div className="charityphoto w-full sm:w-1/2 lg:w-1/3 flex items-center justify-center">
-              <CharityPhotosStyle imageSRC={seven} />
+              <CharityPhotosStylethree imageSRC={seven} />
             </div>
             <div className="charityphoto w-full sm:w-1/2 lg:w-1/3 flex items-center justify-center">
-              <CharityPhotosStyle imageSRC={eight} />
+              <CharityPhotosStylethree imageSRC={eight} />
             </div>
             <div className="charityphoto w-full sm:w-1/2 lg:w-1/3 flex items-center justify-center">
-              <CharityPhotosStyle imageSRC={third} />
+              <CharityPhotosStylethree imageSRC={third} />
             </div>
           </div>
         </div>
