@@ -26,17 +26,17 @@ export default function Home() {
   const { address, connect, disconnect } = useStateContext();
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <div className="home-bar sticky flex flex-row w-full bg-[var(--home-bg-color)] h-[80px] rounded-[10px] justify-between items-center pr-[5px] pl-[15px] ">
+    <div className="flex flex-col container-custom-width">
+      <div className="home-bar sticky flex flex-row w-full bg-[var(--home-bg-color)] h-[80px] rounded-[10px] justify-between items-center pr-[5px] pl-[15px]">
         <div className="font-bold text-[var(--text-color-white)] flex justify-center items-center">
-          <div className="mt-10 sm:mt-5">
-            <p className="responsive-text-title mb-10 sm:mb-6 font-epilogue">
+          <div className="mt-10 lg:mt-5">
+            <p className="responsive-text-title mb-10 lg:mb-6 font-epilogue">
               Empowering Charity
             </p>
           </div>
         </div>
 
-        <div className="flex flex-row ml-auto sm:w-auto">
+        <div className="flex flex-row ml-auto lg:w-auto">
           <CustomButtom
             btnType="button"
             title={address ? "Disconnect wallet" : "Connect wallet"}
@@ -55,16 +55,9 @@ export default function Home() {
           className="home-bigimage object-contain w-full rounded-[20px]"
           alt="Charity"
         />
-        {/* <button className="home-donate-buttom">
-          <Link to="/Empowering_Charity/View_Active_Charity">
-            <div className="custom-buttom px-10 py-8 rounded-[50px] text-2xl flex justify-center items-center">
-              <h1 className="custom-buttom-responsive-text font-epilogue font-semibold text-[25px] text-[var(--custombuttom-text-color)]"></h1>
-            </div>
-          </Link>
-        </button> */}
       </div>
 
-      <div className="flex cursor-pointer justify-center mt-10 sm:mt-10"></div>
+      <div className="flex cursor-pointer justify-center mt-10 lg:mt-10"></div>
 
       <hr className="border-t-2 border-[#A18167]" />
 
@@ -78,13 +71,13 @@ export default function Home() {
           </div>
 
           <div className="flex flex-wrap gap-4 items-center justify-center">
-            <div className="charityphoto w-full sm:w-1/2 lg:w-1/3 flex items-center justify-center">
+            <div className="charityphoto w-full lg:w-1/2 xl:w-1/3 flex items-center justify-center">
               <CharityPhotosStyleThree imageSRC={first} />
             </div>
-            <div className="charityphoto w-full sm:w-1/2 lg:w-1/3 flex items-center justify-center">
+            <div className="charityphoto w-full lg:w-1/2 xl:w-1/3 flex items-center justify-center">
               <CharityPhotosStyleThree imageSRC={second} />
             </div>
-            <div className="charityphoto w-full sm:w-1/2 lg:w-1/3 flex items-center justify-center">
+            <div className="charityphoto w-full lg:w-1/2 xl:w-1/3 flex items-center justify-center">
               <CharityPhotosStyleThree imageSRC={six} />
             </div>
           </div>
@@ -158,13 +151,13 @@ export default function Home() {
           </div>
           <h1 className="text-xl text-[var(--text-color)] mb-10"></h1>
           <div className="flex flex-wrap gap-4 items-center justify-center">
-            <div className="charityphoto w-full sm:w-1/2 lg:w-1/3 flex items-center justify-center">
+            <div className="charityphoto w-full lg:w-1/2 xl:w-1/3 flex items-center justify-center">
               <CharityPhotosStyleThree imageSRC={seven} />
             </div>
-            <div className="charityphoto w-full sm:w-1/2 lg:w-1/3 flex items-center justify-center">
+            <div className="charityphoto w-full lg:w-1/2 xl:w-1/3 flex items-center justify-center">
               <CharityPhotosStyleThree imageSRC={eight} />
             </div>
-            <div className="charityphoto w-full sm:w-1/2 lg:w-1/3 flex items-center justify-center">
+            <div className="charityphoto w-full lg:w-1/2 xl:w-1/3 flex items-center justify-center">
               <CharityPhotosStyleThree imageSRC={third} />
             </div>
           </div>
