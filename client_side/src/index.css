@@ -43,6 +43,7 @@
   --text-color-profile-active: #216e5e;
   --profile-buttom-bg-color: #37bb9e;
   --placeholder-color: #446b6e;
+  --placeholder-search-color: #4b5264;
   --border-color-form: #dddde7;
   --swal-background-color: #409b8c;
   --swal-text-color: #f6faf8e7;
@@ -95,6 +96,7 @@
   --text-color-profile-active: #0c3d32;
   --profile-buttom-bg-color: #37bb9e;
   --placeholder-color: #4b6264;
+  --placeholder-search-color: #646b7e;
   --border-color-form: #ffffff;
   --swal-background-color: #0c3d32;
   --swal-text-color: #f6faf8e7;
@@ -150,7 +152,7 @@
   color: var(--swal-text-color);
 }
 
-html, body {
+html {
   overflow-x: hidden;
 }
 

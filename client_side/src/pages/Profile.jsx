@@ -284,40 +284,39 @@ export default function Profile({ showActive, setShowActive }) {
       <div className="flex flex-row justify-between gap-2">
         {showActive ? (
           <div className="searchBar lg:flex-1 flex flex-row max-w-[458px] py-2 pl-4 pr-2 h-[52px] bg-[var(--searchbar-profile-active-bg-1-color)] rounded-[100px] ">
-          <input
-            type="text"
-            placeholder="Search for charities"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="flex w-full font-epilogue font-normal text-[14px] placeholder:text-[#4b5264] text-[var(--text-color-white)] bg-transparent outline-none"
-          />
-          <div className="w-[72px] h-full rounded-[20px] bg-[var(--searchbar-profile-active-bg-2-color)] flex justify-center items-center cursor-pointer">
-            <img
-              src={theme === "dark" ? search_dark : search_light}
-              alt="search"
-              className="w-[15px] h-[15px] object-contain"
+            <input
+              type="text"
+              placeholder="Search for charities"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="flex w-full font-epilogue font-normal text-[14px] placeholder:text-[var(--placeholder-search-color)] text-[var(--text-color-white)] bg-transparent outline-none"
             />
+            <div className="w-[72px] h-full rounded-[20px] bg-[var(--searchbar-profile-active-bg-2-color)] flex justify-center items-center cursor-pointer">
+              <img
+                src={theme === "dark" ? search_dark : search_light}
+                alt="search"
+                className="w-[15px] h-[15px] object-contain"
+              />
+            </div>
           </div>
-        </div>
         ) : (
           <div className="searchBar lg:flex-1 flex flex-row max-w-[458px] py-2 pl-4 pr-2 h-[52px] bg-[var(--searchbar-profile-inactive-bg-1-color)] rounded-[100px]">
-          <input
-            type="text"
-            placeholder="Search for charities"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="flex w-full font-epilogue font-normal text-[14px] placeholder:text-[#4b5264] text-[var(--text-color)] bg-transparent outline-none"
-          />
-          <div className="w-[72px] h-full rounded-[20px] bg-[var(--searchbar-profile-inactive-bg-2-color)] flex justify-center items-center cursor-pointer">
-            <img
-              src={theme === "dark" ? search_dark : search_light}
-              alt="search"
-              className="w-[15px] h-[15px] object-contain"
+            <input
+              type="text"
+              placeholder="Search for charities"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="flex w-full font-epilogue font-normal text-[14px] placeholder:text-[#4b5264] text-[var(--text-color)] bg-transparent outline-none"
             />
+            <div className="w-[72px] h-full rounded-[20px] bg-[var(--searchbar-profile-inactive-bg-2-color)] flex justify-center items-center cursor-pointer">
+              <img
+                src={theme === "dark" ? search_dark : search_light}
+                alt="search"
+                className="w-[15px] h-[15px] object-contain"
+              />
+            </div>
           </div>
-        </div>
-        )
-      }
+        )}
 
         <div className="flex flex-row ml-auto sm:w-auto">
           <CustomButtom

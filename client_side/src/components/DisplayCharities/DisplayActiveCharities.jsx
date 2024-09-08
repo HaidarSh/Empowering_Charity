@@ -42,7 +42,7 @@ export default function DisplayActiveCharities({
             placeholder="Search for charities"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="flex w-full font-epilogue font-normal text-[14px] placeholder:text-[#4b5264] text-[var(--text-color)] bg-transparent outline-none"
+            className="flex w-full font-epilogue font-normal text-[14px] placeholder:text-[var(--placeholder-search-color)] text-[var(--text-color)] bg-transparent outline-none"
           />
           <div className="w-[72px] h-full rounded-[20px] bg-[var(--searchbar-active-bg-2-color)] flex justify-center items-center cursor-pointer">
             <img
