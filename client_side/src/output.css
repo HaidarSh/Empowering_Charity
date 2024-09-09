@@ -1208,10 +1208,6 @@ video {
   background-color: var(--donatetocharity2-bg-color);
 }
 
-.bg-\[var\(--home-bg-color\)\]{
-  background-color: var(--home-bg-color);
-}
-
 .bg-\[var\(--icon-bg-color\)\]{
   background-color: var(--icon-bg-color);
 }
@@ -1889,6 +1885,12 @@ html {
   background-color: rgba(0, 0, 0, 0.5);
   -webkit-backdrop-filter: brightness(0.9) contrast(0.9);
           backdrop-filter: brightness(0.9) contrast(0.9);
+}
+
+@media (max-width: 640px) {
+  .custom-navbar {
+    height: 70px;
+  }
 }
 
 @media (min-width: 1100px) and (max-width: 1265px) {
