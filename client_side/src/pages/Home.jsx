@@ -27,7 +27,6 @@ export default function Home() {
 
   return (
     <div className="flex flex-col container-custom-width">
-
       <div className="relative">
         <img
           src={coverphoto}
@@ -35,7 +34,7 @@ export default function Home() {
           alt="Charity"
         />
 
-        <div className="absolute custom-navbar sticky flex flex-row w-full h-[80px] rounded-t-lg justify-between items-center pr-[5px] pl-[15px]">
+        <div className="absolute custom-navbar sticky flex flex-row w-full h-[80px] rounded-t-lg justify-between items-center pr-[5px] pl-[15px] ">
           <div className="font-bold text-[var(--text-color-white)] flex justify-center items-center">
             <div className="mt-10 lg:mt-5">
               <p className="responsive-text-title mb-10 lg:mb-6 font-epilogue">
