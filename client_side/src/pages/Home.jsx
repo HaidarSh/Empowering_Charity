@@ -24,39 +24,38 @@ import {
 
 export default function Home() {
   const { address, connect, disconnect } = useStateContext();
-  console.log(window.innerWidth); // Width of the screen
-  console.log(window.innerHeight); // Height of the screen
 
   return (
     <div className="flex flex-col container-custom-width">
-      <div className="home-bar sticky flex flex-row w-full bg-[var(--home-bg-color)] h-[80px] rounded-[10px] justify-between items-center pr-[5px] pl-[15px]">
-        <div className="font-bold text-[var(--text-color-white)] flex justify-center items-center">
-          <div className="mt-10 lg:mt-5">
-            <p className="responsive-text-title mb-10 lg:mb-6 font-epilogue">
-              Empowering Charity
-            </p>
-          </div>
-        </div>
 
-        <div className="flex flex-row ml-auto lg:w-auto">
-          <CustomButtom
-            btnType="button"
-            title={address ? "Disconnect wallet" : "Connect wallet"}
-            styles={address ? "bg-[#ed732d]" : "bg-[#eda479]"}
-            handleClick={() => {
-              if (address) disconnect();
-              else connect();
-            }}
-          />
-        </div>
-      </div>
-
-      <div className="relative mt-5">
+      <div className="relative">
         <img
           src={coverphoto}
-          className=" object-contain w-full rounded-[20px]"
+          className="object-contain w-full rounded-[10px]"
           alt="Charity"
         />
+
+        <div className="absolute custom-navbar sticky flex flex-row w-full h-[80px] rounded-t-lg justify-between items-center pr-[5px] pl-[15px]">
+          <div className="font-bold text-[var(--text-color-white)] flex justify-center items-center">
+            <div className="mt-10 lg:mt-5">
+              <p className="responsive-text-title mb-10 lg:mb-6 font-epilogue">
+                Empowering Charity
+              </p>
+            </div>
+          </div>
+
+          <div className="flex flex-row ml-auto lg:w-auto">
+            <CustomButtom
+              btnType="button"
+              title={address ? "Disconnect wallet" : "Connect wallet"}
+              styles={address ? "bg-[#ed732d]" : "bg-[#eda479]"}
+              handleClick={() => {
+                if (address) disconnect();
+                else connect();
+              }}
+            />
+          </div>
+        </div>
         <button className="absolute home-donate-buttom rounded">
           <Link to="/Empowering_Charity/View_Active_Charity">
             <div className="custom-buttom custom-buttom-donate bg-[#ed732d] rounded-[10px] px-4 py-3 text-2xl flex justify-center items-center">

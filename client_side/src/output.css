@@ -1100,6 +1100,11 @@ video {
   border-top-right-radius: 10px;
 }
 
+.rounded-t-lg{
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
 .border{
   border-width: 1px;
 }
@@ -1874,6 +1879,18 @@ html {
   cursor: pointer;
 }
 
+.custom-navbar {
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  padding: 0rem 1rem;
+  transform: translateX(-50%);
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-backdrop-filter: brightness(0.9) contrast(0.9);
+          backdrop-filter: brightness(0.9) contrast(0.9);
+}
+
 @media (min-width: 1100px) and (max-width: 1265px) {
   .home-donate-buttom {
     position: absolute;
@@ -1930,12 +1947,6 @@ html {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-}
-
-.header {
-  font-size: 1.25rem;
-  background-color: var(--text-color);
-  margin-bottom: 1rem;
 }
 
 .image {
@@ -2049,12 +2060,6 @@ html {
   border: var(--box-border);
 }
 
-.home-bar {
-  transition: 0.5s ease;
-  box-shadow: var(--box-shadow);
-  border: var(--box-border);
-}
-
 .custom-buttom {
   transition: 0.5s ease;
 }
@@ -2141,7 +2146,7 @@ html {
 }
 
 .responsive-text-title {
-  font-size: 22px;
+  font-size: 25px;
 }
 
 @media (max-width: 640px) {
