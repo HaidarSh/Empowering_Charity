@@ -24,6 +24,8 @@ import {
 
 export default function Home() {
   const { address, connect, disconnect } = useStateContext();
+  console.log(window.innerWidth); // Width of the screen
+  console.log(window.innerHeight); // Height of the screen
 
   return (
     <div className="flex flex-col container-custom-width">
@@ -52,9 +54,18 @@ export default function Home() {
       <div className="relative mt-5">
         <img
           src={coverphoto}
-          className="home-bigimage object-contain w-full rounded-[20px]"
+          className=" object-contain w-full rounded-[20px]"
           alt="Charity"
         />
+        <button className="absolute home-donate-buttom rounded">
+          <Link to="/Empowering_Charity/View_Active_Charity">
+            <div className="custom-buttom bg-[#A18167] px-4 py-3 rounded-[50px] text-2xl flex justify-center items-center">
+              <h1 className="custom-buttom-responsive-text font-epilogue font-semibold text-[25px] text-[var(--custombuttom-text-color)]">
+                Donate Now!
+              </h1>
+            </div>
+          </Link>
+        </button>
       </div>
 
       <div className="flex cursor-pointer justify-center mt-10 lg:mt-10"></div>

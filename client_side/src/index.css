@@ -233,6 +233,7 @@ html {
 .box-profile:hover {
   transform: scale(1.03);
 }
+
 .home-bigimage {
   transition: 0.5s ease;
   width: 100%;
@@ -249,26 +250,80 @@ html {
   transform: scale(1.02);
 }
 
+.home-coverimage {
+  transition: 0.5s ease;
+  width: 100%;
+}
+
+.home-coverimage:hover {
+  transform: scale(1.02);
+}
+
+@media (max-width: 640px) {
+  .home-coverimage {
+    width: 600px;
+    height: 100%;
+  }
+}
+
 @media (min-width: 1265px) and (max-height: 720px) {
   .container-custom-width {
     max-width: 96%;
   }
 }
 
-@media (min-width: 1281px) {
+@media (min-width: 1266px) {
   .container-custom-width {
     max-width: 100%;
   }
 }
 
-/* .home-donate-buttom{
+.home-donate-buttom {
   position: absolute;
-  bottom: 150px; 
-  left: 420px; 
-  padding: 0.5rem 10rem; 
-  border-radius: 0.375rem; 
+  bottom: 15%;
+  left: 40.5%;
+  padding: 0rem 1rem;
+  border-radius: 0.375rem;
   cursor: pointer;
-} */
+}
+
+@media (min-width: 1100px) and (max-width: 1265px) {
+  .home-donate-buttom {
+    position: absolute;
+    bottom: 15%;
+    left: 40%;
+    padding: 0rem 1rem;
+    border-radius: 0.375rem;
+    cursor: pointer;
+  }
+}
+
+@media (min-width: 700px) and (max-width: 1100px) {
+  .home-donate-buttom {
+    position: absolute;
+    bottom: 13%;
+    left: 37%;
+    padding: 0rem 1rem;
+    border-radius: 0.375rem;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 640px) {
+  .home-donate-buttom {
+    position: absolute;
+    bottom: 12%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0rem 1rem;
+    border-radius: 0.375rem;
+    cursor: pointer;
+  }
+
+  .custom-buttom {
+    padding: 0.2rem 0.4rem;
+  }
+}
 
 .charityphoto img {
   width: 100%;
@@ -278,8 +333,8 @@ html {
 
 @media (max-width: 768px) {
   .charityphoto img {
-    width: 350px; 
-    height: 250px; 
+    width: 350px;
+    height: 250px;
   }
 }
 
@@ -348,7 +403,7 @@ html {
   }
 }
 
-@media (min-width: 768px) and (max-width: 1124px){
+@media (min-width: 768px) and (max-width: 1124px) {
   .charityphoto-medium {
     width: 45%;
   }
