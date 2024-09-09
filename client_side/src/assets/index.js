@@ -28,21 +28,9 @@ import money from "./icons/money.svg";
 import GreenLoader from "./icons/GreenLoader.svg";
 import OrangeLoader from "./icons/OrangeLoader.svg";
 
-import first_one from "./Home_Page_Photos/first_one.jpeg";
-import first_two from "./Home_Page_Photos/first_two.jpeg";
-import first_three from "./Home_Page_Photos/first_three.jpeg";
 import second_one from "./Home_Page_Photos/second_one.jpeg";
 import second_two from "./Home_Page_Photos/second_two.jpeg";
 import second_three from "./Home_Page_Photos/second_three.jpeg";
-import second_four from "./Home_Page_Photos/second_four.jpeg";
-import second_five from "./Home_Page_Photos/second_five.jpeg";
-import second_six from "./Home_Page_Photos/second_six.jpeg";
-import third_one from "./Home_Page_Photos/third_one.jpeg";
-import third_two from "./Home_Page_Photos/third_two.jpeg";
-import third_three from "./Home_Page_Photos/third_three.jpeg";
-import image_big_one from "./Home_Page_Photos/image_big_one.png";
-import image_big_two from "./Home_Page_Photos/image_big_two.png";
-
 import first from "./Home_Page_Photos/first.jpg";
 import second from "./Home_Page_Photos/second.jpg";
 import third from "./Home_Page_Photos/third.jpg";
@@ -52,6 +40,8 @@ import six from "./Home_Page_Photos/six.jpg";
 import seven from "./Home_Page_Photos/seven.jpg";
 import eight from "./Home_Page_Photos/eight.jpg";
 import nine from "./Home_Page_Photos/nine.jpg";
+import ten from "./Home_Page_Photos/ten.jpeg";
+import eleven from "./Home_Page_Photos/eleven.jpg";
 import coverphoto from "./Home_Page_Photos/coverphoto.jpg";
 
 export {
@@ -84,20 +74,10 @@ export {
   location_icon_inactive,
   address_icon_inactive,
   email_icon_inactive,
-  first_one,
-  first_two,
-  first_three,
+
   second_one,
   second_two,
   second_three,
-  second_four,
-  second_five,
-  second_six,
-  third_one,
-  third_two,
-  third_three,
-  image_big_one,
-  image_big_two,
   coverphoto,
   first,
   second,
@@ -107,5 +87,7 @@ export {
   six,
   seven,
   eight,
-  nine
+  nine,
+  ten,
+  eleven,
 };

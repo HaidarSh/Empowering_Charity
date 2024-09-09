@@ -14,12 +14,12 @@ import {
   seven,
   eight,
   nine,
+  ten,
+  eleven,
   coverphoto,
   second_one,
   second_two,
   second_three,
-  image_big_one,
-  image_big_two,
 } from "../assets";
 
 export default function Home() {
@@ -60,7 +60,7 @@ export default function Home() {
         <button className="absolute home-donate-buttom rounded">
           <Link to="/Empowering_Charity/View_Active_Charity">
             <div className="custom-buttom custom-buttom-donate bg-[#ed732d] rounded-[10px] px-4 py-3 text-2xl flex justify-center items-center">
-              <h1 className="custom-buttom-responsive-text font-epilogue font-semibold text-[25px] text-[var(--custombuttom-text-color)]">
+              <h1 className="custom-buttom-responsive-text font-epilogue font-semibold text-[25px] text-[var(--text-color-white)]">
                 Donate Now !
               </h1>
             </div>
@@ -138,18 +138,13 @@ export default function Home() {
             brings hope, dignity, and opportunities to those who need it most.
           </p>
         </div>
-        <div className="container">
-          <h1 className="header"></h1>
-          <img
-            src={image_big_one}
-            className="home-bigimage image"
-            alt="Charity"
-          />
-          <img
-            src={image_big_two}
-            className="home-bigimage image"
-            alt="Charity"
-          />
+        <div className="flex flex-wrap gap-4 items-center justify-center">
+          <div className="charityphoto charityphoto-medium flex w-full md:w-1/2 lg:w-1/2 xl:w-1/3 items-center justify-center">
+            <CharityPhotosStyleThree imageSRC={ten} />
+          </div>
+          <div className="charityphoto charityphoto-medium flex w-full md:w-1/2 lg:w-1/2 xl:w-1/3 items-center justify-center">
+            <CharityPhotosStyleThree imageSRC={eleven} />
+          </div>
         </div>
 
         <hr className="border-t-2 border-[#A18167]" />
@@ -185,7 +180,7 @@ export default function Home() {
           </div>
           <Link to="/Empowering_Charity/View_Active_Charity">
             <div className="custom-buttom custom-buttom-donate bg-[#ed732d] rounded-[10px] px-4 py-3 text-2xl flex justify-center items-center">
-              <h1 className="custom-buttom-responsive-text font-epilogue font-semibold text-[25px] text-[var(--custombuttom-text-color)]">
+              <h1 className="custom-buttom-responsive-text font-epilogue font-semibold text-[25px] text-[var(--text-color-white)]">
                 Donate Now !
               </h1>
             </div>
