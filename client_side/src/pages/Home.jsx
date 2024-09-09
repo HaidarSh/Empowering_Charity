@@ -59,9 +59,9 @@ export default function Home() {
         />
         <button className="absolute home-donate-buttom rounded">
           <Link to="/Empowering_Charity/View_Active_Charity">
-            <div className="custom-buttom bg-[#A18167] px-4 py-3 rounded-[50px] text-2xl flex justify-center items-center">
+            <div className="custom-buttom custom-buttom-donate bg-[#ed732d] rounded-[10px] px-4 py-3 text-2xl flex justify-center items-center">
               <h1 className="custom-buttom-responsive-text font-epilogue font-semibold text-[25px] text-[var(--custombuttom-text-color)]">
-                Donate Now!
+                Donate Now !
               </h1>
             </div>
           </Link>
@@ -184,9 +184,9 @@ export default function Home() {
             </p>
           </div>
           <Link to="/Empowering_Charity/View_Active_Charity">
-            <div className="custom-buttom bg-[#A18167] px-4 py-3 rounded-[50px] text-2xl flex justify-center items-center">
+            <div className="custom-buttom custom-buttom-donate bg-[#ed732d] rounded-[10px] px-4 py-3 text-2xl flex justify-center items-center">
               <h1 className="custom-buttom-responsive-text font-epilogue font-semibold text-[25px] text-[var(--custombuttom-text-color)]">
-                Donate Now!
+                Donate Now !
               </h1>
             </div>
           </Link>
