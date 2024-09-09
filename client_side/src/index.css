@@ -266,13 +266,13 @@ html {
   }
 }
 
-@media (min-width: 1265px) and (max-height: 720px) {
+@media (min-width: 1280px) and (max-height: 720px) {
   .container-custom-width {
-    max-width: 96%;
+    max-width: 97%;
   }
 }
 
-@media (min-width: 1266px) {
+@media (min-width: 1281px) {
   .container-custom-width {
     max-width: 100%;
   }
