@@ -362,7 +362,7 @@ export default function Profile({ showActive, setShowActive }) {
                     className="icons cursor-pointer"
                   />
                   <h1
-                    className={`profile-button responsive-text mb-1 cursor-pointer ${
+                    className={`font-epilogue profile-button responsive-text mb-1 cursor-pointer ${
                       showActive
                         ? "hover:text-[#37BB9E]"
                         : "hover:text-[#ed732d]"
@@ -384,7 +384,7 @@ export default function Profile({ showActive, setShowActive }) {
                     className="icons cursor-pointer"
                   />
                   <p
-                    className={`profile-button charitydetails-text-2 mb-1 cursor-pointer ${
+                    className={`font-epilogue profile-button charitydetails-text-2 mb-1 cursor-pointer ${
                       showActive
                         ? "hover:text-[#37BB9E]"
                         : "hover:text-[#ed732d]"
@@ -405,7 +405,7 @@ export default function Profile({ showActive, setShowActive }) {
                     className="icons cursor-pointer"
                   />
                   <p
-                    className={`profile-button responsive-text mb-1 cursor-pointer ${
+                    className={`font-epilogue profile-button responsive-text mb-1 cursor-pointer ${
                       showActive
                         ? "hover:text-[#37BB9E]"
                         : "hover:text-[#ed732d]"
@@ -428,7 +428,7 @@ export default function Profile({ showActive, setShowActive }) {
                   />
 
                   <p
-                    className={`profile-button responsive-text mb-1 cursor-pointer ${
+                    className={`font-epilogue profile-button responsive-text mb-1 cursor-pointer ${
                       showActive
                         ? "hover:text-[#37BB9E]"
                         : "hover:text-[#ed732d]"
@@ -449,7 +449,7 @@ export default function Profile({ showActive, setShowActive }) {
                   />
 
                   <p
-                    className={`profile-button responsive-text underline mb-1 cursor-pointer ${
+                    className={`font-epilogue profile-button responsive-text underline mb-1 cursor-pointer ${
                       showActive
                         ? "hover:text-[#37BB9E]"
                         : "hover:text-[#ed732d]"
@@ -471,10 +471,10 @@ export default function Profile({ showActive, setShowActive }) {
             className="box-profile bg-[var(--background-color)] p-4 w-[130px] rounded-[10px] mt-10 flex text-lg text-[var(--text-color)] flex justify-center items-center cursor-pointer"
           >
             <div className="profile-button flex flex-col ">
-              <span className="profile-button responsive-text font-bold text-[var(--text-color-profile-active)] cursor-pointer">
+              <span className="font-epilogue profile-button responsive-text font-bold text-[var(--text-color-profile-active)] cursor-pointer">
                 Active:
               </span>
-              <span className="profile-button responsive-text font-bold flex justify-center items-center cursor-pointer text-[var(--text-color-profile-active)]">
+              <span className="font-epilogue profile-button responsive-text font-bold flex justify-center items-center cursor-pointer text-[var(--text-color-profile-active)]">
                 {activeCharities.length}
               </span>
             </div>
@@ -484,10 +484,10 @@ export default function Profile({ showActive, setShowActive }) {
             className="box-profile bg-[var(--background-color)] p-4 w-[130px] rounded-[10px] mt-10 flex text-lg text-[var(--text-color)] flex justify-center items-center cursor-pointer"
           >
             <div className="profile-button flex flex-col">
-              <span className="profile-button responsive-text font-semibold cursor-pointer text-[#ed732d]">
+              <span className="font-epilogue profile-button responsive-text font-semibold cursor-pointer text-[#ed732d]">
                 InActive:
               </span>
-              <span className="profile-button responsive-text font-semibold flex justify-center items-center cursor-pointer text-[#ed732d]">
+              <span className="font-epilogue profile-button responsive-text font-semibold flex justify-center items-center cursor-pointer text-[#ed732d]">
                 {inActiveCharities.length}
               </span>
             </div>
@@ -550,7 +550,7 @@ export default function Profile({ showActive, setShowActive }) {
       </div>
 
       <div className="flex justify-center flex-col items-center h-full mt-[5px] text-[var(--text-color-white)]">
-        <h1 className="responsive-text text-[20px] text-bold">
+        <h1 className="font-epilogue responsive-text text-[20px] text-bold">
           Please connect the wallet to view your profile.
         </h1>
       </div>

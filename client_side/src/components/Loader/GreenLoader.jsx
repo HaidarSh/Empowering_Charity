@@ -14,10 +14,10 @@ export default function Loader() {
         Loading
         <br /> 
         Please wait {" "} 
-        <span className="loading-dots">
-          <span className="dot"></span>
-          <span className="dot"></span>
-          <span className="dot"></span>
+        <span className="loading-dots font-epilogue">
+          <span className="dot font-epilogue"></span>
+          <span className="dot font-epilogue"></span>
+          <span className="dot font-epilogue"></span>
         </span>
       </p>
     </div>

@@ -355,7 +355,7 @@ export default function CreateCharity() {
       </div>
 
       <div className="flex justify-center flex-col items-center h-full mt-[5px] text-[var(--text-color-white)]">
-        <h1 className="text-[20px] responsive-text text-bold ">
+        <h1 className="font-epilogue text-[20px] responsive-text text-bold ">
           Please connect wallet in order to add charity.
         </h1>
       </div>

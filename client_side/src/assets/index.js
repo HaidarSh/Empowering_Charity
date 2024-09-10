@@ -28,21 +28,21 @@ import money from "./icons/money.svg";
 import GreenLoader from "./icons/GreenLoader.svg";
 import OrangeLoader from "./icons/OrangeLoader.svg";
 
-import second_one from "./Home_Page_Photos/second_one.jpeg";
-import second_two from "./Home_Page_Photos/second_two.jpeg";
-import second_three from "./Home_Page_Photos/second_three.jpeg";
+import coverphoto from "./Home_Page_Photos/coverphoto.jpg";
 import first from "./Home_Page_Photos/first.jpg";
 import second from "./Home_Page_Photos/second.jpg";
 import third from "./Home_Page_Photos/third.jpg";
-import fourth from "./Home_Page_Photos/fourth.jpg";
+import fourth from "./Home_Page_Photos/fourth.jpeg";
 import fifth from "./Home_Page_Photos/fifth.jpg";
-import six from "./Home_Page_Photos/six.jpg";
+import six from "./Home_Page_Photos/six.jpeg";
 import seven from "./Home_Page_Photos/seven.jpg";
-import eight from "./Home_Page_Photos/eight.jpg";
+import eight from "./Home_Page_Photos/eight.jpeg";
 import nine from "./Home_Page_Photos/nine.jpg";
 import ten from "./Home_Page_Photos/ten.jpeg";
 import eleven from "./Home_Page_Photos/eleven.jpg";
-import coverphoto from "./Home_Page_Photos/coverphoto.jpg";
+import twelve from "./Home_Page_Photos/twelve.jpg";
+import thirteen from "./Home_Page_Photos/thirteen.jpg";
+import fourteen from "./Home_Page_Photos/fourteen.jpg";
 
 export {
   category_icon_active,
@@ -75,9 +75,6 @@ export {
   address_icon_inactive,
   email_icon_inactive,
 
-  second_one,
-  second_two,
-  second_three,
   coverphoto,
   first,
   second,
@@ -90,4 +87,7 @@ export {
   nine,
   ten,
   eleven,
+  twelve,
+  thirteen,
+  fourteen,
 };

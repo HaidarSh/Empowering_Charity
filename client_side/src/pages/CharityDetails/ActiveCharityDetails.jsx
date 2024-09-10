@@ -47,6 +47,7 @@ export default function ActiveCharityDetails() {
       backgroundColor: theme === "dark" ? "#0c3d32" : "#409b8c",
       borderColor: theme === "dark" ? "#ffffff" : "#dddde7",
       color: theme === "dark" ? "#ffffff" : "#d2dad9",
+      fontFamily: "'Epilogue', sans-serif",
       minHeight: "56px",
       borderRadius: "10px",
       paddingLeft: "15px",
@@ -59,20 +60,24 @@ export default function ActiveCharityDetails() {
       ...provided,
       backgroundColor: theme === "dark" ? "#0c3d32" : "#409b8c",
       color: theme === "dark" ? "#ffffff" : "#d2dad9",
+      fontFamily: "'Epilogue', sans-serif",
       borderRadius: "15px",
     }),
     singleValue: (provided) => ({
       ...provided,
       color: theme === "dark" ? "#ffffff" : "#d2dad9",
+      fontFamily: "'Epilogue', sans-serif",
     }),
     placeholder: (provided) => ({
       ...provided,
       color: "#4b6264",
+      fontFamily: "'Epilogue', sans-serif",
     }),
     input: (provided) => ({
       ...provided,
       color: theme === "dark" ? "#ffffff" : "#d2dad9",
       paddingLeft: "10px",
+      fontFamily: "'Epilogue', sans-serif",
     }),
     dropdownIndicator: (provided) => ({
       ...provided,
@@ -84,6 +89,7 @@ export default function ActiveCharityDetails() {
     noOptionsMessage: (provided) => ({
       ...provided,
       color: theme === "dark" ? "#ffffff" : "#d2dad9",
+      fontFamily: "'Epilogue', sans-serif",
     }),
     option: (provided, state) => ({
       ...provided,
@@ -99,6 +105,7 @@ export default function ActiveCharityDetails() {
         ? "#0c3d32"
         : "#409b8c",
       color: theme === "dark" ? "#ffffff" : "#d2dad9",
+      fontFamily: "'Epilogue', sans-serif",
       "&:hover": {
         backgroundColor: theme === "dark" ? "#A18167" : "#dfc1a9",
         color: theme === "dark" ? "#ffffff" : "#d2dad9",
@@ -794,7 +801,7 @@ export default function ActiveCharityDetails() {
               <div className="bg-[var(--profile-bg-color)] p-8 rounded-[20px] ">
                 <form
                   onSubmit={handleSaveEdit}
-                  className="w-full  flex flex-col gap-[30px]"
+                  className="w-full flex flex-col gap-[30px]"
                 >
                   <div className="flex flex-col gap-6 w-full">
                     <div className="flex flex-wrap gap-2">

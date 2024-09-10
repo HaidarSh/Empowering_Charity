@@ -11,6 +11,7 @@ export default function FormField(props) {
       backgroundColor: theme === "dark" ? "#0c3d32" : "#409b8c",
       borderColor: theme === "dark" ? "#ffffff" : "#dddde7",
       color: theme === "dark" ? "#ffffff" : "#d2dad9",
+      fontFamily: "'Epilogue', sans-serif",
       minHeight: "56px",
       borderRadius: "10px",
       paddingLeft: "15px",
@@ -23,20 +24,24 @@ export default function FormField(props) {
       ...provided,
       backgroundColor: theme === "dark" ? "#0c3d32" : "#409b8c",
       color: theme === "dark" ? "#ffffff" : "#d2dad9",
+      fontFamily: "'Epilogue', sans-serif", 
       borderRadius: "15px",
     }),
     singleValue: (provided) => ({
       ...provided,
       color: theme === "dark" ? "#ffffff" : "#d2dad9",
+      fontFamily: "'Epilogue', sans-serif",
     }),
     placeholder: (provided) => ({
       ...provided,
       color: "#4b6264",
+      fontFamily: "'Epilogue', sans-serif",
     }),
     input: (provided) => ({
       ...provided,
       color: theme === "dark" ? "#ffffff" : "#d2dad9",
       paddingLeft: "10px",
+      fontFamily: "'Epilogue', sans-serif", 
     }),
     dropdownIndicator: (provided) => ({
       ...provided,
@@ -48,6 +53,7 @@ export default function FormField(props) {
     noOptionsMessage: (provided) => ({
       ...provided,
       color: theme === "dark" ? "#ffffff" : "#d2dad9",
+      fontFamily: "'Epilogue', sans-serif", 
     }),
     option: (provided, state) => ({
       ...provided,
@@ -63,13 +69,14 @@ export default function FormField(props) {
         ? "#0c3d32"
         : "#409b8c",
       color: theme === "dark" ? "#ffffff" : "#d2dad9",
+      fontFamily: "'Epilogue', sans-serif", 
       "&:hover": {
         backgroundColor: theme === "dark" ? "#A18167" : "#dfc1a9",
         color: theme === "dark" ? "#ffffff" : "#d2dad9",
       },
     }),
   };
-
+  
   return (
     <label className="flex-1 w-full flex flex-col ">
       {props.labelName && (

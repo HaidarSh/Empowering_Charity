@@ -150,7 +150,7 @@ export default function ActiveFundCard({
 
           <p className="fundcard-text-exception flex-1 font-epilogue font-normal text-[11px] text-[var(--text-color)] truncate hover:text-[#0c3d32]">
             by{" "}
-            <span className="fundcard-text-exception text-[var(--text-color)] font-semibold hover:text-[#0c3d32]">
+            <span className="fundcard-text-exception font-epilogue text-[var(--text-color)] font-semibold hover:text-[#0c3d32]">
               {owner}
             </span>
           </p>

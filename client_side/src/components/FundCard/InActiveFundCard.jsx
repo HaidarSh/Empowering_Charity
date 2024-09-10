@@ -146,7 +146,7 @@ export default function InActiveFundCard({
 
           <p className="fundcard-text-exception flex-1 font-epilogue font-normal text-[11px] text-[var(--text-color)] truncate hover:text-[#ed732d]">
             by{" "}
-            <span className="fundcard-text-exception text-[var(--text-color)] font-semibold hover:text-[#ed732d]">
+            <span className="fundcard-text-exception font-epilogue text-[var(--text-color)] font-semibold hover:text-[#ed732d]">
               {owner}
             </span>
           </p>
