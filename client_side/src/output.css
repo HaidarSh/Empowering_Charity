@@ -2164,6 +2164,14 @@ html {
     font-size: 14px;
     font: bold;
   }
+
+  .home-firstbox {
+    margin-top: 20px;
+  }
+
+  .home-firstbox-firstcontainer {
+    margin-bottom: 0;
+  }
 }
 
 .responsive-text-firstparagraph {
@@ -2186,7 +2194,7 @@ html {
 
 @media (max-width: 640px) {
   .responsive-text-firstparagraph-text-1 {
-    font-size: 5px;
+    font-size: 6px;
     text-align: center;
   }
 }

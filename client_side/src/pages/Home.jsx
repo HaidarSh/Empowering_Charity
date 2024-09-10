@@ -47,7 +47,7 @@ export default function Home() {
           />
         </div>
       </div>
-      <div className="mt-10 flex justify-between gap-2">
+      <div className="mt-10 home-firstbox flex justify-between gap-2">
         <div className="flex flex-col justify-center items-center">
           <div className="flex flex-col justify-center">
             <p className="responsive-text-firstparagraph-text-1 text-[var(--text-color)] flex justify-center">
@@ -60,7 +60,7 @@ export default function Home() {
               We Need Your Help to Be There for Those Who Need it Most
             </p>
           </div>
-          <div className="mt-10 flex justify-center">
+          <div className="home-firstbox-secondcontainer mt-10 flex justify-center">
             <button>
               <Link to="/Empowering_Charity/View_Active_Charity">
                 <div className="custom-buttom custom-buttom-donate bg-[#A18167] rounded-[10px] px-4 py-3 text-2xl flex justify-center items-center">

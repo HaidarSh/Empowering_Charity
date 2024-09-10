@@ -565,6 +565,18 @@ html {
   }
 }
 
+@media (max-width: 640px) {
+  .home-firstbox {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .home-firstbox-secondcontainer {
+    margin-top: 20px;
+  }
+}
+
 .responsive-text-firstparagraph {
   font-size: 100px;
   text-align: center;
@@ -585,7 +597,7 @@ html {
 
 @media (max-width: 640px) {
   .responsive-text-firstparagraph-text-1 {
-    font-size: 5px;
+    font-size: 6px;
     text-align: center;
   }
 }
