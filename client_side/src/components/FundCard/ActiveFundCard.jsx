@@ -42,7 +42,7 @@ export default function ActiveFundCard({
 
   return (
     <div
-      className="box fundcard w-full rounded-[20px] bg-[var(--activefundcard-bg-color)] cursor-pointer "
+      className="box fundcard w-full rounded-[20px] bg-[var(--activefundcard-bg-color)] cursor-pointer mt-[15px]"
       onClick={handleClick}
     >
       <img

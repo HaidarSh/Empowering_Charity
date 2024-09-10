@@ -40,7 +40,7 @@ export default function InActiveFundCard({
 
   return (
     <div
-      className="box fundcard w-full rounded-[20px] bg-[var(--inactivefundcard-bg-color)] cursor-pointer"
+      className="box fundcard w-full rounded-[20px] bg-[var(--inactivefundcard-bg-color)] cursor-pointer mt-[15px]"
       onClick={handleClick}
     >
       <img

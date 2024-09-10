@@ -73,7 +73,7 @@ export default function DisplayActiveCharities({
         </div>
       </div>
 
-      <h1 className="charitydetails-text-3 font-epilogue font-semibold text-[18px] text-[var(--text-color)] text-left mt-[20px]">
+      <h1 className="charitydetails-text-3 font-epilogue font-semibold text-[18px] text-[var(--text-color)] text-left mt-[20px] mb-[20px]">
         {title} ({charities.length})
       </h1>
 
