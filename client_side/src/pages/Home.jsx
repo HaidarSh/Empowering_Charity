@@ -50,13 +50,13 @@ export default function Home() {
       <div className="mt-5 home-firstbox flex justify-between gap-2">
         <div className="flex flex-col justify-center items-center">
           <div className="flex flex-col justify-center">
-            <p className="responsive-text-firstparagraph-text-1 text-[var(--text-color)] flex justify-center">
+            <p className="responsive-text-firstparagraph-text-1 text-[var(--text-color)] flex justify-center font-epilogue">
               ever wonder which nonprofit oragnizations
             </p>
             <p className="responsive-text-firstparagraph text-[var(--text-color)] font-epilogue ">
               Charity
             </p>
-            <p className="responsive-text-firstparagraph-text-2 text-[var(--text-color)] ">
+            <p className="responsive-text-firstparagraph-text-2 text-[var(--text-color)] font-epilogue">
               We Need Your Help to Be There for Those Who Need it Most
             </p>
           </div>

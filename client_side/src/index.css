@@ -591,8 +591,9 @@ html {
 @media (max-width: 640px) {
   .responsive-text-firstparagraph {
     font-size: 14px;
-    font: bold;
+    font-weight: bold;
     text-align: center;
+
   }
 }
 
@@ -622,7 +623,7 @@ html {
 
 @media (max-width: 640px) {
   .image-cover {
-    max-width: 200px;
+    max-width: 180px;
   }
 }
 

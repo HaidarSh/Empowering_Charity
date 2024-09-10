@@ -2177,7 +2177,7 @@ html {
 @media (max-width: 640px) {
   .responsive-text-firstparagraph {
     font-size: 14px;
-    font: bold;
+    font-weight: bold;
     text-align: center;
   }
 }
@@ -2189,7 +2189,7 @@ html {
 
 @media (max-width: 640px) {
   .responsive-text-firstparagraph-text-1 {
-    font-size: 7px;
+    font-size: 6px;
     text-align: center;
   }
 }
