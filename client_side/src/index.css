@@ -577,6 +577,12 @@ html {
   }
 }
 
+@media (max-width: 640px) {
+  .home-bar {
+    height: 65px;
+  }
+}
+
 .responsive-text-firstparagraph {
   font-size: 100px;
   text-align: center;

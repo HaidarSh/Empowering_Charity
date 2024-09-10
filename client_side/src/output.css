@@ -1057,10 +1057,6 @@ video {
   word-break: break-all;
 }
 
-.rounded{
-  border-radius: 0.25rem;
-}
-
 .rounded-\[100px\]{
   border-radius: 100px;
 }
@@ -1102,11 +1098,6 @@ video {
 .rounded-t-\[10px\]{
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-}
-
-.rounded-t-lg{
-  border-top-left-radius: 0.5rem;
-  border-top-right-radius: 0.5rem;
 }
 
 .border{
@@ -2169,8 +2160,12 @@ html {
     margin-top: 20px;
   }
 
-  .home-firstbox-firstcontainer {
-    margin-bottom: 0;
+  .home-firstbox-secondcontainer {
+    margin-top: 20px;
+  }
+
+  .home-bar {
+    height: 65px;
   }
 }
 

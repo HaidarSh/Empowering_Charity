@@ -27,7 +27,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col container-custom-width">
-      <div className="home-bar sticky flex flex-row w-full bg-[var(--home-bg-color)] h-[80px] rounded-[10px] justify-between items-center pr-[5px] pl-[15px]">
+      <div className="home-bar flex flex-row w-full bg-[var(--home-bg-color)] h-[80px] rounded-[10px] justify-between items-center pr-[5px] pl-[15px]">
         <div className="font-bold text-[var(--text-color-white)] flex justify-center items-center">
           <div className="mt-10 lg:mt-5">
             <p className="responsive-text-title mb-10 lg:mb-6 font-epilogue">
@@ -47,7 +47,7 @@ export default function Home() {
           />
         </div>
       </div>
-      <div className="mt-10 home-firstbox flex justify-between gap-2">
+      <div className="mt-5 home-firstbox flex justify-between gap-2">
         <div className="flex flex-col justify-center items-center">
           <div className="flex flex-col justify-center">
             <p className="responsive-text-firstparagraph-text-1 text-[var(--text-color)] flex justify-center">
@@ -72,48 +72,10 @@ export default function Home() {
             </button>
           </div>
         </div>
-        <div >
-          <img src={coverphoto} className="image-cover rounded-[5px]"/>
+        <div>
+          <img src={coverphoto} className="image-cover rounded-[5px]" />
         </div>
       </div>
-      {/* <div className="relative">
-        <img
-          src={coverphoto}
-          className="object-contain w-full rounded-[10px]"
-          alt="Charity"
-        />
-
-        <div className="absolute custom-navbar sticky flex flex-row w-full h-[80px] rounded-t-lg justify-between items-center pr-[5px] pl-[15px] ">
-          <div className="font-bold text-[var(--text-color-white)] flex justify-center items-center">
-            <div className="mt-10 lg:mt-5">
-              <p className="responsive-text-title mb-10 lg:mb-6 font-epilogue">
-                Empowering Charity
-              </p>
-            </div>
-          </div>
-
-          <div className="flex flex-row ml-auto lg:w-auto">
-            <CustomButtom
-              btnType="button"
-              title={address ? "Disconnect wallet" : "Connect wallet"}
-              styles={address ? "bg-[#ed732d]" : "bg-[#eda479]"}
-              handleClick={() => {
-                if (address) disconnect();
-                else connect();
-              }}
-            />
-          </div>
-        </div>
-        <button className="absolute home-donate-buttom rounded">
-          <Link to="/Empowering_Charity/View_Active_Charity">
-            <div className="custom-buttom custom-buttom-donate bg-[#ed732d] rounded-[10px] px-4 py-3 text-2xl flex justify-center items-center">
-              <h1 className="custom-buttom-responsive-text font-epilogue font-semibold text-[25px] text-[var(--text-color-white)]">
-                Donate Now !
-              </h1>
-            </div>
-          </Link>
-        </button>
-      </div> */}
 
       <div className="flex cursor-pointer justify-center mt-10 lg:mt-10"></div>
 
@@ -122,7 +84,7 @@ export default function Home() {
       <div className="flex flex-col mt-[20px] gap-[26px]">
         <div className="flex flex-col justify-start">
           <div className="mt-10 mb-10 flex justify-center items-center">
-            <p className="responsive-text text-xl text-[var(--text-color)] font-epilogue">
+            <p className="responsive-text text-center text-xl text-[var(--text-color)] font-epilogue">
               Your generosity brings hope, lighting the path to a brighter
               future for those in need.
             </p>
@@ -143,12 +105,12 @@ export default function Home() {
         <hr className="border-t-2 border-[#A18167]" />
         <div>
           <div className="mt-10 flex justify-center items-center">
-            <p className="responsive-text-title text-[var(--text-color)] mb-10 font-epilogue font-semibold">
+            <p className="responsive-text-title text-center text-[var(--text-color)] mb-10 font-epilogue font-semibold">
               Empower Gaza's Young Hearts
             </p>
           </div>
           <div>
-            <p className="responsive-text text-xl text-[var(--text-color)] mb-10 font-epilogue flex justify-center items-center">
+            <p className="responsive-text text-center text-xl text-[var(--text-color)] mb-10 font-epilogue flex justify-center items-center">
               With your generous donation, we can empower the children of Gaza,
               providing them with the education, healthcare, and opportunities
               they need to thrive.
@@ -178,7 +140,7 @@ export default function Home() {
         </div>
         <hr className="border-t-2 border-[#A18167]" />
         <div className="mt-10 flex justify-center items-center">
-          <p className="responsive-text text-xl text-[var(--text-color)] mb-10 font-epilogue">
+          <p className="responsive-text text-center text-xl text-[var(--text-color)] mb-10 font-epilogue">
             At Empowering Charity, we believe that every act of kindness has the
             potential to transform lives. Our mission is to connect generous
             hearts with meaningful causes, creating a network of support that
@@ -197,7 +159,7 @@ export default function Home() {
         <hr className="border-t-2 border-[#A18167]" />
         <div>
           <div className="mt-10 flex justify-center items-center">
-            <p className="responsive-text text-xl text-[var(--text-color)] mb-10 font-epilogue">
+            <p className="responsive-text text-center text-xl text-[var(--text-color)] mb-10 font-epilogue">
               Your donation helps protect our planet and ensure a healthier,
               sustainable future for generations to come.
             </p>
@@ -220,7 +182,7 @@ export default function Home() {
 
         <div className="flex flex-col items-center">
           <div className="mt-10">
-            <p className="responsive-text text-xl text-[var(--text-color)] mb-10 font-epilogue">
+            <p className="responsive-text text-center text-xl text-[var(--text-color)] mb-10 font-epilogue">
               Join us in making a lasting impact on our environment. Donate
               today!
             </p>
