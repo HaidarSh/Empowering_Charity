@@ -2157,7 +2157,7 @@ html {
   }
 
   .home-firstbox {
-    margin-top: 20px;
+    margin-top: 13px;
   }
 
   .home-firstbox-secondcontainer {
@@ -2189,7 +2189,7 @@ html {
 
 @media (max-width: 640px) {
   .responsive-text-firstparagraph-text-1 {
-    font-size: 6px;
+    font-size: 7px;
     text-align: center;
   }
 }
