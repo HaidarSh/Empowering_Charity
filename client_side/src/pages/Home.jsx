@@ -27,7 +27,56 @@ export default function Home() {
 
   return (
     <div className="flex flex-col container-custom-width">
-      <div className="relative">
+      <div className="home-bar sticky flex flex-row w-full bg-[var(--home-bg-color)] h-[80px] rounded-[10px] justify-between items-center pr-[5px] pl-[15px]">
+        <div className="font-bold text-[var(--text-color-white)] flex justify-center items-center">
+          <div className="mt-10 lg:mt-5">
+            <p className="responsive-text-title mb-10 lg:mb-6 font-epilogue">
+              Empowering Charity
+            </p>
+          </div>
+        </div>
+        <div className="flex flex-row ml-auto lg:w-auto">
+          <CustomButtom
+            btnType="button"
+            title={address ? "Disconnect wallet" : "Connect wallet"}
+            styles={address ? "bg-[#ed732d]" : "bg-[#eda479]"}
+            handleClick={() => {
+              if (address) disconnect();
+              else connect();
+            }}
+          />
+        </div>
+      </div>
+      <div className="mt-10 flex justify-between gap-2">
+        <div className="flex flex-col justify-center items-center">
+          <div className="flex flex-col justify-center">
+            <p className="responsive-text-firstparagraph-text-1 text-[var(--text-color)] flex justify-center">
+              ever wonder which nonprofit oragnizations
+            </p>
+            <p className="responsive-text-firstparagraph text-[var(--text-color)] font-epilogue ">
+              Charity
+            </p>
+            <p className="responsive-text-firstparagraph-text-2 text-[var(--text-color)] ">
+              We Need Your Help to Be There for Those Who Need it Most
+            </p>
+          </div>
+          <div className="mt-10 flex justify-center">
+            <button>
+              <Link to="/Empowering_Charity/View_Active_Charity">
+                <div className="custom-buttom custom-buttom-donate bg-[#A18167] rounded-[10px] px-4 py-3 text-2xl flex justify-center items-center">
+                  <h1 className="custom-buttom-responsive-text font-epilogue font-semibold text-[25px] text-[var(--text-color-white)]">
+                    Donate Now !
+                  </h1>
+                </div>
+              </Link>
+            </button>
+          </div>
+        </div>
+        <div >
+          <img src={coverphoto} className="image-cover rounded-[5px]"/>
+        </div>
+      </div>
+      {/* <div className="relative">
         <img
           src={coverphoto}
           className="object-contain w-full rounded-[10px]"
@@ -64,7 +113,7 @@ export default function Home() {
             </div>
           </Link>
         </button>
-      </div>
+      </div> */}
 
       <div className="flex cursor-pointer justify-center mt-10 lg:mt-10"></div>
 
@@ -177,7 +226,7 @@ export default function Home() {
             </p>
           </div>
           <Link to="/Empowering_Charity/View_Active_Charity">
-            <div className="custom-buttom custom-buttom-donate bg-[#ed732d] rounded-[10px] px-4 py-3 text-2xl flex justify-center items-center">
+            <div className="custom-buttom custom-buttom-donate bg-[#A18167] rounded-[10px] px-4 py-3 text-2xl flex justify-center items-center">
               <h1 className="custom-buttom-responsive-text font-epilogue font-semibold text-[25px] text-[var(--text-color-white)]">
                 Donate Now !
               </h1>

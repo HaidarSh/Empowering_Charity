@@ -74,7 +74,7 @@
   --searchbar-profile-inactive-bg-2-color: #ed732d;
   --text-color: #ffffff;
   --text-color-white: #ffffff;
-  --custombuttom-text-color: #cfffe3;
+  --custombuttom-text-color: #ffffff;
   --createCharity1-text-color: #ffffff;
   --createCharity2-text-color: #ffffff;
   --icon-bg-color: #0c3d32;
@@ -294,7 +294,7 @@ html {
   padding: 0rem 1rem;
   transform: translateX(-50%);
   cursor: pointer;
-  background-color: rgba(0, 0, 0, 0.5); 
+  background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: brightness(0.9) contrast(0.9);
 }
 
@@ -562,6 +562,49 @@ html {
   .responsive-text-title {
     font-size: 14px;
     font: bold;
+  }
+}
+
+.responsive-text-firstparagraph {
+  font-size: 100px;
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .responsive-text-firstparagraph {
+    font-size: 14px;
+    font: bold;
+    text-align: center;
+  }
+}
+
+.responsive-text-firstparagraph-text-1 {
+  font-size: 20px;
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .responsive-text-firstparagraph-text-1 {
+    font-size: 5px;
+    text-align: center;
+  }
+}
+
+.responsive-text-firstparagraph-text-2 {
+  font-size: 28px;
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .responsive-text-firstparagraph-text-2 {
+    font-size: 8px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .image-cover {
+    max-width: 200px;
   }
 }
 
