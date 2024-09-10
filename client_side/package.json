@@ -13,7 +13,6 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
-    "@coinbase/wallet-sdk": "^4.0.4",
     "@thirdweb-dev/react": "^4.9.4",
     "@thirdweb-dev/sdk": "^4.0.99",
     "@web3-react/core": "^8.2.3",
