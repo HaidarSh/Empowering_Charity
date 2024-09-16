@@ -2,8 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router } from "react-router-dom";
 import { ThirdwebProvider } from "@thirdweb-dev/react";
-import { StateContextProvider } from "./context/index.jsx";
+import { Sepolia } from "@thirdweb-dev/chains"; 
 
+import { StateContextProvider } from "./context/index.jsx";
 import { ThemeProvider } from "./components";
 import App from "./App.jsx";
 import "./index.css";
@@ -17,7 +18,7 @@ const sdkOptions = {
 };
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <ThirdwebProvider sdkOptions={sdkOptions}>
+  <ThirdwebProvider sdkOptions={sdkOptions} supportedChains={[Sepolia]}>
     <ThemeProvider>
       <Router>
         <StateContextProvider>

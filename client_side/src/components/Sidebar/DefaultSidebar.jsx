@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { project_logo, profile_active, profile_inactive } from "../../assets";
 import { navlinks } from "../../constants";
-import { ThemeToggleIcon } from "..";
+import { ThemeToggleIcon } from "../";
 
 const getUpdatedNavLinks = (showActive) => {
   return navlinks.map((link) => {
@@ -27,13 +27,13 @@ const Icon = ({ styles, name, imgUrl, isActive, disabled, handleClick }) => (
   >
     <img
       src={imgUrl}
-      className={`w-1/2 h-1/2 ${isActive !== name ? "grayscale" : ""}`}
+      className={`w-1/2 h-1/2 ${isActive !== name ? "saturate-0 grayscale" : ""}`}
       alt={`${name}-icon`}
     />
   </div>
 );
 
-export default function MobileSidebar({ showActive }) {
+export default function DefaultSidebar({ showActive }) {
   const navigate = useNavigate();
   const location = useLocation();
   const [isActive, setIsActive] = useState(location.pathname);
@@ -50,15 +50,15 @@ export default function MobileSidebar({ showActive }) {
   const updatedNavlinks = getUpdatedNavLinks(showActive);
 
   return (
-    <div className="fixed top-0 w-full bg-[var(--sidebar-bg-color)] rounded-b-lg flex flex-row justify-between items-center shadow-lg">
+    <div className="flex justify-between items-center flex-col sticky top-5 h-[30px] gap-5">
       <div>
         <Icon
-          styles="logo-mobile w-[40px] h-[40px] bg-[var(--icon-bg-color)] rounded-full"
+          styles="logo w-[52px] h-[52px] bg-[var(--icon-bg-color)] rounded-full"
           imgUrl={project_logo}
         />
       </div>
-      <div className="flex items-center gap-2">
-        <div className="flex flex-row justify-center items-center">
+      <div className="sidebar flex-1 flex flex-col justify-between object-contain items-center bg-[var(--sidebar-bg-color)] rounded-[20px] w-[76px] py-4 mt-12 gap-6">
+        <div className="flex flex-col justify-center items-center gap-6">
           {updatedNavlinks.map((link) => (
             <Icon
               key={link.name}
@@ -73,9 +73,8 @@ export default function MobileSidebar({ showActive }) {
             />
           ))}
         </div>
-        <div></div>
+        <ThemeToggleIcon />
       </div>
-      <ThemeToggleIcon />
     </div>
   );
 }

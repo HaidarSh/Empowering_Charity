@@ -4,7 +4,7 @@ import { GreenLoader, ActiveFundCard } from "..";
 import { search_dark, search_light } from "../../assets";
 import { CustomButtom } from "..";
 import { useStateContext } from "../../context";
-import { useTheme } from "../HelperComponents/ThemeContext";
+import { useTheme } from "../Theme/ThemeContext";
 
 export default function DisplayActiveCharities({
   title,

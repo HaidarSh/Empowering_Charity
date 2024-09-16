@@ -5,6 +5,23 @@ import { ABI, contractAddress } from "./Contract_ABI_Address";
 
 const StateContext = createContext();
 
+const sepoliaChainId = "0xaa36a7";
+
+const checkNetwork = async (provider) => {
+  if (!provider) {
+    console.error("No provider found");
+    return false;
+  }
+
+  const { chainId } = await provider.getNetwork();
+  if (chainId !== parseInt(sepoliaChainId, 16)) {
+    console.error("You are not connected to the Sepolia network");
+    return false;
+  }
+
+  return true;
+};
+
 export const StateContextProvider = ({ children }) => {
   const {
     contract,
@@ -45,6 +62,7 @@ export const StateContextProvider = ({ children }) => {
       console.error("No Ethereum provider found.");
     }
   };
+
   const disconnect = () => {
     setProvider(null);
     setSigner(null);
@@ -52,12 +70,15 @@ export const StateContextProvider = ({ children }) => {
     setEthersContract(null);
   };
 
-  async function publishCharity(form) {
+  const publishCharity = async (form) => {
     try {
       if (!ethersContract) {
         console.error("Contract is not initialized.");
         return false;
       }
+
+      const isCorrectNetwork = await checkNetwork(provider);
+      if (!isCorrectNetwork) return false;
 
       const targetValue = ethers.utils.parseUnits(
         form.target.toString(),
@@ -85,14 +106,18 @@ export const StateContextProvider = ({ children }) => {
       console.error("Contract call failed", error);
       return false;
     }
-  }
+  };
 
-  async function editCharity(charityId, form) {
+  const editCharity = async (charityId, form) => {
     try {
       if (!ethersContract) {
         console.error("Contract is not initialized.");
         return false;
       }
+
+      const isCorrectNetwork = await checkNetwork(provider);
+      if (!isCorrectNetwork) return false;
+
       const targetValue = ethers.utils.parseUnits(
         form.target.toString(),
         "ether"
@@ -120,9 +145,32 @@ export const StateContextProvider = ({ children }) => {
       console.error("Edit charity failed", error);
       return false;
     }
-  }
+  };
 
-  async function getActiveCharities() {
+  const donate = async (pId, amount) => {
+    try {
+      if (!ethersContract) {
+        console.error("Contract is not initialized.");
+        return false;
+      }
+
+      const isCorrectNetwork = await checkNetwork(provider);
+      if (!isCorrectNetwork) return false;
+
+      const transaction = await ethersContract.donateToCharity(pId, {
+        value: ethers.utils.parseEther(amount),
+      });
+
+      const receipt = await transaction.wait();
+      console.log("Donation successful", receipt);
+      return true;
+    } catch (error) {
+      console.error("Donation failed", error);
+      return false;
+    }
+  };
+
+  const getActiveCharities = async () => {
     const charities = await contract.call("getActiveCharities");
     const parsedCharities = charities.map((charity) => ({
       pId: charity.charityId,
@@ -142,8 +190,9 @@ export const StateContextProvider = ({ children }) => {
       country: charity.country,
     }));
     return parsedCharities;
-  }
-  async function getInActiveCharities() {
+  };
+
+  const getInActiveCharities = async () => {
     const charities = await contract.call("getInActiveCharities");
     const parsedCharities = charities.map((charity) => ({
       pId: charity.charityId,
@@ -163,7 +212,8 @@ export const StateContextProvider = ({ children }) => {
       country: charity.country,
     }));
     return parsedCharities;
-  }
+  };
+
   async function getUserActiveCharities(address) {
     const allCharities = await getActiveCharities();
     const filteredCharities = allCharities.filter(
@@ -171,6 +221,7 @@ export const StateContextProvider = ({ children }) => {
     );
     return filteredCharities;
   }
+  
   async function getUserInActiveCharities(address) {
     const allCharities = await getInActiveCharities();
     const filteredCharities = allCharities.filter(
@@ -179,27 +230,7 @@ export const StateContextProvider = ({ children }) => {
     return filteredCharities;
   }
 
-  async function donate(pId, amount) {
-    try {
-      if (!ethersContract) {
-        console.error("Contract is not initialized.");
-        return false;
-      }
-
-      const transaction = await ethersContract.donateToCharity(pId, {
-        value: ethers.utils.parseEther(amount),
-      });
-
-      const receipt = await transaction.wait();
-      console.log("Donation successful", receipt);
-      return true;
-    } catch (error) {
-      console.error("Donation failed", error);
-      return false;
-    }
-  }
-
-  async function getDonations(pId) {
+  const getDonations = async (pId) => {
     try {
       if (!ethersContract) {
         console.error("Contract is not initialized.");
@@ -223,14 +254,17 @@ export const StateContextProvider = ({ children }) => {
       console.error("Failed to get donations", error);
       return [];
     }
-  }
+  };
 
-  async function removeCharity(charityId) {
+  const removeCharity = async (charityId) => {
     try {
       if (!ethersContract) {
         console.error("Contract is not initialized.");
         return false;
       }
+
+      const isCorrectNetwork = await checkNetwork(provider);
+      if (!isCorrectNetwork) return false;
 
       const transaction = await ethersContract.deleteCharity(charityId);
 
@@ -241,7 +275,7 @@ export const StateContextProvider = ({ children }) => {
       console.error("Delete charity failed", error);
       return false;
     }
-  }
+  };
 
   return (
     <StateContext.Provider

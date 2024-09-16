@@ -1,5 +1,5 @@
-export { default as DefaultSidebar } from "./HelperComponents/DefaultSidebar.jsx";
-export { default as MobileSidebar } from "./HelperComponents/MobileSidebar.jsx";
+export { default as DefaultSidebar } from "./Sidebar/DefaultSidebar.jsx";
+export { default as MobileSidebar } from "./Sidebar/MobileSidebar.jsx";
 export { default as CustomButtom } from "./HelperComponents/CustomButtom.jsx";
 export { default as FormField } from "./HelperComponents/FormField.jsx";
 export { default as DisplayActiveCharities } from "./DisplayCharities/DisplayActiveCharities.jsx";
@@ -14,9 +14,9 @@ export { default as GreenLoader } from "./Loader/GreenLoader.jsx";
 export { default as OrangeLoader } from "./Loader/OrangeLoader.jsx";
 export { default as CharityPhotosStylesix } from "./HomeComponents/CharityPhotosStyleSix.jsx";
 export { default as CharityPhotosStylethree } from "./HomeComponents/CharityPhotosStyleThree.jsx";
-export { default as ThemeToggleIcon } from "./HelperComponents/ThemeToggleIcon.jsx";
+export { default as ThemeToggleIcon } from "./Theme/ThemeToggleIcon.jsx";
 export {
   ThemeContext,
   ThemeProvider,
   useTheme,
-} from "./HelperComponents/ThemeContext.jsx";
+} from "./Theme/ThemeContext.jsx";

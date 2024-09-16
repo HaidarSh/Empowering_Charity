@@ -68,7 +68,7 @@ export default function Home() {
                     Donate Now !
                   </h1>
                 </div>
-              </Link>
+              </Link> 
             </button>
           </div>
         </div>

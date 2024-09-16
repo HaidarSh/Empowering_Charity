@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { ethers } from "ethers";
 import Select from "react-select";
 import { useStateContext } from "../../context";
-import { useTheme } from "../../components/HelperComponents/ThemeContext";
+import { useTheme } from "../../components/Theme/ThemeContext";
 import { CustomButtom, CountBoxActive, GreenLoader } from "../../components";
 import {
   countryOptions,
