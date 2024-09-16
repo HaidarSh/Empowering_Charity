@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext, createContext } from "react";
 import { useContract } from "@thirdweb-dev/react";
 import { ethers } from "ethers";
 import { ABI, contractAddress } from "./Contract_ABI_Address";
+import Swal from "sweetalert2";
 
 const StateContext = createContext();
 
@@ -15,7 +16,17 @@ const checkNetwork = async (provider) => {
 
   const { chainId } = await provider.getNetwork();
   if (chainId !== parseInt(sepoliaChainId, 16)) {
-    console.error("You are not connected to the Sepolia network");
+    Swal.fire({
+      title: "You are not connected to the Sepolia network",
+      text: "Please change your Meta Mask network to sepolia netwrok",
+      icon: "warning",
+      confirmButtonText: "OK",
+      customClass: {
+        popup: "custom-swal-popup-warning",
+        title: "custom-swal-title-warning",
+        confirmButton: "custom-swal-confirm-button-warning",
+      },
+    });
     return false;
   }
 
@@ -51,6 +62,12 @@ export const StateContextProvider = ({ children }) => {
         const provider = new ethers.providers.Web3Provider(window.ethereum);
         const signer = provider.getSigner();
         const address = await signer.getAddress();
+
+        const isCorrectNetwork = await checkNetwork(provider);
+        if (!isCorrectNetwork) {
+          console.error("Please switch to the Sepolia network.");
+          return;
+        }
 
         setProvider(provider);
         setSigner(signer);
@@ -221,7 +238,7 @@ export const StateContextProvider = ({ children }) => {
     );
     return filteredCharities;
   }
-  
+
   async function getUserInActiveCharities(address) {
     const allCharities = await getInActiveCharities();
     const filteredCharities = allCharities.filter(
